@@ -349,7 +349,7 @@ body.phone-preview .topbar-context .kicker, body.phone-preview .topbar-context .
 body.phone-preview .topbar-context strong { font-size:16px; }
 body.phone-preview .profile-chip span:not(.avatar) { display:none; }
 body.phone-preview .top-actions { gap:8px; }
-body.phone-preview .page { padding:27px 16px 35px; }
+body.phone-preview .page { padding:27px 16px 92px; }
 body.phone-preview .page-head { display:block; align-items:flex-start; margin-bottom:22px; }
 body.phone-preview h1 { font-size:27px; }
 body.phone-preview .dash-grid { grid-template-columns:1fr; }
