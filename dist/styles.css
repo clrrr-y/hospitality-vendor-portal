@@ -339,8 +339,11 @@ tbody tr:last-child td { border-bottom:0; }
 }
 
 /* The local index opens in a 402 × 874 iPhone 17 Pro preview by default. */
-body.phone-preview { width: 402px; max-width: 100vw; min-height: 874px; margin: 0 auto; overflow-x: hidden; padding-bottom: 78px; }
-body.phone-preview .app-shell { display:block; min-height:874px; }
+body.phone-preview { width:100%; min-height:100vh; margin:0; overflow-x:hidden; padding:24px 0; display:grid; place-items:center; background:#efeced; }
+body.phone-preview .app-shell.phone-frame { display:block; position:relative; width:402px; max-width:100vw; min-height:874px; margin:0 auto; overflow:hidden; border:8px solid #171216; border-radius:48px; background:var(--canvas); box-shadow:0 24px 70px rgba(19,10,14,.22), 0 0 0 1px rgba(255,255,255,.7); }
+body.phone-preview .app-shell.phone-frame::before { content:""; position:absolute; z-index:50; top:10px; left:50%; width:118px; height:28px; transform:translateX(-50%); border-radius:20px; background:#171216; pointer-events:none; }
+body.phone-preview .app-shell.phone-frame::after { content:""; position:absolute; z-index:49; top:9px; left:-11px; width:3px; height:68px; border-radius:3px; background:#171216; box-shadow:0 84px 0 #171216, 0 116px 0 #171216; pointer-events:none; }
+body.phone-preview .app-shell.phone-frame .main-wrap { min-height:858px; }
 body.phone-preview .sidebar { display:none; }
 body.phone-preview .topbar { height:68px; padding:0 16px; }
 body.phone-preview .topbar-context .kicker, body.phone-preview .topbar-context .slash { display:none; }
@@ -392,7 +395,7 @@ body.phone-preview .day-cell { min-height:82px; padding:6px 3px; }
 body.phone-preview .day-number { font-size:10px; margin-bottom:4px; padding:0 2px; }
 body.phone-preview .cal-event { padding:4px 3px; font-size:8px; overflow:hidden; max-height:28px; }
 body.phone-preview .settings-card .settings-list { padding:0 16px 16px; }
-body.phone-preview .mobile-nav { display:grid; grid-template-columns:repeat(4,1fr); position:fixed; z-index:20; bottom:0; left:50%; transform:translateX(-50%); width:402px; max-width:100vw; height:70px; background:rgba(255,255,255,.96); border-top:1px solid var(--line); padding:7px 5px calc(7px + env(safe-area-inset-bottom)); backdrop-filter:blur(12px); }
+body.phone-preview .mobile-nav { display:grid; grid-template-columns:repeat(4,1fr); position:absolute; z-index:20; bottom:0; left:0; transform:none; width:100%; max-width:100%; height:70px; background:rgba(255,255,255,.96); border-top:1px solid var(--line); padding:7px 5px calc(7px + env(safe-area-inset-bottom)); backdrop-filter:blur(12px); }
 body.phone-preview .mobile-nav .nav-item { min-height:56px; padding:5px 0; justify-content:center; flex-direction:column; gap:3px; border-radius:8px; font-size:10px; }
 body.phone-preview .mobile-nav .nav-item.active:before { display:none; }
 body.phone-preview .mobile-nav .nav-icon { width:18px; height:18px; }
