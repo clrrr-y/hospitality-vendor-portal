@@ -342,7 +342,9 @@ tbody tr:last-child td { border-bottom:0; }
 body.phone-preview { width:402px; max-width:100vw; height:874px; min-height:874px; margin:0 auto; overflow:hidden; padding:0; background:var(--canvas); }
 body.phone-preview .app-shell.phone-frame { display:block; position:relative; width:402px; max-width:100vw; height:874px; min-height:874px; max-height:874px; margin:0 auto; overflow:hidden; border:0; border-radius:48px; background:var(--canvas); }
 body.phone-preview .app-shell.phone-frame .main-wrap { height:874px; min-height:0; overflow:hidden; }
-body.phone-preview .app-shell.phone-frame .page { height:calc(100% - 68px); overflow-y:auto; overscroll-behavior:contain; padding-bottom:92px; }
+body.phone-preview .app-shell.phone-frame .page { height:calc(100% - 68px); overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; padding-bottom:92px; scrollbar-width:none; -ms-overflow-style:none; }
+body.phone-preview .app-shell.phone-frame .page::-webkit-scrollbar { width:0; height:0; display:none; }
+body.phone-preview .app-shell.phone-frame { scrollbar-width:none; }
 body.phone-preview .sidebar { display:none; }
 body.phone-preview .topbar { height:68px; padding:0 16px; }
 body.phone-preview .topbar-context .kicker, body.phone-preview .topbar-context .slash { display:none; }
