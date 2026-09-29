@@ -5,9 +5,9 @@
   --line: #e5e1e2;
   --canvas: #f6f4f5;
   --surface: #ffffff;
-  --green: #276b52;
-  --green-dark: #1d523e;
-  --green-soft: #e8f2ed;
+  --green: #462133;
+  --green-dark: #351525;
+  --green-soft: #f0eeef;
   --amber: #794d00;
   --amber-soft: #fff2db;
   --red: #a92227;
@@ -422,7 +422,7 @@ body.phone-preview #toast-region { left:16px; right:16px; bottom:86px; }
 .ops-strip strong { font-size:13px; }
 .muted { color:var(--muted); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .status-dot { width:8px; height:8px; display:inline-block; border-radius:50%; flex:0 0 auto; }
-.status-dot.live { background:#3f9c6e; box-shadow:0 0 0 4px #e2f1e8; }
+.status-dot.live { background:#462133; box-shadow:0 0 0 4px #f0eeef; }
 .pos-mini { display:flex; align-items:center; gap:6px; padding-left:13px; border-left:1px solid var(--line); color:var(--green-dark); font-size:12px; white-space:nowrap; }
 .pos-mini svg { width:16px; height:16px; }
 .pos-mini.error { color:var(--red); }
