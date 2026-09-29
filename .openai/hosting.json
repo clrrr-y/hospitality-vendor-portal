@@ -2,5 +2,9 @@
   "project_id": "appgprj_6abb4c77ec6c8191974134634b47bade",
   "title": "Cabana Partner Portal",
   "slug": "cabana-partner-portal",
-  "expected_url": "https://cabana-partner-portal.asbir-tech-0796.chatgpt.site"
+  "expected_url": "https://cabana-partner-portal.asbir-tech-0796.chatgpt.site",
+  "static": {
+    "directory": "dist",
+    "not_found_handling": "single-page-application"
+  }
 }
