@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f5" />
+    <title>Cabana Partner Portal</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b6f54'/%3E%3Cpath d='M8 18c4-7 12-7 16 0M10 18v5m12-5v5M7 24h18' stroke='white' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <aside class="sidebar" aria-label="Cabana partner navigation">
+        <div class="brand"><span class="brand-mark">C</span>Cabana</div>
+        <div class="partner-mini"><strong>Luna Beach Club</strong><span>Restaurant · Live</span></div>
+        <nav class="nav-list">
+          <button class="nav-item active"><span class="nav-icon">▣</span><span>Orders</span><b class="nav-badge">3</b></button>
+          <button class="nav-item"><span class="nav-icon">□</span><span>Bookings</span><b class="nav-badge">2</b></button>
+          <button class="nav-item"><span class="nav-icon">◷</span><span>Today</span></button>
+          <button class="nav-item"><span class="nav-icon">☰</span><span>Menu &amp; Services</span></button>
+          <button class="nav-item"><span class="nav-icon">•••</span><span>More</span></button>
+        </nav>
+      </aside>
+      <div class="main-wrap">
+        <header class="topbar"><div class="topbar-context"><strong>Luna Beach Club / Orders</strong></div><div class="top-actions"><span class="outlet-label">Restaurant</span><span class="avatar">LS</span></div></header>
+        <main class="page">
+          <div class="page-head"><div><div class="eyebrow">RESTAURANT</div><h1>Orders</h1><p class="subtext">Keep preparation and handoff moving on time.</p></div><button class="button primary">Normal orders</button></div>
+          <div class="ops-strip"><div><span class="status-dot live"></span><strong>Live order status</strong><span class="muted">Accepting new orders</span></div><button class="button small">Automatic acceptance on</button><div class="pos-mini">✓ <span>POS connected</span></div></div>
+          <div class="toolbar"><button class="filter active">New</button><button class="filter">Upcoming</button><button class="filter">Preparing</button><button class="filter">Ready</button><button class="filter">History</button></div>
+          <section class="card data-card"><div class="card-header"><h2>New</h2><span class="count">1 order</span></div><div class="fallback-order"><div><strong>Poolside lunch</strong><span>ORD-924 · Ethan Park</span></div><span class="status pending">New</span><div class="fallback-order-meta">Today · 12:45 PM · 4 items · ₱1,860 · Deliver to room 508</div></div></section>
+        </main>
+      </div>
+    </div>
+    <div id="toast-region" aria-live="polite"></div>
+    <noscript>This portal needs JavaScript enabled to load the partner operations interface.</noscript>
+    <script src="app.js?v=3"></script>
+  </body>
+</html>
