@@ -512,6 +512,8 @@ body.phone-preview .dashboard-earnings .transactions-link { margin-left:6px; }
 /* Dashboard insights and development role preview */
 .dashboard-business { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
 .dashboard-business > div:first-child > strong { display:block; font-size:14px; }
+.dashboard-business > div:first-child > strong { font:800 24px Manrope,sans-serif; color:var(--ink); letter-spacing:-.04em; }
+.dashboard-date { display:block; margin-top:5px; color:var(--muted); font-size:14px; }
 .order-state { display:flex; align-items:center; gap:7px; padding:7px 9px; border:1px solid #d8e5dc; border-radius:99px; color:#35614b; background:#f1f7f3; font-size:11px; font-weight:700; white-space:nowrap; }
 .order-state.paused { border-color:#ecd9b7; color:#8b5b19; background:#fff8e9; }
 .state-dot { width:7px; height:7px; border-radius:50%; background:#3d8a5a; }.paused .state-dot{background:#c48a26}
