@@ -458,6 +458,27 @@ body.phone-preview .insights-link { margin-bottom:24px !important; }
   body.phone-preview .mobile-nav .nav-badge { position:absolute !important; top:2px !important; right:calc(50% - 18px) !important; min-width:16px !important; width:16px !important; height:16px !important; margin:0 !important; padding:0 !important; font-size:9px !important; }
 }
 
+/* Draggable settings control for the development preview. */
+.dev-tools { touch-action:none; }
+.dev-tools-trigger {
+  width:44px !important;
+  min-width:44px !important;
+  height:44px !important;
+  min-height:44px !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  cursor:grab;
+}
+.dev-tools-trigger:active { cursor:grabbing; }
+.dev-tools-trigger .hgi-settings-01 { font-size:22px; line-height:1; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (max-width:768px) {
+  body:not(.phone-preview) .dev-tools { right:12px !important; bottom:calc(72px + 12px + 12px) !important; }
+}
+body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
+
 /* Hugeicons navigation: outline at rest, visually filled active treatment. */
 .nav-icon {
   width:22px !important;
