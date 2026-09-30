@@ -477,6 +477,9 @@ body.phone-preview .mobile-nav .nav-badge { position:absolute; top:3px; margin-l
   body.phone-preview .dashboard-main, body.phone-preview .dashboard-side { display:flex !important; flex-direction:column !important; width:100% !important; gap:20px !important; }
   body.phone-preview .dashboard-side .earnings-card { margin:0 !important; width:100% !important; }
   body.phone-preview .dashboard-main > .card, body.phone-preview .dashboard-side > .card { width:100%; flex:none; }
+  body.phone-preview .dashboard-flow, body.phone-preview .dashboard-flow .dashboard-main, body.phone-preview .dashboard-flow .dashboard-side { display:block !important; }
+  body.phone-preview .dashboard-flow .dashboard-main > .card, body.phone-preview .dashboard-flow .dashboard-side > .card { display:block !important; margin:0 0 20px !important; }
+  body.phone-preview .dashboard-flow .dashboard-side > .card:last-child { margin-bottom:0 !important; }
 }
 body.phone-preview #toast-region { left:16px; right:16px; bottom:86px; }
 
