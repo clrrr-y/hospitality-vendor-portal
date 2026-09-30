@@ -532,6 +532,22 @@ body.phone-preview .money-section { margin-top:16px !important; }
 body.phone-preview .insights-page-new { margin-top:-20px; }
 body.phone-preview .insights-header-new { width:calc(100% + 32px); margin:0 -16px; padding:10px 16px; min-height:64px; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 1px 0 rgba(35,20,30,.03); top:0; z-index:40; }
 body.phone-preview .insights-tabs { top:64px; z-index:30; background:#fff; }
+
+/* Sales summary cards: keep copy and sparklines in one normal-flow column. */
+.insights-summary-grid { align-items:stretch; }
+.insight-summary-card { display:flex; flex-direction:column; align-items:stretch; position:static; min-height:0; height:auto; }
+.insight-summary-card > span,
+.insight-summary-card > strong,
+.insight-summary-card > small { position:static; display:block; }
+.insight-summary-card > span { font-size:14px; line-height:1.3; }
+.insight-summary-card > strong { margin-top:8px; font-size:24px; line-height:1.08; white-space:nowrap; }
+.insight-summary-card > small { margin-top:8px; font-size:12px; line-height:1.35; white-space:normal; overflow-wrap:anywhere; }
+.insight-summary-card .insight-spark { position:static; display:block; align-self:flex-end; width:42%; min-width:80px; max-width:124px; height:40px; flex:0 0 40px; margin-top:16px; }
+body.phone-preview .insight-summary-card { min-height:0; height:auto; padding:16px; }
+body.phone-preview .insight-summary-card > span { font-size:14px; line-height:1.3; }
+body.phone-preview .insight-summary-card > strong { margin-top:8px; font-size:24px; line-height:1.08; }
+body.phone-preview .insight-summary-card > small { margin-top:8px; font-size:12px; line-height:1.35; white-space:normal; }
+body.phone-preview .insight-summary-card .insight-spark { position:static; right:auto; bottom:auto; width:42%; min-width:80px; max-width:124px; height:40px; margin-top:16px; align-self:flex-end; }
 body.phone-preview .money-section .section-heading { padding:16px !important; }
 body.phone-preview .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 body.phone-preview .header-filter { width:40px; height:40px; flex:0 0 40px; display:grid; place-items:center; border:1px solid var(--line); border-radius:11px; background:#fff; color:var(--green-dark); }
