@@ -794,6 +794,7 @@ body.phone-preview .dev-tools { right:12px !important; bottom:calc(78px + env(sa
 .performance-tab-card .dashboard-chart .chart-bar { width:min(30px,62%); border-radius:5px 5px 1px 1px; }
 .performance-listing-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:12px; min-height:76px; padding:16px; border-top:1px solid var(--line); }
 .performance-listing-row span { min-width:0; }.performance-listing-row strong { display:block; font-size:14px; overflow-wrap:anywhere; }.performance-listing-row small { display:block; margin-top:4px; color:var(--muted); font-size:12px; }.performance-listing-row > strong { white-space:nowrap; color:var(--green-dark); font-size:13px; }
+.performance-listing-row > span:last-child { color:var(--muted); font-size:14px; font-weight:500; white-space:nowrap; }
 body.phone-preview .dashboard-performance { gap:12px; }
 body.phone-preview .dashboard-performance .performance-heading { margin:0; }
 body.phone-preview .performance-kpis { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
