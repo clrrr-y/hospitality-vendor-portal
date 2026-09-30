@@ -345,6 +345,29 @@ body.phone-preview .action-count-grid > button > .action-chevron { grid-column:3
 body.phone-preview .dashboard-business .order-state { min-height:24px; padding:0; border:0; background:transparent; border-radius:0; gap:8px; color:var(--ink); font-size:12px; font-weight:600; }
 body.phone-preview .dashboard-business .order-state .order-toggle { order:0; margin-left:0; }
 body.phone-preview .dashboard-business .order-state > span:last-child { order:1; }
+/* Final compact Performance sizing */
+body.phone-preview .performance-heading { margin:0 0 12px !important; }
+body.phone-preview .performance-heading h2 { font-size:20px !important; font-weight:650 !important; }
+body.phone-preview .glance-section { margin:0 0 16px !important; }
+body.phone-preview .glance-section .section-heading { display:none !important; }
+body.phone-preview .glance-grid { padding:0 !important; gap:12px !important; }
+body.phone-preview .glance-card { height:132px !important; min-height:132px !important; padding:16px !important; }
+body.phone-preview .glance-card > span:first-child { font-size:16px !important; font-weight:600 !important; }
+body.phone-preview .glance-card > strong { font-size:28px !important; margin-top:8px !important; }
+body.phone-preview .glance-card > small.trend { margin-top:7px !important; }
+body.phone-preview .sparkline-svg { width:40% !important; min-width:96px !important; height:44px !important; right:10px !important; bottom:16px !important; }
+body.phone-preview .chart-section { min-height:220px !important; height:220px !important; padding:16px !important; box-sizing:border-box; }
+body.phone-preview .chart-section .section-heading { padding:0 !important; margin:0 0 12px !important; }
+body.phone-preview .chart-section .section-heading h2 { font-size:16px !important; font-weight:650 !important; }
+body.phone-preview .chart-section .section-heading span { font-size:12px !important; margin-top:3px !important; }
+body.phone-preview .dashboard-chart { width:100% !important; height:130px !important; margin:0 !important; padding:4px 4px 0 !important; display:grid !important; grid-template-columns:repeat(7,minmax(0,1fr)) !important; gap:0 !important; box-sizing:border-box; overflow:visible; background:repeating-linear-gradient(to top,#fff 0 40px,#f1edef 41px 42px) !important; }
+body.phone-preview .dashboard-chart .chart-col { min-width:0 !important; height:100% !important; display:grid !important; grid-template-rows:minmax(0,1fr) auto !important; gap:6px !important; }
+body.phone-preview .dashboard-chart .chart-plot { min-width:0 !important; min-height:0 !important; height:100% !important; display:flex !important; align-items:flex-end !important; justify-content:center !important; }
+body.phone-preview .dashboard-chart .chart-bar { width:62% !important; max-width:30px !important; max-height:116px !important; min-height:8px !important; border-radius:4px 4px 1px 1px !important; background:#704158 !important; opacity:.95 !important; }
+body.phone-preview .dashboard-chart .chart-bar.selected { background:#542a42 !important; }
+body.phone-preview .dashboard-chart small { font-size:11px !important; line-height:1 !important; text-align:center !important; white-space:nowrap !important; }
+body.phone-preview .app-shell.phone-frame .page { padding-bottom:150px !important; }
+body.phone-preview .dev-tools { bottom:calc(78px + env(safe-area-inset-bottom)) !important; }
 body.phone-preview .performance-heading { width:100%; margin:0 0 12px; }
 body.phone-preview .performance-heading h2 { margin:0; font-size:18px; font-weight:650; }
 body.phone-preview .glance-section { margin-bottom:16px !important; }
