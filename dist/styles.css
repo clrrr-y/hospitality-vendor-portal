@@ -540,6 +540,9 @@ body.phone-preview .money-grid{grid-template-columns:1fr}
 body.phone-preview .dashboard-chart{padding-left:14px;padding-right:14px}
 body.phone-preview .dashboard-chart .chart-bar{width:18px}
 body.phone-preview .dashboard-section{margin-bottom:20px}
+/* Compact development settings control. */
+.dev-tools-trigger { width:36px; height:36px; min-height:36px; display:grid; place-items:center; border-radius:50%; padding:0; font-size:17px; line-height:1; }
+.dev-tools-popover { bottom:44px; }
 
 /* Cabana operations refinement */
 .eyebrow { color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
