@@ -697,6 +697,29 @@ body.phone-preview .state-lock { color:var(--green-dark); font-size:12px; line-h
   body.phone-preview .dashboard-business { flex-direction:column !important; align-items:flex-start !important; }
   body.phone-preview .dashboard-business .order-state { align-self:flex-start; }
 }
+
+/* KPI and chart treatment from the supplied reference */
+body.phone-preview .glance-card { min-height:136px; padding:16px; border:1px solid #e8e4e7; border-radius:14px; box-shadow:0 3px 12px rgba(35,20,30,.04); overflow:hidden; }
+body.phone-preview .glance-card > span:first-child { color:var(--ink); font-size:16px; font-weight:600; }
+body.phone-preview .glance-card > strong { margin-top:8px; font-size:28px; line-height:1; }
+body.phone-preview .glance-card > small.trend { margin-top:9px; font-size:12px; line-height:1.2; font-weight:600; }
+body.phone-preview .glance-card > small.trend span { color:var(--muted); font-weight:500; }
+body.phone-preview .glance-card > small.trend.positive { color:#08a86a; }
+body.phone-preview .glance-card > small.trend.negative { color:#bd646a; }
+body.phone-preview .sparkline-svg { right:10px; bottom:10px; width:40%; max-width:140px; min-width:92px; height:38px; stroke:#08a86a; }
+body.phone-preview .sparkline-svg .spark-fill { fill:url(#spark-fill); stroke:none; }
+body.phone-preview .chart-section { border-radius:14px; box-shadow:0 3px 12px rgba(35,20,30,.04); overflow:hidden; }
+body.phone-preview .chart-section .section-heading { padding:16px 16px 8px; margin:0; }
+body.phone-preview .chart-section .section-heading h2 { font-size:18px; }
+body.phone-preview .chart-section .section-heading span { color:var(--muted); font-size:12px; }
+body.phone-preview .dashboard-chart { height:154px; margin:0 16px 16px; padding:10px 0 8px; border-top:0; background:repeating-linear-gradient(to top,transparent 0 39px,#f1edef 40px); }
+body.phone-preview .dashboard-chart .chart-bar { width:min(30px,60%); border-radius:6px 6px 2px 2px; background:#704158; opacity:.95; }
+body.phone-preview .dashboard-chart small { font-size:11px; }
+body.phone-preview .revenue-trend .section-heading { display:grid; grid-template-columns:1fr auto; }
+body.phone-preview .revenue-trend .line-chart { border:0; border-radius:0; margin:0; min-height:158px; padding:14px 16px 16px; background:repeating-linear-gradient(to top,transparent 0 39px,#f1edef 40px); }
+body.phone-preview .revenue-trend .line-current { font-size:21px; }
+body.phone-preview .revenue-trend .line-previous { font-size:11px; }
+.revenue-lines .current-fill { fill:url(#revenue-fill); stroke:none; }
 @media (max-width: 768px) {
   .outlet-label { display:none; }
   .outlet-switch { display:none; }
