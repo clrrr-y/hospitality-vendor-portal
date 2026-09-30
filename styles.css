@@ -542,6 +542,55 @@ body.phone-preview .money-grid{grid-template-columns:1fr}
 body.phone-preview .dashboard-chart{padding-left:14px;padding-right:14px}
 body.phone-preview .dashboard-chart .chart-bar{width:18px}
 body.phone-preview .dashboard-section{margin-bottom:20px}
+/* Final reference-density pass */
+body.phone-preview .card { border:1px solid #E8E4E7; border-radius:16px; box-shadow:0 3px 12px rgba(35,20,30,.04); }
+body.phone-preview .dashboard-section { margin-bottom:16px; }
+body.phone-preview .dashboard-business { margin-bottom:16px; }
+body.phone-preview .dashboard-business > div:first-child > strong { font-size:24px; }
+body.phone-preview .dashboard-business .order-state { align-self:flex-start; }
+body.phone-preview .needs-action .section-heading { padding:16px 16px 10px; margin:0; }
+body.phone-preview .action-count-grid { display:block; border-top:0; padding:0 16px 5px; }
+body.phone-preview .action-count-grid button { display:grid; grid-template-columns:32px minmax(0,1fr) 16px; align-items:center; min-height:56px; padding:10px 0; border:0; border-top:1px solid var(--line); gap:0 9px; }
+body.phone-preview .action-count-grid button:first-child { border-top:1px solid var(--line); }
+body.phone-preview .action-count-grid strong { width:32px; height:32px; display:grid; place-items:center; border-radius:9px; background:var(--amber-soft); color:var(--amber); font-size:14px; }
+body.phone-preview .action-count-grid span { grid-column:2; grid-row:1; font-size:13px; color:var(--ink); font-weight:700; }
+body.phone-preview .action-count-grid button>svg { grid-column:3; grid-row:1; }
+body.phone-preview .dashboard-period { position:relative; padding:0; overflow:visible; }
+body.phone-preview .date-field { width:100%; min-height:64px; display:grid; grid-template-columns:32px minmax(0,1fr) 18px; align-items:center; gap:10px; border:0; border-radius:16px; background:#fff; padding:11px 16px; text-align:left; color:var(--ink); }
+body.phone-preview .date-icon { width:32px; height:32px; display:grid; place-items:center; border-radius:9px; background:var(--green-soft); color:var(--green-dark); font-size:17px; }
+body.phone-preview .date-field small, body.phone-preview .date-field strong { display:block; }.date-field small{color:var(--muted);font-size:11px}.date-field strong{font-size:14px;margin-top:2px}.date-chevron{font-size:20px;text-align:right}
+body.phone-preview .date-menu { display:none; position:absolute; z-index:30; left:10px; right:10px; top:70px; padding:7px; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 14px 32px rgba(35,20,30,.13); }
+body.phone-preview .dashboard-period.open .date-menu { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+body.phone-preview .date-menu button { min-height:40px; border:0; border-radius:7px; background:#fff; color:var(--ink); text-align:left; padding:0 10px; font-size:12px; font-weight:700; }
+body.phone-preview .date-menu button:hover { background:var(--green-soft); color:var(--green-dark); }
+body.phone-preview .glance-section .section-heading { padding:16px 16px 0; }
+body.phone-preview .glance-section .section-heading span { display:none; }
+body.phone-preview .glance-grid { padding:0 16px 16px; gap:12px; }
+body.phone-preview .glance-card { min-height:120px; padding:13px; box-shadow:none; }
+body.phone-preview .sparkline { position:absolute; right:10px; bottom:12px; width:100px; color:var(--green); font-size:18px; }
+body.phone-preview .dashboard-grid .dashboard-section { margin-bottom:16px; }
+body.phone-preview .dashboard-grid .section-heading { padding:16px 16px 10px; margin:0; }
+body.phone-preview .dashboard-grid .section-heading span { display:none; }
+body.phone-preview .schedule-entry { min-height:76px; padding:10px 16px; }
+body.phone-preview .schedule-time { background:var(--green-soft); border-radius:7px; padding:7px 6px; text-align:center; font-size:10px; }
+body.phone-preview .dashboard-chart { height:158px; margin:0 16px 16px; padding:14px 2px 10px; }
+body.phone-preview .dashboard-chart .chart-value { display:none; }
+body.phone-preview .dashboard-chart .chart-bar { max-height:105px; }
+body.phone-preview .revenue-trend .section-heading, body.phone-preview .money-section .section-heading, body.phone-preview .top-listings .section-heading { padding-bottom:12px; }
+body.phone-preview .line-chart { margin:0 16px 16px; min-height:150px; border:1px solid var(--line); border-radius:9px; }
+body.phone-preview .money-grid { padding:0 16px 16px; } body.phone-preview .money-grid div{border:0;border-top:1px solid var(--line);border-radius:0;padding:12px 0}
+body.phone-preview .top-listings { padding-bottom:0; } body.phone-preview .listing-rankings>div{min-height:64px;padding-left:16px;padding-right:16px}
+body.phone-preview .dev-tools-trigger { width:36px; height:36px; }
+body.phone-preview .mobile-nav .nav-item { background:transparent; color:#73807a; } body.phone-preview .mobile-nav .nav-item.active{color:var(--green-dark);background:transparent;border-bottom:2px solid var(--green)}
+.nav-icon { font-size:20px; line-height:1; }
+.dashboard-period { position:relative; }
+.date-field { width:100%; min-height:64px; display:grid; grid-template-columns:32px minmax(0,1fr) 18px; align-items:center; gap:10px; border:0; border-radius:16px; background:#fff; padding:11px 16px; text-align:left; color:var(--ink); }
+.date-icon { width:32px; height:32px; display:grid; place-items:center; border-radius:9px; background:var(--green-soft); color:var(--green-dark); font-size:17px; }
+.date-field small,.date-field strong{display:block}.date-field small{color:var(--muted);font-size:11px}.date-field strong{font-size:14px;margin-top:2px}.date-chevron{font-size:20px;text-align:right}
+.date-menu { display:none; position:absolute; z-index:30; left:10px; right:10px; top:70px; padding:7px; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 14px 32px rgba(35,20,30,.13); }
+.dashboard-period.open .date-menu { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; }
+.date-menu button { min-height:40px; border:0; border-radius:7px; background:#fff; color:var(--ink); text-align:left; padding:0 10px; font-size:12px; font-weight:700; }
+.date-menu button:hover { background:var(--green-soft); color:var(--green-dark); }
 /* Compact development settings control. */
 .dev-tools-trigger { width:36px; height:36px; min-height:36px; display:grid; place-items:center; border-radius:50%; padding:0; font-size:17px; line-height:1; }
 .dev-tools-popover { bottom:44px; }
