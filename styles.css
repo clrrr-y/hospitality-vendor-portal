@@ -806,3 +806,10 @@ body.phone-preview .order-toggle.locked { cursor:default; opacity:.82; }
   .data-card .mobile-card-line { align-items:start; }
   .data-card .mobile-card-line .status { flex:0 0 auto; }
 }
+
+/* Final authority for the mobile greeting/status stack */
+body.phone-preview .dashboard-business { display:flex !important; width:100% !important; flex-direction:column !important; align-items:flex-start !important; justify-content:flex-start !important; gap:8px !important; }
+body.phone-preview .dashboard-business > div:first-child { width:100% !important; }
+body.phone-preview .dashboard-business .order-state { align-self:flex-start !important; min-height:24px !important; height:24px !important; padding:0 !important; border:0 !important; background:transparent !important; border-radius:0 !important; color:var(--ink) !important; }
+body.phone-preview .dashboard-business .order-state .order-toggle { order:0; }
+body.phone-preview .dashboard-business .order-state > span:last-child { order:1; }
