@@ -483,6 +483,32 @@ body.phone-preview .mobile-nav .nav-badge { position:absolute; top:3px; margin-l
 }
 body.phone-preview #toast-region { left:16px; right:16px; bottom:86px; }
 
+/* The phone preview can sit inside a wide desktop browser viewport, so these
+   rules must be scoped to the frame instead of relying on viewport media queries. */
+body.phone-preview .dashboard-flow { display:block !important; width:100% !important; }
+body.phone-preview .dashboard-flow .dashboard-main,
+body.phone-preview .dashboard-flow .dashboard-side { display:block !important; width:100% !important; min-width:0 !important; }
+body.phone-preview .dashboard-flow .dashboard-main > .card,
+body.phone-preview .dashboard-flow .dashboard-side > .card { display:block !important; width:100% !important; margin:0 0 20px !important; position:static !important; transform:none !important; float:none !important; }
+body.phone-preview .dashboard-flow .dashboard-side > .card:last-child { margin-bottom:0 !important; }
+body.phone-preview .date-filter { display:block; width:100%; margin-bottom:20px; }
+body.phone-preview .date-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin-top:12px; }
+body.phone-preview .date-options .filter { width:100%; min-width:0; padding:0 6px; }
+body.phone-preview .date-options .filter:last-child { grid-column:1 / -1; }
+body.phone-preview .greeting { margin-bottom:18px; }
+body.phone-preview .dashboard-flow .card-header { padding:16px; }
+body.phone-preview .dashboard-flow .alert-list,
+body.phone-preview .dashboard-flow .upcoming-list { padding:0 16px 8px; }
+body.phone-preview .dashboard-flow .upcoming-row { grid-template-columns:1fr 17px; min-height:0; padding:13px 0; gap:8px; }
+body.phone-preview .dashboard-flow .upcoming-time { grid-column:1 / -1; }
+body.phone-preview .dashboard-flow .upcoming-main { min-width:0; }
+body.phone-preview .dashboard-flow .upcoming-main strong,
+body.phone-preview .dashboard-flow .upcoming-main small { overflow-wrap:anywhere; }
+body.phone-preview .dashboard-flow .upcoming-row .payment-badge { grid-column:1; width:max-content; max-width:100%; }
+body.phone-preview .dashboard-earnings .mini-chart { margin-left:16px; margin-right:16px; }
+body.phone-preview .dashboard-earnings .settlement-line { padding-left:16px; padding-right:16px; }
+body.phone-preview .dashboard-earnings .transactions-link { margin-left:6px; }
+
 /* Cabana operations refinement */
 .eyebrow { color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
 .outlet-switch { position: relative; margin: 0 4px 25px; }
