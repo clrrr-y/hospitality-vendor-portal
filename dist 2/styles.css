@@ -349,6 +349,30 @@ body.phone-preview .app-shell.phone-frame .page { padding-bottom:160px !importan
 body.phone-preview .top-listings { margin-bottom:16px !important; }
 body.phone-preview .insights-link { margin-bottom:24px !important; }
 
+/* Final dashboard hierarchy and header settings placement. */
+body.phone-preview .dashboard-business { margin-bottom:20px !important; }
+body.phone-preview .dashboard-business > div:first-child > strong { font-size:22px !important; font-weight:600 !important; }
+body.phone-preview .dashboard-date { margin-top:4px !important; font-size:13px !important; }
+.topbar .header-actions { display:flex; align-items:center; gap:8px; margin-left:auto; }
+.topbar .header-actions .dev-tools { position:relative !important; inset:auto !important; right:auto !important; bottom:auto !important; left:auto !important; top:auto !important; z-index:12; }
+.topbar .header-actions .dev-tools-trigger { width:40px !important; min-width:40px !important; height:40px !important; min-height:40px !important; }
+.topbar .header-actions .dev-tools-popover { right:0; left:auto; top:46px; bottom:auto; }
+body.phone-preview .topbar .header-actions { gap:6px; }
+body.phone-preview .topbar .header-actions .dev-tools-trigger { width:40px !important; min-width:40px !important; height:40px !important; min-height:40px !important; }
+
+/* Dashboard order: greeting first, then operational and reporting sections. */
+body.phone-preview .dashboard-business { margin-bottom:20px !important; }
+body.phone-preview .dashboard-business > div:first-child > strong { font-size:22px !important; font-weight:600 !important; }
+body.phone-preview .dashboard-date { margin-top:4px !important; font-size:13px !important; }
+
+/* Keep development settings in the sticky header instead of floating between cards. */
+.topbar .header-actions { display:flex; align-items:center; gap:8px; margin-left:auto; }
+.topbar .header-actions .dev-tools { position:relative !important; inset:auto !important; right:auto !important; bottom:auto !important; left:auto !important; top:auto !important; z-index:12; }
+.topbar .header-actions .dev-tools-trigger { width:40px !important; min-width:40px !important; height:40px !important; min-height:40px !important; }
+.topbar .header-actions .dev-tools-popover { right:0; left:auto; top:46px; bottom:auto; }
+body.phone-preview .topbar .header-actions { gap:6px; }
+body.phone-preview .topbar .header-actions .dev-tools-trigger { width:40px !important; min-width:40px !important; height:40px !important; min-height:40px !important; }
+
 /* Final authority for the draggable settings control: always a circle. */
 .dev-tools-trigger,
 body.phone-preview .dev-tools-trigger {
