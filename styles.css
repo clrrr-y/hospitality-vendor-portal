@@ -345,6 +345,16 @@ body.phone-preview .action-count-grid > button > .action-chevron { grid-column:3
 body.phone-preview .dashboard-business .order-state { min-height:24px; padding:0; border:0; background:transparent; border-radius:0; gap:8px; color:var(--ink); font-size:12px; font-weight:600; }
 body.phone-preview .dashboard-business .order-state .order-toggle { order:0; margin-left:0; }
 body.phone-preview .dashboard-business .order-state > span:last-child { order:1; }
+body.phone-preview .performance-heading { width:100%; margin:0 0 12px; }
+body.phone-preview .performance-heading h2 { margin:0; font-size:18px; font-weight:650; }
+body.phone-preview .glance-section { margin-bottom:16px !important; }
+body.phone-preview .glance-section .section-heading h2 { font-size:18px; font-weight:650; }
+@media (min-width:769px) {
+  .performance-heading { margin:0 0 12px; }
+  .performance-heading h2 { margin:0; font-size:20px; font-weight:650; }
+  .dashboard-business, .needs-action, .dashboard-period, .schedule-section, .performance-heading, .glance-section, .dashboard-grid, .top-listings, .insights-link { min-width:0; }
+  .schedule-section { width:100%; }
+}
 
 /* Simplified property-management workspace */
 .dash-grid { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr); gap:22px; align-items:start; }
