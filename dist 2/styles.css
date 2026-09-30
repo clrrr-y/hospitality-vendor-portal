@@ -720,6 +720,15 @@ body.phone-preview .revenue-trend .line-chart { border:0; border-radius:0; margi
 body.phone-preview .revenue-trend .line-current { font-size:21px; }
 body.phone-preview .revenue-trend .line-previous { font-size:11px; }
 .revenue-lines .current-fill { fill:url(#revenue-fill); stroke:none; }
+body.phone-preview .dashboard-business { align-items:flex-start !important; }
+body.phone-preview .dashboard-business > div:first-child strong { display:block; font-size:24px; line-height:1.1; }
+body.phone-preview .order-state { min-height:34px; padding:7px 10px; gap:7px; border:1px solid #cfe5d8; border-radius:999px; background:#f1faf4; color:#276b4a; font-size:12px; font-weight:700; }
+body.phone-preview .order-state .state-dot { width:8px; height:8px; flex:0 0 auto; }
+body.phone-preview .order-toggle { position:relative; display:inline-flex; width:34px; height:20px; flex:0 0 34px; margin-left:2px; padding:2px; border-radius:999px; background:#2f8d60; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08); cursor:pointer; }
+body.phone-preview .order-toggle > span { display:block; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(31,25,29,.18); transform:translateX(14px); transition:transform .18s ease; }
+body.phone-preview .order-toggle.off { background:#b9c1bd; }
+body.phone-preview .order-toggle.off > span { transform:translateX(0); }
+body.phone-preview .order-toggle.locked { cursor:default; opacity:.82; }
 @media (max-width: 768px) {
   .outlet-label { display:none; }
   .outlet-switch { display:none; }
