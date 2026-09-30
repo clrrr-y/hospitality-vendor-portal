@@ -677,6 +677,26 @@ body.phone-preview .mobile-nav .nav-item { background:transparent; color:#73807a
 .earnings-grid > div { padding:14px; border:1px solid var(--line); border-radius:9px; }
 .earnings-grid span, .earnings-grid small { display:block; color:var(--muted); font-size:11px; }
 .earnings-grid strong { display:block; font-family:Manrope,sans-serif; font-size:22px; letter-spacing:-.04em; margin:7px 0 4px; }
+
+/* Exact reference-density dashboard pass */
+body.phone-preview .dashboard-business { flex-direction:row !important; align-items:flex-end !important; justify-content:space-between; gap:10px; }
+body.phone-preview .dashboard-business > div:first-child { min-width:0; }
+body.phone-preview .dashboard-business .order-state { align-self:flex-end; flex:0 0 auto; }
+body.phone-preview .dashboard-business .dashboard-date { white-space:nowrap; }
+body.phone-preview .dashboard-section.needs-action { margin-top:0; }
+body.phone-preview .action-count-grid > button { grid-template-columns:32px minmax(0,1fr) 18px; }
+body.phone-preview .action-count-grid > button .action-icon { width:32px; height:32px; display:grid; place-items:center; border-radius:11px; background:#f7ead1; color:#7e4c11; font-size:16px; font-weight:800; }
+body.phone-preview .action-count-grid > button .action-icon.pickup { background:#f7ead1; }
+body.phone-preview .action-count-grid > button span:not(.action-icon) { white-space:nowrap; }
+body.phone-preview .glance-card { position:relative; min-height:136px; }
+body.phone-preview .sparkline-svg { position:absolute; right:10px; bottom:12px; width:100px; height:36px; fill:none; stroke:var(--green-dark); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+body.phone-preview .schedule-entry:nth-child(n+3) { display:none; }
+.dev-tools-trigger { width:auto; min-width:36px; height:34px; min-height:34px; display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:99px; padding:0 12px; font-size:11px; line-height:1; }
+body.phone-preview .state-lock { color:var(--green-dark); font-size:12px; line-height:1; }
+@media (max-width:370px) {
+  body.phone-preview .dashboard-business { flex-direction:column !important; align-items:flex-start !important; }
+  body.phone-preview .dashboard-business .order-state { align-self:flex-start; }
+}
 @media (max-width: 768px) {
   .outlet-label { display:none; }
   .outlet-switch { display:none; }
