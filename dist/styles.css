@@ -349,6 +349,18 @@ body.phone-preview .app-shell.phone-frame .page { padding-bottom:160px !importan
 body.phone-preview .top-listings { margin-bottom:16px !important; }
 body.phone-preview .insights-link { margin-bottom:24px !important; }
 
+/* Final authority: keep the role switcher floating, circular, and out of the header. */
+.dev-tools { z-index:80 !important; }
+.dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
+body.phone-preview .dev-tools { position:absolute !important; right:12px !important; bottom:92px !important; left:auto !important; top:auto !important; }
+body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
+
+/* Final authority: keep the role switcher floating, circular, and out of the header. */
+.dev-tools { z-index:80 !important; }
+.dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
+body.phone-preview .dev-tools { position:absolute !important; right:12px !important; bottom:92px !important; left:auto !important; top:auto !important; }
+body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
+
 /* Final dashboard hierarchy and header settings placement. */
 body.phone-preview .dashboard-business { margin-bottom:20px !important; }
 body.phone-preview .dashboard-business > div:first-child > strong { font-size:22px !important; font-weight:600 !important; }
@@ -359,6 +371,12 @@ body.phone-preview .dashboard-date { margin-top:4px !important; font-size:13px !
 .topbar .header-actions .dev-tools-popover { right:0; left:auto; top:46px; bottom:auto; }
 body.phone-preview .topbar .header-actions { gap:6px; }
 body.phone-preview .topbar .header-actions .dev-tools-trigger { width:40px !important; min-width:40px !important; height:40px !important; min-height:40px !important; }
+
+/* Development role switcher: floating, circular, and separate from the header. */
+.dev-tools { z-index:80 !important; }
+.dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
+body.phone-preview .dev-tools { position:absolute !important; right:12px !important; bottom:92px !important; left:auto !important; top:auto !important; }
+body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
 
 /* Dashboard order: greeting first, then operational and reporting sections. */
 body.phone-preview .dashboard-business { margin-bottom:20px !important; }
@@ -1480,3 +1498,9 @@ body.phone-preview .dashboard-business .order-state > span:last-child { order:1;
 body.phone-preview .app-shell.phone-frame .page { padding-bottom:160px !important; }
 body.phone-preview .top-listings { margin-bottom:16px !important; }
 body.phone-preview .insights-link { margin-bottom:24px !important; }
+
+/* Final authority: keep the role switcher floating, circular, and out of the header. */
+.dev-tools { z-index:80 !important; }
+.dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
+body.phone-preview .dev-tools { position:absolute !important; right:12px !important; bottom:92px !important; left:auto !important; top:auto !important; }
+body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
