@@ -591,6 +591,7 @@ body.phone-preview .mobile-nav .nav-item { background:transparent; color:#73807a
 .dashboard-period.open .date-menu { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; }
 .date-menu button { min-height:40px; border:0; border-radius:7px; background:#fff; color:var(--ink); text-align:left; padding:0 10px; font-size:12px; font-weight:700; }
 .date-menu button:hover { background:var(--green-soft); color:var(--green-dark); }
+.revenue-lines { width:100%; height:92px; display:block; margin-top:12px; overflow:visible; }.revenue-lines path{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:3}.revenue-lines .current-line{stroke:var(--green)}.revenue-lines .previous-line{stroke:#c7b9c0;stroke-width:2}
 /* Compact development settings control. */
 .dev-tools-trigger { width:36px; height:36px; min-height:36px; display:grid; place-items:center; border-radius:50%; padding:0; font-size:17px; line-height:1; }
 .dev-tools-popover { bottom:44px; }
