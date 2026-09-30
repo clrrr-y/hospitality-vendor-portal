@@ -506,6 +506,26 @@ body.phone-preview .performance-listing-row { min-height:68px; padding:16px; }
   body.phone-preview .performance-kpis { grid-template-columns:1fr; }
   body.phone-preview .performance-tabs button { font-size:10px; }
 }
+
+/* Final Dashboard rhythm: keep each operational section visually separate. */
+.dashboard-performance { margin-bottom:16px; }
+.dashboard-performance .performance-heading { padding:0; }
+.dashboard-performance .performance-kpis { margin:0; }
+.performance-tab-card .section-heading { min-height:72px; }
+.performance-tab-card .dashboard-chart { margin:0; border-top:1px solid var(--line); }
+.schedule-section { margin-top:0; }
+.money-section .section-heading { padding:16px 16px 12px; margin:0; }
+body.phone-preview .dashboard-section.needs-action,
+body.phone-preview .dashboard-business,
+body.phone-preview .dashboard-performance,
+body.phone-preview .schedule-section,
+body.phone-preview .money-section { width:100%; max-width:100%; min-width:0; }
+body.phone-preview .dashboard-performance { margin-bottom:16px !important; gap:12px !important; }
+body.phone-preview .performance-tab-card .section-heading { min-height:72px; padding:16px 16px 8px !important; }
+body.phone-preview .performance-tab-card .dashboard-chart { height:196px !important; min-height:196px !important; margin:0 !important; padding:14px 16px 14px !important; }
+body.phone-preview .schedule-section { margin-top:0 !important; }
+body.phone-preview .money-section { margin-top:16px !important; }
+body.phone-preview .money-section .section-heading { padding:16px !important; }
 body.phone-preview .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 body.phone-preview .header-filter { width:40px; height:40px; flex:0 0 40px; display:grid; place-items:center; border:1px solid var(--line); border-radius:11px; background:#fff; color:var(--green-dark); }
 body.phone-preview .header-filter span { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
