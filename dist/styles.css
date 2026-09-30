@@ -339,6 +339,9 @@ body.phone-preview .dev-tools-trigger { width:auto !important; min-width:0 !impo
 @media (max-width:370px) {
   body.phone-preview .glance-card > small.trend { font-size:11px; }
 }
+body.phone-preview .action-count-grid > button > .action-icon { grid-column:1 !important; grid-row:1 !important; }
+body.phone-preview .action-count-grid > button > span:not(.action-icon):not(.action-chevron) { grid-column:2 !important; grid-row:1 !important; min-width:0; font-weight:600 !important; }
+body.phone-preview .action-count-grid > button > .action-chevron { grid-column:3 !important; grid-row:1 !important; justify-self:end; color:var(--ink); font-size:22px; font-weight:400; line-height:1; }
 
 /* Simplified property-management workspace */
 .dash-grid { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr); gap:22px; align-items:start; }
