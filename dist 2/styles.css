@@ -525,6 +525,13 @@ body.phone-preview .performance-tab-card .section-heading { min-height:72px; pad
 body.phone-preview .performance-tab-card .dashboard-chart { height:196px !important; min-height:196px !important; margin:0 !important; padding:14px 16px 14px !important; }
 body.phone-preview .schedule-section { margin-top:0 !important; }
 body.phone-preview .money-section { margin-top:16px !important; }
+
+/* Keep the Insights header as one continuous sticky surface above its tabs. */
+.insights-header-new { align-self:start; z-index:40; background:#fff; }
+.insights-tabs { z-index:30; }
+body.phone-preview .insights-page-new { margin-top:-20px; }
+body.phone-preview .insights-header-new { width:calc(100% + 32px); margin:0 -16px; padding:10px 16px; min-height:64px; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 1px 0 rgba(35,20,30,.03); top:0; z-index:40; }
+body.phone-preview .insights-tabs { top:64px; z-index:30; background:#fff; }
 body.phone-preview .money-section .section-heading { padding:16px !important; }
 body.phone-preview .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 body.phone-preview .header-filter { width:40px; height:40px; flex:0 0 40px; display:grid; place-items:center; border:1px solid var(--line); border-radius:11px; background:#fff; color:var(--green-dark); }
