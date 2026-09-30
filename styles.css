@@ -366,6 +366,23 @@ body.phone-preview .dev-tools-trigger {
 }
 .dev-tools-trigger .hgi-settings-01 { font-size:22px !important; }
 
+/* Final authority for the draggable settings control: always a circle. */
+.dev-tools-trigger,
+body.phone-preview .dev-tools-trigger {
+  width:44px !important;
+  min-width:44px !important;
+  height:44px !important;
+  min-height:44px !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  gap:0 !important;
+  border-radius:50% !important;
+  font-size:0 !important;
+  line-height:1 !important;
+}
+.dev-tools-trigger .hgi-settings-01 { font-size:22px !important; }
+
 /* Final authority: floating mobile navigation capsule. */
 @media (max-width:768px) {
   body .mobile-nav {
