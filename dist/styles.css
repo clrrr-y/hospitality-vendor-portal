@@ -348,6 +348,13 @@ body.phone-preview .dashboard-business .order-state > span:last-child { order:1;
 body.phone-preview .app-shell.phone-frame .page { padding-bottom:160px !important; }
 body.phone-preview .top-listings { margin-bottom:16px !important; }
 body.phone-preview .insights-link { margin-bottom:24px !important; }
+body.phone-preview .performance-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+body.phone-preview .performance-insights { flex:0 0 auto; min-height:36px; border:0; background:transparent; color:var(--green-dark); padding:0; font-size:12px; font-weight:700; white-space:nowrap; }
+body.phone-preview .money-section { margin-top:16px !important; }
+@media (min-width:769px) {
+  .performance-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .performance-insights { flex:0 0 auto; border:0; background:transparent; color:var(--green-dark); padding:0; font-size:13px; font-weight:700; white-space:nowrap; }
+}
 /* Final compact Performance sizing */
 body.phone-preview .performance-heading { margin:0 0 12px !important; }
 body.phone-preview .performance-heading h2 { font-size:20px !important; font-weight:650 !important; }
