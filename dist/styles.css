@@ -349,6 +349,33 @@ body.phone-preview .app-shell.phone-frame .page { padding-bottom:160px !importan
 body.phone-preview .top-listings { margin-bottom:16px !important; }
 body.phone-preview .insights-link { margin-bottom:24px !important; }
 
+/* Hugeicons navigation: outline at rest, visually filled active treatment. */
+.nav-icon {
+  width:22px !important;
+  height:22px !important;
+  display:grid !important;
+  place-items:center;
+  opacity:1 !important;
+  flex:0 0 22px;
+}
+.nav-hugeicon {
+  display:block;
+  font-size:22px;
+  line-height:1;
+  color:#8a968f;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.nav-item.active .nav-hugeicon {
+  color:var(--plum, #704158);
+  font-weight:700;
+  -webkit-text-stroke:.55px currentColor;
+  text-shadow:0 0 0 currentColor;
+}
+.nav-item:not(.active) .nav-hugeicon { color:#8a968f; }
+.mobile-nav .nav-icon { width:22px !important; height:22px !important; }
+.mobile-nav .nav-hugeicon { font-size:22px; }
+
 /* Insights reporting page */
 .insights-page-new { max-width:1120px; margin:0 auto; display:grid; gap:16px; color:var(--ink); }
 .insights-header-new { position:sticky; top:0; z-index:12; display:flex; align-items:center; gap:12px; min-height:64px; padding:12px 0; background:rgba(246,244,245,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
