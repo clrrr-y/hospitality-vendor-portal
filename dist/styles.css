@@ -1625,3 +1625,40 @@ body.phone-preview .performance-empty { padding:32px 0 16px; color:var(--muted);
 /* Insights report cards: enforce a visible, consistent mobile rhythm. */
 body.phone-preview .insight-report-grid { display:flex !important; flex-direction:column !important; gap:16px !important; row-gap:16px !important; }
 body.phone-preview .insight-report-grid > .insight-report-card { width:100% !important; margin:0 !important; }
+
+/* Final wrapper reset: the prototype itself fills the host phone viewport. */
+body.phone-preview {
+  width:100% !important;
+  max-width:none !important;
+  height:auto !important;
+  min-height:100dvh !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow-x:hidden !important;
+  background:#fff !important;
+}
+body.phone-preview .app-shell.phone-frame {
+  width:100% !important;
+  max-width:none !important;
+  height:100dvh !important;
+  min-height:100dvh !important;
+  max-height:none !important;
+  margin:0 !important;
+  overflow:hidden !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:#fff !important;
+  box-shadow:none !important;
+}
+body.phone-preview .app-shell.phone-frame .main-wrap { height:100dvh !important; min-height:0 !important; }
+body.phone-preview .app-shell.phone-frame .page {
+  height:calc(100dvh - 68px) !important;
+  min-height:0 !important;
+  padding-bottom:calc(72px + 12px + env(safe-area-inset-bottom) + 28px) !important;
+}
+body.phone-preview .mobile-nav {
+  position:fixed !important;
+  left:16px !important;
+  right:16px !important;
+  bottom:calc(12px + env(safe-area-inset-bottom)) !important;
+}
