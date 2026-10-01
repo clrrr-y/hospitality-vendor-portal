@@ -1062,6 +1062,13 @@ body.phone-preview .mobile-nav {
   .earnings-pending strong { font-size:15px; }
 }
 
+/* Keep the Performance actions vertically ordered at every width. */
+.dashboard-performance .performance-heading-actions {
+  flex-direction:column;
+  align-items:flex-end;
+  gap:5px;
+}
+
 /* Dashboard Order activity chart: explicit axis, evenly distributed bars, and legend. */
 body.phone-preview .performance-activity-chart {
   width:100% !important;
