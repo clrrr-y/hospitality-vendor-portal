@@ -368,6 +368,20 @@ body.phone-preview .insights-content { gap:16px !important; }
 body.phone-preview .insights-tab-panel.active { gap:16px !important; }
 body.phone-preview .insight-report-grid { gap:16px !important; }
 
+/* Dashboard Performance: one filtered activity/listings panel. */
+body.phone-preview .performance-tabs { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:4px !important; padding:3px !important; border:1px solid var(--line) !important; border-radius:10px !important; background:#f1edef !important; overflow:visible !important; }
+body.phone-preview .performance-tabs button { min-width:0 !important; min-height:42px !important; border:0 !important; border-radius:7px !important; background:transparent !important; color:var(--muted) !important; padding:0 8px !important; font-size:12px !important; font-weight:650 !important; }
+body.phone-preview .performance-tabs button.active { background:#fff !important; color:var(--green-dark) !important; box-shadow:0 1px 3px rgba(35,20,30,.08) !important; }
+body.phone-preview .performance-tab-card { height:auto !important; min-height:0 !important; padding:16px !important; overflow:visible !important; }
+body.phone-preview .performance-card-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin:0 0 12px; }
+body.phone-preview .performance-card-heading h3 { margin:0; font-size:16px; line-height:1.2; font-weight:650; }
+body.phone-preview .performance-card-heading span { display:block; margin-top:4px; color:var(--muted); font-size:12px; }
+body.phone-preview .performance-tab-card .performance-activity-chart { width:100% !important; height:190px !important; min-height:190px !important; margin:0 !important; padding:8px 4px 0 !important; }
+body.phone-preview .performance-activity-chart .chart-bar { width:62% !important; max-width:34px !important; border:0 !important; padding:0 !important; cursor:pointer; }
+body.phone-preview .performance-takeaway { margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
+body.phone-preview .performance-kpi small em { color:var(--muted); font-style:normal; font-weight:500; }
+body.phone-preview .performance-empty { padding:32px 0 16px; color:var(--muted); font-size:13px; text-align:center; }
+
 /* Final authority: keep the role switcher floating, circular, and out of the header. */
 .dev-tools { z-index:80 !important; }
 .dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
@@ -1529,3 +1543,17 @@ body.phone-preview .insights-tabs { top:64px !important; z-index:50 !important; 
 body.phone-preview .insights-content { gap:16px !important; }
 body.phone-preview .insights-tab-panel.active { gap:16px !important; }
 body.phone-preview .insight-report-grid { gap:16px !important; }
+
+/* Final Dashboard Performance tab treatment. */
+body.phone-preview .performance-tabs { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:4px !important; padding:3px !important; border:1px solid var(--line) !important; border-radius:10px !important; background:#f1edef !important; overflow:visible !important; }
+body.phone-preview .performance-tabs button { min-width:0 !important; min-height:42px !important; border:0 !important; border-radius:7px !important; background:transparent !important; color:var(--muted) !important; padding:0 8px !important; font-size:12px !important; font-weight:650 !important; }
+body.phone-preview .performance-tabs button.active { background:#fff !important; color:var(--green-dark) !important; box-shadow:0 1px 3px rgba(35,20,30,.08) !important; }
+body.phone-preview .performance-tab-card { height:auto !important; min-height:0 !important; padding:16px !important; overflow:visible !important; }
+body.phone-preview .performance-card-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin:0 0 12px; }
+body.phone-preview .performance-card-heading h3 { margin:0; font-size:16px; line-height:1.2; font-weight:650; }
+body.phone-preview .performance-card-heading span { display:block; margin-top:4px; color:var(--muted); font-size:12px; }
+body.phone-preview .performance-tab-card .performance-activity-chart { width:100% !important; height:190px !important; min-height:190px !important; margin:0 !important; padding:8px 4px 0 !important; }
+body.phone-preview .performance-activity-chart .chart-bar { width:62% !important; max-width:34px !important; border:0 !important; padding:0 !important; cursor:pointer; }
+body.phone-preview .performance-takeaway { margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
+body.phone-preview .performance-kpi small em { color:var(--muted); font-style:normal; font-weight:500; }
+body.phone-preview .performance-empty { padding:32px 0 16px; color:var(--muted); font-size:13px; text-align:center; }
