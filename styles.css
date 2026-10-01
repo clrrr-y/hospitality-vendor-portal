@@ -978,6 +978,19 @@ body.phone-preview .mobile-nav {
   bottom:calc(12px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Insights exposes three sections on mobile; give each tab one equal full-width slot. */
+body.phone-preview .insights-tabs {
+  width:100% !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  justify-items:stretch;
+}
+body.phone-preview .insights-tabs button {
+  width:100%;
+  display:grid;
+  place-items:center;
+  text-align:center;
+}
+
 /* Insights tabs share the flat underline treatment across Sales, Orders, and Listings. */
 .insights-listings-focus .insights-tabs {
   position:sticky;
