@@ -1064,9 +1064,9 @@ body.phone-preview .mobile-nav {
 
 /* Keep the Performance actions vertically ordered at every width. */
 .dashboard-performance .performance-heading-actions {
-  flex-direction:column;
-  align-items:flex-end;
-  gap:5px;
+  flex-direction:row;
+  align-items:center;
+  gap:8px;
 }
 
 /* Main navigation and Menu page */
@@ -1094,6 +1094,10 @@ body.phone-preview .mobile-nav {
 @media (max-width:430px) {
   .menu-row { min-height:52px; padding:10px 16px; }
   .orders-filter-group .filter { min-height:40px; }
+}
+
+@media (max-width:430px) {
+  .dashboard-performance .performance-heading-actions { flex-wrap:wrap; justify-content:flex-end; }
 }
 
 /* Dashboard Order activity chart: explicit axis, evenly distributed bars, and legend. */
