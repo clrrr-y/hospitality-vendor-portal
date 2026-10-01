@@ -978,6 +978,13 @@ body.phone-preview .mobile-nav {
   bottom:calc(12px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Dashboard Top listings uses the same header rhythm as Schedule. */
+body.phone-preview .performance-tab-card:has(.polished-card-header) { padding:0 !important; overflow:hidden !important; }
+body.phone-preview .performance-tab-card .polished-card-header { min-height:64px; align-items:center; }
+body.phone-preview .performance-tab-card .polished-card-header h2 { margin:0; font-size:18px; line-height:1.2; }
+body.phone-preview .performance-tab-card .polished-card-header .button { min-height:44px; }
+body.phone-preview .performance-tab-card .performance-listing-row { min-height:60px; padding:16px; }
+
 /* Focused Insights → Listings report opened from Dashboard. */
 .insights-listings-focus { display:grid; gap:16px; width:100%; max-width:1120px; margin:0 auto; min-width:0; }
 .insights-focus-header { position:sticky; top:0; z-index:60; display:grid; grid-template-columns:44px minmax(0,1fr) auto; align-items:center; gap:12px; margin:0 -16px; padding:10px 16px; min-height:64px; background:#fff; border-bottom:1px solid var(--line); }
