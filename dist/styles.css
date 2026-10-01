@@ -1011,6 +1011,33 @@ body.phone-preview .mobile-nav {
   box-shadow:none;
 }
 
+/* Listings report: page-level controls with one compact card per listing. */
+.insights-listings-focus .insights-focus-content { gap:12px; padding-bottom:24px; }
+.insights-listings-focus .insights-listing-heading { margin:8px 0 0; }
+.insights-listings-focus .insights-listing-search { margin:0; }
+.insights-listings-focus .insights-listing-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; min-height:40px; }
+.insights-listings-focus .insights-listing-sort-wrap { position:relative; }
+.insights-listings-focus .insights-listing-filter-group { display:flex; gap:4px; min-height:36px; padding:3px; border:1px solid var(--line); border-radius:9px; background:#f1edef; }
+.insights-listings-focus .insights-listing-filter-group button { min-height:30px; padding:0 11px; border:0; border-radius:6px; background:transparent; color:var(--muted); font-size:12px; font-weight:650; }
+.insights-listings-focus .insights-listing-filter-group button.active { background:#fff; color:var(--green-dark); box-shadow:0 1px 2px rgba(35,20,30,.06); }
+.insights-listing-cards { display:grid; gap:12px; min-width:0; }
+.insights-listing-card { min-width:0; padding:16px; border:1px solid var(--line); border-radius:12px; background:#fff; box-shadow:none; }
+.insights-listing-card h3 { margin:0; color:var(--ink); font-size:16px; font-weight:650; line-height:1.35; overflow-wrap:anywhere; }
+.insights-listing-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:12px; }
+.insights-listing-metrics > div { min-width:0; display:grid; gap:4px; }
+.insights-listing-metrics span { color:var(--muted); font-size:12px; line-height:1.2; }
+.insights-listing-metrics strong { color:var(--ink); font-size:20px; font-weight:650; line-height:1.2; overflow-wrap:anywhere; }
+.insights-listing-metrics > div:nth-child(2) strong { font-size:18px; }
+.insights-listing-empty { padding:8px 0; color:var(--muted); font-size:13px; }
+@media (max-width:420px) {
+  body.phone-preview .insights-listings-focus .insights-focus-content { gap:12px; }
+  body.phone-preview .insights-listing-heading { margin-top:4px; }
+  body.phone-preview .insights-listing-card { padding:16px; }
+  body.phone-preview .insights-listing-metrics { gap:12px; }
+  body.phone-preview .insights-listing-metrics strong { font-size:20px; }
+  body.phone-preview .insights-listing-metrics > div:nth-child(2) strong { font-size:18px; }
+}
+
 /* Dashboard Top listings uses the same header rhythm as Schedule. */
 body.phone-preview .performance-tab-card:has(.polished-card-header) { padding:0 !important; overflow:hidden !important; }
 body.phone-preview .performance-tab-card .polished-card-header { min-height:64px; align-items:center; }
