@@ -978,6 +978,12 @@ body.phone-preview .mobile-nav {
   bottom:calc(12px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Listings uses standalone button tabs; keep the row free of the legacy rule's bottom line. */
+.insights-listings-focus .insights-tabs {
+  border-bottom:0 !important;
+  box-shadow:none !important;
+}
+
 /* Dashboard Order activity: keep the axis and legend inside the card while allowing wide series to scroll. */
 .performance-activity-chart { width:100%; min-width:0; margin:0; padding:0; }
 .performance-chart-frame { display:grid; grid-template-columns:28px minmax(0,1fr); gap:8px; width:100%; height:180px; min-width:0; }
