@@ -2354,6 +2354,58 @@ body.phone-preview .insights-download-option span { font-size:15px !important; f
 body.phone-preview .insights-download-option small { color:var(--muted) !important; font-size:12px !important; }
 body.phone-preview .insights-download-option b { grid-column:2 !important; grid-row:1 / span 2 !important; color:var(--green-dark) !important; font-size:24px !important; font-weight:400 !important; }
 
+/* Final mobile Dashboard hierarchy: cool-gray canvas with quiet, soft white cards. */
+body.phone-preview .app-shell.phone-frame,
+body.phone-preview .app-shell.phone-frame .main-wrap,
+body.phone-preview .app-shell.phone-frame .page,
+body.phone-preview .topbar { background:#f6f6f8 !important; }
+body.phone-preview .topbar { border-bottom:0 !important; }
+body.phone-preview .dashboard-business { margin-bottom:24px !important; }
+body.phone-preview .dashboard-section.needs-action,
+body.phone-preview .dashboard-performance .performance-kpi,
+body.phone-preview .performance-tab-card,
+body.phone-preview .polished-schedule,
+body.phone-preview .polished-earnings {
+  border:0 !important;
+  border-radius:20px !important;
+  background:#fff !important;
+  box-shadow:0 2px 12px rgba(19,10,14,.045) !important;
+}
+body.phone-preview .dashboard-section.needs-action { margin-bottom:24px !important; }
+body.phone-preview .dashboard-performance { margin-bottom:24px !important; gap:12px !important; }
+body.phone-preview .schedule-section { margin-bottom:24px !important; }
+body.phone-preview .earnings-section { margin-bottom:0 !important; }
+
+body.phone-preview .dashboard-performance .performance-heading { align-items:flex-end !important; margin:0 0 12px !important; }
+body.phone-preview .dashboard-performance .performance-heading > div { min-width:0 !important; }
+body.phone-preview .dashboard-performance .performance-heading h2 { font-size:20px !important; font-weight:650 !important; }
+body.phone-preview .performance-range { display:block !important; margin-top:4px !important; color:var(--muted) !important; font-size:13px !important; line-height:1.25 !important; }
+body.phone-preview .performance-date-filter { min-width:88px !important; min-height:44px !important; display:flex !important; align-items:center !important; justify-content:center !important; gap:8px !important; padding:0 12px !important; border:1px solid var(--line) !important; border-radius:999px !important; background:#fff !important; color:var(--ink) !important; font-size:14px !important; font-weight:600 !important; }
+body.phone-preview .performance-date-filter i { color:var(--green-dark) !important; font-size:18px !important; }
+body.phone-preview .dashboard-performance .performance-kpis { gap:12px !important; }
+body.phone-preview .dashboard-performance .performance-kpi { min-height:132px !important; padding:16px !important; }
+body.phone-preview .dashboard-performance .performance-kpi span { font-size:14px !important; }
+body.phone-preview .dashboard-performance .performance-kpi strong { font-size:28px !important; }
+body.phone-preview .dashboard-performance .performance-kpi small { margin-top:8px !important; font-size:12px !important; line-height:1.35 !important; }
+
+body.phone-preview .performance-tab-card { padding:16px !important; overflow:visible !important; }
+body.phone-preview .performance-card-heading { margin:0 0 12px !important; }
+body.phone-preview .performance-card-heading h3 { font-size:20px !important; }
+body.phone-preview .performance-card-heading span { font-size:14px !important; }
+body.phone-preview .performance-tab-card .performance-activity-chart { height:auto !important; min-height:0 !important; padding:0 !important; }
+body.phone-preview .performance-chart-frame { height:190px !important; }
+body.phone-preview .performance-chart-legend { justify-content:center !important; margin-top:12px !important; }
+body.phone-preview .performance-takeaway { margin:12px 0 0 !important; font-size:13px !important; line-height:1.35 !important; }
+body.phone-preview .performance-card-footer { display:flex !important; align-items:center !important; justify-content:center !important; min-height:60px !important; margin:16px -16px -16px !important; padding:8px 16px !important; border-top:1px solid var(--line) !important; }
+body.phone-preview .performance-card-footer .performance-insights,
+body.phone-preview .performance-card-footer .view-all-listings { width:100% !important; min-height:44px !important; display:flex !important; align-items:center !important; justify-content:center !important; margin:0 !important; padding:0 !important; border:0 !important; background:transparent !important; color:var(--green-dark) !important; font-size:13px !important; font-weight:700 !important; text-align:center !important; }
+body.phone-preview .performance-card-footer .performance-insights { white-space:nowrap !important; }
+
+@media (max-width:360px) {
+  body.phone-preview .dashboard-performance .performance-kpis { grid-template-columns:1fr !important; }
+  body.phone-preview .performance-date-filter { min-width:80px !important; padding:0 9px !important; }
+}
+
 /* Keep the sticky controls compact: date range and download icon share one row. */
 body.phone-preview .insights-sticky-filter-shell { gap:8px !important; }
 body.phone-preview .insights-sticky-action-row { display:grid !important; grid-template-columns:minmax(0,1fr) 56px !important; align-items:stretch !important; gap:8px !important; min-width:0 !important; }
