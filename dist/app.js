@@ -79,8 +79,13 @@ function dashboard18Final(){
   const rangeSummary=state.range==='Today'?'Today · Sep 30, 2026':state.range==='Yesterday'?'Yesterday · Sep 29, 2026':state.range==='This month'?'This month · Sep 1–30, 2026':state.range==='Last week'?'Last week · Sep 24–30, 2026':state.customFrom&&state.customTo?state.customFrom+' – '+state.customTo:'Custom range';
   const currentPerformance=html.match(/<section class="dashboard-performance">[\s\S]*?(?=<section class="dashboard-section card schedule-section)/)?.[0]||'';
   if(currentPerformance){
-    const heading='<div class="performance-heading"><h2>Performance</h2>'+(owner?'<button class="performance-insights" data-insights>View insights '+icons.arrow+'</button>':'')+'</div>';
-    html=html.replace(currentPerformance,currentPerformance.replace(/<div class="performance-heading">[\s\S]*?<\/div><div class="performance-kpis/,heading+'<div class="performance-kpis'));
+    const heading='<div class="performance-heading"><h2>Performance</h2></div>';
+    let revised=currentPerformance.replace(/<div class="performance-heading">[\s\S]*?<\/div><div class="performance-kpis/,heading+'<div class="performance-kpis');
+    if(owner){
+      const insightLink='<button class="performance-insights" data-insights>View insights '+icons.arrow+'</button>';
+      revised=revised.replace(/(<div class="performance-card-heading"><div><h3>Order activity<\/h3><span>[\s\S]*?<\/span><\/div>)(<\/div>)/,'$1'+insightLink+'$2');
+    }
+    html=html.replace(currentPerformance,revised);
   }
   const scheduleCard='<section class="dashboard-section card schedule-section polished-schedule"><div class="polished-card-header"><div><h2>Schedule</h2><span>Today · Sep 30</span></div><button class="button ghost" data-page="orders">View orders '+icons.arrow+'</button></div><div class="polished-schedule-list"><button class="polished-schedule-row" data-detail="ORD-1042"><span class="polished-time">3:00 PM</span><span class="polished-schedule-details"><strong>Whole Sans Rival Cake</strong><small>John D. · Room 101 · Qty 1</small><em class="confirmed">Confirmed</em></span><span class="polished-chevron">›</span></button><button class="polished-schedule-row" data-detail="CB-8821"><span class="polished-time">5:30 PM</span><span class="polished-schedule-details"><strong>Private bakery tasting</strong><small>Amelia Reyes · Room 508 · 2 guests</small><em class="pending">Pending</em></span><span class="polished-chevron">›</span></button></div></section>';
   const earningsCard=owner?'<section class="dashboard-section card earnings-section polished-earnings"><div class="polished-card-header"><h2>Earnings</h2><button class="button ghost" data-page="earnings">View earnings '+icons.arrow+'</button></div><div class="earnings-primary"><span>Next payout</span><strong>₱42,180.00</strong><small>Expected Oct 2</small></div><div class="earnings-pending"><span>Room charges pending checkout</span><strong>₱26,840.00</strong></div></section>':'';
