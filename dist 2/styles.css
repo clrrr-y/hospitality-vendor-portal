@@ -2354,6 +2354,15 @@ body.phone-preview .insights-download-option span { font-size:15px !important; f
 body.phone-preview .insights-download-option small { color:var(--muted) !important; font-size:12px !important; }
 body.phone-preview .insights-download-option b { grid-column:2 !important; grid-row:1 / span 2 !important; color:var(--green-dark) !important; font-size:24px !important; font-weight:400 !important; }
 
+/* Keep the sticky controls compact: date range and download icon share one row. */
+body.phone-preview .insights-sticky-filter-shell { gap:8px !important; }
+body.phone-preview .insights-sticky-action-row { display:grid !important; grid-template-columns:minmax(0,1fr) 56px !important; align-items:stretch !important; gap:8px !important; min-width:0 !important; }
+body.phone-preview .insights-sticky-action-row .insights-period-control { min-width:0 !important; min-height:56px !important; }
+body.phone-preview .insights-sticky-action-row .insights-download-report { width:56px !important; min-width:56px !important; height:56px !important; min-height:56px !important; padding:0 !important; border:1px solid var(--line) !important; border-radius:12px !important; background:transparent !important; color:var(--ink) !important; }
+body.phone-preview .insights-sticky-action-row .insights-download-report:hover { background:var(--green-soft) !important; border-color:#cbb8c1 !important; }
+body.phone-preview .insights-sticky-action-row .insights-download-report span { display:none !important; }
+body.phone-preview .insights-sticky-action-row .insights-download-report i { font-size:22px !important; }
+
 @media (min-width:769px) {
   .insights-download-report { width:100%; }
   .insights-download-backdrop { position:fixed; inset:0; z-index:90; background:rgba(19,10,14,.34); }
