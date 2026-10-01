@@ -2257,3 +2257,40 @@ body.phone-preview .insights-listings-focus .insights-period-control {
   z-index:45 !important;
   background:#fff !important;
 }
+
+/* Tabs and date field travel as one opaque sticky section, keeping content below it. */
+body.phone-preview .insights-sticky-filter-shell {
+  position:sticky !important;
+  top:72px !important;
+  z-index:50 !important;
+  display:grid !important;
+  gap:12px !important;
+  padding:8px 0 12px !important;
+  background:#fff !important;
+  box-shadow:0 -8px 0 #fff, 0 1px 0 rgba(229,225,226,.9) !important;
+}
+body.phone-preview .insights-sticky-filter-shell .insights-tabs,
+body.phone-preview .insights-sticky-filter-shell .insights-period-control {
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+}
+body.phone-preview .insights-sticky-filter-shell .insights-tabs {
+  padding:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+body.phone-preview .insights-sticky-filter-shell .insights-period-control {
+  margin:0 !important;
+  background:#fff !important;
+}
+
+/* Insights owns the viewport top; do not leave a page-padding gap above its header. */
+body.phone-preview .app-shell.phone-frame .page:has(.insights-page-new),
+body.phone-preview .app-shell.phone-frame .page:has(.insights-listings-focus) {
+  padding-top:0 !important;
+}
+body.phone-preview .insights-page-new,
+body.phone-preview .insights-listings-focus {
+  margin-top:0 !important;
+}
