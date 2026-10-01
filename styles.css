@@ -988,6 +988,13 @@ body.phone-preview .mobile-nav {
   letter-spacing:0 !important;
 }
 
+/* Keep the Insights section tabs prominent and evenly readable. */
+body.phone-preview .insights-tabs button {
+  min-height:52px !important;
+  font-size:14px !important;
+  font-weight:650 !important;
+}
+
 /* Insights exposes three sections on mobile; give each tab one equal full-width slot. */
 body.phone-preview .insights-tabs {
   width:100% !important;
