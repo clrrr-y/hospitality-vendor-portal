@@ -914,6 +914,33 @@ body.phone-preview .performance-listing-row { min-height:68px; padding:16px; }
   body.phone-preview .performance-tabs button { font-size:10px; }
 }
 
+/* Top listings: compact count-first rows with a full-ranking handoff. */
+.performance-listing-list { display:grid; min-width:0; }
+.performance-listing-row { min-height:56px; padding:12px 16px; }
+.performance-listing-row > strong:first-child { min-width:0; color:var(--ink); font-size:14px; font-weight:600; white-space:normal; overflow-wrap:anywhere; }
+.performance-listing-row > span:last-child { color:var(--muted); font-size:14px; font-weight:500; white-space:nowrap; }
+.view-all-listings { display:flex; align-items:center; justify-content:flex-start; width:100%; min-height:44px; margin:4px 0 0; padding:8px 16px; border:0; background:transparent; color:var(--green-dark); font:600 13px/1.35 DM Sans,sans-serif; text-align:left; cursor:pointer; }
+.view-all-listings:hover { color:var(--plum); }
+.staff-listings-page { display:grid; gap:16px; width:100%; min-width:0; }
+.staff-listings-head { display:flex; align-items:center; gap:12px; min-width:0; }
+.staff-listings-back { display:grid; place-items:center; width:44px; height:44px; flex:0 0 44px; border:0; border-radius:50%; background:transparent; color:var(--ink); font-size:30px; line-height:1; cursor:pointer; }
+.staff-listings-head h1 { margin:0; font:700 22px/1.15 Manrope,sans-serif; }
+.staff-listings-head span { display:block; margin-top:4px; color:var(--muted); font-size:13px; }
+.staff-listings-card { min-width:0; padding:0; overflow:hidden; }
+.staff-listings-card-head { display:grid; gap:4px; padding:16px; border-bottom:1px solid var(--line); }
+.staff-listings-card-head h2 { margin:0; font-size:18px; font-weight:650; }
+.staff-listings-card-head span { color:var(--muted); font-size:12px; }
+.staff-listing-full-list { display:grid; min-width:0; }
+.staff-listing-full-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:12px; min-height:60px; padding:12px 16px; border-bottom:1px solid var(--line); }
+.staff-listing-full-row:last-child { border-bottom:0; }
+.staff-listing-full-row strong { min-width:0; font-size:14px; font-weight:600; overflow-wrap:anywhere; }
+.staff-listing-full-row span { color:var(--muted); font-size:14px; white-space:nowrap; }
+@media (max-width:360px) {
+  body.phone-preview .performance-listing-row { min-height:56px; padding:12px 16px; }
+  body.phone-preview .performance-listing-row > strong:first-child,
+  body.phone-preview .performance-listing-row > span:last-child { font-size:13px; }
+}
+
 /* Final Dashboard rhythm: keep each operational section visually separate. */
 .dashboard-performance { margin-bottom:16px; }
 .dashboard-performance .performance-heading { padding:0; }
