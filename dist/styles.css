@@ -359,6 +359,15 @@ body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !impor
 body.phone-preview .insights-summary-grid { grid-template-columns:1fr !important; gap:12px !important; }
 body.phone-preview .dashboard-performance .performance-kpis.staff { grid-template-columns:1fr !important; }
 
+/* Final mobile Insights rhythm and flush header surface. */
+body.phone-preview .app-shell.phone-frame .page:has(.insights-page-new) { padding-top:0 !important; }
+body.phone-preview .insights-page-new { margin-top:0 !important; gap:16px !important; }
+body.phone-preview .insights-header-new { width:calc(100% + 32px) !important; margin:0 -16px !important; background:#fff !important; z-index:60 !important; }
+body.phone-preview .insights-tabs { top:64px !important; z-index:50 !important; }
+body.phone-preview .insights-content { gap:16px !important; }
+body.phone-preview .insights-tab-panel.active { gap:16px !important; }
+body.phone-preview .insight-report-grid { gap:16px !important; }
+
 /* Final authority: keep the role switcher floating, circular, and out of the header. */
 .dev-tools { z-index:80 !important; }
 .dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
@@ -1511,3 +1520,12 @@ body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !impor
 
 /* Insights mobile summary: one full-width card per row. */
 body.phone-preview .insights-summary-grid { grid-template-columns:1fr !important; gap:12px !important; }
+
+/* Final mobile Insights rhythm and flush header surface. */
+body.phone-preview .app-shell.phone-frame .page:has(.insights-page-new) { padding-top:0 !important; }
+body.phone-preview .insights-page-new { margin-top:0 !important; gap:16px !important; }
+body.phone-preview .insights-header-new { width:calc(100% + 32px) !important; margin:0 -16px !important; background:#fff !important; z-index:60 !important; }
+body.phone-preview .insights-tabs { top:64px !important; z-index:50 !important; }
+body.phone-preview .insights-content { gap:16px !important; }
+body.phone-preview .insights-tab-panel.active { gap:16px !important; }
+body.phone-preview .insight-report-grid { gap:16px !important; }
