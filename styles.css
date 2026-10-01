@@ -1001,6 +1001,34 @@ body.phone-preview .performance-chart-frame { height:180px !important; }
 body.phone-preview .performance-chart-plot { height:156px !important; }
 body.phone-preview .performance-chart-legend { justify-content:center !important; margin:12px 0 0 !important; }
 
+/* Insights: flat page tabs with equal-width button treatment. */
+.insights-tabs,
+.insights-listings-focus .insights-tabs { position:sticky; top:64px; z-index:50; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; width:100%; padding:0; border:0; background:#fff; box-shadow:none; }
+.insights-tabs button,
+.insights-listings-focus .insights-tabs button { min-width:0; min-height:44px; border:0; border-radius:12px; background:#f5f2f4; color:var(--muted); padding:0 8px; font-size:14px; font-weight:650; transition:background-color 150ms ease,color 150ms ease; }
+.insights-tabs button.active,
+.insights-listings-focus .insights-tabs button.active { background:var(--green-soft); color:var(--green-dark); border:0; box-shadow:none; }
+.insights-period-control { top:116px; min-height:52px; padding:8px 0; }
+.insights-period-control strong { color:var(--ink); }
+.insights-period-control .insights-period-chevron { flex:0 0 auto; color:var(--green-dark); font-size:20px; line-height:1; }
+.insights-header-new { position:relative; }
+.insights-export-icon { width:44px; height:44px; border:0; border-radius:0; background:transparent; color:var(--green-dark); }
+.insights-export-icon i { font-size:22px; }
+.insights-header-new > .insights-export-menu { top:52px; right:16px; }
+.insights-export-menu { gap:2px; }
+.insights-export-menu strong { padding:7px 10px 5px; color:var(--ink); font-size:13px; font-weight:650; }
+.insights-listing-sort-row { position:relative; min-height:36px; }
+.insights-listing-sort-row .insights-listing-sort-wrap { position:relative; display:inline-block; }
+.insights-listing-sort-row .insights-listing-sort { min-height:36px; padding:0; border:0; background:transparent; color:var(--green-dark); font-size:13px; font-weight:650; }
+.insights-listing-sort-row .insights-listing-sort-menu { top:40px; left:0; }
+body.phone-preview .insights-tabs,
+body.phone-preview .insights-listings-focus .insights-tabs { top:64px !important; gap:8px !important; padding:0 !important; background:#fff !important; }
+body.phone-preview .insights-tabs button,
+body.phone-preview .insights-listings-focus .insights-tabs button { min-height:44px !important; border:0 !important; border-radius:12px !important; background:#f5f2f4 !important; color:var(--muted) !important; padding:0 6px !important; font-size:14px !important; font-weight:650 !important; }
+body.phone-preview .insights-tabs button.active,
+body.phone-preview .insights-listings-focus .insights-tabs button.active { background:var(--green-soft) !important; color:var(--green-dark) !important; }
+body.phone-preview .insights-period-control { top:116px !important; }
+
 /* Dashboard Performance keeps its reporting filter beside the heading. */
 .dashboard-performance .performance-heading {
   display:flex;
