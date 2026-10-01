@@ -355,6 +355,9 @@ body.phone-preview .insights-link { margin-bottom:24px !important; }
 body.phone-preview .dev-tools { position:absolute !important; right:12px !important; bottom:92px !important; left:auto !important; top:auto !important; }
 body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
 
+/* Insights mobile summary: one full-width card per row. */
+body.phone-preview .insights-summary-grid { grid-template-columns:1fr !important; gap:12px !important; }
+
 /* Final authority: keep the role switcher floating, circular, and out of the header. */
 .dev-tools { z-index:80 !important; }
 .dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
@@ -1504,3 +1507,6 @@ body.phone-preview .insights-link { margin-bottom:24px !important; }
 .dev-tools-trigger { width:44px !important; min-width:44px !important; height:44px !important; min-height:44px !important; padding:0 !important; border-radius:50% !important; display:grid !important; place-items:center !important; }
 body.phone-preview .dev-tools { position:absolute !important; right:12px !important; bottom:92px !important; left:auto !important; top:auto !important; }
 body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !important; }
+
+/* Insights mobile summary: one full-width card per row. */
+body.phone-preview .insights-summary-grid { grid-template-columns:1fr !important; gap:12px !important; }
