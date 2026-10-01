@@ -2199,6 +2199,31 @@ body.phone-preview .insights-page-new .insights-tabs button {
   min-height:44px !important;
 }
 
+/* Date range is a field control; its calendar icon opens the existing filter sheet. */
+.insights-period-control {
+  min-height:64px !important;
+  padding:12px 14px !important;
+  border:1px solid var(--line) !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  box-shadow:none !important;
+}
+.insights-period-control .insights-period-copy {
+  display:grid !important;
+  gap:3px !important;
+  min-width:0 !important;
+}
+.insights-period-control .insights-period-calendar {
+  display:grid !important;
+  place-items:center !important;
+  flex:0 0 24px !important;
+  width:24px !important;
+  height:24px !important;
+  color:var(--green-dark) !important;
+  font-size:22px !important;
+  line-height:1 !important;
+}
+
 /* All Insights tabs use the Listings button dimensions. */
 body.phone-preview .insights-page-new .insights-tabs,
 body.phone-preview .insights-listings-focus .insights-tabs {
