@@ -2198,3 +2198,20 @@ body.phone-preview .insights-page-new {
 body.phone-preview .insights-page-new .insights-tabs button {
   min-height:44px !important;
 }
+
+/* All Insights tabs use the Listings button dimensions. */
+body.phone-preview .insights-page-new .insights-tabs,
+body.phone-preview .insights-listings-focus .insights-tabs {
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:8px !important;
+  padding:0 !important;
+}
+body.phone-preview .insights-page-new .insights-tabs button,
+body.phone-preview .insights-listings-focus .insights-tabs button {
+  width:100% !important;
+  min-height:44px !important;
+  border-radius:12px !important;
+  padding:0 6px !important;
+  font-size:14px !important;
+  font-weight:650 !important;
+}
