@@ -1557,3 +1557,7 @@ body.phone-preview .performance-activity-chart .chart-bar { width:62% !important
 body.phone-preview .performance-takeaway { margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
 body.phone-preview .performance-kpi small em { color:var(--muted); font-style:normal; font-weight:500; }
 body.phone-preview .performance-empty { padding:32px 0 16px; color:var(--muted); font-size:13px; text-align:center; }
+
+/* Insights report cards: enforce a visible, consistent mobile rhythm. */
+body.phone-preview .insight-report-grid { display:flex !important; flex-direction:column !important; gap:16px !important; row-gap:16px !important; }
+body.phone-preview .insight-report-grid > .insight-report-card { width:100% !important; margin:0 !important; }
