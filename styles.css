@@ -357,6 +357,7 @@ body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !impor
 
 /* Insights mobile summary: one full-width card per row. */
 body.phone-preview .insights-summary-grid { grid-template-columns:1fr !important; gap:12px !important; }
+body.phone-preview .dashboard-performance .performance-kpis.staff { grid-template-columns:1fr !important; }
 
 /* Final authority: keep the role switcher floating, circular, and out of the header. */
 .dev-tools { z-index:80 !important; }
