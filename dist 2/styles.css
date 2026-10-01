@@ -978,6 +978,90 @@ body.phone-preview .mobile-nav {
   bottom:calc(12px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Dashboard Performance keeps its reporting filter beside the heading. */
+.dashboard-performance .performance-heading {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  min-width:0;
+}
+.performance-heading-copy { min-width:0; }
+.performance-heading-copy h2 { margin:0; }
+.performance-range { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.3; }
+.performance-heading-actions { display:flex; align-items:center; justify-content:flex-end; gap:8px; min-width:0; flex-wrap:wrap; }
+.performance-date-filter {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:36px;
+  padding:0 10px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#fff;
+  color:var(--green-dark);
+  font-size:12px;
+  font-weight:650;
+  white-space:nowrap;
+  cursor:pointer;
+}
+.performance-date-filter svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+/* Final Dashboard Schedule and Earnings rhythm. */
+.polished-schedule,
+.polished-earnings { overflow:hidden; }
+.polished-schedule .polished-card-header,
+.polished-earnings .polished-card-header { padding:16px; }
+.polished-card-header h2 { margin:0; font-size:20px; line-height:1.2; font-weight:650; }
+.polished-card-header > div > span { display:block; margin-top:4px; color:var(--muted); font-size:13px; line-height:1.3; }
+.polished-card-header .button { min-height:44px; padding:0; color:var(--green-dark); font-size:13px; font-weight:600; white-space:nowrap; }
+.polished-schedule-list { display:grid; }
+.polished-schedule-row {
+  position:relative;
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr) 18px;
+  align-items:center;
+  gap:16px;
+  width:100%;
+  min-width:0;
+  min-height:112px;
+  padding:16px;
+  border:0;
+  background:#fff;
+  color:var(--ink);
+  text-align:left;
+}
+.polished-schedule-row + .polished-schedule-row::before { content:""; position:absolute; top:0; left:16px; right:16px; border-top:1px solid var(--line); }
+.polished-time { color:var(--green-dark); font-size:15px; font-weight:650; line-height:1.25; }
+.polished-schedule-details { min-width:0; }
+.polished-schedule-details strong { display:block; font-size:15px; font-weight:650; line-height:1.25; overflow-wrap:anywhere; }
+.polished-schedule-details small { display:block; margin-top:5px; color:var(--muted); font-size:13px; line-height:1.3; overflow-wrap:anywhere; }
+.polished-schedule-details em { display:block; margin-top:7px; font-size:13px; font-style:normal; line-height:1.2; }
+.polished-schedule-details .confirmed { color:var(--green-dark); }
+.polished-schedule-details .pending { color:var(--amber); }
+.polished-chevron { color:var(--green-dark); font-size:29px; font-weight:400; line-height:1; text-align:right; }
+.polished-earnings .polished-card-header { border-bottom:0; }
+.earnings-primary { padding:0 16px 20px; }
+.earnings-primary span,
+.earnings-primary small { display:block; color:var(--muted); font-size:13px; line-height:1.3; }
+.earnings-primary strong { display:block; margin-top:8px; font-size:26px; font-weight:650; line-height:1.1; letter-spacing:-.025em; }
+.earnings-primary small { margin-top:7px; }
+.earnings-pending { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:16px; margin:0 16px; padding:16px 0; border-top:1px solid var(--line); }
+.earnings-pending span { min-width:0; color:var(--muted); font-size:15px; line-height:1.3; overflow-wrap:anywhere; }
+.earnings-pending strong { white-space:nowrap; font-size:17px; font-weight:650; }
+
+@media (max-width:430px) {
+  .performance-heading { gap:10px; }
+  .performance-heading-actions { flex-direction:column; align-items:flex-end; gap:5px; }
+  .performance-date-filter { min-height:34px; padding:0 9px; }
+  .polished-schedule-row { grid-template-columns:64px minmax(0,1fr) 16px; gap:12px; }
+  .polished-card-header { gap:10px; }
+  .polished-card-header .button { font-size:12px; }
+  .earnings-pending { gap:10px; }
+  .earnings-pending strong { font-size:15px; }
+}
+
 /* Dashboard Order activity chart: explicit axis, evenly distributed bars, and legend. */
 body.phone-preview .performance-activity-chart {
   width:100% !important;
