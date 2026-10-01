@@ -2182,3 +2182,19 @@ body.phone-preview .insights-listings-focus .insights-tabs button.active {
   border-bottom:0 !important;
   box-shadow:none !important;
 }
+
+/* Keep Sales and Orders on the same centered page grid and vertical rhythm as Listings. */
+.insights-page-new {
+  width:100% !important;
+  max-width:1120px !important;
+  margin:16px auto 0 !important;
+}
+.insights-page-new .insights-tabs button {
+  min-height:44px !important;
+}
+body.phone-preview .insights-page-new {
+  margin-top:16px !important;
+}
+body.phone-preview .insights-page-new .insights-tabs button {
+  min-height:44px !important;
+}
