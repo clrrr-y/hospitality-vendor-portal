@@ -978,6 +978,16 @@ body.phone-preview .mobile-nav {
   bottom:calc(12px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Match the compact page-title typography used by the Dashboard header. */
+.insights-header-new h1,
+.insights-focus-title h1 {
+  font-family:inherit !important;
+  font-size:16px !important;
+  font-weight:600 !important;
+  line-height:1.2 !important;
+  letter-spacing:0 !important;
+}
+
 /* Insights exposes three sections on mobile; give each tab one equal full-width slot. */
 body.phone-preview .insights-tabs {
   width:100% !important;
