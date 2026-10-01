@@ -978,6 +978,39 @@ body.phone-preview .mobile-nav {
   bottom:calc(12px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Insights tabs share the flat underline treatment across Sales, Orders, and Listings. */
+.insights-listings-focus .insights-tabs {
+  position:sticky;
+  top:64px;
+  z-index:50;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  padding:0;
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  background:#fff;
+  box-shadow:none;
+}
+.insights-listings-focus .insights-tabs button {
+  min-height:44px;
+  border:0;
+  border-bottom:2px solid transparent;
+  border-radius:0;
+  background:transparent;
+  color:var(--muted);
+  box-shadow:none;
+  font-size:12px;
+  font-weight:700;
+}
+.insights-listings-focus .insights-tabs button.active {
+  background:transparent;
+  color:var(--green-dark);
+  border-bottom-color:var(--green-dark);
+  box-shadow:none;
+}
+
 /* Dashboard Top listings uses the same header rhythm as Schedule. */
 body.phone-preview .performance-tab-card:has(.polished-card-header) { padding:0 !important; overflow:hidden !important; }
 body.phone-preview .performance-tab-card .polished-card-header { min-height:64px; align-items:center; }
