@@ -941,6 +941,43 @@ body.phone-preview .performance-listing-row { min-height:68px; padding:16px; }
   body.phone-preview .performance-listing-row > span:last-child { font-size:13px; }
 }
 
+/* The prototype is the app surface itself; no nested phone mockup or outer canvas. */
+body.phone-preview {
+  width:100%;
+  max-width:none;
+  height:auto;
+  min-height:100dvh;
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+  background:#fff;
+}
+body.phone-preview .app-shell.phone-frame {
+  width:100%;
+  max-width:none;
+  height:100dvh;
+  min-height:100dvh;
+  max-height:none;
+  margin:0;
+  overflow:hidden;
+  border:0;
+  border-radius:0;
+  background:#fff;
+  box-shadow:none;
+}
+body.phone-preview .app-shell.phone-frame .main-wrap { height:100dvh; min-height:0; }
+body.phone-preview .app-shell.phone-frame .page {
+  height:calc(100dvh - 68px);
+  min-height:0;
+  padding-bottom:calc(72px + 12px + env(safe-area-inset-bottom) + 28px) !important;
+}
+body.phone-preview .mobile-nav {
+  position:fixed !important;
+  left:16px !important;
+  right:16px !important;
+  bottom:calc(12px + env(safe-area-inset-bottom)) !important;
+}
+
 /* Final Dashboard rhythm: keep each operational section visually separate. */
 .dashboard-performance { margin-bottom:16px; }
 .dashboard-performance .performance-heading { padding:0; }
