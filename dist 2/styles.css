@@ -981,6 +981,7 @@ body.phone-preview .mobile-nav {
 /* Insights exposes three sections on mobile; give each tab one equal full-width slot. */
 body.phone-preview .insights-tabs {
   width:100% !important;
+  display:grid !important;
   grid-template-columns:repeat(3,minmax(0,1fr)) !important;
   justify-items:stretch;
 }
