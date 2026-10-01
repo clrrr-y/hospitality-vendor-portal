@@ -2240,3 +2240,20 @@ body.phone-preview .insights-listings-focus .insights-tabs button {
   font-size:14px !important;
   font-weight:650 !important;
 }
+
+/* Keep the sticky tab strip below the header with an opaque white buffer. */
+body.phone-preview .insights-page-new .insights-tabs,
+body.phone-preview .insights-listings-focus .insights-tabs {
+  top:72px !important;
+  z-index:50 !important;
+  position:sticky !important;
+  padding:8px 0 !important;
+  background:#fff !important;
+  box-shadow:0 -8px 0 #fff, 0 1px 0 rgba(229,225,226,.9) !important;
+}
+body.phone-preview .insights-page-new .insights-period-control,
+body.phone-preview .insights-listings-focus .insights-period-control {
+  top:140px !important;
+  z-index:45 !important;
+  background:#fff !important;
+}
