@@ -2831,3 +2831,111 @@ body.phone-preview .orders-filter-backdrop{position:absolute;inset:0}body.phone-
   text-align: right;
   cursor: pointer;
 }
+
+.orders-workflow-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #f0edef;
+}
+.orders-workflow-tabs:has(button:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.orders-workflow-tabs button,
+.orders-calendar-workflow-tabs button {
+  min-width: 0;
+  min-height: 44px;
+  position: relative;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.orders-workflow-tabs button.active,
+.orders-calendar-workflow-tabs button.active {
+  background: var(--green);
+  color: #fff;
+}
+.orders-workflow-badge {
+  display: inline-grid;
+  min-width: 20px;
+  min-height: 20px;
+  margin-left: 6px;
+  padding: 0 5px;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--green-dark);
+  font-size: 11px;
+  line-height: 1;
+}
+.orders-past-filters {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+.orders-past-filters::-webkit-scrollbar { display: none; }
+.orders-past-filters button {
+  min-height: 32px;
+  flex: 0 0 auto;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+.orders-past-filters button.active {
+  border-color: #c7aebb;
+  background: #f2e9ee;
+  color: var(--green-dark);
+}
+.orders-calendar-workflow-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #f0edef;
+}
+.workflow-request-actions { gap: 8px; }
+.workflow-request-actions .order-quick-action { flex: 1; }
+.workflow-request-actions .order-quick-action.decline {
+  border-color: #e1c6cb;
+  color: #8f2c3a;
+}
+.listing-confirmation-setting { margin-top: 12px; }
+.confirmation-method-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.confirmation-method-options button {
+  min-height: 44px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+.confirmation-method-options button.active {
+  border-color: var(--green);
+  background: #f2e9ee;
+  color: var(--green-dark);
+}
+@media(max-width:380px){
+  .orders-workflow-tabs button { font-size: 13px; }
+  .orders-workflow-badge { margin-left: 3px; }
+  .confirmation-method-options { grid-template-columns: 1fr; }
+}
