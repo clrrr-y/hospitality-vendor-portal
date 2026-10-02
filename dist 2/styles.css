@@ -2401,6 +2401,9 @@ body.phone-preview .performance-card-footer .performance-insights,
 body.phone-preview .performance-card-footer .view-all-listings { width:100% !important; min-height:44px !important; display:flex !important; align-items:center !important; justify-content:center !important; margin:0 !important; padding:0 !important; border:0 !important; background:transparent !important; color:var(--green-dark) !important; font-size:13px !important; font-weight:700 !important; text-align:center !important; }
 body.phone-preview .performance-card-footer .performance-insights { white-space:nowrap !important; }
 
+.performance-card-footer .performance-insights,
+.performance-card-footer .view-all-listings { width:100%; min-height:44px; display:flex; align-items:center; justify-content:center; margin:0; padding:0; border:0; background:transparent; color:var(--green-dark); font-size:13px; font-weight:700; text-align:center; }
+
 @media (max-width:360px) {
   body.phone-preview .dashboard-performance .performance-kpis { grid-template-columns:1fr !important; }
   body.phone-preview .performance-date-filter { min-width:80px !important; padding:0 9px !important; }
