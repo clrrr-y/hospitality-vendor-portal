@@ -2588,3 +2588,21 @@ body.phone-preview .dashboard-performance .view-all-listings { width:100% !impor
   body.phone-preview .dashboard-greeting { flex-direction:column !important; }
   body.phone-preview .greeting-date-filter { align-self:flex-end !important; }
 }
+body.phone-preview .dashboard-date-filter-below-action {
+  align-self:flex-end !important;
+  min-width:88px !important;
+  min-height:44px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:8px !important;
+  margin:-12px 0 24px !important;
+  padding:8px 10px !important;
+  border:1px solid var(--line) !important;
+  border-radius:8px !important;
+  background:#fff !important;
+  color:var(--ink) !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+}

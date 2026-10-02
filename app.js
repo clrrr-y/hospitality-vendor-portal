@@ -198,14 +198,15 @@ dashboard17=function(){
   const revenue=state.range==='Today'?'₱6,420':state.range==='Yesterday'?'₱5,880':state.range==='This month'?'₱124,860':state.range==='Last week'?'₱84,260':'₱84,260';
   const comparison=state.range==='Today'?'vs yesterday':state.range==='Yesterday'?'vs previous day':state.range==='This month'?'vs previous month':state.range==='Last week'?'vs previous week':'vs previous period';
   const change=state.range==='Today'?'+12%':state.range==='Yesterday'?'+6%':state.range==='This month'?'+14%':state.range==='Last week'?'+9%':'+8%';
-  const greeting='<section class="dashboard-business dashboard-greeting"><div><strong>Welcome back, Leah!</strong><span class="dashboard-date">'+todayLabel()+'</span></div><button class="greeting-date-filter" data-header-filter aria-label="Change Dashboard date range"><span>'+state.range+'</span><span aria-hidden="true">⌄</span></button></section>';
+  const greeting='<section class="dashboard-business dashboard-greeting"><div><strong>Welcome back, Leah!</strong><span class="dashboard-date">'+todayLabel()+'</span></div></section>';
+  const dateFilter='<button class="dashboard-date-filter-below-action" data-header-filter aria-label="Change Dashboard date range"><span>'+state.range+'</span><span aria-hidden="true">⌄</span></button>';
   const kpis='<div class="performance-kpis '+(owner?'owner':'staff')+'"><article class="performance-kpi"><span>Orders</span><strong>'+ordersTotal+'</strong><small>↑ '+change+' <em>'+comparison+'</em></small></article>'+(owner?'<article class="performance-kpi"><span>Revenue</span><strong>'+revenue+'</strong><small>↑ +8.1% <em>'+comparison+'</em></small></article>':'')+'</div>';
   const insight=owner?'<button class="performance-insights" data-insights>View insights '+icons.arrow+'</button>':'';
   const activityCard='<section class="performance-tab-card card order-activity-card" data-performance-panel><div class="performance-card-heading"><div><h3>Order activity</h3><span>'+period.title+' · '+period.sub+'</span></div></div>'+dashboardPerformanceChart(period.values,period.labels,period.takeaway,period.intervals,period.highlight)+'</section>';
   const topRows=dashboardTopListings().slice(0,3).map(x=>'<div class="performance-listing-row"><strong>'+x[0]+'</strong><span>'+x[1]+'</span></div>').join('');
   const topCard='<section class="performance-tab-card card top-listings-performance-card" data-performance-panel><div class="performance-card-heading"><div><h3>Top listings</h3><span>'+period.title+' · top three by order count</span></div></div><div class="performance-listing-list">'+topRows+'</div><div class="performance-card-footer"><button class="view-all-listings" data-view-all-listings>View all listings '+icons.arrow+'</button></div></section>';
   const performance='<section class="dashboard-performance"><div class="performance-heading"><div><h2>Performance</h2><span class="performance-range">'+rangeDates+'</span></div>'+insight+'</div>'+kpis+activityCard+topCard+'</section>';
-  html=html.replace(/<section class="dashboard-business">[\s\S]*?<\/section>/,greeting);
+  html=html.replace(/<section class="dashboard-business">[\s\S]*?<\/section>/,greeting).replace(/(<section class="dashboard-section needs-action card(?: needs-action-empty)?">[\s\S]*?<\/section>)/,'$1'+dateFilter);
   return html.replace(/<section class="dashboard-performance">[\s\S]*?(?=<section class="dashboard-section card schedule-section)/,performance);
 };
 render();
