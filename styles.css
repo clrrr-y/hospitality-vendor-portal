@@ -2635,3 +2635,14 @@ body.phone-preview .dashboard-section.needs-action .needs-action-row {
 }
 body.phone-preview .dashboard-section.needs-action .needs-action-row > .needs-action-label { grid-column:1 !important; grid-row:1 !important; }
 body.phone-preview .dashboard-section.needs-action .needs-action-row > .needs-action-chevron { grid-column:2 !important; grid-row:1 !important; }
+body.phone-preview .dashboard-date-filter-below-action {
+  max-width:100% !important;
+  white-space:normal !important;
+  text-align:left !important;
+}
+body.phone-preview .dashboard-date-filter-below-action span:first-child {
+  min-width:0 !important;
+  max-width:calc(100% - 26px) !important;
+  white-space:normal !important;
+  line-height:1.2 !important;
+}
