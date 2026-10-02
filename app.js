@@ -198,7 +198,7 @@ dashboard17=function(){
   const revenue=state.range==='Today'?'₱6,420':state.range==='Yesterday'?'₱5,880':state.range==='This month'?'₱124,860':state.range==='Last week'?'₱84,260':'₱84,260';
   const comparison=state.range==='Today'?'vs yesterday':state.range==='Yesterday'?'vs previous day':state.range==='This month'?'vs previous month':state.range==='Last week'?'vs previous week':'vs previous period';
   const change=state.range==='Today'?'+12%':state.range==='Yesterday'?'+6%':state.range==='This month'?'+14%':state.range==='Last week'?'+9%':'+8%';
-  const greeting='<section class="dashboard-business dashboard-greeting"><div><strong>Welcome back, Leah!</strong><span class="dashboard-date">'+todayLabel()+'</span></div></section>';
+  const greeting='<section class="dashboard-business dashboard-greeting"><div><strong>Welcome back, Leah!</strong></div></section>';
   const dateFilter='<button class="dashboard-date-filter-below-action" data-header-filter aria-label="Change Dashboard date range"><span>'+dashboardAppliedRangeLabel()+'</span><i class="hgi-stroke hgi-calendar-03" aria-hidden="true"></i></button>';
   const kpis='<div class="performance-kpis '+(owner?'owner':'staff')+'"><article class="performance-kpi"><span>Orders</span><strong>'+ordersTotal+'</strong><small>↑ '+change+' <em>'+comparison+'</em></small></article>'+(owner?'<article class="performance-kpi"><span>Revenue</span><strong>'+revenue+'</strong><small>↑ +8.1% <em>'+comparison+'</em></small></article>':'')+'</div>';
   const insight=owner?'<button class="performance-insights" data-insights>View insights '+icons.arrow+'</button>':'';
