@@ -2772,3 +2772,62 @@ body.phone-preview .orders-filter-backdrop{position:absolute;inset:0}body.phone-
   background: #f0edef !important;
   color: var(--muted) !important;
 }
+
+/* Orders period tabs share one neutral container; List/Calendar is a dropdown. */
+.orders-time-tabs {
+  display: block !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  background: #f0edef !important;
+}
+.orders-time-tabs-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+.orders-time-tabs-inner button {
+  min-width: 0;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: var(--muted) !important;
+}
+.orders-time-tabs-inner button.active {
+  background: var(--green) !important;
+  color: #fff !important;
+}
+.orders-view-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.orders-view-dropdown span { flex: 0 0 auto; }
+.orders-view-dropdown::after {
+  content: '⌄';
+  position: absolute;
+  right: 12px;
+  color: var(--green-dark);
+  pointer-events: none;
+}
+.orders-view-dropdown select {
+  min-width: 92px;
+  min-height: 42px;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  padding: 0 22px 0 8px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 650;
+  text-align: right;
+  cursor: pointer;
+}
