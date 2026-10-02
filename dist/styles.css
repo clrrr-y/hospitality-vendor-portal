@@ -2527,3 +2527,64 @@ body.phone-preview .dashboard-section.needs-action.needs-action-empty p {
   font-size:15px !important;
   font-weight:600 !important;
 }
+/* Stacked mobile Dashboard Performance with the date control in the greeting. */
+body.phone-preview .dashboard-greeting {
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  min-width:0 !important;
+}
+body.phone-preview .dashboard-greeting > div { min-width:0 !important; }
+body.phone-preview .dashboard-greeting .dashboard-date { display:block !important; margin-top:4px !important; color:var(--muted) !important; font-size:13px !important; line-height:1.3 !important; }
+body.phone-preview .greeting-date-filter {
+  flex:0 0 auto !important;
+  min-width:88px !important;
+  min-height:44px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:8px !important;
+  padding:8px 10px !important;
+  border:1px solid var(--line) !important;
+  border-radius:8px !important;
+  background:#fff !important;
+  color:var(--ink) !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+}
+body.phone-preview .dashboard-performance .performance-heading {
+  align-items:flex-start !important;
+  margin:0 0 12px !important;
+}
+body.phone-preview .dashboard-performance .performance-heading h2 { font-size:20px !important; }
+body.phone-preview .dashboard-performance .performance-heading .performance-range { display:block !important; margin-top:4px !important; color:var(--muted) !important; font-size:13px !important; line-height:1.3 !important; }
+body.phone-preview .dashboard-performance .performance-date-filter { display:none !important; }
+body.phone-preview .dashboard-performance .performance-tabs { display:none !important; }
+body.phone-preview .dashboard-performance .performance-tab-card {
+  width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 0 4px !important;
+  padding:16px !important;
+  overflow:hidden !important;
+}
+body.phone-preview .dashboard-performance .performance-tab-card:last-child { margin-bottom:0 !important; }
+body.phone-preview .dashboard-performance .performance-card-heading { margin:0 0 10px !important; }
+body.phone-preview .dashboard-performance .performance-card-heading h3 { font-size:18px !important; }
+body.phone-preview .dashboard-performance .performance-card-heading span { display:block !important; margin-top:4px !important; font-size:13px !important; }
+body.phone-preview .dashboard-performance .performance-chart-frame { height:176px !important; }
+body.phone-preview .dashboard-performance .performance-chart-plot { height:142px !important; }
+body.phone-preview .dashboard-performance .performance-chart-legend { margin-top:10px !important; justify-content:center !important; }
+body.phone-preview .dashboard-performance .performance-takeaway { margin:10px 0 0 !important; }
+body.phone-preview .dashboard-performance .performance-listing-list { margin:0 !important; }
+body.phone-preview .dashboard-performance .performance-listing-row { min-height:44px !important; padding:12px 0 !important; border-bottom:1px solid var(--line) !important; }
+body.phone-preview .dashboard-performance .performance-listing-row:last-child { border-bottom:0 !important; }
+body.phone-preview .dashboard-performance .performance-card-footer { display:flex !important; align-items:center !important; justify-content:center !important; min-height:60px !important; margin:12px -16px -16px !important; padding:8px 16px !important; border-top:1px solid var(--line) !important; }
+body.phone-preview .dashboard-performance .view-all-listings { width:100% !important; min-height:44px !important; display:flex !important; align-items:center !important; justify-content:center !important; border:0 !important; background:transparent !important; color:var(--green-dark) !important; font-size:13px !important; font-weight:700 !important; }
+@media (max-width:360px) {
+  body.phone-preview .dashboard-greeting { flex-direction:column !important; }
+  body.phone-preview .greeting-date-filter { align-self:flex-end !important; }
+}
