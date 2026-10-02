@@ -175,9 +175,9 @@ function bind(){document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()
 const dashboard18BaseForActions=dashboard18Final;
 dashboard18Final=function(){
   let html=dashboard18BaseForActions();
-  const actionItems=[{count:2,label:'orders to confirm',icon:'clipboard-02',filter:'Pending'},{count:1,label:'ready for pickup',icon:'package-delivered',filter:'Ready'}].filter(item=>item.count>0);
+  const actionItems=[{count:2,label:'orders to confirm',filter:'Pending'},{count:1,label:'ready for pickup',filter:'Ready'}].filter(item=>item.count>0);
   const actionCard=actionItems.length
-    ? '<section class="dashboard-section needs-action card"><div class="section-heading"><div><h2>Action required</h2></div></div><div class="action-count-grid">'+actionItems.map(item=>'<button class="needs-action-row" data-page="orders" data-order-filter-link="'+item.filter+'"><span class="needs-action-icon"><i class="hgi-stroke hgi-'+item.icon+'" aria-hidden="true"></i></span><span class="needs-action-label"><strong>'+item.count+'</strong> '+item.label+'</span><span class="needs-action-chevron" aria-hidden="true">›</span></button>').join('')+'</div></section>'
+    ? '<section class="dashboard-section needs-action card"><div class="section-heading"><div class="needs-action-heading"><i class="hgi-stroke hgi-alert-02" aria-hidden="true"></i><h2>Action required</h2></div></div><div class="action-count-grid">'+actionItems.map(item=>'<button class="needs-action-row" data-page="orders" data-order-filter-link="'+item.filter+'"><span class="needs-action-label"><strong>'+item.count+'</strong> '+item.label+'</span><span class="needs-action-chevron" aria-hidden="true">›</span></button>').join('')+'</div></section>'
     : '<section class="dashboard-section needs-action card needs-action-empty"><div class="section-heading"><div><h2>Action required</h2></div></div><p>You’re all caught up.</p></section>';
   html=html.replace(/<button[^>]*data-view-all-listings[^>]*>[\s\S]*?<\/button>/g,'');
   return html.replace(/<section class="dashboard-section needs-action card">[\s\S]*?<\/section>/,actionCard);

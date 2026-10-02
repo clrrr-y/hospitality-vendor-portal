@@ -2606,3 +2606,24 @@ body.phone-preview .dashboard-date-filter-below-action {
   font-weight:600 !important;
   line-height:1 !important;
 }
+body.phone-preview .dashboard-section.needs-action { border-radius:16px !important; }
+body.phone-preview .dashboard-section.needs-action .needs-action-heading {
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+}
+body.phone-preview .dashboard-section.needs-action .needs-action-heading i {
+  flex:0 0 20px !important;
+  width:20px !important;
+  height:20px !important;
+  color:#875B24 !important;
+  font-size:20px !important;
+  line-height:1 !important;
+}
+body.phone-preview .dashboard-section.needs-action .needs-action-heading h2 { margin:0 !important; color:#4A321C !important; }
+body.phone-preview .dashboard-section.needs-action .needs-action-row {
+  grid-template-columns:minmax(0,1fr) 18px !important;
+  column-gap:0 !important;
+}
+body.phone-preview .dashboard-section.needs-action .needs-action-row > .needs-action-label { grid-column:1 !important; grid-row:1 !important; }
+body.phone-preview .dashboard-section.needs-action .needs-action-row > .needs-action-chevron { grid-column:2 !important; grid-row:1 !important; }
