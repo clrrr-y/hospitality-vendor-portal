@@ -3167,7 +3167,8 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .is-grid .listing-compact-actions{grid-column:2;grid-row:1;justify-content:flex-end;align-self:start;margin:0}
 .is-grid .listing-action-menu{top:auto;bottom:38px}
 .listing-toggle-control input:checked+span{background:#15935f}
-.listing-edit-action{min-width:42px;min-height:36px;padding:0 8px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--plum);font-size:12px;font-weight:650;cursor:pointer}
+.listing-edit-action{width:44px;min-width:44px;height:44px;min-height:44px;display:grid;place-items:center;padding:0;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--plum);font-size:19px;font-weight:650;cursor:pointer}
+.listing-edit-action i{font-size:19px;line-height:1}
 .listing-edit-action:hover{border-color:#cdbcc5;background:var(--green-soft)}
 
 /* Grid thumbnails: lightweight mock photography that stays available offline. */
