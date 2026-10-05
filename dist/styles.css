@@ -1145,6 +1145,10 @@ body.phone-preview .menu-row > svg, body.phone-preview .menu-row > span:last-chi
 
 /* Make Orders List/Calendar a reliably clickable dropdown instead of a styled native select. */
 .custom-orders-view-dropdown{padding:0;z-index:7}.custom-orders-view-dropdown::after{display:none}.custom-orders-view-dropdown>button{width:100%;min-height:42px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 12px;border:0;border-radius:9px;background:transparent;color:var(--ink);font:inherit;font-weight:650;text-align:left;cursor:pointer}.orders-view-dropdown-chevron{color:var(--green-dark);font-size:16px;line-height:1}.orders-view-dropdown-menu{position:absolute;left:0;right:0;top:48px;z-index:12;display:grid;gap:3px;padding:5px;border:1px solid var(--line);border-radius:10px;background:#fff;box-shadow:0 8px 22px rgba(35,20,30,.12)}.orders-view-dropdown-menu button{min-height:40px;padding:0 10px;border:0;border-radius:7px;background:#fff;color:var(--ink);text-align:left;font-size:13px;font-weight:600}.orders-view-dropdown-menu button.active,.orders-view-dropdown-menu button:hover{background:var(--green-soft);color:var(--plum)}
+
+/* Listings: give the primary create action the full content width. */
+.page-head:has(.listings-create-action){display:grid;grid-template-columns:1fr;align-items:stretch;gap:12px}
+.page-head .listings-create-action{width:100%;min-height:44px}
 .orders-filters { display:grid; gap:12px; margin:16px 0; }
 .orders-period { margin:16px 0 0; color:var(--muted); font-size:13px; }
 .orders-filter-group { display:grid; gap:6px; }
@@ -1156,6 +1160,10 @@ body.phone-preview .menu-row > svg, body.phone-preview .menu-row > span:last-chi
   .menu-row { min-height:52px; padding:10px 16px; }
   .orders-filter-group .filter { min-height:40px; }
 }
+
+/* Keep the Listings primary action full-width after the mobile page-head reset. */
+body.phone-preview .page-head:has(.listings-create-action){display:grid !important;grid-template-columns:1fr;gap:12px}
+body.phone-preview .page-head .listings-create-action{display:flex !important;width:100% !important}
 
 @media (max-width:430px) {
   .dashboard-performance .performance-heading-actions { flex-wrap:wrap; justify-content:flex-end; }
