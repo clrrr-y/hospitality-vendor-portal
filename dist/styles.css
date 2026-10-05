@@ -3282,9 +3282,9 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .dashboard-greeting>div{display:grid;gap:3px;min-width:0}
 .dashboard-greeting>div>strong{font-size:22px;line-height:1.2;overflow-wrap:anywhere}
 .dashboard-greeting>div>small{color:var(--muted);font-size:13px;line-height:1.25}
-.dashboard-greeting .dashboard-date-control{width:auto;min-width:116px;min-height:44px;padding:8px 11px;border-radius:8px;box-shadow:none}
-.dashboard-greeting .dashboard-date-control strong{font-size:13px}
-.dashboard-greeting .dashboard-date-control small{font-size:11px}
+.dashboard-greeting .dashboard-date-control{width:100%;min-width:0;min-height:58px;padding:11px 14px;border-radius:12px;box-shadow:none}
+.dashboard-greeting .dashboard-date-control strong{font-size:15px}
+.dashboard-greeting .dashboard-date-control small{font-size:12px}
 .dashboard-greeting .dashboard-date-control i{font-size:20px}
 .dashboard-requests-section{padding:16px;background:#fff;border:0;border-radius:20px;box-shadow:0 4px 16px rgba(51,28,40,.06)}
 .dashboard-requests-section>.dashboard-operational-heading{padding:0 0 2px;align-items:center}
