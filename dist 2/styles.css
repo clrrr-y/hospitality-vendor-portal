@@ -1135,6 +1135,9 @@ body.phone-preview .insights-period-control { top:116px !important; }
 .menu-row-icon { display:grid; place-items:center; width:32px; height:32px; color:var(--green-dark); }
 .menu-row-icon .nav-hugeicon { width:22px; height:22px; font-size:22px; }
 .menu-row > svg, .menu-row > span:last-child { color:var(--green-dark); font-size:20px; }
+body.phone-preview .menu-group h2 { font-size:16px; }
+body.phone-preview .menu-row { font-size:13px; }
+body.phone-preview .menu-row > svg, body.phone-preview .menu-row > span:last-child { font-size:18px; }
 .orders-filters { display:grid; gap:12px; margin:16px 0; }
 .orders-period { margin:16px 0 0; color:var(--muted); font-size:13px; }
 .orders-filter-group { display:grid; gap:6px; }
