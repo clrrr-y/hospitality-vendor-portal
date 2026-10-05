@@ -3302,15 +3302,15 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .dashboard-request-review-pill{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:#f4edf2;color:var(--plum);font-size:10px;font-weight:700;line-height:1.2}
 .dashboard-request-main p{font-size:12px;line-height:1.35}
 .dashboard-request-financial{color:var(--text);font-size:12px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
-.dashboard-request-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dashboard-request-footer{display:grid;gap:8px}
 .dashboard-request-deadline{color:#875b24;font-size:12px;line-height:1.3}
 .dashboard-request-deadline.urgent{font-weight:800}
-.dashboard-request-actions{display:flex;gap:8px;margin-left:auto}
-.dashboard-request-actions button{width:auto!important;min-width:84px;min-height:44px;padding:8px 12px!important;border-radius:9px!important;font-size:12px!important}
-.dashboard-request-actions button.secondary{border-color:transparent!important;background:transparent!important;color:var(--plum)!important}
+.dashboard-request-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;margin:0}
+.dashboard-request-actions button{width:100%!important;min-width:0;min-height:44px;padding:8px 12px!important;border-radius:8px!important;font-size:14px!important;font-weight:600!important}
+.dashboard-request-actions button.secondary{border:1px solid var(--plum)!important;background:#fff!important;color:var(--plum)!important}
 .dashboard-request-actions button:disabled{cursor:wait;opacity:.65!important}
 .dashboard-booking-status{max-width:none!important;white-space:nowrap}
-@media(max-width:380px){.dashboard-greeting{align-items:flex-start;flex-wrap:wrap}.dashboard-greeting .dashboard-date-control{margin-left:auto}.dashboard-request-footer{align-items:stretch}.dashboard-request-deadline{flex:1 0 100%}.dashboard-request-actions{width:100%;margin-left:0}.dashboard-request-actions button{flex:1}.dashboard-request-indicator{font-size:9px}}
+@media(max-width:380px){.dashboard-greeting{align-items:flex-start;flex-wrap:wrap}.dashboard-greeting .dashboard-date-control{margin-left:auto}.dashboard-request-indicator{font-size:9px}}
 /* Keep the reporting control in the greeting section, directly below the greeting. */
 body.phone-preview .dashboard-greeting,
 .dashboard-greeting{flex-direction:column;align-items:stretch;justify-content:flex-start}
