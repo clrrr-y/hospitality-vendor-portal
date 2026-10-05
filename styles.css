@@ -3313,3 +3313,8 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .dashboard-request-actions button:disabled{cursor:wait;opacity:.65!important}
 .dashboard-booking-status{max-width:none!important;white-space:nowrap}
 @media(max-width:380px){.dashboard-greeting{align-items:flex-start;flex-wrap:wrap}.dashboard-greeting .dashboard-date-control{margin-left:auto}.dashboard-request-footer{align-items:stretch}.dashboard-request-deadline{flex:1 0 100%}.dashboard-request-actions{width:100%;margin-left:0}.dashboard-request-actions button{flex:1}.dashboard-request-indicator{font-size:9px}}
+/* Keep the reporting control in the greeting section, directly below the greeting. */
+body.phone-preview .dashboard-greeting,
+.dashboard-greeting{flex-direction:column;align-items:stretch;justify-content:flex-start}
+body.phone-preview .dashboard-greeting .dashboard-date-control,
+.dashboard-greeting .dashboard-date-control{width:100%;margin-left:0;align-self:stretch}
