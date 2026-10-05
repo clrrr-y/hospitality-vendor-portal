@@ -3154,6 +3154,9 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 /* Listings grid view uses one readable card per row. */
 .compact-listing-grid.is-grid{grid-template-columns:1fr !important}
 
+/* Menu typography follows the regular page weight instead of bold row labels. */
+.menu-group h2,.menu-row{font-weight:400}
+
 /* Grid thumbnails: lightweight mock photography that stays available offline. */
 .listing-mock-photo{position:relative;overflow:hidden;isolation:isolate;color:#fff;background:linear-gradient(135deg,#e9b48f,#7b3f58)}
 .listing-mock-photo::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,rgba(255,255,255,.28),transparent 38%,rgba(42,22,31,.22))}
