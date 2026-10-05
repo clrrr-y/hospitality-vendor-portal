@@ -3338,7 +3338,7 @@ body.phone-preview .dashboard-greeting .dashboard-date-control,
 .dashboard-receivable-footer .dashboard-receivable-breakdown summary{padding:8px 0;list-style:none;color:var(--plum);font-weight:700;cursor:pointer}
 .dashboard-receivable-footer .dashboard-receivable-breakdown summary::-webkit-details-marker{display:none}
 .dashboard-receivable-footer .dashboard-receivable-breakdown>div{min-width:180px;padding:8px 0}
-.dashboard-upcoming-section{gap:12px;padding:0;background:transparent;border:0;box-shadow:none}
+.dashboard-upcoming-section{gap:12px;padding:16px;background:#fff;border:0;border-radius:20px;box-shadow:0 4px 16px rgba(51,28,40,.06)}
 .dashboard-upcoming-section>.dashboard-operational-heading h2{font-size:18px}
 .dashboard-upcoming-section>.dashboard-operational-heading .dashboard-inline-link{min-height:44px;font-size:12px}
 .dashboard-booking-group{gap:10px}
