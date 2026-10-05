@@ -3307,7 +3307,7 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .dashboard-request-deadline.urgent{font-weight:800}
 .dashboard-request-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;margin:0}
 .dashboard-request-actions button{width:100%!important;min-width:0;min-height:44px;padding:8px 12px!important;border-radius:8px!important;font-size:14px!important;font-weight:600!important}
-.dashboard-request-actions button.secondary{border:1.5px solid #52233c!important;background:#fff!important;color:#52233c!important;box-shadow:inset 0 0 0 1px rgba(82,35,60,.08)}
+.dashboard-request-actions button.secondary{border:1px solid #52233c!important;background:#fff!important;color:#52233c!important;box-shadow:none}
 .dashboard-request-actions button:disabled{cursor:wait;opacity:.65!important}
 .dashboard-booking-status{max-width:none!important;white-space:nowrap}
 @media(max-width:380px){.dashboard-greeting{align-items:flex-start;flex-wrap:wrap}.dashboard-greeting .dashboard-date-control{margin-left:auto}.dashboard-request-indicator{font-size:9px}}
