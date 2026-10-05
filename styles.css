@@ -3297,7 +3297,9 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .dashboard-request-main{gap:4px}
 .dashboard-request-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
 .dashboard-request-title-row h3{font-size:15px;line-height:1.25;overflow-wrap:anywhere}
+.dashboard-request-indicators{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex:0 0 auto}
 .dashboard-request-new-pill{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:#f4e3c4;color:#875b24;font-size:10px;font-weight:700;line-height:1.2}
+.dashboard-request-review-pill{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:#f4edf2;color:var(--plum);font-size:10px;font-weight:700;line-height:1.2}
 .dashboard-request-main p{font-size:12px;line-height:1.35}
 .dashboard-request-financial{color:var(--text);font-size:12px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
 .dashboard-request-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
