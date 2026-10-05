@@ -3153,3 +3153,17 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 
 /* Listings grid view uses one readable card per row. */
 .compact-listing-grid.is-grid{grid-template-columns:1fr !important}
+
+/* Grid thumbnails: lightweight mock photography that stays available offline. */
+.listing-mock-photo{position:relative;overflow:hidden;isolation:isolate;color:#fff;background:linear-gradient(135deg,#e9b48f,#7b3f58)}
+.listing-mock-photo::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,rgba(255,255,255,.28),transparent 38%,rgba(42,22,31,.22))}
+.listing-mock-photo::after{content:"";position:absolute;right:-8%;bottom:-24%;width:58%;height:70%;border-radius:50% 50% 0 0;background:rgba(255,255,255,.2);transform:rotate(-12deg)}
+.listing-mock-sun{position:absolute;top:13%;right:13%;width:17%;aspect-ratio:1;border-radius:50%;background:rgba(255,238,191,.9);box-shadow:0 0 0 8px rgba(255,238,191,.12)}
+.listing-mock-shape{position:absolute;left:14%;right:20%;bottom:17%;height:36%;border-radius:52% 52% 12% 12%;background:linear-gradient(160deg,rgba(255,245,218,.95),rgba(205,115,91,.8));box-shadow:0 -8px 0 rgba(255,220,174,.38),0 12px 0 rgba(75,31,49,.18)}
+.listing-mock-label{position:absolute;left:14%;bottom:9%;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 3px rgba(40,20,28,.24)}
+.listing-mock-photo.mock-box{background:linear-gradient(135deg,#9dc5b8,#376d6a)}
+.listing-mock-photo.mock-box .listing-mock-shape{left:20%;right:20%;bottom:22%;height:34%;border-radius:8px;background:linear-gradient(145deg,#f1d39e,#c78452);box-shadow:inset 0 0 0 4px rgba(255,244,213,.25),0 10px 0 rgba(25,67,67,.2);transform:rotate(-5deg)}
+.listing-mock-photo.mock-box .listing-mock-sun{background:rgba(231,248,213,.92)}
+.listing-mock-photo.mock-coffee{background:linear-gradient(135deg,#b8a39b,#4c3a48)}
+.listing-mock-photo.mock-coffee .listing-mock-shape{left:28%;right:28%;bottom:16%;height:46%;border-radius:10px 10px 28px 28px;background:linear-gradient(145deg,#f4e3c4,#9d6b51);box-shadow:inset 0 8px 0 rgba(255,247,224,.28),0 12px 0 rgba(45,30,38,.28)}
+.listing-mock-photo.mock-coffee .listing-mock-sun{top:16%;right:18%;width:13%;background:rgba(255,234,196,.86)}
