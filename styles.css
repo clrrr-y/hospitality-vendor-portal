@@ -3338,14 +3338,17 @@ body.phone-preview .dashboard-greeting .dashboard-date-control,
 .dashboard-receivable-footer .dashboard-receivable-breakdown summary{padding:8px 0;list-style:none;color:var(--plum);font-weight:700;cursor:pointer}
 .dashboard-receivable-footer .dashboard-receivable-breakdown summary::-webkit-details-marker{display:none}
 .dashboard-receivable-footer .dashboard-receivable-breakdown>div{min-width:180px;padding:8px 0}
-.dashboard-upcoming-section{gap:12px;padding:16px;background:#fff;border:0;border-radius:20px;box-shadow:0 4px 16px rgba(51,28,40,.06)}
+.dashboard-upcoming-section{gap:12px;padding:0;background:transparent;border:0;box-shadow:none}
 .dashboard-upcoming-section>.dashboard-operational-heading h2{font-size:18px}
 .dashboard-upcoming-section>.dashboard-operational-heading .dashboard-inline-link{min-height:44px;font-size:12px}
+.dashboard-booking-list{display:grid;gap:10px}
 .dashboard-booking-group{gap:10px}
-.dashboard-booking-group h3{margin:0 0 2px;font-size:13px;color:var(--muted);font-weight:700}
+.dashboard-booking-group h3{display:none}
 .dashboard-booking-row{display:block;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--text);box-shadow:none}
 .dashboard-booking-row:first-of-type{margin-top:0}
 .dashboard-booking-main{display:grid;gap:4px;min-width:0;text-align:left}
-.dashboard-booking-title-line{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.dashboard-booking-time-line{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.dashboard-booking-time-line>small{min-width:0;color:var(--muted);font-size:12px;line-height:1.3}
+.dashboard-booking-time-line .dashboard-booking-status{flex:0 0 auto}
 .dashboard-booking-row .dashboard-booking-title{font-size:15px;line-height:1.25;overflow-wrap:anywhere}
 .dashboard-booking-main small{color:var(--muted);font-size:12px;line-height:1.3;overflow-wrap:anywhere}
