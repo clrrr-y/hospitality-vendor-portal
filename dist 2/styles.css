@@ -3254,6 +3254,10 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .dashboard-qr-close{position:absolute;top:10px;right:12px;width:36px;height:36px;border:0;background:transparent;color:var(--plum);font-size:24px}
 .dashboard-qr-modal .button{width:100%;min-height:44px}
 .dashboard-qr-success{padding:10px;border-radius:9px;background:#eaf4ee;color:#286345;font-size:13px;font-weight:700}
+.chat-workspace{display:grid;gap:12px;padding:16px;border-radius:16px;background:#fff;box-shadow:0 4px 16px rgba(51,28,40,.06)}
+.chat-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:14px 0;border:0;border-top:1px solid var(--line);background:transparent;color:var(--text);text-align:left}
+.chat-row span:first-child{display:grid;gap:3px;min-width:0}.chat-row strong{font-size:15px}.chat-row small{color:var(--muted);font-size:12px;overflow-wrap:anywhere}.chat-unread{flex:0 0 auto;padding:4px 7px;border-radius:999px;background:var(--green-soft);color:var(--green-dark);font-size:11px;font-weight:700}.chat-empty-note{margin:0;color:var(--muted);font-size:12px}
+@media(max-width:600px){body .mobile-nav,body.phone-preview .mobile-nav{grid-template-columns:repeat(4,minmax(0,1fr)) !important}}
 @media(max-width:380px){.dashboard-receivable-metrics{grid-template-columns:1fr 1fr}.dashboard-receivable-metrics>div:last-child{grid-column:1/-1}.dashboard-request-top{align-items:flex-start;flex-direction:column;gap:4px}.dashboard-request-top strong{white-space:normal}.dashboard-booking-status{max-width:45%}}
 
 /* Grid thumbnails: lightweight mock photography that stays available offline. */
