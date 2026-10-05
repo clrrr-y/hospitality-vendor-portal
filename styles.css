@@ -3170,6 +3170,17 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .listing-edit-action{width:44px;min-width:44px;height:44px;min-height:44px;display:grid;place-items:center;padding:0;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--plum);font-size:19px;font-weight:650;cursor:pointer}
 .listing-edit-action i{font-size:19px;line-height:1}
 .listing-edit-action:hover{border-color:#cdbcc5;background:var(--green-soft)}
+.listing-guest-preview-page{display:grid;gap:12px;padding-bottom:92px;min-width:0}
+.listing-guest-preview{overflow:hidden;background:#fff}
+.listing-guest-preview-photo{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;background:#f2edef}
+.listing-guest-preview-body{display:grid;gap:10px;padding:16px}
+.listing-guest-preview-body h1{font-size:22px;line-height:1.2;overflow-wrap:anywhere}
+.listing-guest-preview-body p{color:var(--muted);font-size:13px;line-height:1.45}
+.listing-guest-preview-price{display:flex;align-items:baseline;gap:5px}
+.listing-guest-preview-price strong{font-size:20px}
+.listing-guest-preview-price span,.listing-guest-preview-meta{color:var(--muted);font-size:12px}
+.listing-guest-preview-meta{display:grid;gap:4px}
+.listing-guest-preview-body .button{width:100%;margin-top:4px}
 
 /* Grid thumbnails: lightweight mock photography that stays available offline. */
 .listing-mock-photo{position:relative;overflow:hidden;isolation:isolate;color:#fff;background:linear-gradient(135deg,#e9b48f,#7b3f58)}
