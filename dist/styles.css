@@ -3161,6 +3161,12 @@ body.phone-preview .filter-sheet-actions .filter-apply {
 .is-grid .listing-cover.grid{display:block;width:100%;height:100%;min-height:0;aspect-ratio:2/1;object-fit:cover;border-radius:16px 16px 0 0}
 .is-grid .listing-cover-frame{width:100%;aspect-ratio:2/1;overflow:hidden;border-radius:16px 16px 0 0}
 .is-grid .listing-cover-frame .listing-cover.grid{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;border-radius:0}
+.is-grid .listing-compact-card{overflow:visible}
+.is-grid .listing-compact-body{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px;padding:12px}
+.is-grid .listing-card-main{grid-column:1;grid-row:1;min-width:0}
+.is-grid .listing-compact-actions{grid-column:2;grid-row:1;justify-content:flex-end;align-self:start;margin:0}
+.is-grid .listing-action-menu{top:auto;bottom:38px}
+.listing-toggle-control input:checked+span{background:#15935f}
 
 /* Grid thumbnails: lightweight mock photography that stays available offline. */
 .listing-mock-photo{position:relative;overflow:hidden;isolation:isolate;color:#fff;background:linear-gradient(135deg,#e9b48f,#7b3f58)}
