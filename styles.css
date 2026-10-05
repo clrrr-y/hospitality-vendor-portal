@@ -3150,3 +3150,6 @@ body.phone-preview .filter-sheet-actions .filter-apply {
  .earnings-transaction-toolbar{grid-template-columns:1fr}
  .earnings-filters-trigger{width:100%}
 }
+
+/* Listings grid view uses one readable card per row. */
+.compact-listing-grid.is-grid{grid-template-columns:1fr !important}
