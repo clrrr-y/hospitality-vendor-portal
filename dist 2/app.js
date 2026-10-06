@@ -555,7 +555,7 @@ insightsPageForView=function(){return phase1InsightsPage()};
 const phase1ShellBeforeOverride=shell3;
 shell3=function(content){if(content.includes('phase1-insights-page')){let html=shell2(content);if(state.page==='insights')html=html.replace(/<header class="topbar">[\s\S]*?<\/header>/,'');return html+insightsDownloadModal()}return phase1ShellBeforeOverride(content)};
 const phase1FilterSheetBeforeOverride=filterSheet;
-filterSheet=function(){return phase1FilterSheetBeforeOverride().replaceAll('>Custom range<','>Custom<')};
+filterSheet=function(){return phase1FilterSheetBeforeOverride().replace(/<div class="compare-options">[\s\S]*?<\/div>/,'').replaceAll('>Custom range<','>Custom<')};
 const phase1DownloadModalBeforeOverride=insightsDownloadModal;
 insightsDownloadModal=function(){if(!state.insightsDownloadOpen)return '';const tab=state.insightTab==='listings'?'Listings':state.insightTab==='orders'?'Bookings':'Sales';return '<div class="insights-download-backdrop" data-download-close></div><section class="insights-download-modal" role="dialog" aria-modal="true" aria-label="Download report"><div class="sheet-handle"></div><div class="insights-download-heading"><div><h2>Download report</h2><span>'+tab+' · '+phase1DateRangeLabel()+'</span></div><button data-download-close aria-label="Close download report">×</button></div><button class="insights-download-option" data-download-format="CSV"><span>CSV</span><small>Comma-separated values</small><b aria-hidden="true">›</b></button><button class="insights-download-option" data-download-format="PDF"><span>PDF</span><small>Portable document</small><b aria-hidden="true">›</b></button></section>'};
 const phase1BindDownloadBeforeOverride=bindInsightsDownload;
