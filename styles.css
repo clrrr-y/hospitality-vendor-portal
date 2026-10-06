@@ -724,6 +724,11 @@ body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !impor
 .phase1-horizontal-bars span{min-width:0;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.phase1-horizontal-bars i{display:block;height:10px;border-radius:999px;background:#f0edf0;overflow:hidden}.phase1-horizontal-bars i b{display:block;height:100%;border-radius:inherit;background:#93608d}.phase1-horizontal-bars strong{color:var(--ink);font-size:12px;white-space:nowrap}
 .phase1-attention-card summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none}.phase1-attention-card summary::-webkit-details-marker{display:none}.phase1-attention-card summary h2{margin:0;font-size:16px}.phase1-attention-card summary b{font-size:18px;font-weight:400;color:var(--plum)}.phase1-attention-card[open] summary b{transform:rotate(180deg)}.phase1-attention-card>div{display:grid;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}.phase1-attention-card>div span{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.phase1-attention-card>div strong{color:var(--ink);font-size:14px}
 @media(max-width:380px){.phase1-metric,.phase1-report-card{padding:14px}.phase1-metric>strong{font-size:21px}.phase1-horizontal-bars>div{grid-template-columns:minmax(82px,1fr) minmax(64px,1.6fr) auto;gap:6px}.phase1-horizontal-bars span{font-size:11px}.phase1-toggle button{padding:0 7px}.phase1-card-heading{gap:6px}}
+
+/* Insights tabs are one grouped control with a clear plum primary state. */
+.phase1-insights-tabs{gap:4px;padding:4px;border:1px solid var(--line);border-radius:14px;background:#f5f2f4;overflow:hidden}
+.phase1-insights-tabs button{border-radius:10px;background:transparent;color:var(--muted)}
+.phase1-insights-tabs button.active{background:var(--green);color:#fff;box-shadow:0 1px 3px rgba(19,10,14,.12)}
 @media (max-width:360px) {
   .polished-card-header .button { font-size:11px; }
   .earnings-pending { gap:10px; }
