@@ -730,13 +730,13 @@ body.phone-preview .dev-tools[style] { right:auto !important; bottom:auto !impor
 .phase1-insights-tabs button{border-radius:10px;background:transparent;color:var(--muted)}
 .phase1-insights-tabs button.active{background:var(--green);color:#fff;box-shadow:0 1px 3px rgba(19,10,14,.12)}
 body.phone-preview .app-shell.phone-frame .page:has(.phase1-insights-page){padding-top:0!important}
-body.phone-preview .app-shell.phone-frame .page:has(.phase1-insights-page){padding-left:0!important;padding-right:0!important}
+body.phone-preview .app-shell.phone-frame .page:has(.phase1-insights-page){padding-left:16px!important;padding-right:16px!important}
 .phase1-insights-header{width:calc(100% + 32px);min-height:80px;margin:0 -16px;padding:18px 16px;background:#fff}
 body.phone-preview .phase1-insights-page{width:100%;max-width:none;margin:0}
 body.phone-preview .phase1-insights-page>.phase1-insights-period,
 body.phone-preview .phase1-insights-page>.phase1-insights-tabs,
 body.phone-preview .phase1-insights-page>.phase1-insights-content{width:min(100%,760px);margin-left:auto;margin-right:auto}
-body.phone-preview .phase1-insights-page>.phase1-insights-header{width:100%;margin-left:0;margin-right:0}
+body.phone-preview .phase1-insights-page>.phase1-insights-header{width:calc(100% + 32px);margin-left:-16px;margin-right:-16px}
 @media (max-width:360px) {
   .polished-card-header .button { font-size:11px; }
   .earnings-pending { gap:10px; }
