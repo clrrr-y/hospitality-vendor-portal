@@ -737,6 +737,10 @@ body.phone-preview .phase1-insights-page>.phase1-insights-period,
 body.phone-preview .phase1-insights-page>.phase1-insights-tabs,
 body.phone-preview .phase1-insights-page>.phase1-insights-content{width:min(100%,760px);margin-left:auto;margin-right:auto}
 body.phone-preview .phase1-insights-page>.phase1-insights-header{width:calc(100% + 32px);margin-left:-16px;margin-right:-16px}
+body.phone-preview .app-shell.phone-frame .page:has(.phase1-insights-page){background:#fff}
+.phase1-insights-page .phase1-metric,
+.phase1-insights-page .phase1-report-card{box-shadow:0 2px 12px rgba(51,28,40,.08)}
+.phase1-page-shell{background:#fff!important}
 @media (max-width:360px) {
   .polished-card-header .button { font-size:11px; }
   .earnings-pending { gap:10px; }
@@ -3435,3 +3439,8 @@ body.phone-preview .dashboard-greeting .dashboard-date-control,
 .dashboard-booking-time-line .dashboard-booking-status{flex:0 0 auto}
 .dashboard-booking-row .dashboard-booking-title{font-size:15px;line-height:1.25;overflow-wrap:anywhere}
 .dashboard-booking-main small{color:var(--muted);font-size:12px;line-height:1.3;overflow-wrap:anywhere}
+
+/* Insights uses a white reporting canvas while retaining soft card separation. */
+body.phone-preview .app-shell.phone-frame:has(.phase1-insights-page),
+body.phone-preview .app-shell.phone-frame:has(.phase1-insights-page) .main-wrap,
+body.phone-preview .app-shell.phone-frame:has(.phase1-insights-page) .page{background:#fff!important}
