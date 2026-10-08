@@ -16,6 +16,14 @@
     <div id="app" class="app-shell phone-frame" aria-live="polite"></div>
     <div id="toast-region" aria-live="polite"></div>
     <noscript>This portal needs JavaScript enabled.</noscript>
-    <script src="app.js?v=264"></script>
+    <script>
+      try {
+        const savedView = JSON.parse(localStorage.getItem('cabana:last-view-v3') || 'null');
+        if (!savedView?.page) history.replaceState(null, '', '#view=chat');
+      } catch (error) {
+        history.replaceState(null, '', '#view=chat');
+      }
+    </script>
+    <script src="app.js?v=265"></script>
   </body>
 </html>

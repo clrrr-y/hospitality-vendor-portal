@@ -4,7 +4,7 @@ const navIcon=(icon,active)=>`<i class="nav-hugeicon ${active?'hgi-solid ':''}hg
 const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const displayBookingReference=id=>String(id||'').replace(/^[A-Z]+-/i,'BK-');
 const state={page:'dashboard',role:'Owner',ordersPaused:false,orderFilter:'All',orderTypeFilter:'All',orderStatusFilter:'All',orderPaymentFilter:'All',query:'',orderView:'list',orderViewMenuOpen:false,range:'Today',detail:null,listing:null,listingDetail:null,listingView:'list',listingStatusFilter:'All',listingQuery:'',listingMenu:null,toast:'',dashboardScroll:0,dashboardSeenRequests:['ORD-1042'],dashboardRequestProcessing:null,insightQuery:'',insightSort:'count',insightMetric:'revenue',insightTab:'listings',performanceTab:'top',filterSheet:false,filterDraftRange:'Today',compareMode:'previous',filterDraftCompare:'previous',customFrom:'',customTo:'',devPosition:null,listingsExportOpen:false,insightsDownloadOpen:false,listingsZeroOnly:false,listingSortOpen:false};
-const cabanaLastViewKey='cabana:last-view-v2';
+const cabanaLastViewKey='cabana:last-view-v3';
 let cabanaRestoredFromStorage=false;
 let cabanaBooting=true;
 const cabanaLastViewFromUrl=()=>{
