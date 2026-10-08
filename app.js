@@ -4,7 +4,7 @@ const navIcon=(icon,active)=>`<i class="nav-hugeicon ${active?'hgi-solid ':''}hg
 const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const displayBookingReference=id=>String(id||'').replace(/^[A-Z]+-/i,'BK-');
 const state={page:'dashboard',role:'Owner',ordersPaused:false,orderFilter:'All',orderTypeFilter:'All',orderStatusFilter:'All',orderPaymentFilter:'All',query:'',orderView:'list',orderViewMenuOpen:false,range:'Today',detail:null,listing:null,listingDetail:null,listingView:'list',listingStatusFilter:'All',listingQuery:'',listingMenu:null,toast:'',dashboardScroll:0,dashboardSeenRequests:['ORD-1042'],dashboardRequestProcessing:null,insightQuery:'',insightSort:'count',insightMetric:'revenue',insightTab:'listings',performanceTab:'top',filterSheet:false,filterDraftRange:'Today',compareMode:'previous',filterDraftCompare:'previous',customFrom:'',customTo:'',devPosition:null,listingsExportOpen:false,insightsDownloadOpen:false,listingsZeroOnly:false,listingSortOpen:false};
-const cabanaLastViewKey='cabana:last-view';
+const cabanaLastViewKey='cabana:last-view-v2';
 let cabanaRestoredFromStorage=false;
 let cabanaBooting=true;
 const cabanaLastViewFromUrl=()=>{
@@ -29,7 +29,7 @@ try {
   state.listingView=localStorage.getItem('cabana:listings-view')==='grid'?'grid':'list';
 } catch (error) {}
 const cabanaUrlView=cabanaLastViewFromUrl();
-if(!cabanaRestoredFromStorage&&cabanaUrlView?.page) state.page=cabanaUrlView.page;
+if(!cabanaRestoredFromStorage&&cabanaUrlView?.page&&cabanaUrlView.page!=='insights') state.page=cabanaUrlView.page;
 if(cabanaUrlView?.pending) state.dashboardRequestFocusId=cabanaUrlView.pending;
 /* Preserve the route requested by the URL/storage while legacy startup layers initialise. */
 const cabanaInitialPage=state.page==='insights'?'dashboard':state.page;
@@ -2018,7 +2018,12 @@ render=function(){
   if(state.page!=='orders')return;
   document.querySelectorAll('[data-latest-status-filter]').forEach(control=>control.onchange=()=>{
     const value=control.dataset.latestStatusFilter,selected=bookingLatestSelectedStatusesFinal();
-    state.bookingLatestFilters.status=value==='All statuses'?[]:(selected.includes(value)?selected.filter(item=>item!==value):selected.concat(value));
+    let next=[];
+    if(value!=='All statuses'){
+      next=control.checked?(selected.includes(value)?selected:selected.concat(value)):selected.filter(item=>item!==value);
+      if(next.length===bookingPastStatusOptionsFinal.length)next=[];
+    }
+    state.bookingLatestFilters.status=next;
     render();
   });
   document.querySelectorAll('[data-latest-filter-reset]').forEach(button=>button.onclick=()=>{state.bookingLatestFilters={date:'All dates',listing:[],type:'All',status:[]};render()});
