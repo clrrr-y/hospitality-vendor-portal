@@ -6,30 +6,12 @@
     <meta name="theme-color" content="#ffffff" />
     <title>Cabana Vendor Portal</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23462133'/%3E%3Cpath d='M8 18c4-7 12-7 16 0M10 18v5m12-5v5M7 24h18' stroke='white' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../styles.css?v=230" />
+    <link rel="stylesheet" href="../styles.css?v=270" />
   </head>
   <body class="phone-preview">
     <div id="app" class="app-shell phone-frame" aria-live="polite"></div>
     <div id="toast-region" aria-live="polite"></div>
     <noscript>This portal needs JavaScript enabled.</noscript>
-    <script>
-      try {
-        const savedView = JSON.parse(localStorage.getItem('cabana:last-view-v3') || 'null');
-        const homeEntryRestored = localStorage.getItem('cabana:home-entry-v1') === '1';
-        if (!homeEntryRestored) {
-          const homeView = { ...savedView, page: 'dashboard', detail: null };
-          localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
-          localStorage.setItem('cabana:home-entry-v1', '1');
-          history.replaceState(null, '', '#view=dashboard');
-        } else if (savedView?.page === 'insights') {
-          const homeView = { ...savedView, page: 'dashboard', detail: null };
-          localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
-          history.replaceState(null, '', '#view=dashboard');
-        } else if (!savedView?.page) history.replaceState(null, '', '#view=dashboard');
-      } catch (error) {
-        history.replaceState(null, '', '#view=dashboard');
-      }
-    </script>
-    <script src="../app.js?v=269"></script>
+    <script src="../app.js?v=270"></script>
   </body>
 </html>
