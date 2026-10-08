@@ -2349,3 +2349,247 @@ window.addEventListener('click',event=>{
   dashboardFlashNewRequestCard(targetId);
   card.scrollIntoView({block:'center',behavior:'smooth'});
 },true);
+
+/* ===== Chat (Phase 1 spec): list, conversation, system cards, archiving, notifications. ===== */
+const cxMonths={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+const cxToday='Oct 7',cxYesterday='Oct 6';
+const cxNow=new Date(2026,9,7,20,0).getTime();
+const cxStamp=(day,time)=>{const d=String(day||'').match(/([A-Z][a-z]{2})\s+(\d{1,2})/),t=String(time||'').match(/(\d{1,2}):(\d{2})\s*([AP]M)/i);if(!d)return 0;let h=t?Number(t[1])%12+(/p/i.test(t[3])?12:0):23,m=t?Number(t[2]):59;return new Date(2026,cxMonths[d[1]]??9,Number(d[2]),h,m).getTime()};
+const cxDayLabel=day=>day===cxToday?'Today':day===cxYesterday?'Yesterday':day;
+const cxNowTime=()=>new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+const cxSender=()=>state.role==='Owner'?'Leah · Owner':'Marco · Staff';
+const cxAmount=value=>String(value||'').replace(/\.00\b/g,'');
+const cxBookingRef=id=>'#'+displayBookingReference(id);
+const cxActiveStatuses=['Pending','Confirmed','Scheduled','In progress','In use','Ready'];
+const cxAllBookings=()=>{const list=typeof bookingLatestAll==='function'?bookingLatestAll():[];const ids=new Set(list.map(item=>item.id));return list.concat(orders.filter(order=>order.status==='Pending'&&!ids.has(order.id)))};
+const cxBooking=id=>cxAllBookings().find(item=>item.id===id);
+const cxStatus=record=>{if(!record)return '';const status=typeof bookingFinalDisplayStatus==='function'?bookingFinalDisplayStatus(record):record.status;return status==='Scheduled'?'Confirmed':status};
+const cxStatusClass=status=>'cx-status-'+String(status||'').toLowerCase().replace(/[^a-z]+/g,'-');
+const cxBookingEnd=record=>{const text=String(record?.when||''),dates=[...text.matchAll(/([A-Z][a-z]{2})\s+(\d{1,2})(?:\s*[·,]\s*(\d{1,2}:\d{2}\s*[AP]M))?/g)];if(!dates.length)return 0;const last=dates[dates.length-1];let end=cxStamp(last[1]+' '+last[2],last[3]||'11:59 PM');const hours=text.match(/·\s*(\d+)\s*hours?\s*$/i),days=dates.length===1&&text.match(/·\s*(\d+)\s*days?\s*$/i);if(hours)end+=Number(hours[1])*3600000;else if(days)end+=Number(days[1])*86400000;else if(dates.length===1&&last[3])end+=2*3600000;return end};
+const cxThreads=[
+  {id:'fd-luna',kind:'frontdesk',hotel:'Luna Bay Resort',unread:1,messages:[
+    {day:cxYesterday,time:'4:10 PM',from:'them',text:'Hi! Guest in Room 314 wants a van for a day trip.'},
+    {day:cxYesterday,time:'4:14 PM',from:'system',kind:'created',booking:'CB-9001',text:'Booking #BK-9001 created by Front Desk for Room 314'},
+    {day:cxYesterday,time:'4:20 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Got it. The van will be ready at 9:00 AM.'},
+    {day:cxToday,time:'10:42 AM',from:'them',text:'Can you take 2 more pax tomorrow?'}]},
+  {id:'g-marco',kind:'guest',name:'Marco Santos',room:'508',hotel:'Luna Bay Resort',unread:2,messages:[
+    {day:cxToday,time:'9:02 AM',from:'system',kind:'confirmed',booking:'BK-9003',text:'Booking #BK-9003 confirmed · Today 4:30 PM'},
+    {day:cxToday,time:'9:40 AM',from:'them',text:'Hi! What time should I be at the lobby?'},
+    {day:cxToday,time:'9:44 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Please be at the lobby by 4:15 PM. Your driver will message you here.'},
+    {day:cxToday,time:'10:30 AM',from:'them',text:'Is the SUV big enough for 4 suitcases?'},
+    {day:cxToday,time:'10:31 AM',from:'them',text:'What time is pickup?'}]},
+  {id:'g-amelia',kind:'guest',name:'Amelia Reyes',room:'508',hotel:'Luna Bay Resort',unread:0,messages:[
+    {day:cxYesterday,time:'6:05 PM',from:'system',kind:'confirmed',booking:'CB-9007',text:'Booking #BK-9007 confirmed · Oct 7 4:30 PM'},
+    {day:cxYesterday,time:'6:20 PM',from:'them',text:'Can we keep the car for an extra hour?'},
+    {day:cxYesterday,time:'6:24 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Yes, we can. I’ve added the extra hour.'},
+    {day:cxYesterday,time:'6:25 PM',from:'system',kind:'charge',booking:'CB-9007',text:'Extra charge ₱500 · Extra hour'},
+    {day:cxToday,time:'8:12 AM',from:'system',kind:'confirmed',booking:'CB-9010',text:'Booking #BK-9010 confirmed · Oct 9 8:30 AM'},
+    {day:cxToday,time:'8:20 AM',from:'me',sender:'Leah · Owner',status:'failed',text:'See you at the lobby at 4:30 PM today.'}]},
+  {id:'g-maya',kind:'guest',name:'Maya Tan',room:'314',hotel:'Luna Bay Resort',unread:0,messages:[
+    {day:'Oct 2',time:'3:15 PM',from:'them',text:'Do you have a van for the airport tomorrow?'},
+    {day:'Oct 2',time:'3:20 PM',from:'me',sender:'Ana · Staff',status:'read',text:'We do. Please send the request in the app and we’ll confirm.'},
+    {day:cxToday,time:'7:30 AM',from:'divider',booking:'CB-9001',text:'New booking #BK-9001 · Oct 6'},
+    {day:cxToday,time:'7:32 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Hi Maya, your van is booked for 9:00 AM tomorrow. See you at the lobby.'},
+    {day:cxToday,time:'7:50 AM',from:'them',text:'Perfect, thank you!'}]},
+  {id:'g-sofia',kind:'guest',name:'Sofia Lim',room:'602',hotel:'Luna Bay Resort',unread:0,messages:[
+    {day:cxToday,time:'9:55 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Your driver is at the lobby.'},
+    {day:cxToday,time:'11:40 AM',from:'them',text:'Made it to the airport. Thanks!'}]},
+  {id:'g-nina',kind:'guest',name:'Nina Garcia',room:'203',hotel:'Luna Bay Resort',unread:0,messages:[
+    {day:cxYesterday,time:'9:15 AM',from:'them',text:'Thanks, see you at the lobby!'},
+    {day:cxYesterday,time:'9:18 AM',from:'me',sender:'Ana · Staff',status:'read',text:'You’re welcome. We’ll see you there.'}]},
+  {id:'g-oliver',kind:'guest',name:'Oliver Brown',room:'205',hotel:'Luna Bay Resort',unread:0,messages:[
+    {day:cxYesterday,time:'7:45 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Good morning! Your van is outside.'},
+    {day:cxYesterday,time:'6:30 PM',from:'them',text:'Great day out. Thanks for the ride!'}]},
+  {id:'g-priya',kind:'guest',name:'Priya Shah',room:'412',hotel:'Luna Bay Resort',unread:0,messages:[
+    {day:'Oct 2',time:'9:00 AM',from:'system',kind:'cancelled',text:'Booking cancelled · Weather'},
+    {day:'Oct 3',time:'10:05 AM',from:'divider',booking:'CB-8812',text:'New booking #BK-8812 · Oct 3'},
+    {day:'Oct 3',time:'6:40 PM',from:'me',sender:'Leah · Owner',status:'read',text:'Your sedan is at the lobby.'},
+    {day:'Oct 3',time:'9:10 PM',from:'them',text:'Arrived safely. Thank you!'}]}
+];
+state.cx=state.cx||{view:'list',filter:'All',query:'',threadId:null,showAllBookings:false};
+try{state.cxSound=localStorage.getItem('cabana:chat-sound')||'Default'}catch(error){state.cxSound='Default'}
+const cxThread=id=>cxThreads.find(thread=>thread.id===id);
+const cxGuestBookings=thread=>thread.kind!=='guest'?[]:cxAllBookings().filter(item=>item.guest===thread.name&&String(item.room)===String(thread.room));
+const cxActiveBookings=thread=>cxGuestBookings(thread).filter(item=>cxActiveStatuses.includes(item.status));
+const cxPrimaryBooking=thread=>{const active=cxActiveBookings(thread).slice().sort((a,b)=>cxBookingEnd(a)-cxBookingEnd(b));if(active.length)return active[0];return cxGuestBookings(thread).slice().sort((a,b)=>cxBookingEnd(b)-cxBookingEnd(a))[0]};
+const cxLastStamp=thread=>{const last=thread.messages[thread.messages.length-1];return last?cxStamp(last.day,last.time):0};
+const cxIsArchived=thread=>{
+  if(thread.kind!=='guest')return false;
+  const bookings=cxGuestBookings(thread);
+  if(!bookings.length||bookings.some(item=>cxActiveStatuses.includes(item.status)))return false;
+  const lastEnd=Math.max(...bookings.map(cxBookingEnd),0),lastGuest=Math.max(0,...thread.messages.filter(message=>message.from==='them').map(message=>cxStamp(message.day,message.time)));
+  return cxNow>Math.max(lastEnd,lastGuest)+86400000;
+};
+const cxUnreadTotal=()=>cxThreads.filter(thread=>!cxIsArchived(thread)).reduce((sum,thread)=>sum+(thread.unread||0),0);
+const cxPreview=thread=>{const last=[...thread.messages].reverse().find(message=>message.from!=='divider');if(!last)return 'No messages yet.';return last.from==='me'?'You: '+last.text:last.text};
+const cxRowTime=thread=>{const last=thread.messages[thread.messages.length-1];if(!last)return '';return last.day===cxToday?last.time:cxDayLabel(last.day)};
+const cxTitle=thread=>thread.kind==='frontdesk'?thread.hotel+' · Front Desk':thread.name+' · Room '+thread.room;
+const cxInitials=name=>String(name||'').split(/\s+/).map(part=>part[0]||'').join('').slice(0,2).toUpperCase();
+const cxAvatar=thread=>thread.kind==='frontdesk'
+  ?'<span class="cx-avatar is-frontdesk" aria-hidden="true"><i class="hgi-stroke hgi-building-03"></i></span>'
+  :'<span class="cx-avatar is-guest" aria-hidden="true">'+esc(cxInitials(thread.name))+'<i class="hgi-stroke hgi-user"></i></span>';
+const cxRoleTag=thread=>thread.kind==='frontdesk'?'<span class="cx-role is-frontdesk"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i>Front Desk</span>':'<span class="cx-role is-guest"><i class="hgi-stroke hgi-user" aria-hidden="true"></i>Guest</span>';
+const cxMatches=thread=>{
+  const query=String(state.cx.query||'').trim().toLowerCase();if(!query)return true;
+  const refs=cxGuestBookings(thread).map(item=>[item.id,displayBookingReference(item.id),'#'+displayBookingReference(item.id)].join(' '));
+  return [thread.name,thread.hotel,thread.kind==='frontdesk'?'Front Desk':'',thread.room?'Room '+thread.room:'',thread.room,...refs].filter(Boolean).join(' ').toLowerCase().includes(query);
+};
+const cxRow=thread=>{
+  const archived=cxIsArchived(thread),unread=!archived&&thread.unread>0,booking=cxPrimaryBooking(thread),preview=cxPreview(thread);
+  const subtitle=thread.kind==='guest'?(booking?'<b>'+esc(cxBookingRef(booking.id))+'</b> · ':'')+esc(preview):esc(preview);
+  return '<button class="cx-row'+(unread?' is-unread':'')+'" type="button" data-cx-open="'+thread.id+'">'+cxAvatar(thread)
+    +'<span class="cx-row-copy"><span class="cx-row-title"><strong>'+esc(cxTitle(thread))+'</strong></span>'
+    +'<span class="cx-row-meta-line">'+cxRoleTag(thread)+(archived?'<span class="cx-archived-tag">Archived</span>':'')+'</span>'
+    +'<span class="cx-row-preview">'+subtitle+'</span></span>'
+    +'<span class="cx-row-side"><time>'+esc(cxRowTime(thread))+'</time>'+(unread?'<b class="cx-unread" aria-label="'+thread.unread+' unread">'+thread.unread+'</b>':'')+'</span></button>';
+};
+const cxListView=()=>{
+  const query=String(state.cx.query||'').trim(),filter=state.cx.filter||'All';
+  const inFilter=thread=>filter==='All'||filter==='Guests'&&thread.kind==='guest'||filter==='Front Desk'&&thread.kind==='frontdesk';
+  const pool=cxThreads.filter(inFilter).filter(cxMatches).filter(thread=>query||!cxIsArchived(thread));
+  const frontDesk=pool.filter(thread=>thread.kind==='frontdesk'),guests=pool.filter(thread=>thread.kind==='guest').sort((a,b)=>cxLastStamp(b)-cxLastStamp(a));
+  const archivedCount=cxThreads.filter(thread=>cxIsArchived(thread)&&inFilter(thread)).length;
+  const rows=frontDesk.concat(guests);
+  const list=rows.length?rows.map(cxRow).join(''):'<p class="cx-empty">'+(query?'No conversations match “'+esc(query)+'”.':'No messages yet.')+'</p>';
+  const archivedRow=!query&&filter!=='Front Desk'?'<button class="cx-archived-link" type="button" data-cx-archived>Archived ('+archivedCount+') <span aria-hidden="true">→</span></button>':'';
+  return '<div class="cx-page cx-list-page">'
+    +'<header class="cx-header"><h1>Chat</h1></header>'
+    +'<div class="cx-tools"><label class="cx-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input type="search" data-cx-search value="'+esc(state.cx.query||'')+'" placeholder="Search guest, room, or booking number" aria-label="Search guest, room, or booking number" autocomplete="off"></label>'
+    +'<div class="cx-segment" role="tablist" aria-label="Filter conversations">'+['All','Guests','Front Desk'].map(name=>'<button type="button" role="tab" aria-selected="'+(filter===name)+'" class="'+(filter===name?'is-active':'')+'" data-cx-filter="'+name+'">'+name+'</button>').join('')+'</div></div>'
+    +(query?'<p class="cx-search-note">Including archived conversations</p>':'')
+    +'<section class="cx-list" aria-label="Conversations">'+list+archivedRow+'</section></div>';
+};
+const cxArchivedView=()=>{
+  const rows=cxThreads.filter(cxIsArchived).sort((a,b)=>cxLastStamp(b)-cxLastStamp(a));
+  return '<div class="cx-page cx-archived-page"><header class="cx-header cx-header-back"><button class="cx-back" type="button" data-cx-back aria-label="Back to Chat">←</button><h1>Archived</h1></header>'
+    +'<p class="cx-archived-note">Guest chats close 24 hours after their last booking ends. They are read-only.</p>'
+    +'<section class="cx-list">'+(rows.length?rows.map(cxRow).join(''):'<p class="cx-empty">No archived conversations.</p>')+'</section></div>';
+};
+const cxBookingCard=(record,pinned)=>{
+  if(!record)return '';
+  const status=cxStatus(record),when=String(record.when||'').replace(cxToday+' · ','Today · ').replace(cxToday+', ','Today · ');
+  return '<button class="cx-booking'+(pinned?' is-pinned':'')+'" type="button" data-cx-booking="'+esc(record.id)+'"><span class="cx-booking-copy"><strong>'+esc(cxBookingRef(record.id))+' · '+esc(record.item)+'</strong><small>'+esc(when)+' <em class="cx-status '+cxStatusClass(status)+'">'+esc(status)+'</em></small></span><span class="cx-booking-view">View →</span></button>';
+};
+const cxTicks=message=>message.status==='sending'?'<span class="cx-state is-sending" aria-label="Sending">◷</span>':message.status==='sent'?'<span class="cx-state is-sent" aria-label="Sent">✓</span>':message.status==='read'?'<span class="cx-state is-read" aria-label="Read">✓✓</span>':'';
+const cxSystemIcon={confirmed:'checkmark-circle-02',charge:'money-add-02',created:'calendar-add-01',cancelled:'cancel-circle'};
+const cxMessage=(message,index,thread)=>{
+  if(message.from==='divider')return '<div class="cx-new-booking"><span>'+esc(message.text)+'</span></div>';
+  if(message.from==='system'){
+    const view=message.kind==='created'&&message.booking?'<button type="button" class="cx-system-link" data-cx-booking="'+esc(message.booking)+'">View →</button>':'';
+    return '<div class="cx-system is-'+esc(message.kind||'info')+'"><i class="hgi-stroke hgi-'+(cxSystemIcon[message.kind]||'information-circle')+'" aria-hidden="true"></i><span>'+esc(message.text)+'</span>'+view+'</div>';
+  }
+  const mine=message.from==='me';
+  const body=message.image?'<img class="cx-photo" src="'+message.image+'" alt="Photo sent">':esc(message.text);
+  const meta=mine
+    ?'<span class="cx-meta"><span>'+esc(message.sender||cxSender())+' · '+esc(message.time)+'</span>'+cxTicks(message)+'</span>'
+    :'<span class="cx-meta"><span>'+esc(message.time)+'</span></span>';
+  const failed=mine&&message.status==='failed'?'<button type="button" class="cx-retry" data-cx-retry="'+index+'">Not sent · Tap to retry</button>':'';
+  return '<div class="cx-msg '+(mine?'is-mine':'is-theirs')+(message.status==='failed'?' is-failed':'')+'"><div class="cx-bubble">'+body+'</div>'+(failed||meta)+'</div>';
+};
+const cxThreadView=()=>{
+  const thread=cxThread(state.cx.threadId);if(!thread){state.cx.view='list';return cxListView()}
+  const archived=cxIsArchived(thread),guest=thread.kind==='guest';
+  const sub=guest?esc(thread.hotel)+' · Room '+esc(thread.room):esc(thread.hotel);
+  let pinned='';
+  if(guest){
+    const primary=cxPrimaryBooking(thread),others=cxGuestBookings(thread).filter(item=>item!==primary&&cxActiveStatuses.includes(item.status));
+    pinned='<div class="cx-pinned">'+cxBookingCard(primary,true)+(others.length?(state.cx.showAllBookings?others.map(item=>cxBookingCard(item,true)).join('')+'<button type="button" class="cx-more-bookings" data-cx-toggle-bookings>Show less</button>':'<button type="button" class="cx-more-bookings" data-cx-toggle-bookings>+'+others.length+' more active booking'+(others.length>1?'s':'')+'</button>'):'')+'</div>';
+  }
+  let lastDay='',stream='';
+  thread.messages.forEach((message,index)=>{if(message.day!==lastDay){stream+='<div class="cx-day"><span>'+esc(cxDayLabel(message.day))+'</span></div>';lastDay=message.day}stream+=cxMessage(message,index,thread)});
+  const quick=['On my way','I’m at the lobby','Running 10 min late','Thank you!'];
+  const footer=archived
+    ?'<footer class="cx-ended">This conversation has ended. Contact the Front Desk for help.</footer>'
+    :'<footer class="cx-composer-wrap"><div class="cx-quick" aria-label="Quick replies">'+quick.map(text=>'<button type="button" data-cx-quick="'+esc(text)+'">'+esc(text)+'</button>').join('')+'</div>'
+      +'<form class="cx-composer" data-cx-form><label class="cx-attach" aria-label="Attach photo"><i class="hgi-stroke hgi-image-add-02" aria-hidden="true"></i><input type="file" accept="image/*" data-cx-photo hidden></label><input class="cx-input" name="message" placeholder="Message '+esc(guest?thread.name.split(' ')[0]:'Front Desk')+'" autocomplete="off" aria-label="Message"><button class="cx-send" type="submit" aria-label="Send"><i class="hgi-stroke hgi-sent" aria-hidden="true"></i></button></form></footer>';
+  return '<div class="cx-page cx-thread'+(archived?' is-archived':'')+'"><header class="cx-header cx-header-back cx-thread-header"><button class="cx-back" type="button" data-cx-back aria-label="Back to Chat">←</button>'+cxAvatar(thread)+'<span class="cx-thread-title"><strong>'+esc(guest?thread.name:thread.hotel)+'</strong><small>'+cxRoleTag(thread)+'<span>'+sub+'</span></small></span></header>'
+    +pinned+'<section class="cx-stream" aria-label="Messages">'+(stream||'<p class="cx-empty">No messages yet.</p>')+'</section>'+footer+'</div>';
+};
+chatView=function(){return state.cx.view==='thread'?cxThreadView():state.cx.view==='archived'?cxArchivedView():cxListView()};
+const cxScrollToEnd=()=>{const page=document.querySelector('.page');if(page)page.scrollTop=page.scrollHeight};
+const cxOpenThread=id=>{const thread=cxThread(id);if(!thread)return;state.page='chat';state.detail=null;state.cx.view='thread';state.cx.threadId=id;state.cx.showAllBookings=false;if(!cxIsArchived(thread))thread.unread=0;render();cxScrollToEnd();requestAnimationFrame(cxScrollToEnd)};
+const cxDeliver=message=>{setTimeout(()=>{message.status='sent';if(state.page==='chat')render()},700);setTimeout(()=>{message.status='read';if(state.page==='chat')render()},2600)};
+const cxSend=(thread,text,image)=>{if(!thread||cxIsArchived(thread))return;const message={day:cxToday,time:cxNowTime(),from:'me',sender:cxSender(),status:'sending',text:text||'',image:image||null};thread.messages.push(message);render();cxScrollToEnd();cxDeliver(message)};
+const chatTabRenderBase=render;
+render=function(){
+  chatTabRenderBase.apply(this,arguments);
+  const unread=cxUnreadTotal();
+  document.querySelectorAll('[data-page="chat"]').forEach(button=>{let badge=button.querySelector('.nav-badge,.cabana-nav-badge,b');if(unread){if(!badge){badge=document.createElement('b');badge.className='nav-badge';button.appendChild(badge)}badge.textContent=String(unread)}else badge?.remove()});
+  if(state.page!=='chat')return;
+  document.querySelectorAll('[data-cx-filter]').forEach(button=>button.onclick=()=>{state.cx.filter=button.dataset.cxFilter;render()});
+  const search=document.querySelector('[data-cx-search]');
+  if(search)search.oninput=event=>{state.cx.query=event.target.value;render();const next=document.querySelector('[data-cx-search]');if(next){next.focus();next.setSelectionRange(next.value.length,next.value.length)}};
+  document.querySelectorAll('[data-cx-open]').forEach(button=>button.onclick=()=>cxOpenThread(button.dataset.cxOpen));
+  document.querySelectorAll('[data-cx-archived]').forEach(button=>button.onclick=()=>{state.cx.view='archived';render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  document.querySelectorAll('[data-cx-back]').forEach(button=>button.onclick=()=>{const fromArchive=state.cx.view==='thread'&&cxIsArchived(cxThread(state.cx.threadId)||{})&&!state.cx.query;state.cx.view=fromArchive?'archived':'list';state.cx.threadId=null;render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  document.querySelectorAll('[data-cx-booking]').forEach(button=>button.onclick=()=>{state.cxDetailOrigin=state.cx.threadId;state.page='orders';state.detail=button.dataset.cxBooking;render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  document.querySelectorAll('[data-cx-toggle-bookings]').forEach(button=>button.onclick=()=>{state.cx.showAllBookings=!state.cx.showAllBookings;render()});
+  const thread=cxThread(state.cx.threadId);
+  document.querySelectorAll('[data-cx-quick]').forEach(button=>button.onclick=()=>cxSend(thread,button.dataset.cxQuick));
+  document.querySelectorAll('[data-cx-retry]').forEach(button=>button.onclick=()=>{const message=thread?.messages[Number(button.dataset.cxRetry)];if(!message)return;message.status='sending';render();cxDeliver(message)});
+  const form=document.querySelector('[data-cx-form]');
+  if(form)form.onsubmit=event=>{event.preventDefault();const input=form.elements.message,text=String(input.value||'').trim();if(!text)return;cxSend(thread,text);document.querySelector('.cx-input')?.focus()};
+  const photo=document.querySelector('[data-cx-photo]');
+  if(photo)photo.onchange=()=>{const file=photo.files?.[0];if(file)cxSend(thread,'Photo',URL.createObjectURL(file))};
+};
+
+/* Booking detail → "Message guest" / "Message Front Desk" opens the matching thread; View from chat returns to it. */
+window.addEventListener('click',event=>{
+  const trigger=event.target.closest?.('[data-latest-message],[data-detail-action="message"],[data-card-message]');
+  if(trigger){
+    const record=cxBooking(trigger.dataset.cardMessage||state.detail);
+    if(!record)return;
+    event.preventDefault();event.stopImmediatePropagation();
+    if(trigger.dataset.latestMessage==='front-desk'){const desk=cxThreads.find(thread=>thread.kind==='frontdesk'&&thread.hotel===record.hotel)||cxThreads.find(thread=>thread.kind==='frontdesk');if(desk)cxOpenThread(desk.id);return}
+    let thread=cxThreads.find(item=>item.kind==='guest'&&item.name===record.guest&&String(item.room)===String(record.room));
+    if(!thread){thread={id:'g-'+String(record.guest).toLowerCase().replace(/[^a-z]+/g,'-')+'-'+record.room,kind:'guest',name:record.guest,room:String(record.room),hotel:record.hotel||'Luna Bay Resort',unread:0,messages:[]};cxThreads.push(thread)}
+    cxOpenThread(thread.id);
+    return;
+  }
+  const back=event.target.closest?.('[data-latest-back]');
+  if(back&&state.cxDetailOrigin&&state.page==='orders'){
+    event.preventDefault();event.stopImmediatePropagation();
+    const id=state.cxDetailOrigin;state.cxDetailOrigin=null;cxOpenThread(id);
+  }
+},true);
+
+/* New-message notifications: dev simulation, in-app banner, system notification, Chat badge. */
+const cxNotify=(thread,message)=>{
+  if(cxIsArchived(thread))return;
+  document.querySelector('.request-push')?.remove();
+  const banner=document.createElement('div');banner.className='request-push cx-push';banner.setAttribute('role','status');
+  banner.innerHTML='<button class="request-push-body" type="button" data-cx-push-open><span class="request-push-icon" aria-hidden="true"><i class="hgi-stroke hgi-message-01"></i></span><span class="request-push-copy"><span class="request-push-top"><strong>'+esc(cxTitle(thread))+'</strong><time>now</time></span><span class="request-push-item">'+esc(message.text)+'</span></span></button><button class="request-push-close" type="button" aria-label="Dismiss notification">×</button>';
+  document.body.appendChild(banner);
+  const dismiss=()=>{banner.classList.remove('is-visible');setTimeout(()=>banner.remove(),220)};
+  banner.querySelector('[data-cx-push-open]').onclick=()=>{dismiss();cxOpenThread(thread.id)};
+  banner.querySelector('.request-push-close').onclick=dismiss;
+  requestAnimationFrame(()=>banner.classList.add('is-visible'));setTimeout(dismiss,6000);
+  if(state.cxSound!=='Off'&&typeof Notification!=='undefined'&&Notification.permission==='granted'){try{const note=new Notification(cxTitle(thread),{body:message.text,tag:'cabana-chat-'+thread.id,silent:state.cxSound==='Off'});note.onclick=()=>{window.focus();cxOpenThread(thread.id)}}catch(error){}}
+};
+const cxSimulatedMessages=['Hi! Can the driver call me when he arrives?','We’re running 5 minutes late, sorry!','Is there space for a stroller?','Can we change pickup to the main entrance?'];
+const cxSimulateMessage=()=>{
+  const thread=cxThread('g-marco')||cxThreads.find(item=>item.kind==='guest'&&!cxIsArchived(item));if(!thread)return;
+  const text=cxSimulatedMessages[(state.cxSimCount=(state.cxSimCount||0)+1)%cxSimulatedMessages.length];
+  const message={day:cxToday,time:cxNowTime(),from:'them',text};
+  thread.messages.push(message);
+  const viewing=state.page==='chat'&&state.cx.view==='thread'&&state.cx.threadId===thread.id;
+  if(!viewing)thread.unread=(thread.unread||0)+1;
+  render();
+  if(viewing)cxScrollToEnd();else cxNotify(thread,message);
+};
+const devToolsBeforeChatSimulation=devTools;
+devTools=function(){return devToolsBeforeChatSimulation().replace('<button data-dev-reset-simulations>','<button data-dev-simulate-chat>Simulate new message</button><button data-dev-reset-simulations>')};
+window.addEventListener('click',event=>{if(event.target.closest?.('[data-dev-simulate-chat]')){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.dev-tools')?.classList.remove('open');cxSimulateMessage()}},true);
+
+/* Menu → Notifications: chat sound is adjustable; new-booking alerts cannot be muted. */
+const cxNotificationSheet=()=>'<div class="cx-sheet-backdrop" data-cx-sheet-close></div><section class="cx-sheet" role="dialog" aria-label="Notifications"><header><h2>Notifications</h2><button type="button" data-cx-sheet-close aria-label="Close">×</button></header>'
+  +'<div class="cx-sheet-row"><span><strong>New booking alerts</strong><small>Always on. Booking alerts can’t be muted.</small></span><em class="cx-locked"><i class="hgi-stroke hgi-square-lock-02" aria-hidden="true"></i>On</em></div>'
+  +'<div class="cx-sheet-row is-stacked"><span><strong>Chat message sound</strong><small>Plays for new messages from guests and the Front Desk.</small></span><div class="cx-segment">'+['Default','Soft','Off'].map(name=>'<button type="button" class="'+(state.cxSound===name?'is-active':'')+'" data-cx-sound="'+name+'">'+name+'</button>').join('')+'</div></div></section>';
+window.addEventListener('click',event=>{
+  const row=event.target.closest?.('[data-toast="Notification settings opened"]');
+  if(row){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();const wrap=document.createElement('div');wrap.className='cx-sheet-wrap';wrap.innerHTML=cxNotificationSheet();document.body.appendChild(wrap);return}
+  const sound=event.target.closest?.('[data-cx-sound]');
+  if(sound){state.cxSound=sound.dataset.cxSound;try{localStorage.setItem('cabana:chat-sound',state.cxSound)}catch(error){}const wrap=document.querySelector('.cx-sheet-wrap');if(wrap)wrap.innerHTML=cxNotificationSheet();return}
+  if(event.target.closest?.('[data-cx-sheet-close]'))document.querySelector('.cx-sheet-wrap')?.remove();
+},true);
+render();

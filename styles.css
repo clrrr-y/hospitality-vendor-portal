@@ -4559,3 +4559,19 @@ body.phone-preview .app-shell.phone-frame .page:has(.cx-thread),.page:has(.cx-th
 .cx-sheet .cx-segment button.is-active{color:#4a2133}
 body.phone-preview .app-shell.phone-frame .page:has(.cx-thread),.page:has(.cx-thread){height:100%!important;max-height:none!important}
 .cx-thread{min-height:100%}
+
+/* In-app push notification banner (chat messages) */
+.request-push{--plum:#4a2133;position:fixed;top:calc(env(safe-area-inset-top) + 72px);left:50%;z-index:60;display:flex;align-items:flex-start;gap:4px;width:min(calc(100% - 24px),420px);padding:4px;border:1px solid #ece7e9;border-radius:16px;background:#fff;box-shadow:0 10px 30px rgba(19,10,14,.14),0 2px 6px rgba(19,10,14,.06);opacity:0;transform:translate(-50%,-12px);transition:opacity .2s ease,transform .2s ease}
+.request-push.is-visible{opacity:1;transform:translate(-50%,0)}
+.request-push-body{flex:1;min-width:0;display:flex;align-items:flex-start;gap:10px;padding:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);text-align:left}
+.request-push-body:hover{background:#fcf8fa}
+.request-push-icon{width:36px;height:36px;flex:0 0 auto;display:grid;place-items:center;border-radius:50%;background:var(--plum);color:#fff;font-size:18px}
+.request-push-copy{display:grid;gap:2px;min-width:0;flex:1}
+.request-push-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.request-push-top strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:700}
+.request-push-top time{flex:0 0 auto;color:var(--muted);font-size:11px}
+.request-push-item{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:600}
+.request-push-close{width:28px;height:28px;flex:0 0 auto;margin:4px 4px 0 0;padding:0;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:20px;line-height:1}
+.request-push-close:hover{background:#f4f1f2;color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.request-push{transition:none}}
+body:has(.cx-sheet-wrap) .dev-tools{display:none!important}
