@@ -562,6 +562,8 @@ const phase1BindDownloadBeforeOverride=bindInsightsDownload;
 bindInsightsDownload=function(){phase1BindDownloadBeforeOverride();document.querySelectorAll('[data-download-format]').forEach(button=>button.onclick=()=>{const format=button.dataset.downloadFormat,tab=state.insightTab==='listings'?'Listings':state.insightTab==='orders'?'Bookings':'Sales';state.insightsDownloadOpen=false;render();setTimeout(()=>toast(format+' report prepared for '+tab+' · '+phase1DateRangeLabel()),0)})};
 const phase1BindInsightsBeforeOverride=bindInsightsExtras;
 bindInsightsExtras=function(){phase1BindInsightsBeforeOverride();document.querySelectorAll('[data-insights]').forEach(button=>button.onclick=()=>{state.page='insights';state.insightTab='sales';state.range='Last 7 days';state.filterSheet=false;render()});document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-phase1-listing-metric]').forEach(button=>button.onclick=()=>{state.phase1ListingMetric=button.dataset.phase1ListingMetric;render()})};
+const phase1ShellSurfaceBefore=shell3;
+shell3=function(content){const html=phase1ShellSurfaceBefore(content);return content.includes('phase1-insights-page')?html.replace('<main class="page">','<main class="page phase1-page-shell" style="background:#fff">'):html};
 state.range='Last 7 days';state.insightTab='sales';
 render();
 
@@ -569,5 +571,18 @@ render();
 view=function(){return state.page==='orders'&&state.detail?bookingsDetail():state.page==='orders'?bookingsWorkspace():state.page==='bookings'?bookingsWorkspace():state.page==='dashboard'?dashboard17():state.page==='insights'?insightsPageForView():state.page==='staff-listings'?staffListingsView():state.page==='chat'?chatView():state.page==='listings'?listingsClean():state.page==='services'?servicesClean():state.page==='earnings'?earningsClean():state.page==='menu'?menuView():state.page==='profile'?profileView():dashboard17()};
 const renderLegacyFinal=render;
 render=function(){renderLegacyFinal();if(state.page==='orders'||state.page==='bookings'){document.querySelector('#app')?.insertAdjacentHTML('beforeend',bookingFilterSheet()+bookingDeclineModal());bindBookingsFinal();}};
-state.page='orders';state.detail=null;state.bookingTab='Requests';
+const latestRevisionKey='cabana:latest-revision';
+const latestRevision='bookings-refined-v2';
+try {
+  if(localStorage.getItem(latestRevisionKey)!==latestRevision){
+    state.page='orders';
+    state.detail=null;
+    state.bookingTab='Requests';
+    localStorage.setItem(latestRevisionKey,latestRevision);
+  }
+} catch (error) {
+  state.page='orders';
+  state.detail=null;
+  state.bookingTab='Requests';
+}
 render();
