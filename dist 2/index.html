@@ -15,11 +15,15 @@
     <script>
       try {
         const savedView = JSON.parse(localStorage.getItem('cabana:last-view-v3') || 'null');
-        if (!savedView?.page) history.replaceState(null, '', '#view=chat');
+        if (savedView?.page === 'insights') {
+          const homeView = { ...savedView, page: 'dashboard', detail: null };
+          localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
+          history.replaceState(null, '', '#view=dashboard');
+        } else if (!savedView?.page) history.replaceState(null, '', '#view=chat');
       } catch (error) {
         history.replaceState(null, '', '#view=chat');
       }
     </script>
-    <script src="../app.js?v=265"></script>
+    <script src="../app.js?v=266"></script>
   </body>
 </html>
