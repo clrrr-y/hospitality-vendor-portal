@@ -920,7 +920,7 @@ render=function(){renderWithoutDashboardInsights();if(state.page==='dashboard')d
 render();
 
 /* Final activation for Insights → Bookings after all page overrides. */
-try{state.page='insights';state.insightTab='orders';state.phase1BookingMode=state.phase1BookingMode||'day';state.range=state.range==='Today'?'Last 7 days':state.range;localStorage.setItem('cabana:latest-revision','insights-bookings-refined-v1')}catch(error){state.page='insights';state.insightTab='orders';state.range='Last 7 days'}
+try{localStorage.setItem('cabana:latest-revision','current-home-portal-v1')}catch(error){}
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderInsightsBookingLast=render;
 render=function(){renderInsightsBookingLast();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
@@ -937,7 +937,7 @@ phase1InsightsPage=function(){if(state.role!=='Owner')return phase1InsightsPageR
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderBeforeInsightsBookingFinal=render;
 render=function(){renderBeforeInsightsBookingFinal();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
-try{state.page='insights';state.insightTab='orders';state.phase1BookingMode=state.phase1BookingMode||'day';state.range=state.range==='Today'?'Last 7 days':state.range;localStorage.setItem('cabana:latest-revision','insights-bookings-refined-v1')}catch(error){state.page='insights';state.insightTab='orders';state.range='Last 7 days'}
+try{localStorage.setItem('cabana:latest-revision','current-home-portal-v1')}catch(error){}
 render();
 
 /* Transportation rental demo data and final route-safe presentation. */
@@ -1007,7 +1007,7 @@ render=function(){transportRenderBefore();document.querySelectorAll('#app *').fo
 render();
 
 /* Latest revision: keep the requested Insights → Bookings view visible. */
-try{state.page='insights';state.insightTab='orders';state.phase1BookingMode=state.phase1BookingMode||'day';state.range='Last 7 days';localStorage.setItem('cabana:latest-revision','insights-bookings-refined-v1')}catch(error){state.page='insights';state.insightTab='orders';state.range='Last 7 days'}
+try{localStorage.setItem('cabana:latest-revision','current-home-portal-v1')}catch(error){}
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderInsightsBookingsFinal=render;
 render=function(){renderInsightsBookingsFinal();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
@@ -1130,7 +1130,7 @@ render=function(){transportFinalRenderBefore();document.querySelectorAll('#app *
 render();
 
 /* Latest revision activation: Insights → Bookings must be the visible page. */
-state.page='insights';state.insightTab='orders';state.phase1BookingMode=state.phase1BookingMode||'day';state.range='Last 7 days';
+state.page=state.page==='insights'?'dashboard':state.page;
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderInsightsBookingsLast=render;
 render=function(){renderInsightsBookingsLast();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
