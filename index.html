@@ -16,24 +16,6 @@
     <div id="app" class="app-shell phone-frame" aria-live="polite"></div>
     <div id="toast-region" aria-live="polite"></div>
     <noscript>This portal needs JavaScript enabled.</noscript>
-    <script>
-      try {
-        const savedView = JSON.parse(localStorage.getItem('cabana:last-view-v3') || 'null');
-        const homeEntryRestored = localStorage.getItem('cabana:home-entry-v1') === '1';
-        if (!homeEntryRestored) {
-          const homeView = { ...savedView, page: 'dashboard', detail: null };
-          localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
-          localStorage.setItem('cabana:home-entry-v1', '1');
-          history.replaceState(null, '', '#view=dashboard');
-        } else if (savedView?.page === 'insights') {
-          const homeView = { ...savedView, page: 'dashboard', detail: null };
-          localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
-          history.replaceState(null, '', '#view=dashboard');
-        } else if (!savedView?.page) history.replaceState(null, '', '#view=dashboard');
-      } catch (error) {
-        history.replaceState(null, '', '#view=dashboard');
-      }
-    </script>
-    <script src="app.js?v=268"></script>
+    <script src="app.js?v=269"></script>
   </body>
 </html>
