@@ -29,9 +29,8 @@ try {
   state.listingView=localStorage.getItem('cabana:listings-view')==='grid'?'grid':'list';
 } catch (error) {}
 const cabanaUrlView=cabanaLastViewFromUrl();
-if(!cabanaRestoredFromStorage&&cabanaUrlView?.page) state.page=cabanaUrlView.page;
+if(!cabanaRestoredFromStorage&&cabanaUrlView?.page&&cabanaUrlView.page!=='insights') state.page=cabanaUrlView.page;
 if(cabanaUrlView?.pending) state.dashboardRequestFocusId=cabanaUrlView.pending;
-/* A clean entry opens the current Home screen; an explicit URL route still wins for refresh recovery. */
 if(!cabanaUrlView?.page&&!window.location.hash) state.page='dashboard';
 /* Preserve the route requested by the URL/storage while legacy startup layers initialise. */
 const cabanaInitialPage=state.page==='insights'?'dashboard':state.page;
@@ -68,9 +67,9 @@ const orders=[
 const pendingRequestCount=()=>typeof orders!=='undefined'?orders.filter(order=>order.status==='Pending').length:0;
 const navBadge=id=>id==='dashboard'&&pendingRequestCount()?`<b class="nav-badge">${pendingRequestCount()}</b>`:'';
 let nav=(id,label,icon)=>`<button class="nav-item ${state.page===id?'active':''}" data-page="${id}"><span class="nav-icon">${navIcon(icon,state.page===id)}</span><span>${label}</span>${navBadge(id)}</button>`;
-function shell(content){return `<aside class="sidebar"><div class="brand"><span class="brand-mark">C</span>Cabana</div><button class="outlet-button"><span class="outlet-avatar">SB</span><span><strong>Sans Rival Bakehouse</strong><small>Bakery · Live</small></span><span>⌄</span></button><nav class="nav-list">${nav('dashboard','Dashboard','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav><div class="sidebar-bottom"><div class="partner-mini"><strong>${state.role}</strong><span>Portal access</span></div></div></aside><div class="main-wrap"><header class="topbar"><div class="topbar-context"><strong>${state.page==='listings'?'Listings':(['orders','bookings'].includes(state.page)?'Bookings':state.page[0].toUpperCase()+state.page.slice(1))}</strong></div></header><main class="page">${content}</main><nav class="mobile-nav">${nav('dashboard','Dashboard','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav></div>`}
+function shell(content){return `<aside class="sidebar"><div class="brand"><span class="brand-mark">C</span>Cabana</div><button class="outlet-button"><span class="outlet-avatar">SB</span><span><strong>Sans Rival Bakehouse</strong><small>Bakery · Live</small></span><span>⌄</span></button><nav class="nav-list">${nav('dashboard','Home','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav><div class="sidebar-bottom"><div class="partner-mini"><strong>${state.role}</strong><span>Portal access</span></div></div></aside><div class="main-wrap"><header class="topbar"><div class="topbar-context"><strong>${state.page==='listings'?'Listings':(['orders','bookings'].includes(state.page)?'Bookings':state.page[0].toUpperCase()+state.page.slice(1))}</strong></div></header><main class="page">${content}</main><nav class="mobile-nav">${nav('dashboard','Home','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav></div>`}
 function nav2(id,label,ico){return `<button class="nav-item ${state.page===id?'active':''}" data-page="${id}"><span class="nav-icon">${navIcon(ico,state.page===id)}</span><span>${label}</span>${navBadge(id)}</button>`}
-function shell2(content){const html=shell(content);const side=html.match(/<nav class="nav-list">[\s\S]*?<\/nav>/)?.[0];const mobile=html.match(/<nav class="mobile-nav">[\s\S]*?<\/nav>/)?.[0];const sideNav=`<nav class="nav-list">${nav2('dashboard','Dashboard','home')}${nav2('orders','Bookings','orders')}${nav2('chat','Chat','chat')}${nav2('menu','Menu','menu')}</nav>`;const mobileNav=`<nav class="mobile-nav ${state.role==='Staff'?'staff-nav':''}">${nav2('dashboard','Dashboard','home')}${nav2('orders','Bookings','orders')}${nav2('chat','Chat','chat')}${nav2('menu','Menu','menu')}</nav>`;return html.replace(side,sideNav).replace(mobile,mobileNav)}
+function shell2(content){const html=shell(content);const side=html.match(/<nav class="nav-list">[\s\S]*?<\/nav>/)?.[0];const mobile=html.match(/<nav class="mobile-nav">[\s\S]*?<\/nav>/)?.[0];const sideNav=`<nav class="nav-list">${nav2('dashboard','Home','home')}${nav2('orders','Bookings','orders')}${nav2('chat','Chat','chat')}${nav2('menu','Menu','menu')}</nav>`;const mobileNav=`<nav class="mobile-nav ${state.role==='Staff'?'staff-nav':''}">${nav2('dashboard','Home','home')}${nav2('orders','Bookings','orders')}${nav2('chat','Chat','chat')}${nav2('menu','Menu','menu')}</nav>`;return html.replace(side,sideNav).replace(mobile,mobileNav)}
 function head(title,sub,action=''){return `<div class="page-head"><div><h1>${title}</h1>${sub?`<p class="subtext">${sub}</p>`:''}</div>${action}</div>`}
 function dashboard(){const filtered=state.range==='Today';const rangeDate=filtered?'Monday, September 30':state.range==='Yesterday'?'Sunday, September 29':state.range==='This month'?'September 1–30':'September 23–30';const activity=filtered?orders.filter(o=>['Pending','Confirmed','Preparing','Ready'].includes(o.status)).slice(0,5):orders.filter(o=>o.status!=='Cancelled').slice(0,5);const values=filtered?[42,58,47,72,63,88,76]:state.range==='Yesterday'?[35,44,39,52,48,60,55]:[58,72,63,88,76,91,84];return `${head('Dashboard','')}<div class="greeting"><h1>Good morning, Leah</h1><p>${rangeDate}</p></div><section class="date-filter card"><div><strong>Dashboard period</strong><span>${rangeDate} · Sans Rival Bakehouse</span></div><div class="date-options">${['Today','Yesterday','Last 7 days','This month','Custom range'].map(x=>`<button class="filter ${state.range===x?'active':''}" data-range="${x}">${x}</button>`).join('')}</div></section><div class="dashboard-columns dashboard-flow"><div class="dashboard-main"><section class="card needs-card"><div class="card-header"><div><h2>Needs attention</h2><span class="count">Unresolved requests</span></div><span class="attention-count">3</span></div><div class="alert-list"><button class="alert-row" data-page="orders"><span class="alert-icon warning">!</span><span><strong>2 orders await confirmation</strong><small>One booking · one in-app order</small></span>${icons.arrow}</button><button class="alert-row" data-page="orders"><span class="alert-icon warning">!</span><span><strong>Refund request</strong><small>ORD-1028 · Review before Oct 1</small></span>${icons.arrow}</button><button class="alert-row" data-page="orders"><span class="alert-icon warning">!</span><span><strong>Fully booked date needs review</strong><small>Oct 2 · Whole Sans Rival Cake</small></span>${icons.arrow}</button></div></section><section class="card"><div class="card-header"><div><h2>${filtered?'Today':'Activity'}</h2><span class="count">${filtered?'Upcoming bookings and active orders':rangeDate}</span></div><button class="button ghost" data-page="orders">View all ${icons.arrow}</button></div><div class="upcoming-list">${activity.map(o=>`<button class="upcoming-row" data-detail="${o.id}"><span class="upcoming-time">${o.when}</span><span class="upcoming-main"><strong>${esc(o.item)} <em>${esc(o.guest)} · Room ${esc(o.room)}</em></strong><small>${o.kind} · ${esc(o.status)}</small></span><span class="payment-badge ${o.payment.includes('room')?'room':'gateway'}">${o.payment}</span>${icons.arrow}</button>`).join('')}</div></section></div><div class="dashboard-side"><section class="card earnings-card dashboard-earnings"><div class="card-header"><div><h2>Earnings</h2><span class="count">${rangeDate}</span></div></div><div class="earnings-total"><strong>${filtered?'₱6,420':state.range==='This month'?'₱118,420':'₱84,260'}</strong><span>Revenue in selected period</span></div><div class="mini-chart">${values.map((n,i)=>`<div class="chart-col"><div class="chart-bar" style="height:${n/1.5}px"></div><small>${['24','25','26','27','28','29','30'][i]}</small></div>`).join('')}</div><div class="settlement-line"><span>Room charges awaiting settlement</span><strong>${filtered?'₱3,860':'₱26,840'}</strong></div><button class="button ghost transactions-link" data-page="earnings">View transactions & payouts ${icons.arrow}</button></section></div></div>`}
 function dashboardChart(values,labels,kind='bar'){const max=Math.max(...values,1);return `<div class="dashboard-chart ${kind}" role="img" aria-label="Chart from ${labels[0]} to ${labels[labels.length-1]}">${values.map((n,i)=>`<div class="chart-col"><div class="chart-plot"><div class="chart-bar ${i===values.length-1?'selected':''}" style="height:${Math.max(8,Math.round(n/max*132))}px"></div></div><small>${labels[i]}</small></div>`).join('')}</div>`}
@@ -922,7 +921,7 @@ render=function(){renderWithoutDashboardInsights();if(state.page==='dashboard')d
 render();
 
 /* Final activation for Insights → Bookings after all page overrides. */
-try{localStorage.setItem('cabana:latest-revision','pre-chat-home-portal-v1')}catch(error){}
+try{localStorage.setItem('cabana:latest-revision','current-home-portal-v1')}catch(error){}
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderInsightsBookingLast=render;
 render=function(){renderInsightsBookingLast();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
@@ -939,7 +938,7 @@ phase1InsightsPage=function(){if(state.role!=='Owner')return phase1InsightsPageR
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderBeforeInsightsBookingFinal=render;
 render=function(){renderBeforeInsightsBookingFinal();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
-try{localStorage.setItem('cabana:latest-revision','pre-chat-home-portal-v1')}catch(error){}
+try{localStorage.setItem('cabana:latest-revision','current-home-portal-v1')}catch(error){}
 render();
 
 /* Transportation rental demo data and final route-safe presentation. */
@@ -1009,7 +1008,7 @@ render=function(){transportRenderBefore();document.querySelectorAll('#app *').fo
 render();
 
 /* Latest revision: keep the requested Insights → Bookings view visible. */
-try{localStorage.setItem('cabana:latest-revision','pre-chat-home-portal-v1')}catch(error){}
+try{localStorage.setItem('cabana:latest-revision','current-home-portal-v1')}catch(error){}
 insightsPageForView=function(){return phase1InsightsPage()};
 const renderInsightsBookingsFinal=render;
 render=function(){renderInsightsBookingsFinal();if(state.page==='insights'){document.querySelectorAll('[data-phase1-booking-mode]').forEach(button=>button.onclick=()=>{state.phase1BookingMode=button.dataset.phase1BookingMode;render()});document.querySelectorAll('[data-insight-tab]').forEach(button=>button.onclick=()=>{state.insightTab=button.dataset.insightTab;render()});}};
@@ -1498,7 +1497,7 @@ render();
 /* Restore the last visited route after all layered startup guards have run. */
 setTimeout(()=>{
   let saved=cabanaLastViewFromUrl();
-  const validPages=['dashboard','orders','bookings','insights','listings','staff-listings','chat','menu','profile','services','earnings'];
+  const validPages=['dashboard','orders','bookings','listings','staff-listings','chat','menu','profile','services','earnings'];
   if(saved?.page&&validPages.includes(saved.page)){
     state.page=saved.page;
     state.detail=saved.detail||null;
@@ -2019,7 +2018,12 @@ render=function(){
   if(state.page!=='orders')return;
   document.querySelectorAll('[data-latest-status-filter]').forEach(control=>control.onchange=()=>{
     const value=control.dataset.latestStatusFilter,selected=bookingLatestSelectedStatusesFinal();
-    state.bookingLatestFilters.status=value==='All statuses'?[]:(selected.includes(value)?selected.filter(item=>item!==value):selected.concat(value));
+    let next=[];
+    if(value!=='All statuses'){
+      next=control.checked?(selected.includes(value)?selected:selected.concat(value)):selected.filter(item=>item!==value);
+      if(next.length===bookingPastStatusOptionsFinal.length)next=[];
+    }
+    state.bookingLatestFilters.status=next;
     render();
   });
   document.querySelectorAll('[data-latest-filter-reset]').forEach(button=>button.onclick=()=>{state.bookingLatestFilters={date:'All dates',listing:[],type:'All',status:[]};render()});
@@ -2036,6 +2040,7 @@ render();
 /* Refresh recovery: render Chat directly after legacy startup wrappers. */
 const chatRefreshRecoveryBaseFinal=render;
 render=function(){
+  if(state.page==='insights')state.page='dashboard';
   if(state.page!=='chat'){chatRefreshRecoveryBaseFinal();return}
   rememberLastView();
   document.querySelector('#app').innerHTML=shell3(view());
