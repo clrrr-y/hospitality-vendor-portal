@@ -32,7 +32,7 @@ const cabanaUrlView=cabanaLastViewFromUrl();
 if(!cabanaRestoredFromStorage&&cabanaUrlView?.page) state.page=cabanaUrlView.page;
 if(cabanaUrlView?.pending) state.dashboardRequestFocusId=cabanaUrlView.pending;
 /* Preserve the route requested by the URL/storage while legacy startup layers initialise. */
-const cabanaInitialPage=state.page;
+const cabanaInitialPage=state.page==='insights'?'dashboard':state.page;
 let cabanaResumePending=Boolean(cabanaUrlView?.page);
 function rememberLastView(){
   if(cabanaBooting)return;

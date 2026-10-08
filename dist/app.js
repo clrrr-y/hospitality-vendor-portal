@@ -31,7 +31,7 @@ try {
 const cabanaUrlView=cabanaLastViewFromUrl();
 if(!cabanaRestoredFromStorage&&cabanaUrlView?.page) state.page=cabanaUrlView.page;
 if(cabanaUrlView?.pending) state.dashboardRequestFocusId=cabanaUrlView.pending;
-const cabanaInitialPage=state.page;
+const cabanaInitialPage=state.page==='insights'?'dashboard':state.page;
 let cabanaResumePending=Boolean(cabanaUrlView?.page);
 function rememberLastView(){
   if(cabanaBooting)return;
