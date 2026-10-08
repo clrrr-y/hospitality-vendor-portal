@@ -19,11 +19,11 @@
           const homeView = { ...savedView, page: 'dashboard', detail: null };
           localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
           history.replaceState(null, '', '#view=dashboard');
-        } else if (!savedView?.page) history.replaceState(null, '', '#view=chat');
+        } else if (!savedView?.page) history.replaceState(null, '', '#view=dashboard');
       } catch (error) {
-        history.replaceState(null, '', '#view=chat');
+        history.replaceState(null, '', '#view=dashboard');
       }
     </script>
-    <script src="../app.js?v=266"></script>
+    <script src="../app.js?v=267"></script>
   </body>
 </html>
