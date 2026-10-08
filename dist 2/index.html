@@ -15,7 +15,13 @@
     <script>
       try {
         const savedView = JSON.parse(localStorage.getItem('cabana:last-view-v3') || 'null');
-        if (savedView?.page === 'insights') {
+        const homeEntryRestored = localStorage.getItem('cabana:home-entry-v1') === '1';
+        if (!homeEntryRestored) {
+          const homeView = { ...savedView, page: 'dashboard', detail: null };
+          localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
+          localStorage.setItem('cabana:home-entry-v1', '1');
+          history.replaceState(null, '', '#view=dashboard');
+        } else if (savedView?.page === 'insights') {
           const homeView = { ...savedView, page: 'dashboard', detail: null };
           localStorage.setItem('cabana:last-view-v3', JSON.stringify(homeView));
           history.replaceState(null, '', '#view=dashboard');
