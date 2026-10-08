@@ -548,6 +548,82 @@ const chatReferenceRenderBase=render;
 render=function(){if(state.page==='chat')return;chatReferenceRenderBase();if(state.page!=='chat')return;document.querySelectorAll('[data-chat-filter]').forEach(button=>button.onclick=()=>{state.chatFilter=button.dataset.chatFilter;state.chatMobileOpen=false;render()});document.querySelectorAll('[data-chat-thread]').forEach(button=>button.onclick=()=>{state.chatThread=button.dataset.chatThread;state.chatMobileOpen=true;chatThreadById(state.chatThread).unread=0;render()});document.querySelectorAll('[data-chat-back]').forEach(button=>button.onclick=()=>{state.chatMobileOpen=false;render()});document.querySelectorAll('[data-chat-search-toggle]').forEach(button=>button.onclick=()=>{state.chatSearchOpen=!state.chatSearchOpen;render();document.querySelector('[data-chat-search]')?.focus()});const search=document.querySelector('[data-chat-search]');if(search)search.oninput=event=>{state.chatQuery=event.target.value;render();const next=document.querySelector('[data-chat-search]');next?.focus();next?.setSelectionRange(state.chatQuery.length,state.chatQuery.length)}};
 render();
 
+/* Final pending-card timer and schedule treatment. */
+const homeCardScheduleParts=record=>{
+  const raw=String(record.when||'Scheduled time not set').trim();
+  const range=raw.split(/\s*–\s*/);
+  const startRaw=range[0].replace(/\s*·\s*(?=\d{1,2}:\d{2}\s*(?:AM|PM))/i,', ').trim();
+  const explicit=raw.match(/\s*·\s*(\d+\s+(?:hours?|days?|day|minutes?))\s*$/i)?.[1]||'';
+  let duration=explicit;
+  if(!duration&&range.length>1){
+    const parseDate=value=>{const parsed=Date.parse(new Date().getFullYear()+' '+value.replace(/\s*·\s*/,' '));return Number.isFinite(parsed)?parsed:null};
+    const start=parseDate(range[0]),end=parseDate(range[1]);
+    if(start!==null&&end!==null){const days=Math.max(1,Math.round((end-start)/86400000));duration=days+' day'+(days===1?'':'s')}
+    else duration='1 day';
+  }
+  return {dateTime:startRaw.replace(/\s*·\s*(\d+\s+(?:hours?|days?|day|minutes?))\s*$/i,'').trim(),duration,quantity:homeQuantityWithoutBaggage(record.quantity),inlineQuantity:!duration};
+};
+const homeCardTimerStarts=state.homeCardTimerStarts||(state.homeCardTimerStarts={});
+const homeCardTimerMinutes=record=>{
+  if(!homeCardTimerStarts[record.id])homeCardTimerStarts[record.id]=Date.now();
+  return Math.max(0,dashboardPendingResponseMinutes(record)-Math.floor((Date.now()-homeCardTimerStarts[record.id])/60000));
+};
+const homeCardTimerLabel=record=>{const minutes=homeCardTimerMinutes(record);return minutes>=60?'⏱ '+Math.ceil(minutes/60)+'h left':'⏱ '+minutes+'m left'};
+const homeCardScheduleMarkup=record=>{
+  const parts=homeCardScheduleParts(record),first=[parts.dateTime,parts.duration].filter(Boolean).join(' · ');
+  return {first,second:parts.inlineQuantity?'':parts.quantity,inline:parts.inlineQuantity?[first,parts.quantity].filter(Boolean).join(' · '):first};
+};
+
+dashboardOperationalRequestCard=function(order){
+  return '';
+  const isNew=(state.dashboardNewPendingRequests||[]).includes(order.id)&&!(state.dashboardSeenRequests||[]).includes(order.id),processing=state.dashboardRequestProcessing===order.id;
+  const guestRoom=homeCardGuestRoom(order),payment=homeCardPayment(order),schedule=homeCardScheduleMarkup(order),minutes=homeCardTimerMinutes(order);
+  return '<article class="dashboard-request-card '+(isNew?'unseen':'seen')+'"><button class="dashboard-request-main" data-dashboard-request-view="'+esc(order.id)+'">'
+    +'<div class="dashboard-request-reference-row"><span class="dashboard-request-reference-group"><small>#'+esc(displayBookingReference(order.id))+'</small>'+(isNew?'<span class="dashboard-request-new-pill">New</span>':'')+'</span><strong class="dashboard-request-timer '+(minutes<15?'critical':'')+'">'+esc(homeCardTimerLabel(order))+'</strong></div>'
+    +'<h3>'+esc(order.item)+'</h3>'
+    +'<p>'+esc(schedule.inline)+'</p>'
+    +(schedule.second?'<small class="dashboard-request-quantity">'+esc(schedule.second)+'</small>':'')
+    +(guestRoom?'<small class="dashboard-request-guest-room">'+esc(guestRoom)+'</small>':'')
+    +(state.role==='Owner'?'<small class="dashboard-request-financial">'+esc(homeCardAmount(order.total))+' · '+esc(payment)+'</small>':'')
+    +'</button><div class="dashboard-request-footer"><div class="dashboard-request-actions"><button class="secondary" '+(processing?'disabled':'')+' data-dashboard-request-action="decline" data-dashboard-request-id="'+esc(order.id)+'">Decline</button><button '+(processing?'disabled':'')+' data-dashboard-request-action="confirm" data-dashboard-request-id="'+esc(order.id)+'">'+(processing?'Processing…':'Confirm')+'</button></div></div></article>';
+};
+
+dashboardOperationalBookingRow=function(order){
+  return '';
+  const status=dashboardOperationalStatus(order),guestRoom=homeCardGuestRoom(order),schedule=homeCardScheduleMarkup(order);
+  return '<button class="dashboard-booking-row" data-detail="'+esc(order.id)+'"><span class="dashboard-booking-main">'
+    +'<span class="dashboard-request-reference-row"><small class="dashboard-booking-reference">#'+esc(displayBookingReference(order.id))+'</small><em class="dashboard-booking-status '+status.toLowerCase().replaceAll(' ','-')+'">'+esc(status)+'</em></span>'
+    +'<strong class="dashboard-booking-title">'+esc(order.item)+'</strong>'
+    +'<small class="dashboard-booking-summary">'+esc(schedule.inline)+'</small>'
+    +(schedule.second?'<small class="dashboard-booking-quantity">'+esc(schedule.second)+'</small>':'')
+    +(guestRoom?'<small class="dashboard-booking-guest-room">'+esc(guestRoom)+'</small>':'')
+    +'<small class="dashboard-booking-payment">'+esc(homeCardPayment(order))+'</small>'
+    +'</span></button>';
+};
+
+bookingLatestCard=function(record){
+  return '';
+  const past=state.bookingTab==='Past',status=bookingFinalDisplayStatus(record),next=past?'':bookingFinalNextAction(record),menu=state.bookingCardMenuId===record.id,canCancel=!past&&bookingLatestCanCancel(record),schedule=homeCardScheduleMarkup(record);
+  const action=next?'<button class="booking-action primary '+(next==='Mark as completed'?'status-next-completed':'status-next-progress')+'" data-final-status-action="'+(next==='Mark as completed'?'complete':'progress')+'" data-final-status-id="'+esc(record.id)+'">'+esc(next)+'</button>':'';
+  const more=!past?'<button class="booking-card-more" type="button" data-card-menu="'+esc(record.id)+'" aria-label="More booking actions">⋯</button>':'';
+  const cardMenu=menu?'<div class="booking-card-menu"><button data-card-charge="'+esc(record.id)+'">Add charge</button><button data-card-message="'+esc(record.id)+'">Message guest</button>'+(canCancel?'<button class="danger" data-latest-cancel="'+esc(record.id)+'">Cancel booking</button>':'')+'</div>':'';
+  return '<article class="booking-card final-booking-card latest-booking-card"><div class="booking-card-hit" role="button" tabindex="0" data-latest-detail="'+esc(record.id)+'"><span class="booking-main-line"><span class="booking-reference-line">#'+esc(displayBookingReference(record.id))+'</span><span class="booking-status '+String(status||'').toLowerCase().replaceAll(' ','-')+'">'+esc(status)+'</span></span><div class="booking-listing">'+esc(record.item)+'</div><div class="booking-line booking-card-schedule">'+esc(schedule.inline)+'</div>'+(schedule.second?'<div class="booking-line booking-card-quantity">'+esc(schedule.second)+'</div>':'')+'<div class="booking-line booking-card-guest-room">'+esc(homeCardGuestRoom(record))+'</div><div class="booking-line booking-card-payment">'+esc(homeCardPayment(record))+'</div>'+(record.cancelReason?'<div class="booking-line booking-cancellation-reason">'+esc(record.cancelledBy==='guest'?'Cancelled by guest':'Cancelled by vendor · '+record.cancelReason)+'</div>':'')+'</div>'+(action||more?'<div class="booking-actions">'+action+more+'</div>':'')+cardMenu+'</article>';
+};
+
+if(!window.__cabanaPendingTimerLoop){
+  window.__cabanaPendingTimerLoop=setInterval(()=>{
+    let expired=false;
+    orders.filter(order=>order.status==='Pending').forEach(order=>{
+      if(homeCardTimerMinutes(order)>0)return;
+      order.status='Expired';
+      order.timeline=Array.isArray(order.timeline)?order.timeline.concat([['Expired',todayLabel()]]):[['Expired',todayLabel()]];
+      state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>id!==order.id);
+      expired=true;
+    });
+    if(expired||state.page==='dashboard')render();
+  },30000);
+}
+
 /* Compact inbox redesign: search, unread filter, and full-width rows. */
 state.chatQuery=state.chatQuery||'';
 state.chatFilter=state.chatFilter||'All';
@@ -768,7 +844,7 @@ bookingLatestCard=function(o){
 };
 bookingLatestFilterSheet=function(){if(!state.bookingFilterOpen)return '';const f=state.bookingLatestFilters||{},choices=['All dates','Today · Oct 7','Tomorrow · Oct 8','Thu · Oct 9','Mon · Oct 13','Last 7 days'];const choice=(key,values)=>'<fieldset><legend>'+key.charAt(0).toUpperCase()+key.slice(1)+'</legend>'+values.map(v=>'<button class="booking-choice '+(f[key]===v?'active':'')+'" data-latest-filter="'+key+'" data-latest-filter-value="'+esc(v)+'"><span>'+esc(v)+'</span>'+(f[key]===v?'<b>✓</b>':'')+'</button>').join('')+'</fieldset>';return '<div class="booking-sheet-backdrop" data-latest-filter-close></div><section class="booking-filter-sheet" role="dialog" aria-modal="true"><div class="sheet-handle"></div><header><div><h2>Filters</h2><p>Choose a booking date, type, or listing.</p></div><button data-latest-filter-close>×</button></header>'+choice('date',choices)+choice('type',['All','Product','Service & rental'])+choice('listing',['All listings',...listings.map(x=>x.name)])+'<div class="booking-filter-actions"><button class="button ghost" data-latest-filter-reset>Reset</button><button class="button primary" data-latest-filter-apply>Apply filters</button></div></section>'};
 bookingLatestWorkspace=function(){
-  const tab=state.bookingTab==='Past'?'Past':'Active',rows=bookingLatestRows(),groups={};
+  const tab=state.bookingTab==='Past'?'Past':'Active',rows=bookingLatestRows(),activeCount=bookingLatestAll().filter(record=>bookingLatestActive(record)).length,groups={};
   rows.forEach(o=>{const key=tab==='Past'?'Past bookings':bookingCalendarLabel(o);(groups[key]||(groups[key]=[])).push(o)});
   const chips=Object.entries(state.bookingLatestFilters||{}).filter(([k,v])=>v&&v!=='All'&&v!=='All dates'&&v!=='All listings').map(([k,v])=>'<button class="booking-chip" data-latest-chip="'+k+'">'+esc(v)+' ×</button>').join('');
   const body=Object.entries(groups).sort((a,b)=>bookingCalendarSortValue(a[0])-bookingCalendarSortValue(b[0])).map(([g,items])=>'<section class="booking-group"><h2>'+g+'</h2>'+items.map(bookingLatestCard).join('')+'</section>').join('');
@@ -954,9 +1030,7 @@ const transportOrders=[
   {id:'CB-8830',kind:'Booking',guest:'Sofia Lim',hotel:'Luna Bay Resort',room:'602',item:'Airport Transfer — Sedan',quantity:'3 passengers · 4 suitcases',when:'Oct 7 · 11:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱3,600.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:18,timeline:[['Booking requested','Oct 6 · 8:18 AM']],notes:'Please allow space for four checked bags.',contact:'Open guest chat'},
   {id:'CB-8835',kind:'Booking',guest:'Daniel Cruz',hotel:'Luna Bay Resort',room:'410',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 8 · 1:30 PM – Oct 9 · 1:30 PM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:42,timeline:[['Booking requested','Oct 6 · 8:22 AM']],notes:'Family luggage included; return by Oct 9 at 1:30 PM.',contact:'Open guest chat'},
   {id:'CB-8840',kind:'Booking',guest:'Lara Villanueva',hotel:'Luna Bay Resort',room:'118',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 9 · 10:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:36,timeline:[['Booking requested','Oct 6 · 8:26 AM']],notes:'Morning airport transfer.',contact:'Open guest chat'},
-  {id:'CB-8851',kind:'Booking',guest:'Jessa Navarro',hotel:'Luna Bay Resort',room:'217',item:'Toyota Innova Rental',quantity:'1 vehicle · 4 passengers',when:'Oct 8 · 3:00 PM – Oct 9 · 3:00 PM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:28,timeline:[['Booking requested','Oct 6 · 8:30 AM']],notes:'Please prepare space for four passengers and luggage.',contact:'Open guest chat'},
-  {id:'CB-8852',kind:'Booking',guest:'Rafael Mendoza',hotel:'Luna Bay Resort',room:'315',item:'Airport Transfer — SUV',quantity:'4 passengers · 4 suitcases',when:'Oct 9 · 7:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱3,200.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:48,timeline:[['Booking requested','Oct 6 · 8:34 AM']],notes:'Early airport departure; guest has four checked bags.',contact:'Open guest chat'},
-  {id:'CB-8853',kind:'Booking',guest:'Camille Reyes',hotel:'Luna Bay Resort',room:'524',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 10 · 8:00 AM – Oct 11 · 8:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Pay via QR · Unpaid',settlement:'Payment pending',status:'Pending',responseMinutes:54,timeline:[['Booking requested','Oct 6 · 8:38 AM']],notes:'Family trip; return vehicle the following morning.',contact:'Open guest chat'},
+  {id:'CB-8854',kind:'Booking',guest:'Paolo Garcia',hotel:'Luna Bay Resort',room:'309',item:'Toyota Innova Rental',quantity:'1 vehicle · 3 passengers',when:'Oct 9 · 9:00 AM – Oct 10 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:40,timeline:[['Booking requested','Oct 6 · 8:28 AM']],notes:'Day rental for a family trip to the hot springs.',contact:'Open guest chat'},
   {id:'CB-9001',kind:'Booking',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 8 · 9:00 AM – Oct 9 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Scheduled',timeline:[['Booking confirmed','Oct 5 · 9:02 AM']],notes:'Return deadline Oct 9 at 9:00 AM.',contact:'Open guest chat'},
   {id:'CB-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['Driver dispatched','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.',contact:'Open guest chat'},
   {id:'ORD-1044',kind:'Booking',guest:'Leo Santos',hotel:'Luna Bay Resort',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 10 · 11:30 AM – Oct 12 · 11:30 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱6,400.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 4:15 PM']],notes:'Return deadline Oct 12 at 11:30 AM.',contact:'Open guest chat'},
@@ -965,8 +1039,8 @@ const transportOrders=[
 ];
 orders.splice(0,orders.length,...transportOrders);
 /* Seed a representative Home queue: four existing requests and three newly arrived ones. */
-const homeSeededNewPendingIds=['CB-8851','CB-8852'];
-const dashboardPendingDisplayIds=new Set(['CB-8830','ORD-1042','CB-8851','CB-8840','CB-8835','CB-8852']);
+const homeSeededNewPendingIds=[];
+const dashboardPendingDisplayIds=new Set(['ORD-1042','CB-8835','CB-8840','CB-8854']);
 listings.splice(0,listings.length,...transportListings);
 Object.assign(listingMockPhotos,{ 'airport-sedan':transportListings[0].photo, innova:transportListings[1].photo, 'tourist-van':transportListings[2].photo });
 listingHasStock=function(){return false};
@@ -979,11 +1053,15 @@ dashboardOperationalGroup=function(order){if(['In progress','In use'].includes(o
 const dashboardRequestPlacedStamp=order=>{const raw=String(order.timeline?.[0]?.[1]||''),normalized=raw.replace(/\s*·\s*/,' '),stamp=Date.parse(dashboardOperationalToday().getFullYear()+' '+normalized);return Number.isFinite(stamp)?stamp:homePendingStamp(order)};
 const dashboardPendingResponseMinutes=order=>{const rows=dashboardPendingOriginalBase().filter(item=>dashboardPendingDisplayIds.has(item.id)),latest=Math.max(...rows.map(dashboardRequestPlacedStamp),0),placed=dashboardRequestPlacedStamp(order),elapsed=Math.max(0,Math.round((latest-placed)/60000));return Math.max(1,60-elapsed)};
 dashboardOperationalDeadline=function(order){const minutes=dashboardPendingResponseMinutes(order);return minutes>=60?'Respond within 1 hr':'Respond within '+minutes+' min'};
+const dashboardHomeQuantity=value=>String(value||'').replace(/\s*·\s*\d+\s+(?:suitcases?|bags?)\b/ig,'').trim();
+const dashboardHomePaymentSummary=order=>{const raw=String(order.payment||'')+' '+String(order.settlement||''),type=/room/i.test(raw)?'Charged to room':'Pay via QR',state=/paid/i.test(raw)?'Paid':'Unpaid';return type+' · '+state};
+const dashboardHomeDateQuantity=order=>{const schedule=String(order.when||'Scheduled time not set').replace(/\s*·\s*\d+\s+(?:hours?|minutes?)\b/i,'').trim(),quantity=dashboardHomeQuantity(order.quantity);return [schedule,quantity].filter(Boolean).join(' · ')};
+const dashboardHomeAmount=value=>String(value||'').replace(/\.00\b/g,'');
 dashboardOperationalStatus=function(order){if(order.status==='In progress'||order.status==='In use')return 'In progress';return order.status==='Scheduled'||order.status==='Confirmed'?'Scheduled':order.status};
 dashboardOperationalRequestSummary=function(order){return [String(order.when||'').replace(/^Pickup\s*/,'').replace(/\s*·\s*\d+\s+(?:hours?|minutes?)\b/i,''),order.quantity].filter(Boolean).join(' · ')};
 dashboardOperationalRequestCard=function(order){const seen=(state.dashboardSeenRequests||[]).includes(order.id),processing=state.dashboardRequestProcessing===order.id,newPill=seen?'':'<span class="dashboard-request-new-pill">New</span>',financial=state.role==='Owner'?'<small class="dashboard-request-financial">'+esc(order.total)+' · '+esc(order.payment)+'</small>':'';return '<article class="dashboard-request-card '+(seen?'seen':'unseen')+'"><button class="dashboard-request-main" data-dashboard-request-view="'+esc(order.id)+'"><div class="dashboard-request-title-row"><h3>'+esc(order.item)+'</h3>'+newPill+'</div><p>'+esc(dashboardOperationalRequestSummary(order))+'</p>'+financial+'</button><div class="dashboard-request-footer"><strong class="dashboard-request-deadline '+(Number(order.responseMinutes||24)<=30?'urgent':'')+'">'+dashboardOperationalDeadline(order)+'</strong><div class="dashboard-request-actions"><button '+(processing?'disabled':'')+' data-dashboard-request-action="confirm" data-dashboard-request-id="'+esc(order.id)+'">'+(processing?'Processing…':'Confirm')+'</button><button class="secondary" '+(processing?'disabled':'')+' data-dashboard-request-action="decline" data-dashboard-request-id="'+esc(order.id)+'">Decline</button></div></div></article>'};
 dashboardOperationalRequestSection=function(){const pending=dashboardOperationalPending();return '<section class="dashboard-operational-section dashboard-requests-section"><div class="dashboard-operational-heading"><h2>'+(state.role==='Owner'?'To confirm':'Incoming requests')+' <b>'+pending.length+'</b></h2></div>'+(pending.length?'<div class="dashboard-request-list">'+pending.map(dashboardOperationalRequestCard).join('')+'</div>':'<div class="dashboard-operational-empty">No bookings waiting for confirmation.</div>')+'</section>'};
-dashboardOperationalBookingRow=function(order,dateLabel){const fullDate=String(order.when||''),time=dashboardOperationalBookingTime(order),dateRange=fullDate.includes('–')?fullDate.replace(/\s*·\s*\d{1,2}:\d{2}\s?(?:AM|PM)/ig,'').trim():[dateLabel,time].filter(Boolean).join(' · '),details=[order.quantity,fullDate.includes('–')?'Return '+fullDate.split('–').pop().trim():dashboardOperationalBookingDuration(order)].filter(Boolean).join(' · ');return '<button class="dashboard-booking-row" data-detail="'+esc(order.id)+'"><span class="dashboard-booking-main"><span class="dashboard-booking-time-line"><small>'+esc(dateRange)+'</small><em class="dashboard-booking-status '+dashboardOperationalStatus(order).toLowerCase().replaceAll(' ','-')+'">'+dashboardOperationalStatus(order)+'</em></span><strong class="dashboard-booking-title">'+esc(order.item)+'</strong><small>'+esc(details)+'</small></span></button>'};
+dashboardOperationalBookingRow=function(order){const status=dashboardOperationalStatus(order),guestRoom=[order.guest,order.room?'Room '+order.room:''].filter(Boolean).join(' · ');return '<button class="dashboard-booking-row" data-detail="'+esc(order.id)+'"><span class="dashboard-booking-main"><span class="dashboard-request-reference-row"><small>#'+esc(displayBookingReference(order.id))+'</small><em class="dashboard-booking-status '+status.toLowerCase().replaceAll(' ','-')+'">'+esc(status)+'</em></span><strong class="dashboard-booking-title">'+esc(order.item)+'</strong><small class="dashboard-booking-summary">'+esc(dashboardHomeDateQuantity(order))+'</small><small class="dashboard-booking-guest-room">'+esc(guestRoom)+'</small><small class="dashboard-booking-payment">'+esc(dashboardHomePaymentSummary(order))+'</small></span></button>'};
 dashboardOperationalUpcoming=function(){const scheduled=dashboardOperationalScheduled(),groups=['In progress','Today','Tomorrow'],groupMap=new Map();scheduled.forEach(order=>{const key=dashboardOperationalGroup(order);if(!groupMap.has(key))groupMap.set(key,[]);groupMap.get(key).push(order)});const keys=[...groups,...[...groupMap.keys()].filter(key=>!groups.includes(key))],cards=keys.filter(key=>groupMap.has(key)).map(key=>groupMap.get(key).slice().sort((a,b)=>String(a.when).localeCompare(String(b.when))).map(order=>dashboardOperationalBookingRow(order,key)).join('')).join('');return '<section class="dashboard-operational-section dashboard-upcoming-section"><div class="dashboard-operational-heading"><div><h2>Upcoming bookings</h2><span>Next 7 days</span></div><button class="dashboard-inline-link" data-page="orders">View bookings '+icons.arrow+'</button></div>'+(cards?'<div class="dashboard-booking-list">'+cards+'</div>':'<div class="dashboard-operational-empty">No upcoming bookings.</div>')+'</section>'};
 dashboardOperationalStaffQueue=function(){const queue=orders.filter(order=>bookingActive(order)&&order.kind!=='Counter charge').slice().sort((a,b)=>String(a.when).localeCompare(String(b.when)));const rows=queue.map(order=>{const action=order.status==='In progress'?'complete':'start',label=action==='complete'?'Complete':'Start';return '<div class="dashboard-staff-row"><div><strong>'+dashboardOperationalWhen(order)+'</strong><span>'+esc(order.item)+'</span><small>'+esc(order.guest)+(order.room?' · Room '+esc(order.room):'')+' · '+esc(order.quantity)+'</small></div><span class="dashboard-booking-status '+dashboardOperationalStatus(order).toLowerCase().replaceAll(' ','-')+'">'+dashboardOperationalStatus(order)+'</span><button data-dashboard-queue-action="'+action+'" data-dashboard-queue-id="'+esc(order.id)+'">'+label+'</button></div>'}).join('');return '<section class="dashboard-operational-section dashboard-staff-queue"><div class="dashboard-operational-heading"><div><h2>Today’s queue</h2><span>Confirmed and ongoing bookings</span></div><button class="dashboard-inline-link" data-page="orders">View bookings '+icons.arrow+'</button></div>'+(rows||'<div class="dashboard-operational-empty">No bookings scheduled for today.</div>')+'</section>'};
 dashboardOperationalMarkup=function(){const owner=state.role==='Owner',pending=dashboardOperationalPending(),unread=pending.filter(order=>!(state.dashboardSeenRequests||[]).includes(order.id)).length;return '<div class="dashboard-operational-page"><header class="dashboard-operational-header"><h1>Dashboard</h1><button class="dashboard-header-icon" data-dashboard-notifications aria-label="Notifications, '+unread+' unread"><i class="hgi-stroke hgi-notification-03" aria-hidden="true"></i>'+(unread?'<b>'+unread+'</b>':'')+'</button></header><section class="dashboard-greeting"><div><strong>Welcome back, Leah!</strong><small class="dashboard-current-date">'+esc(todayLabel())+'</small></div></section>'+dashboardOperationalRequestSection()+(state.role==='Staff'?dashboardOperationalStaffQueue():dashboardOperationalUpcoming())+dashboardOperationalReceivables()+(owner?'<button class="dashboard-insights-link" data-insights>View insights '+icons.arrow+'</button>':'')+'</div>'};
@@ -1645,21 +1723,23 @@ const simulatedPendingKey='cabana:simulated-pending-requests';
 const currentPendingRequestIds=()=>orders.filter(order=>order.status==='Pending').map(order=>order.id);
 const readPendingStorage=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(key)||'null');return Array.isArray(value)?value:fallback}catch(error){return fallback}};
 const writePendingStorage=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(error){}};
-readPendingStorage(simulatedPendingKey,[]).filter(order=>order&&order.status==='Pending').forEach(order=>{if(!orders.some(existing=>existing.id===order.id))orders.push(order)});
+writePendingStorage(simulatedPendingKey,[]);readPendingStorage(simulatedPendingKey,[]).filter(order=>order&&order.status==='Pending').forEach(order=>{if(!orders.some(existing=>existing.id===order.id))orders.push(order);dashboardPendingDisplayIds.add(order.id)});
 const openPendingRequestFromNotification=id=>{if(!id)return;state.page='dashboard';state.detail=null;state.dashboardRequestFocusId=id;if(!(state.dashboardNewPendingRequests||[]).includes(id))state.dashboardNewPendingRequests=[...(state.dashboardNewPendingRequests||[]),id];render();setTimeout(()=>{const card=[...document.querySelectorAll('[data-dashboard-request-view]')].find(node=>node.dataset.dashboardRequestView===id);card?.scrollIntoView({block:'center',behavior:'smooth'});card?.focus({preventScroll:true})},80)};
 const clearPendingRequestIndicator=id=>{state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(item=>item!==id);state.dashboardSeenRequests=[...new Set([...(state.dashboardSeenRequests||[]),id])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);if(state.dashboardRequestFocusId===id)state.dashboardRequestFocusId=null;const card=[...document.querySelectorAll('[data-dashboard-request-view]')].find(node=>node.dataset.dashboardRequestView===id)?.closest('.dashboard-request-card');if(card){card.classList.remove('unseen');card.classList.add('seen');card.querySelector('.dashboard-request-new-pill')?.remove()}document.querySelector('[data-dashboard-new-request-indicator]')?.classList.remove('is-visible')};
 const sendNewPendingRequestNotification=async order=>{if(!order||typeof Notification==='undefined'||Notification.permission!=='granted')return;const title='New booking request',body=order.item+' is waiting for your confirmation.',options={body,tag:'cabana-pending-'+order.id,renotify:true,data:{type:'open-pending-request',requestId:order.id}};try{const registration=await Promise.race([navigator.serviceWorker?.getRegistration?.()??null,new Promise(resolve=>setTimeout(()=>resolve(null),1500))]).catch(()=>null);if(registration?.active&&registration.showNotification)await registration.showNotification(title,options);else{const notification=new Notification(title,options);notification.onclick=()=>{window.focus();openPendingRequestFromNotification(order.id)}}}catch(error){try{const notification=new Notification(title,options);notification.onclick=()=>{window.focus();openPendingRequestFromNotification(order.id)}}catch(notificationError){}}};
 const requestNotificationPermission=async()=>{if(typeof Notification==='undefined')return 'denied';if(Notification.permission!=='default')return Notification.permission;try{return await Notification.requestPermission()}catch(error){return 'denied'}};
 const initializePendingRequestNotifications=()=>{const currentIds=currentPendingRequestIds(),savedSnapshot=readPendingStorage(pendingSnapshotKey,null),savedNew=readPendingStorage(pendingNewKey,[]);state.dashboardNewPendingRequests=savedNew.filter(id=>currentIds.includes(id));if(!Array.isArray(savedSnapshot))writePendingStorage(pendingSnapshotKey,currentIds);if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});navigator.serviceWorker.addEventListener('message',event=>{if(event.data?.type==='open-pending-request')openPendingRequestFromNotification(event.data.requestId)})}};
-const checkForNewPendingRequests=async()=>{const currentIds=currentPendingRequestIds(),previous=readPendingStorage(pendingSnapshotKey,null);if(!Array.isArray(previous)){writePendingStorage(pendingSnapshotKey,currentIds);return}const arrivals=currentIds.filter(id=>!previous.includes(id));if(arrivals.length){state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),...arrivals])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentIds);const permission=await requestNotificationPermission();if(permission==='granted')arrivals.forEach(id=>sendNewPendingRequestNotification(orders.find(order=>order.id===id)));if(state.page==='dashboard')render()}else if(previous.some(id=>!currentIds.includes(id))){writePendingStorage(pendingSnapshotKey,currentIds);state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>currentIds.includes(id));writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests)}};
-const simulateNewPendingRequest=async()=>{const id='SIM-'+Date.now(),order={id,kind:'Booking',guest:'Demo guest',hotel:'Luna Bay Resort',room:'606',item:'Airport Transfer — Demo Sedan',quantity:'2 passengers',when:'Oct 7 · 6:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱1,800.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Oct 7 · now']],notes:'Simulated new booking request.',contact:'Open guest chat'};orders.push(order);const stored=readPendingStorage(simulatedPendingKey,[]);writePendingStorage(simulatedPendingKey,[...stored.filter(item=>item.id!==id),order]);state.page='dashboard';state.detail=null;state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),id])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render();const permission=await requestNotificationPermission();if(permission==='granted')sendNewPendingRequestNotification(order);toast('New booking request simulated')};
+const checkForNewPendingRequests=async()=>{const currentIds=currentPendingRequestIds(),previous=readPendingStorage(pendingSnapshotKey,null);if(!Array.isArray(previous)){writePendingStorage(pendingSnapshotKey,currentIds);return}const arrivals=currentIds.filter(id=>!previous.includes(id));if(arrivals.length){state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),...arrivals])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentIds);if(state.page==='dashboard')render()}else if(previous.some(id=>!currentIds.includes(id))){writePendingStorage(pendingSnapshotKey,currentIds);state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>currentIds.includes(id));writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests)}};
+const simulatedRequestTemplates=[{guest:'Bianca Torres',room:'402',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 10 · 6:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱2,400.00',notes:'Early flight, please arrive 10 minutes ahead.'},{guest:'Kenji Watanabe',room:'611',item:'Toyota Innova Rental',quantity:'1 vehicle · 4 passengers',when:'Oct 10 · 9:00 AM – Oct 11 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',notes:'Day trip to Tagaytay.'},{guest:'Grace Lim',room:'226',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 11 · 8:00 AM – Oct 12 · 8:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',notes:'Family tour, child seat requested.'},{guest:'Marcus Bell',room:'318',item:'Airport Transfer — SUV',quantity:'3 passengers · 4 suitcases',when:'Oct 11 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',notes:'Extra luggage space needed.'}];
+const simulateOnePendingRequest=async()=>{const nextNumber=Math.max(8854,...orders.map(item=>Number(String(item.id).match(/^CB-(88\d\d)$/)?.[1]||0)))+1,id='CB-'+nextNumber,simCount=readPendingStorage(simulatedPendingKey,[]).length,template=simulatedRequestTemplates[simCount%simulatedRequestTemplates.length],placedMinutes=42+simCount*4,placed='Oct 6 · '+(8+Math.floor(placedMinutes/60))+':'+String(placedMinutes%60).padStart(2,'0')+' AM',order={id,kind:'Booking',hotel:'Luna Bay Resort',...template,payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:60,timeline:[['Booking requested',placed]],contact:'Open guest chat'};orders.push(order);dashboardPendingDisplayIds.add(id);const stored=readPendingStorage(simulatedPendingKey,[]);writePendingStorage(simulatedPendingKey,[...stored.filter(item=>item.id!==id),order]);state.page='dashboard';state.detail=null;state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),id])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render()};
+const simulateNewPendingRequest=async()=>{await simulateOnePendingRequest();await simulateOnePendingRequest()};
 const resetDevSimulations=()=>{const simulated=readPendingStorage(simulatedPendingKey,[]),simulatedIds=new Set(simulated.map(item=>item?.id).filter(Boolean));orders.splice(0,orders.length,...orders.filter(order=>!simulatedIds.has(order.id)&&!String(order.id).startsWith('SIM-')));try{localStorage.removeItem(simulatedPendingKey)}catch(error){}state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>!simulatedIds.has(id)&&!String(id).startsWith('SIM-'));state.dashboardRequestFocusId=null;writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render();toast('Simulations reset')};
 initializePendingRequestNotifications();
-const pendingSampleSeedKey='cabana:pending-sample-seeded-v3';
+const pendingSampleSeedKey='cabana:pending-sample-seeded-v5';
 try{
   if(localStorage.getItem(pendingSampleSeedKey)!=='1'){
     const currentIds=currentPendingRequestIds(),seeded=homeSeededNewPendingIds.filter(id=>currentIds.includes(id));
-    state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]).filter(id=>dashboardPendingDisplayIds.has(id)),...seeded])];
+    state.dashboardNewPendingRequests=seeded.slice();
     writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);
     writePendingStorage(pendingSnapshotKey,currentIds);
     localStorage.setItem(pendingSampleSeedKey,'1');
@@ -1672,7 +1752,7 @@ if(state.dashboardRequestFocusId)setTimeout(()=>{const card=[...document.querySe
 const dashboardRequestSectionBeforeStickyIndicator=dashboardOperationalRequestSection;
 const dashboardRequestCardBeforeStickyIndicator=dashboardOperationalRequestCard;
 dashboardOperationalRequestCard=function(order){return dashboardRequestCardBeforeStickyIndicator(order)};
-dashboardOperationalRequestSection=function(){let html=dashboardRequestSectionBeforeStickyIndicator(),pending=dashboardOperationalPending(),newIds=(state.dashboardNewPendingRequests||[]).filter(id=>pending.some(order=>order.id===id));if(!newIds.length)return html;const listToken='<div class="dashboard-request-list">';if(!html.includes(listToken))return html;const marker='<button class="dashboard-new-request-marker" type="button" data-dashboard-new-request-indicator role="status">'+(newIds.length>1?newIds.length+' new requests ↓':'New request ↓')+'</button>';return html.replace(listToken,marker+listToken)};
+dashboardOperationalRequestSection=function(){let html=dashboardRequestSectionBeforeStickyIndicator(),pending=dashboardOperationalPending(),newIds=(state.dashboardNewPendingRequests||[]).filter(id=>pending.some(order=>order.id===id));if(!newIds.length)return html;const listToken='<div class="dashboard-request-list">';if(!html.includes(listToken))return html;const marker='<button class="dashboard-new-request-marker" type="button" data-dashboard-new-request-indicator role="status">New Requests ↓</button>';return html.replace(listToken,marker+listToken)};
 const shell2BeforeHomeNavLabel=shell2;
 shell2=function(content){return shell2BeforeHomeNavLabel(content).replaceAll('<span>Dashboard</span>','<span>Home</span>')};
 const bookingLatestCardBeforePaymentPendingTag=bookingLatestCard;
@@ -1958,7 +2038,7 @@ const dashboardNewRequestHeaderBottom=()=>{const header=document.querySelector('
 const dashboardNewRequestVisible=card=>{const rect=card?.getBoundingClientRect();if(!rect)return false;return rect.bottom>dashboardNewRequestHeaderBottom()&&rect.top<window.innerHeight};
 const dashboardFlashNewRequestCard=id=>{const card=dashboardNewRequestCard(id);if(!card)return;state.dashboardNewRequestFlashed=[...new Set([...(state.dashboardNewRequestFlashed||[]),id])];card.classList.add('dashboard-request-seen-flash');setTimeout(()=>card.classList.remove('dashboard-request-seen-flash'),2000)};
 function dashboardNewRequestAwarenessSchedule(){if(window.__cabanaNewRequestAwarenessFrame)return;window.__cabanaNewRequestAwarenessFrame=requestAnimationFrame(()=>{window.__cabanaNewRequestAwarenessFrame=0;dashboardUpdateNewRequestAwareness()})}
-function dashboardUpdateNewRequestAwareness(){if(state.page!=='dashboard')return;const ids=dashboardNewRequestIds(),marker=document.querySelector('[data-dashboard-new-request-indicator]');if(!marker)return;if(!ids.length){marker.classList.remove('is-visible');return}const visible=ids.filter(id=>dashboardNewRequestVisible(dashboardNewRequestCard(id))),offscreen=ids.filter(id=>!dashboardNewRequestVisible(dashboardNewRequestCard(id)));visible.forEach(id=>{if(!(state.dashboardNewRequestFlashed||[]).includes(id))dashboardFlashNewRequestCard(id)});if(!offscreen.length){marker.classList.remove('is-visible');return}const target=dashboardNewRequestCard(offscreen[0]),rect=target?.getBoundingClientRect(),arrow=rect&&rect.bottom<=dashboardNewRequestHeaderBottom()?'↑':'↓';marker.textContent=(offscreen.length>1?offscreen.length+' new requests ': 'New request ')+arrow;marker.classList.add('is-visible')}
+function dashboardUpdateNewRequestAwareness(){if(state.page!=='dashboard')return;const ids=dashboardNewRequestIds(),marker=document.querySelector('[data-dashboard-new-request-indicator]');if(!marker)return;if(!ids.length){marker.classList.remove('is-visible');return}const visible=ids.filter(id=>dashboardNewRequestVisible(dashboardNewRequestCard(id))),offscreen=ids.filter(id=>!dashboardNewRequestVisible(dashboardNewRequestCard(id)));visible.forEach(id=>{if(!(state.dashboardNewRequestFlashed||[]).includes(id))dashboardFlashNewRequestCard(id)});if(!offscreen.length){marker.classList.remove('is-visible');return}const target=dashboardNewRequestCard(offscreen[0]),rect=target?.getBoundingClientRect(),arrow=rect&&rect.bottom<=dashboardNewRequestHeaderBottom()?'↑':'↓';marker.textContent='New Requests '+arrow;marker.classList.add('is-visible')}
 if(!window.__cabanaNewRequestAwarenessBound){window.__cabanaNewRequestAwarenessBound=true;document.addEventListener('scroll',dashboardNewRequestAwarenessSchedule,true);window.addEventListener('resize',dashboardNewRequestAwarenessSchedule);document.addEventListener('click',event=>{const marker=event.target.closest?.('[data-dashboard-new-request-indicator]');if(!marker)return;event.preventDefault();event.stopPropagation();const ids=dashboardNewRequestIds(),targetId=ids.find(id=>!dashboardNewRequestVisible(dashboardNewRequestCard(id)))||ids[0],card=dashboardNewRequestCard(targetId);if(!targetId||!card)return;marker.classList.remove('is-visible');clearPendingRequestIndicator(targetId);dashboardFlashNewRequestCard(targetId);card.scrollIntoView({block:'center',behavior:'smooth'});dashboardNewRequestAwarenessSchedule()},true)}
 const homeNewRequestAwarenessRenderBase=render;
 render=function(){homeNewRequestAwarenessRenderBase();if(state.page==='dashboard')requestAnimationFrame(dashboardUpdateNewRequestAwareness)};
@@ -2011,12 +2091,22 @@ bookingLatestWorkspace=function(){
   selectedListings.forEach(listing=>chips.push('<button class="booking-chip" data-latest-chip="listing" data-latest-listing-chip="'+esc(listing)+'">'+esc(listing)+' ×</button>'));
   const body=Object.entries(groups).map(([group,items])=>'<section class="booking-group">'+(tab==='Past'?'':'<h2>'+esc(group)+'</h2>')+items.map(bookingLatestCard).join('')+'</section>').join('');
   const exportAction=tab==='Past'&&state.role==='Owner'?'<button class="booking-export-icon" data-latest-export aria-label="Export CSV" title="Export CSV"><i class="hgi-stroke hgi-download-04" aria-hidden="true"></i></button>':'';
-  return '<div class="bookings-workspace final-bookings-workspace latest-bookings-workspace"><header class="dashboard-operational-header booking-page-header"><h1>Bookings</h1></header><nav class="bookings-tabs final-bookings-tabs" role="tablist"><button class="'+(tab==='Active'?'active':'')+'" data-latest-tab="Active">Active</button><button class="'+(tab==='Past'?'active':'')+'" data-latest-tab="Past">Past</button></nav><div class="bookings-tools"><div class="bookings-search"><i class="hgi-stroke hgi-search-01"></i><input data-latest-search value="'+esc(state.bookingQuery||'')+'" placeholder="Search guest, room, or booking number" aria-label="Search guest, room, or booking number"></div><button class="booking-filter-trigger" data-latest-filter-open><i class="hgi-stroke hgi-filter-horizontal"></i><span>Filters'+(filterCount?' ('+filterCount+')':'')+'</span></button>'+exportAction+'</div>'+(chips.length?'<div class="booking-chips">'+chips.join('')+'</div>':'')+(body||'<div class="bookings-empty"><strong>No '+tab.toLowerCase()+' bookings.</strong><span>Try changing your search or filters.</span></div>')+'</div>';
+  return '<div class="bookings-workspace final-bookings-workspace latest-bookings-workspace"><header class="dashboard-operational-header booking-page-header"><h1>Bookings</h1></header><nav class="bookings-tabs final-bookings-tabs" role="tablist"><button class="'+(tab==='Active'?'active':'')+'" data-latest-tab="Active">Active <b class="booking-tab-count">'+bookingLatestAll().filter(record=>bookingLatestActive(record)).length+'</b></button><button class="'+(tab==='Past'?'active':'')+'" data-latest-tab="Past">Past</button></nav><div class="bookings-tools"><div class="bookings-search"><i class="hgi-stroke hgi-search-01"></i><input data-latest-search value="'+esc(state.bookingQuery||'')+'" placeholder="Search guest, room, or booking number" aria-label="Search guest, room, or booking number"></div><button class="booking-filter-trigger" data-latest-filter-open><i class="hgi-stroke hgi-filter-horizontal"></i><span>Filters'+(filterCount?' ('+filterCount+')':'')+'</span></button>'+exportAction+'</div>'+(chips.length?'<div class="booking-chips">'+chips.join('')+'</div>':'')+(body||'<div class="bookings-empty"><strong>No '+tab.toLowerCase()+' bookings.</strong><span>Try changing your search or filters.</span></div>')+'</div>';
 };
 const pastStatusFilterRenderFinal=render;
 render=function(){
   pastStatusFilterRenderFinal();
-  if(state.page!=='orders')return;
+  const activeCount=bookingLatestAll().filter(record=>bookingLatestActive(record)).length;
+  const activeTab=[...document.querySelectorAll('button')].find(button=>button.textContent.trim()==='Active');
+  if(activeTab){
+    activeTab.setAttribute('aria-label','Active ('+activeCount+')');
+  }
+  if(activeTab&&!activeTab.querySelector('.booking-tab-count')){
+    const badge=document.createElement('b');
+    badge.className='booking-tab-count';
+    badge.textContent=String(activeCount);
+    activeTab.appendChild(badge);
+  }
   document.querySelectorAll('[data-latest-status-filter]').forEach(control=>control.onchange=()=>{
     const value=control.dataset.latestStatusFilter,selected=bookingLatestSelectedStatusesFinal();
     let next=[];
@@ -2064,14 +2154,198 @@ const chatInboxConversationView=chatView;
 const chatInboxAvatar=thread=>thread.kind==='frontdesk'?'<span class="chat-inbox-avatar is-frontdesk" aria-hidden="true"><i class="hgi-stroke hgi-home-01"></i></span>':'<span class="chat-inbox-avatar is-guest" aria-hidden="true">'+esc(thread.icon)+'</span>';
 const chatInboxTag=thread=>thread.kind==='frontdesk'?'<span class="chat-inbox-tag is-frontdesk">Front Desk</span>':'<span class="chat-inbox-tag is-guest">Guest</span>';
 const chatInboxRow=thread=>'<button class="chat-inbox-row'+(thread.unread?' is-unread':'')+'" data-chat-thread="'+thread.id+'">'+chatInboxAvatar(thread)+'<span class="chat-inbox-copy"><span class="chat-inbox-title"><strong>'+esc(thread.name)+'</strong>'+chatInboxTag(thread)+'</span><span class="chat-inbox-preview">'+(thread.booking?'<b>'+esc(thread.booking)+'</b> · ':'')+esc(thread.preview)+'</span></span><span class="chat-inbox-meta"><time>'+esc(thread.time)+'</time>'+(thread.unread?'<b class="chat-inbox-badge" aria-label="'+thread.unread+' unread">'+thread.unread+'</b>':'')+'</span></button>';
+const chatInboxMatches=thread=>{const query=String(state.chatQuery||'').trim().toLowerCase();if(!query)return true;const messages=(thread.messages||[]).map(message=>message.text||'');return [thread.name,thread.hotel,thread.room?'Room '+thread.room:'',thread.preview,thread.booking,thread.kind==='frontdesk'?'Front Desk':'Guest',...messages].filter(Boolean).join(' ').toLowerCase().includes(query)};
 chatView=function(){
   if(state.chatMobileOpen)return chatInboxConversationView();
-  const filters=['All','Unread','Guests','Front Desk'],filtered=cabanaThreadsForReferenceFinal().filter(chatCompactFilter2).filter(chatCompactMatches2);
+  const filters=['All','Unread','Guests','Front Desk'],searching=Boolean(state.chatSearchOpen);
+  const filtered=cabanaThreadsForReferenceFinal().filter(thread=>searching||chatCompactFilter2(thread)).filter(chatInboxMatches);
+  const controls=searching
+    ?'<div class="chat-inbox-controls is-searching"><label class="chat-inbox-field"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input type="search" data-chat-search value="'+esc(state.chatQuery||'')+'" placeholder="Search people or messages" aria-label="Search people or messages" autocomplete="off"></label><button class="chat-inbox-cancel" type="button" data-chat-search-close>Cancel</button></div>'
+    :'<div class="chat-inbox-controls" role="tablist" aria-label="Filter conversations"><button class="chat-inbox-search-toggle" type="button" data-chat-search-toggle aria-label="Search conversations"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i></button>'+filters.map(filter=>'<button class="chat-inbox-chip'+(state.chatFilter===filter?' is-active':'')+'" type="button" role="tab" aria-selected="'+(state.chatFilter===filter)+'" data-chat-filter="'+filter+'">'+filter+'</button>').join('')+'</div>';
+  const empty=searching&&String(state.chatQuery||'').trim()?'No people or messages match “'+esc(String(state.chatQuery).trim())+'”.':'No conversations found.';
   return '<div class="chat-inbox-page">'
-    +'<header class="chat-inbox-header"><button class="chat-inbox-icon" data-toast="Chat settings opened" aria-label="Chat settings"><i class="hgi-stroke hgi-settings-01" aria-hidden="true"></i></button><h1>Chats</h1><span class="chat-inbox-actions"><button class="chat-inbox-edit" data-toast="Edit conversations opened">Edit</button><button class="chat-inbox-icon" data-toast="New chat opened" aria-label="New chat"><i class="hgi-stroke hgi-add-01" aria-hidden="true"></i></button></span></header>'
-    +'<div class="chat-inbox-filters" role="tablist" aria-label="Filter conversations"><button class="chat-inbox-icon'+(state.chatSearchOpen?' is-open':'')+'" data-chat-search-toggle aria-label="Search conversations" aria-expanded="'+Boolean(state.chatSearchOpen)+'"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i></button>'+filters.map(filter=>'<button class="chat-inbox-chip'+(state.chatFilter===filter?' is-active':'')+'" role="tab" aria-selected="'+(state.chatFilter===filter)+'" data-chat-filter="'+filter+'">'+filter+'</button>').join('')+'</div>'
-    +(state.chatSearchOpen?'<div class="chat-inbox-search"><input data-chat-search value="'+esc(state.chatQuery||'')+'" placeholder="Search conversations" aria-label="Search conversations"></div>':'')
-    +'<section class="chat-inbox-list" aria-label="Conversations">'+(filtered.length?filtered.map(chatInboxRow).join(''):'<p class="chat-inbox-empty">No conversations found.</p>')+'</section>'
+    +'<header class="chat-inbox-header"><h1>Chats</h1><button class="chat-inbox-new" type="button" data-toast="New message opened" aria-label="New message"><i class="hgi-stroke hgi-add-01" aria-hidden="true"></i></button></header>'
+    +controls
+    +'<section class="chat-inbox-list" aria-label="Conversations">'+(filtered.length?filtered.map(chatInboxRow).join(''):'<p class="chat-inbox-empty">'+empty+'</p>')+'</section>'
     +'</div>';
 };
+const chatInboxSearchRenderBase=render;
+render=function(){
+  chatInboxSearchRenderBase.apply(this,arguments);
+  if(state.page!=='chat'||state.chatMobileOpen)return;
+  const close=()=>{state.chatSearchOpen=false;state.chatQuery='';render()};
+  document.querySelectorAll('[data-chat-search-close]').forEach(button=>button.onclick=close);
+  const field=document.querySelector('[data-chat-search]');
+  if(field)field.onkeydown=event=>{if(event.key==='Escape'){event.preventDefault();close()}};
+};
 render();
+
+/* Final shared booking-card skeleton for Home and Bookings → Active. */
+const homeCardGuestRoom=record=>[record.guest,record.room?'Room '+record.room:''].filter(Boolean).join(' · ');
+const homeCardDateQuantity=record=>{
+  const schedule=String(record.when||'Scheduled time not set').replace(/\s*·\s*\d+\s+(?:hours?|minutes?)\b/i,'').trim();
+  return [schedule,homeQuantityWithoutBaggage(record.quantity)].filter(Boolean).join(' · ');
+};
+const homeCardPayment=record=>{
+  const raw=String(record.payment||'')+' '+String(record.settlement||'');
+  const type=/room/i.test(raw)?'Charged to room':'Pay via QR';
+  const status=/paid|posted|payout|checkout/i.test(raw)&&!/(pending|unpaid|awaiting)/i.test(raw)?'Paid':'Unpaid';
+  return type+' · '+status;
+};
+const homeCardAmount=value=>String(value||'').replace(/\.00\b/g,'');
+
+dashboardOperationalRequestCard=function(order){
+  const isNew=(state.dashboardNewPendingRequests||[]).includes(order.id)&&!(state.dashboardSeenRequests||[]).includes(order.id);
+  const processing=state.dashboardRequestProcessing===order.id;
+  const guestRoom=homeCardGuestRoom(order),payment=homeCardPayment(order),schedule=homeCardScheduleMarkup(order),minutes=homeCardTimerMinutes(order);
+  return '<article class="dashboard-request-card '+(isNew?'unseen':'seen')+'"><button class="dashboard-request-main" data-dashboard-request-view="'+esc(order.id)+'">'
+    +'<div class="dashboard-request-reference-row"><span class="dashboard-request-reference-group"><small>#'+esc(displayBookingReference(order.id))+'</small>'+(isNew?'<span class="dashboard-request-new-pill">New</span>':'')+'</span><strong class="dashboard-request-timer '+(minutes<15?'critical':'')+'">'+esc(homeCardTimerLabel(order))+'</strong></div>'
+    +'<h3>'+esc(order.item)+'</h3>'
+    +'<p>'+esc(schedule.inline)+'</p>'
+    +(schedule.second?'<small class="dashboard-request-quantity">'+esc(schedule.second)+'</small>':'')
+    +(guestRoom?'<small class="dashboard-request-guest-room">'+esc(guestRoom)+'</small>':'')
+    +(state.role==='Owner'?'<small class="dashboard-request-financial">'+esc(homeCardAmount(order.total))+' · '+esc(payment)+'</small>':'')
+    +'</button><div class="dashboard-request-footer"><div class="dashboard-request-actions"><button class="secondary" '+(processing?'disabled':'')+' data-dashboard-request-action="decline" data-dashboard-request-id="'+esc(order.id)+'">Decline</button><button '+(processing?'disabled':'')+' data-dashboard-request-action="confirm" data-dashboard-request-id="'+esc(order.id)+'">'+(processing?'Processing…':'Confirm')+'</button></div></div></article>';
+};
+
+dashboardOperationalBookingRow=function(order){
+  const status=dashboardOperationalStatus(order),guestRoom=homeCardGuestRoom(order),schedule=homeCardScheduleMarkup(order);
+  return '<button class="dashboard-booking-row" data-detail="'+esc(order.id)+'"><span class="dashboard-booking-main">'
+    +'<span class="dashboard-request-reference-row"><small class="dashboard-booking-reference">#'+esc(displayBookingReference(order.id))+'</small><em class="dashboard-booking-status '+status.toLowerCase().replaceAll(' ','-')+'">'+esc(status)+'</em></span>'
+    +'<strong class="dashboard-booking-title">'+esc(order.item)+'</strong>'
+    +'<small class="dashboard-booking-summary">'+esc(schedule.inline)+'</small>'
+    +(schedule.second?'<small class="dashboard-booking-quantity">'+esc(schedule.second)+'</small>':'')
+    +(guestRoom?'<small class="dashboard-booking-guest-room">'+esc(guestRoom)+'</small>':'')
+    +'<small class="dashboard-booking-payment">'+esc(homeCardPayment(order))+'</small>'
+    +'</span></button>';
+};
+
+dashboardOperationalUpcoming=function(){
+  const upcoming=orders.filter(order=>bookingActive(order)&&order.kind!=='Counter charge').slice().sort((a,b)=>{
+    const aNow=['In progress','In use'].includes(a.status),bNow=['In progress','In use'].includes(b.status);
+    if(aNow!==bNow)return aNow?-1:1;
+    const aDate=dashboardOperationalOrderDate(a),bDate=dashboardOperationalOrderDate(b);
+    return (aDate?aDate.getTime():Infinity)-(bDate?bDate.getTime():Infinity)||String(a.when||'').localeCompare(String(b.when||''));
+  });
+  const cards=upcoming.slice(0,3).map(order=>dashboardOperationalBookingRow(order)).join('');
+  return '<section class="dashboard-operational-section dashboard-upcoming-section"><div class="dashboard-operational-heading"><div><h2>Upcoming bookings</h2></div><button class="dashboard-inline-link" data-open-active-bookings>View all ('+upcoming.length+') '+icons.arrow+'</button></div>'+(cards?'<div class="dashboard-booking-list">'+cards+'</div>':'<div class="dashboard-operational-empty">No upcoming bookings</div>')+'</section>';
+};
+
+bookingLatestCard=function(record){
+  const past=state.bookingTab==='Past',status=bookingFinalDisplayStatus(record),next=past?'':bookingFinalNextAction(record),menu=state.bookingCardMenuId===record.id,canCancel=!past&&bookingLatestCanCancel(record),schedule=homeCardScheduleMarkup(record);
+  const action=next?'<button class="booking-action primary '+(next==='Mark as completed'?'status-next-completed':'status-next-progress')+'" data-final-status-action="'+(next==='Mark as completed'?'complete':'progress')+'" data-final-status-id="'+esc(record.id)+'">'+esc(next)+'</button>':'';
+  const more=!past?'<button class="booking-card-more" type="button" data-card-menu="'+esc(record.id)+'" aria-label="More booking actions">⋯</button>':'';
+  const cardMenu=menu?'<div class="booking-card-menu"><button data-card-charge="'+esc(record.id)+'">Add charge</button><button data-card-message="'+esc(record.id)+'">Message guest</button>'+(canCancel?'<button class="danger" data-latest-cancel="'+esc(record.id)+'">Cancel booking</button>':'')+'</div>':'';
+  return '<article class="booking-card final-booking-card latest-booking-card"><div class="booking-card-hit" role="button" tabindex="0" data-latest-detail="'+esc(record.id)+'"><span class="booking-main-line"><span class="booking-reference-line">#'+esc(displayBookingReference(record.id))+'</span><span class="booking-status '+String(status||'').toLowerCase().replaceAll(' ','-')+'">'+esc(status)+'</span></span><div class="booking-listing">'+esc(record.item)+'</div><div class="booking-line booking-card-schedule">'+esc(schedule.inline)+'</div>'+(schedule.second?'<div class="booking-line booking-card-quantity">'+esc(schedule.second)+'</div>':'')+'<div class="booking-line booking-card-guest-room">'+esc(homeCardGuestRoom(record))+'</div><div class="booking-line booking-card-payment">'+esc(homeCardPayment(record))+'</div>'+(record.cancelReason?'<div class="booking-line booking-cancellation-reason">'+esc(record.cancelledBy==='guest'?'Cancelled by guest':'Cancelled by vendor · '+record.cancelReason)+'</div>':'')+'</div>'+(action||more?'<div class="booking-actions">'+action+more+'</div>':'')+cardMenu+'</article>';
+};
+
+const bookingsWorkspaceFinalWithActiveCount=bookingsWorkspaceFinal;
+bookingsWorkspaceFinal=function(){
+  const html=bookingsWorkspaceFinalWithActiveCount();
+  const count=bookingFinalRecords().filter(bookingFinalActive).length;
+  return html.replace('>Active</button>','>Active <b class="booking-tab-count">'+count+'</b></button>');
+};
+
+render();
+
+/* Keep the scroll position when the same screen re-renders (pending timers, simulations, filters). */
+const renderBeforeScrollKeep=render;
+render=function(){
+  const viewKey=state.page+'|'+(state.detail||'')+'|'+(state.chatMobileOpen?'open':''),page=document.querySelector('.page');
+  const top=page&&window.__cabanaRenderViewKey===viewKey?page.scrollTop:null;
+  renderBeforeScrollKeep.apply(this,arguments);
+  window.__cabanaRenderViewKey=state.page+'|'+(state.detail||'')+'|'+(state.chatMobileOpen?'open':'');
+  if(top!==null&&window.__cabanaRenderViewKey===viewKey){const next=document.querySelector('.page');if(next&&next.scrollTop!==top)next.scrollTop=top}
+};
+window.__cabanaRenderViewKey=state.page+'|'+(state.detail||'')+'|'+(state.chatMobileOpen?'open':'');
+
+/* Pending request details opened from Home return to Home, and the request is no longer new. */
+if(!window.__cabanaHomeRequestReturnBound){
+  window.__cabanaHomeRequestReturnBound=true;
+  document.addEventListener('click',event=>{
+    const open=event.target.closest?.('[data-dashboard-request-view]');
+    if(open&&state.page==='dashboard'){
+      state.requestDetailOrigin='dashboard';
+      state.homeReturnScroll=document.querySelector('.page')?.scrollTop||0;
+      clearPendingRequestIndicator(open.dataset.dashboardRequestView);
+      return;
+    }
+    const back=event.target.closest?.('[data-latest-back]');
+    if(back&&state.requestDetailOrigin==='dashboard'){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const id=state.detail,scroll=state.homeReturnScroll||0;
+      if(id)clearPendingRequestIndicator(id);
+      state.requestDetailOrigin=null;
+      state.page='dashboard';
+      state.detail=null;
+      rememberLastView();
+      render();
+      const restore=()=>{const page=document.querySelector('.page');if(page&&state.page==='dashboard')page.scrollTop=scroll};
+      restore();requestAnimationFrame(restore);setTimeout(restore,60);
+    }
+  },true);
+}
+const renderBeforeHomeRequestReturn=render;
+render=function(){
+  if(state.requestDetailOrigin==='dashboard'&&!(state.page==='orders'&&state.detail))state.requestDetailOrigin=null;
+  renderBeforeHomeRequestReturn.apply(this,arguments);
+  if(state.requestDetailOrigin==='dashboard')document.querySelectorAll('[data-latest-back]').forEach(button=>button.setAttribute('aria-label','Back to Home'));
+};
+
+/* Keep the sticky new-request pill steady across re-renders instead of fading it out and back in. */
+const renderBeforeSteadyNewRequestPill=render;
+render=function(){
+  const before=document.querySelector('[data-dashboard-new-request-indicator]'),wasVisible=Boolean(before?.classList.contains('is-visible')&&state.page==='dashboard');
+  renderBeforeSteadyNewRequestPill.apply(this,arguments);
+  if(!wasVisible||state.page!=='dashboard')return;
+  const marker=document.querySelector('[data-dashboard-new-request-indicator]');
+  if(!marker)return;
+  marker.style.transition='none';
+  marker.classList.add('is-visible');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{marker.style.transition=''}));
+};
+
+/* The "New Requests" pill only tracks requests that arrived during this visit and have not been seen on screen yet. */
+state.dashboardPillQueue=[];
+window.__cabanaKnownNewRequests=new Set(state.dashboardNewPendingRequests||[]);
+const dashboardPillIds=()=>{
+  const shown=new Set(dashboardOperationalPending().map(order=>order.id)),seen=state.dashboardSeenRequests||[];
+  state.dashboardPillQueue=(state.dashboardPillQueue||[]).filter(id=>shown.has(id)&&!seen.includes(id)&&orders.some(order=>order.id===id&&order.status==='Pending'));
+  return state.dashboardPillQueue;
+};
+dashboardUpdateNewRequestAwareness=function(){
+  if(state.page!=='dashboard')return;
+  const marker=document.querySelector('[data-dashboard-new-request-indicator]');
+  const ids=dashboardPillIds();
+  ids.filter(id=>dashboardNewRequestVisible(dashboardNewRequestCard(id))).forEach(id=>{if(!(state.dashboardNewRequestFlashed||[]).includes(id))dashboardFlashNewRequestCard(id)});
+  if(!marker)return;
+  if(!ids.length){marker.classList.remove('is-visible');return}
+  const target=ids.find(id=>!dashboardNewRequestVisible(dashboardNewRequestCard(id)))||ids[0];
+  const rect=dashboardNewRequestCard(target)?.getBoundingClientRect();
+  const arrow=rect&&rect.top<dashboardNewRequestHeaderBottom()?' ↑':' ↓';
+  marker.textContent='New Requests'+arrow;
+  marker.classList.add('is-visible');
+};
+const renderBeforeNewRequestPillQueue=render;
+render=function(){
+  const known=window.__cabanaKnownNewRequests,current=state.dashboardNewPendingRequests||[],arrivals=current.filter(id=>!known.has(id));
+  [...known].forEach(id=>{if(!current.includes(id))known.delete(id)});
+  arrivals.forEach(id=>known.add(id));
+  if(arrivals.length)state.dashboardPillQueue=[...new Set([...(state.dashboardPillQueue||[]),...arrivals])];
+  renderBeforeNewRequestPillQueue.apply(this,arguments);
+  if(state.page==='dashboard'){
+    const marker=document.querySelector('[data-dashboard-new-request-indicator]');
+    if(marker&&!dashboardPillIds().length)marker.classList.remove('is-visible');
+  }
+};
+window.addEventListener('click',event=>{
+  const marker=event.target.closest?.('[data-dashboard-new-request-indicator]');
+  if(!marker)return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  const ids=dashboardPillIds(),targetId=ids.find(id=>!dashboardNewRequestVisible(dashboardNewRequestCard(id)))||ids[0],card=dashboardNewRequestCard(targetId);
+  if(!targetId||!card)return;
+  dashboardFlashNewRequestCard(targetId);
+  card.scrollIntoView({block:'center',behavior:'smooth'});
+},true);

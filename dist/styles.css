@@ -3859,6 +3859,38 @@ body.phone-preview:has(.latest-bookings-workspace) .mobile-nav .nav-item.active{
   color:#087454!important;
 }
 
+/* Shared compact booking-card hierarchy. */
+.dashboard-request-card{gap:10px;padding:14px}
+.dashboard-request-main{gap:6px}
+.dashboard-request-reference-group{display:flex;align-items:center;gap:7px;min-width:0}
+.dashboard-request-reference-group small{color:var(--muted);font-size:12px;font-weight:500}
+.dashboard-request-new-pill{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:#fff1d1;color:#8a5a00;font-size:11px;font-weight:700;line-height:1.2}
+.dashboard-request-main h3{font-size:16px;line-height:1.25}
+.dashboard-request-main p,.dashboard-request-guest-room,.dashboard-request-financial{font-size:13px;line-height:1.35}
+.dashboard-request-guest-room{display:block;color:var(--muted);overflow-wrap:anywhere}
+.dashboard-request-financial{display:block;color:var(--text);font-weight:700;overflow-wrap:anywhere}
+.dashboard-request-deadline{font-size:12px;line-height:1.3}
+.dashboard-request-deadline.urgent{color:#8a5a00}
+.dashboard-request-actions{grid-template-columns:minmax(0,35fr) minmax(0,65fr);gap:8px}
+.dashboard-request-actions button{min-height:44px;white-space:nowrap}
+.dashboard-booking-row{padding:14px}
+.dashboard-booking-main{gap:5px}
+.dashboard-booking-main .dashboard-request-reference-row{width:100%}
+.dashboard-booking-reference{font-size:12px!important;font-weight:500!important}
+.dashboard-booking-row .dashboard-booking-title{font-size:16px}
+.dashboard-booking-summary,.dashboard-booking-guest-room,.dashboard-booking-payment{font-size:13px!important;line-height:1.35!important}
+.dashboard-booking-payment{font-weight:600}
+.booking-main-line{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.latest-booking-card .booking-card-hit{display:grid;gap:5px}
+.latest-booking-card .booking-reference-line{margin:0;color:var(--ink);font-size:14px;font-weight:600;line-height:1.25}
+.latest-booking-card .booking-main-line .booking-status{margin-left:auto}
+.latest-booking-card .booking-listing{font-size:16px;line-height:1.25}
+.latest-booking-card .booking-card-schedule,.latest-booking-card .booking-card-guest-room,.latest-booking-card .booking-card-payment{margin:0;color:var(--muted);font-size:13px;line-height:1.35}
+.latest-booking-card .booking-card-payment{font-weight:600}
+.latest-booking-card .booking-actions{display:flex;align-items:stretch;gap:8px;padding:0 12px 12px}
+.latest-booking-card .booking-actions .booking-action{min-width:0;flex:1;white-space:nowrap}
+.latest-booking-card .booking-actions .booking-card-more{width:48px;height:44px;flex:0 0 48px;margin:0;border:1px solid #d9d6d8;border-radius:8px;background:#fff;color:#777176;font-size:20px;line-height:1}
+
 /* Restore the reference's plum branding on Bookings; blue remains reserved for In progress. */
 .latest-bookings-workspace .final-bookings-tabs button.active{
   background:var(--booking-plum)!important;
@@ -4366,3 +4398,43 @@ body.phone-preview .app-shell.phone-frame .page:has(.chat-inbox-page){padding-to
 @media(max-width:400px){.chat-inbox-filters{gap:5px}.chat-inbox-chip{padding:0 11px}}
 body.phone-preview .app-shell.phone-frame:has(.chat-inbox-page),body.phone-preview .app-shell.phone-frame:has(.chat-inbox-page) .main-wrap,body.phone-preview .app-shell.phone-frame:has(.chat-inbox-page) .page{background:#fff!important}
 .chat-reference-open .chat-conversation{display:grid!important}
+
+/* Active bookings count badge, matching the Pending Requests count treatment. */
+.latest-bookings-workspace .final-bookings-tabs .booking-tab-count{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:6px;padding:0 5px;border-radius:999px;background:#efe5e9;color:var(--booking-plum);font-size:11px;font-weight:700;line-height:1;vertical-align:middle}
+
+/* Booking card header: keep the reference and status on one line (overrides the legacy .booking-card span block rule). */
+.latest-booking-card .booking-main-line{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.latest-booking-card .booking-main-line .booking-reference-line{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.latest-booking-card .booking-main-line .booking-status{display:inline-flex;align-items:center;flex:0 0 auto;width:auto;margin-left:auto;white-space:nowrap}
+
+/* Pending response timer and split rental schedule. */
+.dashboard-request-timer{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:24px;margin:0;padding:3px 8px;border-radius:999px;background:#fff4db;color:#8a5a00;font-size:11px;font-weight:700;line-height:1.2;white-space:nowrap}
+.dashboard-request-timer.critical{background:#fde8e8;color:#a61b1b}
+.dashboard-request-quantity,.dashboard-booking-quantity,.booking-card-quantity{display:block;color:var(--muted);font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+
+/* Chats: standard page header, flat filter pills, expanding search field. */
+body.phone-preview .app-shell.phone-frame .page:has(.chat-inbox-page){padding-top:0!important}
+.chat-inbox-header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;margin:0 -16px;padding:10px 16px;border-bottom:1px solid var(--line);background:#fff}
+.chat-inbox-header h1{margin:0;font-family:Manrope,sans-serif;font-size:27px;font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.chat-inbox-new{width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;border-radius:10px;background:transparent;color:#351525;font-size:22px;line-height:1}
+.chat-inbox-new:hover{background:var(--plum-pale)}
+.chat-inbox-controls{display:flex;align-items:center;gap:6px;min-height:48px;margin:0 -16px;padding:8px 16px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--inbox-line)}
+.chat-inbox-controls::-webkit-scrollbar{display:none}
+.chat-inbox-search-toggle{width:28px;height:28px;flex:0 0 auto;display:grid;place-items:center;margin-right:2px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--ink);font-size:18px;line-height:1}
+.chat-inbox-search-toggle:hover{background:#f4f1f2}
+.chat-inbox-chip{height:28px;padding:0 11px;border:0;border-radius:99px;background:#f4f1f2;color:var(--muted);font-size:13px;font-weight:600;line-height:28px}
+.chat-inbox-chip:hover{border:0;background:#ece6e9;color:var(--ink)}
+.chat-inbox-chip.is-active{border:0;background:var(--plum);color:#fff}
+.chat-inbox-controls.is-searching{gap:10px;overflow:visible}
+.chat-inbox-field{flex:1;min-width:0;height:32px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid transparent;border-radius:99px;background:#f4f1f2;color:var(--muted);font-size:16px}
+.chat-inbox-field:focus-within{border-color:#dcc6d2;background:#fff}
+.chat-inbox-field input{flex:1;min-width:0;height:100%;padding:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:14px}
+.chat-inbox-field input::-webkit-search-cancel-button{cursor:pointer}
+.chat-inbox-cancel{flex:0 0 auto;padding:0;border:0;background:transparent;color:var(--plum);font-size:14px;font-weight:600}
+
+/* Request details: a standard 64px header bar with a smaller, centred title. */
+.latest-request-detail>.latest-request-header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:4px;height:64px;min-height:64px;margin:0 -16px 16px;padding:0 16px 0 8px;border-bottom:1px solid var(--line);background:#fff}
+.latest-request-detail>.latest-request-header .latest-request-back{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;margin:0;padding:0;font-size:22px;line-height:1}
+.latest-request-detail>.latest-request-header h1{margin:0;font-family:Manrope,sans-serif;font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+body.phone-preview .app-shell.phone-frame .page:has(>.latest-request-detail),.page:has(>.latest-request-detail){padding-top:0!important}
+.latest-request-detail:has(>.latest-request-header){padding-top:0!important}
