@@ -1498,7 +1498,6 @@ render();
 /* Restore the last visited route after all layered startup guards have run. */
 setTimeout(()=>{
   let saved=cabanaLastViewFromUrl();
-  try{saved=saved||JSON.parse(localStorage.getItem(cabanaLastViewKey)||'null')}catch(error){}
   const validPages=['dashboard','orders','bookings','insights','listings','staff-listings','chat','menu','profile','services','earnings'];
   if(saved?.page&&validPages.includes(saved.page)){
     state.page=saved.page;
