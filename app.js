@@ -31,6 +31,8 @@ try {
 const cabanaUrlView=cabanaLastViewFromUrl();
 if(!cabanaRestoredFromStorage&&cabanaUrlView?.page) state.page=cabanaUrlView.page;
 if(cabanaUrlView?.pending) state.dashboardRequestFocusId=cabanaUrlView.pending;
+/* A clean entry opens the current Home screen; an explicit URL route still wins for refresh recovery. */
+if(!cabanaUrlView?.page&&!window.location.hash) state.page='dashboard';
 /* Preserve the route requested by the URL/storage while legacy startup layers initialise. */
 const cabanaInitialPage=state.page==='insights'?'dashboard':state.page;
 let cabanaResumePending=Boolean(cabanaUrlView?.page);
