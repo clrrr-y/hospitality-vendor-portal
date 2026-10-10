@@ -801,8 +801,8 @@ dashboardOperationalBookingRow=function(order,dateLabel){
 
 /* Final Bookings schedule refinement: calendar-day groups, no Later bucket, no QR controls. */
 const bookingScheduleExtras=[
-  {id:'CB-9007',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 7 · 4:30 PM · 2 hours',fulfilment:'Hotel pick-up · NAIA Terminal 3',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
-  {id:'CB-9010',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 9 · 8:30 AM · 2 hours',fulfilment:'Hotel pick-up · NAIA Terminal 3',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 2 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
+  {id:'CB-9007',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 7 · 4:30 PM · 2 hours',fulfilment:'Hotel pick-up · Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
+  {id:'CB-9010',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 9 · 8:30 AM · 2 hours',fulfilment:'Hotel pick-up · Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 2 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
   {id:'CB-9013',kind:'Booking',guest:'Leo Santos',hotel:'Luna Bay Resort',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 13 · 9:00 AM–Oct 14 · 9:00 AM · 1 day',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 4 · 1:20 PM']],notes:'Return by 9:00 AM on Oct 14.',contact:'Open guest chat'},
   {id:'PAST-DECLINED-02',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Private bakery tasting',quantity:'4 guests',when:'Oct 2 · 2:00 PM · 1 hour',fulfilment:'Tasting room',total:'₱4,800.00',payment:'Gateway payment pending',settlement:'Vendor declined',status:'Declined',timeline:[['Booking requested','Sep 29 · 4:00 PM'],['Declined','Oct 1 · 8:14 AM']],notes:'',contact:'View guest record'}
 ];
@@ -973,7 +973,7 @@ setTimeout(()=>{
 /* Final Bookings workflow: decided records only; requests stay on Home. */
 var bookingPastExtras=[
  {id:'PAST-DECLINED-01',kind:'Booking',guest:'John D.',hotel:'Luna Bay Resort',room:'101',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 4 · 1 day',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Vehicle unavailable',status:'Declined',timeline:[['Booking requested','Oct 4 · 7:10 AM'],['Declined','Oct 4 · 7:18 AM']]},
- {id:'PAST-EXPIRED-01',kind:'Booking',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Airport Transfer — Van',quantity:'4 pax',when:'Oct 3 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱3,600.00',payment:'Paid in app',settlement:'Confirmation deadline passed',status:'Expired',timeline:[['Booking requested','Oct 3 · 9:00 AM'],['Expired','Oct 3 · 10:00 AM']]}
+ {id:'PAST-EXPIRED-01',kind:'Booking',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Airport Transfer — Van',quantity:'4 pax',when:'Oct 3 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱3,600.00',payment:'Paid in app',settlement:'Confirmation deadline passed',status:'Expired',timeline:[['Booking requested','Oct 3 · 9:00 AM'],['Expired','Oct 3 · 10:00 AM']]}
 ];
 function bookingFinalKind(o){return /rental|transfer/i.test(o.item||'')?'Service & rental':'Product'}
 function bookingFinalRecords(){return orders.concat(bookingPastExtras)}
@@ -1020,14 +1020,14 @@ render();
 
 /* Transportation rental demo data and final route-safe presentation. */
 const transportListings=[
-  {id:'airport-sedan',name:'Airport Transfer — Sedan',category:'Transfer',price:'1800',unit:'per trip',stock:'2 sedans available',status:'Active',location:'Hotel lobby pickup · Airport drop-off',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=82'},
-  {id:'innova',name:'Toyota Innova Rental',category:'Vehicle rental',price:'3200',unit:'per day',stock:'1 vehicle available',status:'Active',location:'Hotel pickup · Return to vendor yard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=82'},
-  {id:'tourist-van',name:'Tourist Van Rental',category:'Vehicle rental',price:'5500',unit:'per day',stock:'2 vans available',status:'Active',location:'Hotel pickup · Return to vendor yard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=82'}
+  {id:'airport-sedan',name:'Airport Transfer — Sedan',category:'Transfer',price:'1800',unit:'per trip',stock:'2 sedans available',status:'Active',location:'Hotel lobby pickup · Airport drop-off',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1596429916858-6f97b5b9cf48?auto=format&fit=crop&w=1200&q=82'},
+  {id:'innova',name:'Toyota Innova Rental',category:'Vehicle rental',price:'3200',unit:'per day',stock:'1 vehicle available',status:'Active',location:'Hotel pickup · Return to vendor yard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1748215210939-ad8b6c8c086d?auto=format&fit=crop&w=1200&q=82'},
+  {id:'tourist-van',name:'Tourist Van Rental',category:'Vehicle rental',price:'5500',unit:'per day',stock:'2 vans available',status:'Active',location:'Hotel pickup · Return to vendor yard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1787028331201-75a0abb8ab0e?auto=format&fit=crop&w=1200&q=82'}
 ];
 const transportOrders=[
-  {id:'ORD-1042',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 8:30 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Oct 6 · 8:06 AM']],notes:'Flight pickup for an early departure.',contact:'Open guest chat'},
+  {id:'ORD-1042',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 8:30 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Oct 6 · 8:06 AM']],notes:'Flight pickup for an early departure.',contact:'Open guest chat'},
   {id:'CB-8821',kind:'Booking',guest:'John D.',hotel:'Luna Bay Resort',room:'101',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 7 · 9:00 AM – Oct 8 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:60,timeline:[['Booking requested','Oct 6 · 8:12 AM']],notes:'Return vehicle by Oct 8 at 9:00 AM.',contact:'Open guest chat'},
-  {id:'CB-8830',kind:'Booking',guest:'Sofia Lim',hotel:'Luna Bay Resort',room:'602',item:'Airport Transfer — Sedan',quantity:'3 passengers · 4 suitcases',when:'Oct 7 · 11:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱3,600.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:18,timeline:[['Booking requested','Oct 6 · 8:18 AM']],notes:'Please allow space for four checked bags.',contact:'Open guest chat'},
+  {id:'CB-8830',kind:'Booking',guest:'Sofia Lim',hotel:'Luna Bay Resort',room:'602',item:'Airport Transfer — Sedan',quantity:'3 passengers · 4 suitcases',when:'Oct 7 · 11:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱3,600.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:18,timeline:[['Booking requested','Oct 6 · 8:18 AM']],notes:'Please allow space for four checked bags.',contact:'Open guest chat'},
   {id:'CB-8835',kind:'Booking',guest:'Daniel Cruz',hotel:'Luna Bay Resort',room:'410',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 8 · 1:30 PM – Oct 9 · 1:30 PM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:42,timeline:[['Booking requested','Oct 6 · 8:22 AM']],notes:'Family luggage included; return by Oct 9 at 1:30 PM.',contact:'Open guest chat'},
   {id:'CB-8840',kind:'Booking',guest:'Lara Villanueva',hotel:'Luna Bay Resort',room:'118',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 9 · 10:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:36,timeline:[['Booking requested','Oct 6 · 8:26 AM']],notes:'Morning airport transfer.',contact:'Open guest chat'},
   {id:'CB-8854',kind:'Booking',guest:'Paolo Garcia',hotel:'Luna Bay Resort',room:'309',item:'Toyota Innova Rental',quantity:'1 vehicle · 3 passengers',when:'Oct 9 · 9:00 AM – Oct 10 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:40,timeline:[['Booking requested','Oct 6 · 8:28 AM']],notes:'Day rental for a family trip to the hot springs.',contact:'Open guest chat'},
@@ -1035,7 +1035,7 @@ const transportOrders=[
   {id:'CB-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['Driver dispatched','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.',contact:'Open guest chat'},
   {id:'ORD-1044',kind:'Booking',guest:'Leo Santos',hotel:'Luna Bay Resort',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 10 · 11:30 AM – Oct 12 · 11:30 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱6,400.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 4:15 PM']],notes:'Return deadline Oct 12 at 11:30 AM.',contact:'Open guest chat'},
   {id:'ORD-1037',kind:'Booking',guest:'Oliver Brown',hotel:'Luna Bay Resort',room:'205',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 6 · 8:00 AM – Oct 6 · 6:00 PM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Paid via gateway',settlement:'In payout',status:'Completed',timeline:[['Booking confirmed','Oct 4 · 6:40 PM'],['Completed','Oct 6 · 6:12 PM']],notes:'Vehicle returned and checked.',contact:'View booking record'},
-  {id:'CB-8812',kind:'Booking',guest:'Priya Shah',hotel:'Luna Bay Resort',room:'412',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 3 · 7:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱1,800.00',payment:'Charged to room',settlement:'Guest checked out',status:'Completed',timeline:[['Booking confirmed','Oct 2 · 11:20 AM'],['Completed','Oct 3 · 9:10 PM']],notes:'Transfer completed.',contact:'View booking record'}
+  {id:'CB-8812',kind:'Booking',guest:'Priya Shah',hotel:'Luna Bay Resort',room:'412',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 3 · 7:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱1,800.00',payment:'Charged to room',settlement:'Guest checked out',status:'Completed',timeline:[['Booking confirmed','Oct 2 · 11:20 AM'],['Completed','Oct 3 · 9:10 PM']],notes:'Transfer completed.',contact:'View booking record'}
 ];
 orders.splice(0,orders.length,...transportOrders);
 /* Seed a representative Home queue: four existing requests and three newly arrived ones. */
@@ -1526,7 +1526,7 @@ render();
 /* Final Active examples and menu behavior for the transportation vendor view. */
 const bookingPromptRecords=[
   {id:'BK-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['In progress','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.'},
-  {id:'BK-9003',kind:'Booking',guest:'Marco Santos',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 4:30 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱2,400.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.'}
+  {id:'BK-9003',kind:'Booking',guest:'Marco Santos',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 4:30 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.'}
 ];
 const bookingPromptHiddenIds=new Set(['CB-9002']);
 const bookingLatestAllBeforePrompt=bookingLatestAll;
@@ -1730,7 +1730,7 @@ const sendNewPendingRequestNotification=async order=>{if(!order||typeof Notifica
 const requestNotificationPermission=async()=>{if(typeof Notification==='undefined')return 'denied';if(Notification.permission!=='default')return Notification.permission;try{return await Notification.requestPermission()}catch(error){return 'denied'}};
 const initializePendingRequestNotifications=()=>{const currentIds=currentPendingRequestIds(),savedSnapshot=readPendingStorage(pendingSnapshotKey,null),savedNew=readPendingStorage(pendingNewKey,[]);state.dashboardNewPendingRequests=savedNew.filter(id=>currentIds.includes(id));if(!Array.isArray(savedSnapshot))writePendingStorage(pendingSnapshotKey,currentIds);if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});navigator.serviceWorker.addEventListener('message',event=>{if(event.data?.type==='open-pending-request')openPendingRequestFromNotification(event.data.requestId)})}};
 const checkForNewPendingRequests=async()=>{const currentIds=currentPendingRequestIds(),previous=readPendingStorage(pendingSnapshotKey,null);if(!Array.isArray(previous)){writePendingStorage(pendingSnapshotKey,currentIds);return}const arrivals=currentIds.filter(id=>!previous.includes(id));if(arrivals.length){state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),...arrivals])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentIds);if(state.page==='dashboard')render()}else if(previous.some(id=>!currentIds.includes(id))){writePendingStorage(pendingSnapshotKey,currentIds);state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>currentIds.includes(id));writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests)}};
-const simulatedRequestTemplates=[{guest:'Bianca Torres',room:'402',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 10 · 6:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 3',total:'₱2,400.00',notes:'Early flight, please arrive 10 minutes ahead.'},{guest:'Kenji Watanabe',room:'611',item:'Toyota Innova Rental',quantity:'1 vehicle · 4 passengers',when:'Oct 10 · 9:00 AM – Oct 11 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',notes:'Day trip to Tagaytay.'},{guest:'Grace Lim',room:'226',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 11 · 8:00 AM – Oct 12 · 8:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',notes:'Family tour, child seat requested.'},{guest:'Marcus Bell',room:'318',item:'Airport Transfer — SUV',quantity:'3 passengers · 4 suitcases',when:'Oct 11 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',notes:'Extra luggage space needed.'}];
+const simulatedRequestTemplates=[{guest:'Bianca Torres',room:'402',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 10 · 6:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',notes:'Early flight, please arrive 10 minutes ahead.'},{guest:'Kenji Watanabe',room:'611',item:'Toyota Innova Rental',quantity:'1 vehicle · 4 passengers',when:'Oct 10 · 9:00 AM – Oct 11 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',notes:'Day trip to Tagaytay.'},{guest:'Grace Lim',room:'226',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 11 · 8:00 AM – Oct 12 · 8:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',notes:'Family tour, child seat requested.'},{guest:'Marcus Bell',room:'318',item:'Airport Transfer — SUV',quantity:'3 passengers · 4 suitcases',when:'Oct 11 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',notes:'Extra luggage space needed.'}];
 const simulateOnePendingRequest=async()=>{const nextNumber=Math.max(8854,...orders.map(item=>Number(String(item.id).match(/^CB-(88\d\d)$/)?.[1]||0)))+1,id='CB-'+nextNumber,simCount=readPendingStorage(simulatedPendingKey,[]).length,template=simulatedRequestTemplates[simCount%simulatedRequestTemplates.length],placedMinutes=42+simCount*4,placed='Oct 6 · '+(8+Math.floor(placedMinutes/60))+':'+String(placedMinutes%60).padStart(2,'0')+' AM',order={id,kind:'Booking',hotel:'Luna Bay Resort',...template,payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:60,timeline:[['Booking requested',placed]],contact:'Open guest chat'};orders.push(order);dashboardPendingDisplayIds.add(id);const stored=readPendingStorage(simulatedPendingKey,[]);writePendingStorage(simulatedPendingKey,[...stored.filter(item=>item.id!==id),order]);state.page='dashboard';state.detail=null;state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),id])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render()};
 const simulateNewPendingRequest=async()=>{await simulateOnePendingRequest();await simulateOnePendingRequest()};
 const resetDevSimulations=()=>{const simulated=readPendingStorage(simulatedPendingKey,[]),simulatedIds=new Set(simulated.map(item=>item?.id).filter(Boolean));orders.splice(0,orders.length,...orders.filter(order=>!simulatedIds.has(order.id)&&!String(order.id).startsWith('SIM-')));try{localStorage.removeItem(simulatedPendingKey)}catch(error){}state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>!simulatedIds.has(id)&&!String(id).startsWith('SIM-'));state.dashboardRequestFocusId=null;writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render();toast('Simulations reset')};
@@ -2022,12 +2022,17 @@ render=function(){chatReferenceRenderFinal();if(state.page!=='chat')return;docum
 render();
 
 /* Menu information architecture: role-aware groups and profile header. */
-const menuProfileForRole=()=>state.role==='Owner'?{business:'Cabana Transport Services',name:'Leah Santos',role:'Owner'}:{business:'Cabana Transport Services',name:'Marco Dela Cruz',role:'Staff'};
+const menuProfileForRole=()=>state.role==='Owner'?{business:'Cabana Transport Services',name:'Leah Santos',role:'Owner',phone:'+63 917 555 0182',email:'leah@cabanatransport.com'}:{business:'Cabana Transport Services',name:'Marco Dela Cruz',role:'Staff',phone:'+63 917 555 0183',email:'marco@cabanatransport.com'};
 const menuSection=(title,rows)=>'<section class="menu-section"><h2>'+title+'</h2><div class="menu-section-list">'+rows.join('')+'</div></section>';
-const menuProfileHeader=profile=>'<button class="menu-profile-header" data-page="profile"><span class="menu-profile-icon"><i class="hgi-stroke hgi-building-01" aria-hidden="true"></i></span><span><strong>'+esc(profile.business)+'</strong><small>'+esc(profile.name)+' · '+esc(profile.role)+'</small></span><span class="menu-profile-arrow">→</span></button>';
-menuView=function(){const owner=state.role==='Owner',profile=menuProfileForRole(),business=owner?[menuRow('Earnings','wallet-01','data-page="earnings"'),menuRow('Listings','grid-02','data-page="listings"'),menuRow('Partner hotels','hotel-01','data-toast="Partner hotels opened"'),menuRow('Staff accounts','user-group','data-toast="Staff accounts opened"')]:[];const settings=owner?[menuRow('Business profile','store-01','data-page="profile"'),menuRow('Payout account','bank-02','data-toast="Payout account settings opened"'),menuRow('Notifications','notification-03','data-toast="Notification settings opened"')]:[menuRow('Notifications','notification-03','data-toast="Notification settings opened"')];const support=[menuRow('Help and support','help-circle','data-toast="Help center opened"'),menuRow('Log out','logout-01','data-logout')];return '<div class="menu-page"><header class="menu-page-header"><h1>Menu</h1></header>'+menuProfileHeader(profile)+(owner?menuSection('Business',business):'')+menuSection('Settings',settings)+menuSection('Support',support)+'</div>'};
+const menuProfileInitials=profile=>String(profile.name||'').split(/\s+/).map(part=>part[0]||'').join('').slice(0,2).toUpperCase();
+const menuProfileHeader=profile=>'<button class="menu-profile-header" type="button" data-menu-account><span class="menu-profile-icon">'+esc(menuProfileInitials(profile))+'</span><span><strong>'+esc(profile.name)+'</strong><small>'+esc(profile.role)+' · '+esc(profile.business)+'</small></span><span class="menu-profile-action" aria-hidden="true">›</span></button>';
+const menuRowFinal=(label,icon,attrs='')=>'<button class="menu-row" '+attrs+'><span class="menu-row-icon">'+navIcon(icon,false)+'</span><span>'+label+'</span>'+(attrs.includes('data-logout')?'':'<span class="menu-row-chevron" aria-hidden="true">›</span>')+'</button>';
+const menuAccountView=profile=>'<div class="menu-account-page"><section class="menu-account-card"><span class="menu-account-avatar">'+esc(menuProfileInitials(profile))+'</span><div><h2>'+esc(profile.name)+'</h2><p>'+esc(profile.role)+' · '+esc(profile.business)+'</p></div></section><section class="menu-account-section"><h2>Personal details</h2><div class="menu-account-list"><div><strong>Phone</strong><span>'+esc(profile.phone)+'</span></div><div><strong>Email</strong><span>'+esc(profile.email)+'</span></div></div></section><section class="menu-account-section"><h2>Security and preferences</h2><div class="menu-account-list"><button type="button" data-toast="Password or PIN settings opened"><strong>Password or PIN</strong><span>Update your sign-in method <b>›</b></span></button><button type="button" data-toast="Language settings opened"><strong>Language</strong><span>English <b>›</b></span></button></div></section></div>';
+const profileViewBeforeMenuAccount=profileView;
+profileView=function(){return state.profileMode==='account'?menuAccountView(menuProfileForRole()):profileViewBeforeMenuAccount()};
+menuView=function(){const owner=state.role==='Owner',profile=menuProfileForRole(),business=owner?[menuRowFinal('Insights','analytics-01','data-insights'),menuRowFinal('Earnings','wallet-01','data-page="earnings"'),menuRowFinal('Listings','grid-02','data-page="listings"'),menuRowFinal('Partner hotels','hotel-01','data-toast="Partner hotels opened"'),menuRowFinal('Staff accounts','user-group','data-toast="Staff accounts opened"')]:[];const settings=owner?[menuRowFinal('Business profile','store-01','data-business-profile'),menuRowFinal('Payout account','bank','data-toast="Payout account settings opened"'),menuRowFinal('Auto-messages','message-02','data-cx-booking-messages'),menuRowFinal('Notifications','notification-03','data-toast="Notification settings opened"')]:[menuRowFinal('Notifications','notification-03','data-toast="Notification settings opened"')];const support=[menuRowFinal('Help and support','help-circle','data-toast="Help center opened"'),menuRowFinal('Log out','logout-01','data-logout')];return '<div class="menu-page"><header class="menu-page-header"><h1>Menu</h1></header>'+menuProfileHeader(profile)+(owner?menuSection('Business',business):'')+menuSection('Settings',settings)+menuSection('Support',support)+'</div>'};
 const menuRenderFinal=render;
-render=function(){menuRenderFinal();document.querySelector('#app')?.classList.toggle('menu-route',state.page==='menu')};
+render=function(){menuRenderFinal();document.querySelector('#app')?.classList.toggle('menu-route',state.page==='menu');document.querySelectorAll('[data-menu-account]').forEach(button=>button.onclick=()=>{state.page='profile';state.profileMode='account';state.detail=null;render()});document.querySelectorAll('[data-business-profile]').forEach(button=>button.onclick=()=>{state.page='profile';state.profileMode='business';state.detail=null;render()});document.querySelectorAll('[data-menu-back]').forEach(button=>button.onclick=()=>{state.page='menu';state.profileMode=null;state.detail=null;render()})};
 render();
 
 /* Home new-request awareness: keep arrivals discoverable without shifting the queue. */
@@ -2406,19 +2411,58 @@ const cxThreads=[
     {day:'Oct 3',time:'6:40 PM',from:'me',sender:'Leah · Owner',status:'read',text:'Your sedan is at the lobby.'},
     {day:'Oct 3',time:'9:10 PM',from:'them',text:'Arrived safely. Thank you!'}]}
 ];
-state.cx=state.cx||{view:'list',filter:'All',query:'',threadId:null,showAllBookings:false};
+const cxThreadSeed=JSON.parse(JSON.stringify(cxThreads));
+const cxResetChatThreads=()=>{const clean=JSON.parse(JSON.stringify(cxThreadSeed));cxThreads.splice(0,cxThreads.length,...clean);state.cxDraft='';};
+cxResetChatThreads();
+const cxDefaultBookingTemplate='Hi {guest name}! Your {listing} on {date & time} is confirmed. We’ll message you here if anything changes. See you soon!';
+try{state.cxBookingTemplate=localStorage.getItem('cabana:booking-message-template')||cxDefaultBookingTemplate}catch(error){state.cxBookingTemplate=cxDefaultBookingTemplate}
+const cxBookingMessageBusiness=()=>{try{return menuProfileForRole?.().business||'Cabana Transport Services'}catch(error){return 'Cabana Transport Services'}};
+const cxBookingMessageText=record=>String(state.cxBookingTemplate||cxDefaultBookingTemplate).replaceAll('{guest name}',String(record.guest||'guest').split(' ')[0]).replaceAll('{listing}',String(record.item||'your booking')).replaceAll('{date & time}',cxWhenLabel(record)).replaceAll('{booking number}',cxBookingRef(record.id));
+const cxGuestThreadForBooking=record=>{
+  let thread=cxThreads.find(item=>item.kind==='guest'&&item.name===record.guest&&String(item.room)===String(record.room)&&item.hotel===record.hotel);
+  if(!thread){thread={id:'g-'+String(record.guest||'guest').toLowerCase().replace(/[^a-z]+/g,'-')+'-'+String(record.room||'room'),kind:'guest',name:record.guest,room:String(record.room||''),hotel:record.hotel||'Luna Bay Resort',unread:0,messages:[]};cxThreads.push(thread)}
+  return thread;
+};
+const cxSendBookingConfirmation=record=>{
+  if(!record||record.status!=='Confirmed'||record.kind==='Counter charge')return null;
+  const thread=cxGuestThreadForBooking(record),already=thread.messages.some(message=>message.from==='auto'&&message.booking===record.id);
+  if(!already){
+    const message={day:cxToday,time:cxNowTime(),from:'auto',sender:cxBookingMessageBusiness(),booking:record.id,text:cxBookingMessageText(record)};
+    thread.messages.push(message);thread.preview=message.text;thread.time=message.time;
+  }
+  state.page='chat';state.detail=null;state.cx.view='thread';state.cx.threadId=thread.id;state.cxDraft='';
+  return thread;
+};
+if(!window.__cxConfirmationBridge){
+  window.__cxConfirmationBridge=true;
+  document.addEventListener('click',event=>{
+    const trigger=event.target.closest?.('[data-dashboard-request-action="confirm"],[data-request-detail-action="confirm"]');
+    if(!trigger)return;
+    const delay=trigger.matches('[data-dashboard-request-action]')?350:20;
+    setTimeout(()=>{
+      const id=trigger.dataset.dashboardRequestId||trigger.dataset.requestDetailId,record=orders.find(item=>item.id===id)||((typeof bookingLatestAll==='function')?bookingLatestAll().find(item=>item.id===id):null);
+      if(record?.status==='Confirmed'){cxSendBookingConfirmation(record);render()}
+    },delay);
+  },true);
+}
+state.cx=state.cx||{view:'list',filter:'All',query:'',threadId:null,showAllBookings:false,bookingsSheet:false};
+state.cx.bookingsSheet=Boolean(state.cx.bookingsSheet);
+state.cxDraft=state.cxDraft||'';
 try{state.cxSound=localStorage.getItem('cabana:chat-sound')||'Default'}catch(error){state.cxSound='Default'}
 const cxThread=id=>cxThreads.find(thread=>thread.id===id);
 const cxGuestBookings=thread=>thread.kind!=='guest'?[]:cxAllBookings().filter(item=>item.guest===thread.name&&String(item.room)===String(thread.room));
 const cxActiveBookings=thread=>cxGuestBookings(thread).filter(item=>cxActiveStatuses.includes(item.status));
-const cxPrimaryBooking=thread=>{const active=cxActiveBookings(thread).slice().sort((a,b)=>cxBookingEnd(a)-cxBookingEnd(b));if(active.length)return active[0];return cxGuestBookings(thread).slice().sort((a,b)=>cxBookingEnd(b)-cxBookingEnd(a))[0]};
+const cxBookingPriority=record=>{const status=cxStatus(record);if(status==='Pending')return 0;if(['In progress','In use','Ready'].includes(status))return 1;if(status==='Confirmed')return 2;return 3};
+const cxBookingOrder=(a,b)=>{const aPriority=cxBookingPriority(a),bPriority=cxBookingPriority(b);if(aPriority!==bPriority)return aPriority-bPriority;return aPriority>=3?cxBookingEnd(b)-cxBookingEnd(a):cxBookingEnd(a)-cxBookingEnd(b)};
+const cxSortedBookings=thread=>cxGuestBookings(thread).filter(item=>cxStatus(item)!=='Pending').sort(cxBookingOrder);
+const cxPrimaryBooking=thread=>cxSortedBookings(thread)[0];
 const cxLastStamp=thread=>{const last=thread.messages[thread.messages.length-1];return last?cxStamp(last.day,last.time):0};
 const cxIsArchived=thread=>{
   if(thread.kind!=='guest')return false;
   const bookings=cxGuestBookings(thread);
-  if(!bookings.length||bookings.some(item=>cxActiveStatuses.includes(item.status)))return false;
-  const lastEnd=Math.max(...bookings.map(cxBookingEnd),0),lastGuest=Math.max(0,...thread.messages.filter(message=>message.from==='them').map(message=>cxStamp(message.day,message.time)));
-  return cxNow>Math.max(lastEnd,lastGuest)+86400000;
+  if(!bookings.length||bookings.some(item=>item.status!=='Pending'&&cxActiveStatuses.includes(item.status)))return false;
+  const lastEnd=Math.max(...bookings.map(cxBookingEnd),0);
+  return lastEnd>0&&cxNow>lastEnd+86400000;
 };
 const cxUnreadTotal=()=>cxThreads.filter(thread=>!cxIsArchived(thread)).reduce((sum,thread)=>sum+(thread.unread||0),0);
 const cxPreview=thread=>{const last=[...thread.messages].reverse().find(message=>message.from!=='divider');if(!last)return 'No messages yet.';return last.from==='me'?'You: '+last.text:last.text};
@@ -2431,7 +2475,7 @@ const cxAvatar=thread=>thread.kind==='frontdesk'
 const cxRoleTag=thread=>thread.kind==='frontdesk'?'<span class="cx-role is-frontdesk"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i>Front Desk</span>':'<span class="cx-role is-guest"><i class="hgi-stroke hgi-user" aria-hidden="true"></i>Guest</span>';
 const cxMatches=thread=>{
   const query=String(state.cx.query||'').trim().toLowerCase();if(!query)return true;
-  const refs=cxGuestBookings(thread).map(item=>[item.id,displayBookingReference(item.id),'#'+displayBookingReference(item.id)].join(' '));
+  const refs=cxGuestBookings(thread).filter(item=>cxStatus(item)!=='Pending').map(item=>[item.id,displayBookingReference(item.id),'#'+displayBookingReference(item.id)].join(' '));
   return [thread.name,thread.hotel,thread.kind==='frontdesk'?'Front Desk':'',thread.room?'Room '+thread.room:'',thread.room,...refs].filter(Boolean).join(' ').toLowerCase().includes(query);
 };
 const cxRow=thread=>{
@@ -2439,37 +2483,41 @@ const cxRow=thread=>{
   const subtitle=thread.kind==='guest'?(booking?'<b>'+esc(cxBookingRef(booking.id))+'</b> · ':'')+esc(preview):esc(preview);
   return '<button class="cx-row'+(unread?' is-unread':'')+'" type="button" data-cx-open="'+thread.id+'">'+cxAvatar(thread)
     +'<span class="cx-row-copy"><span class="cx-row-title"><strong>'+esc(cxTitle(thread))+'</strong></span>'
-    +'<span class="cx-row-meta-line">'+cxRoleTag(thread)+(archived?'<span class="cx-archived-tag">Archived</span>':'')+'</span>'
     +'<span class="cx-row-preview">'+subtitle+'</span></span>'
     +'<span class="cx-row-side"><time>'+esc(cxRowTime(thread))+'</time>'+(unread?'<b class="cx-unread" aria-label="'+thread.unread+' unread">'+thread.unread+'</b>':'')+'</span></button>';
 };
 const cxListView=()=>{
   const query=String(state.cx.query||'').trim(),filter=state.cx.filter||'All';
-  const inFilter=thread=>filter==='All'||filter==='Guests'&&thread.kind==='guest'||filter==='Front Desk'&&thread.kind==='frontdesk';
-  const pool=cxThreads.filter(inFilter).filter(cxMatches).filter(thread=>query||!cxIsArchived(thread));
+  const inFilter=thread=>filter==='All'||filter==='Unread'&&thread.unread>0&&!cxIsArchived(thread)||filter==='Guests'&&thread.kind==='guest'||filter==='Front Desk'&&thread.kind==='frontdesk';
+  const pool=cxThreads.filter(cxThreadListed).filter(inFilter).filter(cxMatches).filter(thread=>query||!cxIsArchived(thread));
   const frontDesk=pool.filter(thread=>thread.kind==='frontdesk'),guests=pool.filter(thread=>thread.kind==='guest').sort((a,b)=>cxLastStamp(b)-cxLastStamp(a));
   const archivedCount=cxThreads.filter(thread=>cxIsArchived(thread)&&inFilter(thread)).length;
   const rows=frontDesk.concat(guests);
   const list=rows.length?rows.map(cxRow).join(''):'<p class="cx-empty">'+(query?'No conversations match “'+esc(query)+'”.':'No messages yet.')+'</p>';
-  const archivedRow=!query&&filter!=='Front Desk'?'<button class="cx-archived-link" type="button" data-cx-archived>Archived ('+archivedCount+') <span aria-hidden="true">→</span></button>':'';
+  const archivedRow=filter==='All'&&archivedCount>0?'<button class="cx-archived-link" type="button" data-cx-archived><span class="cx-archived-label"><i class="hgi-stroke hgi-archive-01" aria-hidden="true"></i><span>Archived</span></span><span class="cx-archived-meta"><b>'+archivedCount+'</b><span aria-hidden="true">→</span></span></button>':'';
+  const unreadCount=cxUnreadTotal();
   return '<div class="cx-page cx-list-page">'
     +'<header class="cx-header"><h1>Chat</h1></header>'
     +'<div class="cx-tools"><label class="cx-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input type="search" data-cx-search value="'+esc(state.cx.query||'')+'" placeholder="Search guest, room, or booking number" aria-label="Search guest, room, or booking number" autocomplete="off"></label>'
-    +'<div class="cx-segment" role="tablist" aria-label="Filter conversations">'+['All','Guests','Front Desk'].map(name=>'<button type="button" role="tab" aria-selected="'+(filter===name)+'" class="'+(filter===name?'is-active':'')+'" data-cx-filter="'+name+'">'+name+'</button>').join('')+'</div></div>'
+    +'<div class="cx-pills" role="group" aria-label="Filter conversations">'+[['All','All'],['Unread','Unread '+unreadCount],['Guests','Guests'],['Front Desk','Front Desk']].map(([name,label])=>'<button type="button" aria-pressed="'+(filter===name)+'" class="cx-pill '+(filter===name?'is-active':'')+'" data-cx-filter="'+name+'">'+label+'</button>').join('')+'</div></div>'
     +(query?'<p class="cx-search-note">Including archived conversations</p>':'')
-    +'<section class="cx-list" aria-label="Conversations">'+list+archivedRow+'</section></div>';
+    +'<section class="cx-list" aria-label="Conversations">'+archivedRow+list+'</section></div>';
 };
 const cxArchivedView=()=>{
   const rows=cxThreads.filter(cxIsArchived).sort((a,b)=>cxLastStamp(b)-cxLastStamp(a));
   return '<div class="cx-page cx-archived-page"><header class="cx-header cx-header-back"><button class="cx-back" type="button" data-cx-back aria-label="Back to Chat">←</button><h1>Archived</h1></header>'
-    +'<p class="cx-archived-note">Guest chats close 24 hours after their last booking ends. They are read-only.</p>'
+    +'<div class="cx-archived-tip"><button type="button" class="cx-tip-button" data-cx-archive-tip aria-expanded="false" aria-controls="cx-archive-tip-copy" aria-label="About archived chats"><i class="hgi-stroke hgi-information-circle" aria-hidden="true"></i></button><span id="cx-archive-tip-copy" role="tooltip">Guest chats close 24 hours after their last booking ends. They are read-only.</span></div>'
     +'<section class="cx-list">'+(rows.length?rows.map(cxRow).join(''):'<p class="cx-empty">No archived conversations.</p>')+'</section></div>';
 };
-const cxBookingCard=(record,pinned)=>{
+const cxBookingWhen=record=>String(record?.when||'').replace(cxToday+' · ','Today, ').replace(cxToday+', ','Today, ');
+const cxBookingStripWhen=record=>cxBookingWhen(record).replace(/\s*·\s*\d+\s+hours?$/i,'');
+const cxBookingSheetWhen=record=>cxBookingWhen(record).replace(/\bhours?\b/gi,'hrs');
+const cxBookingCard=(record,pinned,multiple=false,total=1)=>{
   if(!record)return '';
-  const status=cxStatus(record),when=String(record.when||'').replace(cxToday+' · ','Today · ').replace(cxToday+', ','Today · ');
-  return '<button class="cx-booking'+(pinned?' is-pinned':'')+'" type="button" data-cx-booking="'+esc(record.id)+'"><span class="cx-booking-copy"><strong>'+esc(cxBookingRef(record.id))+' · '+esc(record.item)+'</strong><small>'+esc(when)+' <em class="cx-status '+cxStatusClass(status)+'">'+esc(status)+'</em></small></span><span class="cx-booking-view">View →</span></button>';
+  const status=cxStatus(record),when=cxBookingStripWhen(record),action=multiple?'data-cx-bookings-open':'data-cx-booking="'+esc(record.id)+'"';
+  return '<button class="cx-booking'+(pinned?' is-pinned':'')+'" type="button" '+action+'><span class="cx-booking-main"><span class="cx-booking-top"><strong>'+esc(record.item)+'</strong><span class="cx-booking-actions"><span class="cx-booking-status '+cxStatusClass(status)+'">● '+esc(status)+'</span>'+(multiple?'<span class="cx-booking-switch">1 of '+total+'<i class="hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i></span>':'<span class="cx-booking-view" aria-hidden="true">›</span>')+'</span></span><span class="cx-booking-bottom"><span>'+esc(cxBookingRef(record.id))+' · '+esc(when)+'</span></span></span></button>';
 };
+const cxBookingsSheet=(thread,bookings)=>'<div class="cx-bookings-backdrop" data-cx-bookings-close></div><section class="cx-bookings-sheet" role="dialog" aria-modal="true" aria-label="'+esc(thread.name)+' bookings"><header><h2>'+esc(thread.name)+"'s bookings"+'</h2><button type="button" data-cx-bookings-close aria-label="Close">×</button></header><div class="cx-bookings-sheet-list">'+bookings.map(record=>'<button type="button" class="cx-booking-sheet-row" data-cx-sheet-booking="'+esc(record.id)+'"><span class="cx-sheet-booking-status '+cxStatusClass(cxStatus(record))+'">● '+esc(cxStatus(record))+'</span><span class="cx-sheet-booking-copy"><strong>'+esc(record.item)+'</strong><small>'+esc(cxBookingRef(record.id))+' · '+esc(cxBookingSheetWhen(record))+'</small></span><span class="cx-sheet-booking-chevron" aria-hidden="true">›</span></button>').join('')+'</div></section>';
 const cxTicks=message=>message.status==='sending'?'<span class="cx-state is-sending" aria-label="Sending">◷</span>':message.status==='sent'?'<span class="cx-state is-sent" aria-label="Sent">✓</span>':message.status==='read'?'<span class="cx-state is-read" aria-label="Read">✓✓</span>':'';
 const cxSystemIcon={confirmed:'checkmark-circle-02',charge:'money-add-02',created:'calendar-add-01',cancelled:'cancel-circle'};
 const cxMessage=(message,index,thread)=>{
@@ -2478,36 +2526,47 @@ const cxMessage=(message,index,thread)=>{
     const view=message.kind==='created'&&message.booking?'<button type="button" class="cx-system-link" data-cx-booking="'+esc(message.booking)+'">View →</button>':'';
     return '<div class="cx-system is-'+esc(message.kind||'info')+'"><i class="hgi-stroke hgi-'+(cxSystemIcon[message.kind]||'information-circle')+'" aria-hidden="true"></i><span>'+esc(message.text)+'</span>'+view+'</div>';
   }
+  if(message.from==='auto')return '<div class="cx-msg is-mine is-auto-sent"><div class="cx-bubble">'+esc(message.text)+'</div><span class="cx-meta"><span>'+esc(message.time)+'</span>'+cxTicks({status:message.status||'read'})+'</span></div>';
   const mine=message.from==='me';
   const body=message.image?'<img class="cx-photo" src="'+message.image+'" alt="Photo sent">':esc(message.text);
-  const meta=mine
-    ?'<span class="cx-meta"><span>'+esc(message.sender||cxSender())+' · '+esc(message.time)+'</span>'+cxTicks(message)+'</span>'
-    :'<span class="cx-meta"><span>'+esc(message.time)+'</span></span>';
+  const sender=String(message.sender||cxSender()).split(' · ')[0];
+  const previous=thread.messages[index-1],next=thread.messages[index+1];
+  const previousSender=previous?.from==='me'?String(previous.sender||cxSender()).split(' · ')[0]:'';
+  const nextSender=next?.from==='me'?String(next.sender||cxSender()).split(' · ')[0]:'';
+  const startsGroup=!previous||previous.from==='system'||previous.from==='divider'||previous.from!==message.from||(mine&&previousSender!==sender);
+  const endsGroup=!next||next.from==='system'||next.from==='divider'||next.from!==message.from||(mine&&nextSender!==sender);
+  const meta=endsGroup
+    ?'<span class="cx-meta">'+'<span>'+esc(message.time)+'</span>'+(mine?cxTicks(message):'')+'</span>'
+    :'';
   const failed=mine&&message.status==='failed'?'<button type="button" class="cx-retry" data-cx-retry="'+index+'">Not sent · Tap to retry</button>':'';
   return '<div class="cx-msg '+(mine?'is-mine':'is-theirs')+(message.status==='failed'?' is-failed':'')+'"><div class="cx-bubble">'+body+'</div>'+(failed||meta)+'</div>';
 };
 const cxThreadView=()=>{
   const thread=cxThread(state.cx.threadId);if(!thread){state.cx.view='list';return cxListView()}
   const archived=cxIsArchived(thread),guest=thread.kind==='guest';
-  const sub=guest?esc(thread.hotel)+' · Room '+esc(thread.room):esc(thread.hotel);
+  const sub=guest?esc(thread.hotel)+' · Room '+esc(thread.room):'Front Desk · '+esc(thread.hotel);
   let pinned='';
   if(guest){
-    const primary=cxPrimaryBooking(thread),others=cxGuestBookings(thread).filter(item=>item!==primary&&cxActiveStatuses.includes(item.status));
-    pinned='<div class="cx-pinned">'+cxBookingCard(primary,true)+(others.length?(state.cx.showAllBookings?others.map(item=>cxBookingCard(item,true)).join('')+'<button type="button" class="cx-more-bookings" data-cx-toggle-bookings>Show less</button>':'<button type="button" class="cx-more-bookings" data-cx-toggle-bookings>+'+others.length+' more active booking'+(others.length>1?'s':'')+'</button>'):'')+'</div>';
+    const bookings=cxSortedBookings(thread),primary=bookings[0],multiple=bookings.length>1;
+    pinned=primary?'<div class="cx-pinned">'+cxBookingCard(primary,true,multiple,bookings.length)+'</div>':'';
   }
   let lastDay='',stream='';
   thread.messages.forEach((message,index)=>{if(message.day!==lastDay){stream+='<div class="cx-day"><span>'+esc(cxDayLabel(message.day))+'</span></div>';lastDay=message.day}stream+=cxMessage(message,index,thread)});
+  const primaryBooking=guest?cxPrimaryBooking(thread):null;
+  const bookingStatus=String(cxStatus(primaryBooking)||'').toLowerCase();
+  const quickAllowed=!archived&&!['completed','cancelled','expired','auto-completed'].includes(bookingStatus)&&!String(state.cxDraft||'').trim();
   const quick=['On my way','I’m at the lobby','Running 10 min late','Thank you!'];
   const footer=archived
     ?'<footer class="cx-ended">This conversation has ended. Contact the Front Desk for help.</footer>'
-    :'<footer class="cx-composer-wrap"><div class="cx-quick" aria-label="Quick replies">'+quick.map(text=>'<button type="button" data-cx-quick="'+esc(text)+'">'+esc(text)+'</button>').join('')+'</div>'
-      +'<form class="cx-composer" data-cx-form><label class="cx-attach" aria-label="Attach photo"><i class="hgi-stroke hgi-image-add-02" aria-hidden="true"></i><input type="file" accept="image/*" data-cx-photo hidden></label><input class="cx-input" name="message" placeholder="Message '+esc(guest?thread.name.split(' ')[0]:'Front Desk')+'" autocomplete="off" aria-label="Message"><button class="cx-send" type="submit" aria-label="Send"><i class="hgi-stroke hgi-sent" aria-hidden="true"></i></button></form></footer>';
-  return '<div class="cx-page cx-thread'+(archived?' is-archived':'')+'"><header class="cx-header cx-header-back cx-thread-header"><button class="cx-back" type="button" data-cx-back aria-label="Back to Chat">←</button>'+cxAvatar(thread)+'<span class="cx-thread-title"><strong>'+esc(guest?thread.name:thread.hotel)+'</strong><small>'+cxRoleTag(thread)+'<span>'+sub+'</span></small></span></header>'
-    +pinned+'<section class="cx-stream" aria-label="Messages">'+(stream||'<p class="cx-empty">No messages yet.</p>')+'</section>'+footer+'</div>';
+    :'<footer class="cx-composer-wrap">'+(quickAllowed?'<div class="cx-quick" data-cx-quick-replies aria-label="Quick replies">'+quick.map(text=>'<button type="button" data-cx-quick="'+esc(text)+'">'+esc(text)+'</button>').join('')+'</div>':'')
+      +'<form class="cx-composer" data-cx-form><label class="cx-attach" aria-label="Attach photo"><i class="hgi-stroke hgi-image-add-02" aria-hidden="true"></i><input type="file" accept="image/*" data-cx-photo hidden></label><input class="cx-input" name="message" value="'+esc(state.cxDraft||'')+'" placeholder="Message '+esc(guest?thread.name.split(' ')[0]:'Front Desk')+'" autocomplete="off" aria-label="Message"><button class="cx-send" type="submit" aria-label="Send"><i class="hgi-stroke hgi-sent" aria-hidden="true"></i></button></form></footer>';
+  const sheet=guest&&state.cx.bookingsSheet?cxBookingsSheet(thread,cxSortedBookings(thread)):'';
+  return '<div class="cx-page cx-thread'+(archived?' is-archived':'')+'"><header class="cx-header cx-header-back cx-thread-header"><button class="cx-back" type="button" data-cx-back aria-label="Back to Chat">←</button>'+cxAvatar(thread)+'<span class="cx-thread-title"><strong>'+esc(guest?thread.name:thread.hotel)+'</strong><small><span>'+sub+'</span></small></span></header>'
+    +pinned+'<section class="cx-stream" aria-label="Messages">'+(stream||'<p class="cx-empty">No messages yet.</p>')+'</section>'+footer+sheet+'</div>';
 };
 chatView=function(){return state.cx.view==='thread'?cxThreadView():state.cx.view==='archived'?cxArchivedView():cxListView()};
-const cxScrollToEnd=()=>{const page=document.querySelector('.page');if(page)page.scrollTop=page.scrollHeight};
-const cxOpenThread=id=>{const thread=cxThread(id);if(!thread)return;state.page='chat';state.detail=null;state.cx.view='thread';state.cx.threadId=id;state.cx.showAllBookings=false;if(!cxIsArchived(thread))thread.unread=0;render();cxScrollToEnd();requestAnimationFrame(cxScrollToEnd)};
+const cxScrollToEnd=()=>{const stream=document.querySelector('.cx-stream');if(stream){stream.scrollTop=stream.scrollHeight;return}const page=document.querySelector('.page');if(page)page.scrollTop=page.scrollHeight};
+const cxOpenThread=id=>{const thread=cxThread(id);if(!thread)return;state.page='chat';state.detail=null;state.cx.view='thread';state.cx.threadId=id;state.cx.showAllBookings=false;state.cx.bookingsSheet=false;state.cxDraft='';if(!cxIsArchived(thread))thread.unread=0;render();cxScrollToEnd();requestAnimationFrame(cxScrollToEnd)};
 const cxDeliver=message=>{setTimeout(()=>{message.status='sent';if(state.page==='chat')render()},700);setTimeout(()=>{message.status='read';if(state.page==='chat')render()},2600)};
 const cxSend=(thread,text,image)=>{if(!thread||cxIsArchived(thread))return;const message={day:cxToday,time:cxNowTime(),from:'me',sender:cxSender(),status:'sending',text:text||'',image:image||null};thread.messages.push(message);render();cxScrollToEnd();cxDeliver(message)};
 const chatTabRenderBase=render;
@@ -2521,14 +2580,19 @@ render=function(){
   if(search)search.oninput=event=>{state.cx.query=event.target.value;render();const next=document.querySelector('[data-cx-search]');if(next){next.focus();next.setSelectionRange(next.value.length,next.value.length)}};
   document.querySelectorAll('[data-cx-open]').forEach(button=>button.onclick=()=>cxOpenThread(button.dataset.cxOpen));
   document.querySelectorAll('[data-cx-archived]').forEach(button=>button.onclick=()=>{state.cx.view='archived';render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  document.querySelectorAll('[data-cx-archive-tip]').forEach(button=>button.onclick=()=>{const tip=button.closest('.cx-archived-tip'),open=tip?.classList.toggle('is-open');button.setAttribute('aria-expanded',String(Boolean(open)))});
   document.querySelectorAll('[data-cx-back]').forEach(button=>button.onclick=()=>{const fromArchive=state.cx.view==='thread'&&cxIsArchived(cxThread(state.cx.threadId)||{})&&!state.cx.query;state.cx.view=fromArchive?'archived':'list';state.cx.threadId=null;render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
   document.querySelectorAll('[data-cx-booking]').forEach(button=>button.onclick=()=>{state.cxDetailOrigin=state.cx.threadId;state.page='orders';state.detail=button.dataset.cxBooking;render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
-  document.querySelectorAll('[data-cx-toggle-bookings]').forEach(button=>button.onclick=()=>{state.cx.showAllBookings=!state.cx.showAllBookings;render()});
+  document.querySelectorAll('[data-cx-bookings-open]').forEach(button=>button.onclick=()=>{state.cx.bookingsSheet=true;render()});
+  document.querySelectorAll('[data-cx-bookings-close]').forEach(button=>button.onclick=()=>{state.cx.bookingsSheet=false;render()});
+  document.querySelectorAll('[data-cx-sheet-booking]').forEach(button=>button.onclick=()=>{state.cx.bookingsSheet=false;state.cxDetailOrigin=state.cx.threadId;state.page='orders';state.detail=button.dataset.cxSheetBooking;render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
   const thread=cxThread(state.cx.threadId);
   document.querySelectorAll('[data-cx-quick]').forEach(button=>button.onclick=()=>cxSend(thread,button.dataset.cxQuick));
   document.querySelectorAll('[data-cx-retry]').forEach(button=>button.onclick=()=>{const message=thread?.messages[Number(button.dataset.cxRetry)];if(!message)return;message.status='sending';render();cxDeliver(message)});
   const form=document.querySelector('[data-cx-form]');
-  if(form)form.onsubmit=event=>{event.preventDefault();const input=form.elements.message,text=String(input.value||'').trim();if(!text)return;cxSend(thread,text);document.querySelector('.cx-input')?.focus()};
+  const messageInput=form?.elements.message;
+  if(messageInput)messageInput.oninput=event=>{state.cxDraft=event.target.value;document.querySelector('[data-cx-quick-replies]')?.classList.toggle('is-hidden',Boolean(String(state.cxDraft||'').trim()))};
+  if(form)form.onsubmit=event=>{event.preventDefault();const input=form.elements.message,text=String(input.value||'').trim();if(!text)return;state.cxDraft='';cxSend(thread,text);document.querySelector('.cx-input')?.focus()};
   const photo=document.querySelector('[data-cx-photo]');
   if(photo)photo.onchange=()=>{const file=photo.files?.[0];if(file)cxSend(thread,'Photo',URL.createObjectURL(file))};
 };
@@ -2541,8 +2605,12 @@ window.addEventListener('click',event=>{
     if(!record)return;
     event.preventDefault();event.stopImmediatePropagation();
     if(trigger.dataset.latestMessage==='front-desk'){const desk=cxThreads.find(thread=>thread.kind==='frontdesk'&&thread.hotel===record.hotel)||cxThreads.find(thread=>thread.kind==='frontdesk');if(desk)cxOpenThread(desk.id);return}
-    let thread=cxThreads.find(item=>item.kind==='guest'&&item.name===record.guest&&String(item.room)===String(record.room));
-    if(!thread){thread={id:'g-'+String(record.guest).toLowerCase().replace(/[^a-z]+/g,'-')+'-'+record.room,kind:'guest',name:record.guest,room:String(record.room),hotel:record.hotel||'Luna Bay Resort',unread:0,messages:[]};cxThreads.push(thread)}
+    let thread=cxFindGuestThread(record);
+    if(!thread){
+      if(!cxConfirmedTypes().includes(cxStatus(record)))return;
+      thread=cxGuestThreadForBooking(record);
+      if(!thread.messages.some(message=>message.from==='auto'&&message.booking===record.id))thread.messages.push({day:cxToday,time:cxNowTime(),from:'auto',sender:cxBookingMessageBusiness(),booking:record.id,text:cxBookingMessageText(record)});
+    }
     cxOpenThread(thread.id);
     return;
   }
@@ -2582,14 +2650,1361 @@ devTools=function(){return devToolsBeforeChatSimulation().replace('<button data-
 window.addEventListener('click',event=>{if(event.target.closest?.('[data-dev-simulate-chat]')){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.dev-tools')?.classList.remove('open');cxSimulateMessage()}},true);
 
 /* Menu → Notifications: chat sound is adjustable; new-booking alerts cannot be muted. */
+const cxBookingMessagesSheet=()=>'<div class="cx-sheet-backdrop" data-cx-sheet-close></div><section class="cx-sheet" role="dialog" aria-label="Booking messages"><header><h2>Booking messages</h2><button type="button" data-cx-sheet-close aria-label="Close">×</button></header><p class="cx-sheet-intro">This message is sent automatically when a booking is confirmed.</p><label class="cx-template-label" for="cx-booking-template">Confirmation template</label><textarea id="cx-booking-template" class="cx-template-textarea" data-cx-booking-template maxlength="240">'+esc(state.cxBookingTemplate||cxDefaultBookingTemplate)+'</textarea><small class="cx-template-help">Use {guest name}, {listing}, {date &amp; time}, or {booking number}.</small><div class="cx-template-actions"><button type="button" class="button ghost" data-cx-sheet-close>Cancel</button><button type="button" class="button primary" data-cx-template-save>Save template</button></div></section>';
 const cxNotificationSheet=()=>'<div class="cx-sheet-backdrop" data-cx-sheet-close></div><section class="cx-sheet" role="dialog" aria-label="Notifications"><header><h2>Notifications</h2><button type="button" data-cx-sheet-close aria-label="Close">×</button></header>'
   +'<div class="cx-sheet-row"><span><strong>New booking alerts</strong><small>Always on. Booking alerts can’t be muted.</small></span><em class="cx-locked"><i class="hgi-stroke hgi-square-lock-02" aria-hidden="true"></i>On</em></div>'
   +'<div class="cx-sheet-row is-stacked"><span><strong>Chat message sound</strong><small>Plays for new messages from guests and the Front Desk.</small></span><div class="cx-segment">'+['Default','Soft','Off'].map(name=>'<button type="button" class="'+(state.cxSound===name?'is-active':'')+'" data-cx-sound="'+name+'">'+name+'</button>').join('')+'</div></div></section>';
 window.addEventListener('click',event=>{
+  const bookingMessages=event.target.closest?.('[data-cx-booking-messages]');
+  if(bookingMessages){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();const wrap=document.createElement('div');wrap.className='cx-sheet-wrap';wrap.innerHTML=cxBookingMessagesSheet();document.body.appendChild(wrap);return}
+  const templateSave=event.target.closest?.('[data-cx-template-save]');
+  if(templateSave){const value=String(document.querySelector('[data-cx-booking-template]')?.value||'').trim();if(!value){toast('Add a confirmation message first');return}state.cxBookingTemplate=value;try{localStorage.setItem('cabana:booking-message-template',value)}catch(error){}document.querySelector('.cx-sheet-wrap')?.remove();toast('Booking message template saved');return}
   const row=event.target.closest?.('[data-toast="Notification settings opened"]');
   if(row){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();const wrap=document.createElement('div');wrap.className='cx-sheet-wrap';wrap.innerHTML=cxNotificationSheet();document.body.appendChild(wrap);return}
   const sound=event.target.closest?.('[data-cx-sound]');
   if(sound){state.cxSound=sound.dataset.cxSound;try{localStorage.setItem('cabana:chat-sound',state.cxSound)}catch(error){}const wrap=document.querySelector('.cx-sheet-wrap');if(wrap)wrap.innerHTML=cxNotificationSheet();return}
   if(event.target.closest?.('[data-cx-sheet-close]'))document.querySelector('.cx-sheet-wrap')?.remove();
 },true);
+render();
+
+/* Refresh resumes the exact screen you were on: tab, open detail, chat thread, sub-tabs and scroll position. */
+const cabanaResumeKey='cabana:resume-view';
+const cabanaResumeSnapshot=()=>({page:state.page,detail:state.detail||null,bookingTab:state.bookingTab||null,cx:state.cx?{view:state.cx.view,threadId:state.cx.threadId,filter:state.cx.filter}:null,requestDetailOrigin:state.requestDetailOrigin||null,cxDetailOrigin:state.cxDetailOrigin||null,scroll:document.querySelector('.page')?.scrollTop||0});
+const cabanaResumeSave=()=>{
+  if(!window.__cabanaResumeReady)return;
+  try{localStorage.setItem(cabanaResumeKey,JSON.stringify(cabanaResumeSnapshot()))}catch(error){}
+  try{const hash='#view='+encodeURIComponent(state.page);if(location.hash!==hash)history.replaceState(null,'',location.pathname+location.search+hash)}catch(error){}
+};
+const renderBeforeResumeSave=render;
+render=function(){renderBeforeResumeSave.apply(this,arguments);cabanaResumeSave()};
+document.addEventListener('scroll',event=>{if(!event.target?.classList?.contains('page'))return;clearTimeout(window.__cabanaResumeScrollTimer);window.__cabanaResumeScrollTimer=setTimeout(cabanaResumeSave,150)},true);
+window.addEventListener('pagehide',cabanaResumeSave);
+setTimeout(()=>{
+  let saved=null;
+  try{saved=JSON.parse(localStorage.getItem(cabanaResumeKey)||'null')}catch(error){}
+  if(saved?.page&&saved.page!=='insights'){
+    state.page=saved.page;
+    state.detail=saved.detail||null;
+    if(saved.bookingTab)state.bookingTab=saved.bookingTab;
+    if(saved.cx&&state.cx){state.cx.view=saved.cx.view||'list';state.cx.threadId=saved.cx.threadId||null;state.cx.filter=saved.cx.filter||'All';if(state.cx.view==='thread'&&typeof cxThread==='function'&&!cxThread(state.cx.threadId))state.cx.view='list'}
+    state.requestDetailOrigin=saved.requestDetailOrigin||null;
+    state.cxDetailOrigin=saved.cxDetailOrigin||null;
+    render();
+    const scroll=Number(saved.scroll)||0,restore=()=>{const page=document.querySelector('.page');if(page)page.scrollTop=scroll};
+    restore();requestAnimationFrame(restore);setTimeout(restore,120);
+  }
+  window.__cabanaResumeReady=true;
+  setTimeout(cabanaResumeSave,200);
+},0);
+
+
+/* Guest threads open with the vendor's automatic booking confirmation; guests can reply but never start a chat. */
+function cxWhenLabel(record){const match=String(record?.when||'').match(/([A-Z][a-z]{2}\s+\d{1,2})(?:\s*[·,]\s*(\d{1,2}:\d{2}\s*[AP]M))?/);if(!match)return 'the scheduled time';return match[2]?match[1]+' at '+match[2]:match[1]}
+const cxAutoSeed=(bookingId,day,time)=>{const record=cxBooking(bookingId)||{id:bookingId,guest:'',item:'booking',when:''};return {day,time,from:'auto',sender:cxBookingMessageBusiness(),booking:bookingId,text:cxBookingMessageText(record)}};
+const cxRuleThreads=[
+  {id:'fd-luna',kind:'frontdesk',hotel:'Luna Bay Resort',unread:1,messages:[
+    {day:cxYesterday,time:'4:10 PM',from:'them',text:'Hi! Guest in Room 314 wants a van for a day trip.'},
+    {day:cxYesterday,time:'4:14 PM',from:'system',kind:'created',booking:'CB-9001',text:'Booking #BK-9001 created by Front Desk for Room 314'},
+    {day:cxYesterday,time:'4:20 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Got it. The van will be ready at 9:00 AM.'},
+    {day:cxToday,time:'10:42 AM',from:'them',text:'Can you take 2 more pax tomorrow?'}]},
+  {id:'g-marco',kind:'guest',name:'Marco Santos',room:'508',hotel:'Luna Bay Resort',unread:2,messages:[
+    cxAutoSeed('BK-9003',cxToday,'9:02 AM'),
+    {day:cxToday,time:'9:40 AM',from:'them',text:'Thanks! What time should I be at the lobby?'},
+    {day:cxToday,time:'9:44 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Please be at the lobby by 4:15 PM. Your driver will message you here.'},
+    {day:cxToday,time:'10:30 AM',from:'them',text:'Is the SUV big enough for 4 suitcases?'},
+    {day:cxToday,time:'10:31 AM',from:'them',text:'What time is pickup?'}]},
+  {id:'g-amelia',kind:'guest',name:'Amelia Reyes',room:'508',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('CB-9007',cxYesterday,'6:05 PM'),
+    {day:cxYesterday,time:'6:20 PM',from:'them',text:'Can we keep the car for an extra hour?'},
+    {day:cxYesterday,time:'6:24 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Yes, we can. I’ve added the extra hour.'},
+    {day:cxYesterday,time:'6:25 PM',from:'system',kind:'charge',booking:'CB-9007',text:'Extra charge ₱500 · Extra hour'},
+    cxAutoSeed('CB-9010',cxToday,'8:12 AM'),
+    {day:cxToday,time:'8:20 AM',from:'me',sender:'Leah · Owner',status:'failed',text:'See you at the lobby at 4:30 PM today.'}]},
+  {id:'g-maya',kind:'guest',name:'Maya Tan',room:'314',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('CB-9001',cxYesterday,'4:16 PM'),
+    {day:cxYesterday,time:'5:02 PM',from:'them',text:'Perfect, thank you!'}]},
+  {id:'g-leo',kind:'guest',name:'Leo Santos',room:'207',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('ORD-1044',cxYesterday,'11:05 AM'),
+    cxAutoSeed('CB-9013',cxToday,'7:45 AM'),
+    {day:cxToday,time:'8:03 AM',from:'them',text:'Great, two rentals booked. Can I pick up both at the lobby?'},
+    {day:cxToday,time:'8:10 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Yes, both cars will be ready at the lobby.'}]},
+  {id:'g-sofia',kind:'guest',name:'Sofia Lim',room:'602',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('CB-8830',cxYesterday,'2:10 PM'),
+    {day:cxToday,time:'9:55 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Your driver is at the lobby.'},
+    {day:cxToday,time:'11:40 AM',from:'them',text:'Made it to the airport. Thanks!'}]},
+  {id:'g-nina',kind:'guest',name:'Nina Garcia',room:'203',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('BK-9002','Oct 5','3:30 PM'),
+    {day:cxYesterday,time:'9:15 AM',from:'them',text:'Thanks, see you at the lobby!'},
+    {day:cxYesterday,time:'9:18 AM',from:'me',sender:'Ana · Staff',status:'read',text:'You’re welcome. We’ll see you there.'}]},
+  {id:'g-oliver',kind:'guest',name:'Oliver Brown',room:'205',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('ORD-1037','Oct 5','6:20 PM'),
+    {day:cxYesterday,time:'7:45 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Good morning! Your van is outside.'},
+    {day:cxYesterday,time:'6:30 PM',from:'them',text:'Great day out. Thanks for the ride!'}]},
+  {id:'g-priya',kind:'guest',name:'Priya Shah',room:'412',hotel:'Luna Bay Resort',unread:0,messages:[
+    cxAutoSeed('CB-8812','Oct 2','10:05 AM'),
+    {day:'Oct 3',time:'6:40 PM',from:'me',sender:'Leah · Owner',status:'read',text:'Your sedan is at the lobby.'},
+    {day:'Oct 3',time:'9:10 PM',from:'them',text:'Arrived safely. Thank you!'}]}
+];
+cxThreadSeed.splice(0,cxThreadSeed.length,...JSON.parse(JSON.stringify(cxRuleThreads)));
+cxResetChatThreads();
+render();
+
+
+/* Thread rules: guest threads exist only after a confirmation; Request details adapt to that. */
+function cxConfirmedTypes(){return ['Confirmed','In progress','In use','Ready','Completed','Auto-completed']}
+function cxFindGuestThread(record){return cxThreads.find(item=>item.kind==='guest'&&item.name===record?.guest&&String(item.room)===String(record?.room))}
+function cxThreadListed(thread){return thread.kind!=='guest'||thread.messages.some(message=>message.from==='auto')||cxGuestBookings(thread).some(item=>cxConfirmedTypes().includes(cxStatus(item)))}
+const cxRequestTimer=record=>{let minutes=null;try{minutes=typeof homeCardTimerMinutes==='function'?homeCardTimerMinutes(record):dashboardPendingResponseMinutes(record)}catch(error){try{minutes=dashboardPendingResponseMinutes(record)}catch(inner){}}return Number.isFinite(minutes)?minutes:null};
+const cxRequestDetailPolish=()=>{
+  const view=document.querySelector('.latest-request-detail');if(!view||state.page!=='orders'||!state.detail)return;
+  const record=cxBooking(state.detail)||orders.find(item=>item.id===state.detail);if(!record)return;
+  const pending=record.status==='Pending',thread=cxFindGuestThread(record),listed=thread&&cxThreadListed(thread);
+  view.querySelectorAll('[data-latest-message="guest"]').forEach(button=>{
+    if(listed){button.innerHTML='<i class="hgi-stroke hgi-chat-01" aria-hidden="true"></i><span>Open chat →</span>';button.setAttribute('aria-label','Open chat with '+record.guest)}
+    else if(pending||!cxConfirmedTypes().includes(cxStatus(record)))button.remove();
+  });
+  if(pending){
+    view.querySelectorAll('.booking-request-field').forEach(field=>{const label=field.querySelector('span');if(label&&label.textContent.trim()==='Booking date'){label.textContent='Requested on';const value=field.querySelector('strong');if(value)value.textContent=String(record.timeline?.[0]?.[1]||record.when||'—')}});
+    const chip=view.querySelector('.booking-request-section-heading .booking-status');
+    const minutes=cxRequestTimer(record);
+    if(chip&&minutes!==null&&!view.querySelector('.cx-request-timer')){
+      const timer=document.createElement('span');timer.className='cx-request-timer'+(minutes<15?' is-urgent':'');
+      timer.textContent='⏱ '+(minutes>=60?Math.floor(minutes/60)+'h '+(minutes%60?minutes%60+'m ':''):minutes+'m ')+'left';
+      const wrap=document.createElement('span');wrap.className='cx-request-status';chip.replaceWith(wrap);wrap.append(chip,timer);
+    }
+  }
+  const walker=document.createTreeWalker(view,NodeFilter.SHOW_TEXT);let node;while((node=walker.nextNode())){if(/₱[\d,]+\.00\b/.test(node.nodeValue))node.nodeValue=node.nodeValue.replace(/(₱[\d,]+)\.00\b/g,'$1')}
+};
+const renderBeforeThreadRules=render;
+render=function(){renderBeforeThreadRules.apply(this,arguments);cxRequestDetailPolish()};
+render();
+
+/* Pinned strip + bookings sheet: status pills, first-name sheet title, and sheet rows open the booking detail. */
+const cxStripPolish=()=>{
+  if(state.page!=='chat'||state.cx?.view!=='thread')return;
+  document.querySelectorAll('.cx-booking-status,.cx-sheet-booking-status').forEach(node=>{node.textContent=node.textContent.replace(/^●\s*/,'')});
+  const thread=cxThread(state.cx.threadId),title=document.querySelector('.cx-bookings-sheet header h2');
+  if(thread&&title)title.textContent=String(thread.name||'').split(' ')[0]+'’s bookings';
+};
+const renderBeforeStripPolish=render;
+render=function(){renderBeforeStripPolish.apply(this,arguments);cxStripPolish()};
+window.addEventListener('click',event=>{
+  const row=event.target.closest?.('[data-cx-sheet-booking]');
+  if(!row)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  state.cx.bookingsSheet=false;state.cxDetailOrigin=state.cx.threadId;state.page='orders';state.detail=row.dataset.cxSheetBooking;render();
+  const page=document.querySelector('.page');if(page)page.scrollTop=0;
+},true);
+render();
+
+/* Menu → Profile: back button returns to Menu. */
+const renderBeforeProfileBack=render;
+render=function(){
+  renderBeforeProfileBack.apply(this,arguments);
+  if(!['profile','earnings','listings','staff-listings'].includes(state.page))return;
+  const bar=document.querySelector('.main-wrap > .topbar, .topbar');
+  if(!bar||bar.querySelector('[data-profile-back]'))return;
+  bar.classList.add('profile-topbar');
+  const back=document.createElement('button');
+  back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.setAttribute('aria-label','Back to Menu');back.textContent='←';
+  back.onclick=()=>{state.page='menu';state.detail=null;render();const page=document.querySelector('.page');if(page)page.scrollTop=0};
+  bar.prepend(back);
+};
+render();
+
+/* Archived: show the archiving note as an always-visible info box instead of a tooltip. */
+const renderBeforeArchivedInfo=render;
+render=function(){
+  renderBeforeArchivedInfo.apply(this,arguments);
+  if(state.page!=='chat'||state.cx?.view!=='archived')return;
+  const tip=document.querySelector('.cx-archived-tip');
+  if(!tip)return;
+  const text='Conversations are archived 24 hours after a guest’s final booking is completed. Archived conversations are view-only.';
+  const box=document.createElement('div');
+  box.className='cx-archived-info';box.setAttribute('role','note');
+  box.innerHTML='<i class="hgi-stroke hgi-information-circle" aria-hidden="true"></i><p></p>';
+  box.querySelector('p').textContent=text;
+  tip.replaceWith(box);
+};
+render();
+
+/* Earnings: header bar carries the title + download action, so the duplicate in-page title is hidden. */
+const renderBeforeEarningsHeader=render;
+render=function(){
+  renderBeforeEarningsHeader.apply(this,arguments);
+  if(state.page!=='earnings')return;
+  const bar=document.querySelector('.topbar.profile-topbar'),pageHeader=document.querySelector('.earnings-header'),download=pageHeader?.querySelector('[data-earnings-download]');
+  if(!bar||!pageHeader)return;
+  if(download&&!bar.querySelector('[data-earnings-download]')){download.classList.add('topbar-action');bar.appendChild(download)}
+  pageHeader.classList.add('is-merged-into-topbar');
+};
+render();
+
+/* My account (Menu → profile card): avatar with Change photo, editable personal details, centred chevrons. */
+try{state.accountProfile=JSON.parse(localStorage.getItem('cabana:account-profile')||'null')||{}}catch(error){state.accountProfile={}}
+const accountProfile=()=>{const base=menuProfileForRole(),saved=(state.accountProfile||{})[state.role]||{};return {...base,...saved}};
+const accountInitials=name=>String(name||'').split(/\s+/).map(part=>part[0]||'').join('').slice(0,2).toUpperCase();
+const accountView=()=>{
+  const profile=accountProfile(),editing=Boolean(state.accountEditing),photo=state.accountPhoto?.[state.role];
+  const avatar='<div class="acct-avatar-wrap"><label class="acct-avatar" aria-label="Change photo">'+(photo?'<img src="'+photo+'" alt="">':esc(accountInitials(profile.name)))+'<span class="acct-camera" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-account-photo hidden></label><label class="acct-change-photo">Change photo<input type="file" accept="image/*" data-account-photo hidden></label></div>';
+  const field=(label,key,type)=>editing
+    ?'<label class="acct-row acct-field"><span>'+label+'</span><input type="'+type+'" data-account-field="'+key+'" value="'+esc(profile[key]||'')+'" autocomplete="off"></label>'
+    :'<div class="acct-row"><span>'+label+'</span><strong>'+esc(profile[key]||'—')+'</strong></div>';
+  const details='<section class="acct-section"><div class="acct-section-head"><h2>Personal details</h2>'+(editing?'':'<button type="button" class="acct-edit" data-account-edit>Edit</button>')+'</div><div class="acct-list">'+field('Name','name','text')+field('Phone','phone','tel')+field('Email','email','email')+'</div>'+(editing?'<div class="acct-actions"><button type="button" class="button ghost" data-account-cancel>Cancel</button><button type="button" class="button primary" data-account-save>Save</button></div>':'')+'</section>';
+  const link=(title,sub,toast)=>'<button type="button" class="acct-row acct-link" data-toast="'+toast+'"><span class="acct-link-copy"><strong>'+title+'</strong><small>'+sub+'</small></span><span class="acct-chevron" aria-hidden="true">›</span></button>';
+  const security='<section class="acct-section"><div class="acct-section-head"><h2>Security and preferences</h2></div><div class="acct-list">'+link('Password or PIN','Update your sign-in method','Password or PIN settings opened')+link('Language','English','Language settings opened')+'</div></section>';
+  return '<div class="acct-page"><section class="acct-identity">'+avatar+'<h2>'+esc(profile.name)+'</h2><p>'+esc(profile.role)+' · '+esc(profile.business)+'</p></section>'+details+security+'</div>';
+};
+const profileViewBeforeAccount=profileView;
+profileView=function(){return state.profileMode==='account'?accountView():profileViewBeforeAccount()};
+const renderBeforeAccount=render;
+render=function(){
+  if(state.page!=='profile'||state.profileMode!=='account')state.accountEditing=false;
+  renderBeforeAccount.apply(this,arguments);
+  if(state.page==='menu'){
+    const profile=accountProfile(),card=document.querySelector('.menu-profile-header');
+    if(card){const name=card.querySelector('strong');if(name)name.textContent=profile.name;const icon=card.querySelector('.menu-profile-icon');const photo=state.accountPhoto?.[state.role];if(icon)icon.innerHTML=photo?'<img src="'+photo+'" alt="">':esc(accountInitials(profile.name))}
+  }
+  if(state.page!=='profile')return;
+  const title=document.querySelector('.topbar .topbar-context strong');
+  if(title)title.textContent=state.profileMode==='account'?'Profile':'Business profile';
+  if(state.profileMode!=='account')return;
+  document.querySelectorAll('[data-account-edit]').forEach(button=>button.onclick=()=>{state.accountEditing=true;render();document.querySelector('[data-account-field="name"]')?.focus()});
+  document.querySelectorAll('[data-account-cancel]').forEach(button=>button.onclick=()=>{state.accountEditing=false;render()});
+  document.querySelectorAll('[data-account-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-account-field]').forEach(input=>{values[input.dataset.accountField]=String(input.value||'').trim()});
+    if(!values.name){toast('Add your name');return}
+    state.accountProfile={...(state.accountProfile||{}),[state.role]:{...((state.accountProfile||{})[state.role]||{}),...values}};
+    try{localStorage.setItem('cabana:account-profile',JSON.stringify(state.accountProfile))}catch(error){}
+    state.accountEditing=false;render();toast('Personal details saved');
+  });
+  document.querySelectorAll('[data-account-photo]').forEach(input=>input.onchange=()=>{const file=input.files?.[0];if(!file)return;state.accountPhoto={...(state.accountPhoto||{}),[state.role]:URL.createObjectURL(file)};render();toast('Photo updated')});
+};
+render();
+
+/* Profile (simple): business is the hero; your account is one compact block. Replaces the "My account" layout. */
+try{state.businessProfile=JSON.parse(localStorage.getItem('cabana:business-profile')||'null')||{}}catch(error){state.businessProfile={}}
+const businessProfile=()=>({name:menuProfileForRole().business||'Cabana Transport Services',category:'Transport · Partner vendor',...(state.businessProfile||{})});
+const businessInitials=name=>String(name||'').split(/\s+/).filter(word=>/^[A-Za-z]/.test(word)).map(word=>word[0]).join('').slice(0,2).toUpperCase();
+const profileSimpleView=()=>{
+  const owner=state.role==='Owner',business=businessProfile(),me=accountProfile(),editingBusiness=owner&&Boolean(state.businessEditing),editingMe=Boolean(state.accountEditing);
+  const hero=editingBusiness
+    ?'<section class="pf-hero"><span class="pf-logo">'+esc(businessInitials(business.name))+'</span><div class="pf-form"><label><span>Business name</span><input data-business-field="name" value="'+esc(business.name)+'"></label><label><span>Category</span><input data-business-field="category" value="'+esc(business.category)+'"></label><div class="acct-actions"><button type="button" class="button ghost" data-business-cancel>Cancel</button><button type="button" class="button primary" data-business-save>Save</button></div></div></section>'
+    :'<section class="pf-hero"><span class="pf-logo">'+esc(businessInitials(business.name))+'</span><h2>'+esc(business.name)+'</h2><p>'+esc(business.category)+'</p>'+(owner?'<button type="button" class="pf-edit-business" data-business-edit>Edit business</button>':'')+'</section>';
+  const meBlock=editingMe
+    ?'<div class="pf-me pf-me-editing"><label class="acct-row acct-field"><span>Name</span><input data-account-field="name" value="'+esc(me.name||'')+'"></label><label class="acct-row acct-field"><span>Phone</span><input type="tel" data-account-field="phone" value="'+esc(me.phone||'')+'"></label><label class="acct-row acct-field"><span>Email</span><input type="email" data-account-field="email" value="'+esc(me.email||'')+'"></label><div class="acct-actions pf-me-actions"><button type="button" class="button ghost" data-account-cancel>Cancel</button><button type="button" class="button primary" data-account-save>Save</button></div></div>'
+    :'<div class="pf-me"><div class="pf-me-copy"><strong>'+esc(me.name)+' · '+esc(me.role)+'</strong><span>'+esc(me.phone||'')+'</span><span>'+esc(me.email||'')+'</span></div><button type="button" class="acct-edit" data-account-edit>Edit</button></div>';
+  const link=(title,value,toast)=>'<button type="button" class="pf-link" data-toast="'+toast+'"><strong>'+title+'</strong>'+(value?'<span>'+value+'</span>':'')+'<span class="acct-chevron" aria-hidden="true">›</span></button>';
+  return '<div class="acct-page pf-page">'+hero+'<section class="acct-section"><div class="acct-section-head"><h2>Your account</h2></div><div class="acct-list">'+meBlock+link('Password or PIN','','Password or PIN settings opened')+link('Language','English','Language settings opened')+'</div></section></div>';
+};
+const profileViewBeforeSimple=profileView;
+profileView=function(){return state.profileMode==='account'?profileSimpleView():profileViewBeforeSimple()};
+const renderBeforeProfileSimple=render;
+render=function(){
+  if(state.page!=='profile')state.businessEditing=false;
+  renderBeforeProfileSimple.apply(this,arguments);
+  if(state.page==='menu'){
+    const business=businessProfile(),me=accountProfile(),card=document.querySelector('.menu-profile-header');
+    if(card){
+      const icon=card.querySelector('.menu-profile-icon');if(icon){icon.textContent=businessInitials(business.name);icon.classList.add('is-business-logo')}
+      const name=card.querySelector('strong');if(name)name.textContent=business.name;
+      const sub=card.querySelector('small');if(sub)sub.textContent=me.name+' · '+me.role;
+      card.setAttribute('aria-label','Profile: '+business.name);
+    }
+    document.querySelectorAll('.menu-page [data-business-profile]').forEach(row=>row.remove());
+  }
+  if(state.page!=='profile'||state.profileMode!=='account')return;
+  const title=document.querySelector('.topbar .topbar-context strong');if(title)title.textContent='Profile';
+  document.querySelectorAll('[data-business-edit]').forEach(button=>button.onclick=()=>{state.businessEditing=true;render();document.querySelector('[data-business-field="name"]')?.focus()});
+  document.querySelectorAll('[data-business-cancel]').forEach(button=>button.onclick=()=>{state.businessEditing=false;render()});
+  document.querySelectorAll('[data-business-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-business-field]').forEach(input=>{values[input.dataset.businessField]=String(input.value||'').trim()});
+    if(!values.name){toast('Add the business name');return}
+    state.businessProfile={...(state.businessProfile||{}),...values};
+    try{localStorage.setItem('cabana:business-profile',JSON.stringify(state.businessProfile))}catch(error){}
+    state.businessEditing=false;render();toast('Business details saved');
+  });
+};
+render();
+
+/* Profile (final): business header, access and permissions (Manage → for owners), your account. */
+const pfStore=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch(error){return fallback}};
+const pfSave=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(error){}};
+state.team=pfStore('cabana:team',null)||[{id:'owner',name:'Leah Santos',role:'Owner',contact:'leah@cabanatransport.com'},{id:'staff',name:'Marco Dela Cruz',role:'Staff',contact:'marco@cabanatransport.com'}];
+const pfAccess=role=>role==='Owner'?'Full access':'Bookings · Chat';
+const pfBusiness=()=>({name:menuProfileForRole().business||'Cabana Transport Services',category:'Transport',contact:'+63 917 555 0182',area:'Luna Bay Resort · Dumaguete airport corridor',...(state.businessProfile||{})});
+const pfMemberName=member=>{const linked=member.id==='owner'?'Owner':member.id==='staff'?'Staff':null;const saved=linked&&(state.accountProfile||{})[linked]?.name;return saved||member.name};
+const pfLogo=(business,size)=>'<span class="pf-logo'+(size?' '+size:'')+'">'+(state.businessLogo?'<img src="'+state.businessLogo+'" alt="">':esc(businessInitials(business.name)))+'</span>';
+const pfTeamView=()=>{
+  const owner=state.role==='Owner';
+  const rows=state.team.map((member,index)=>'<div class="pf-manage-row"><div class="pf-member-copy"><strong>'+esc(pfMemberName(member))+'</strong><span>'+esc(member.contact||'')+'</span></div>'+(member.id==='owner'?'<span class="pf-role-tag">Owner</span>':'<select data-team-role="'+index+'" aria-label="Role for '+esc(member.name)+'"'+(owner?'':' disabled')+'><option'+(member.role==='Staff'?' selected':'')+'>Staff</option><option'+(member.role==='Owner'?' selected':'')+'>Owner</option></select><button type="button" class="pf-remove" data-team-remove="'+index+'">Remove</button>')+'</div>').join('');
+  return '<div class="acct-page pf-page"><section class="acct-section"><div class="acct-section-head"><h2>Members</h2></div><div class="acct-list">'+rows+'</div></section>'
+    +'<section class="acct-section"><div class="acct-section-head"><h2>Invite a member</h2></div><div class="acct-list pf-invite"><label><span>Name</span><input data-invite-field="name" placeholder="Full name"></label><label><span>Email or phone</span><input data-invite-field="contact" placeholder="name@example.com"></label><label><span>Role</span><select data-invite-field="role"><option>Staff</option><option>Owner</option></select></label><p class="pf-invite-note">Staff can see Bookings and Chat. Owners have full access.</p><button type="button" class="button primary" data-invite-send>Send invite</button></div></section></div>';
+};
+const pfView=()=>{
+  if(state.profileSub==='team'&&state.role==='Owner')return pfTeamView();
+  const owner=state.role==='Owner',business=pfBusiness(),me=accountProfile(),editingBusiness=owner&&Boolean(state.businessEditing),editingMe=Boolean(state.accountEditing);
+  const field=(label,key,value,type='text')=>'<label><span>'+label+'</span><input type="'+type+'" data-business-field="'+key+'" value="'+esc(value||'')+'"></label>';
+  const hero=editingBusiness
+    ?'<section class="pf-hero"><label class="pf-logo-edit" aria-label="Change logo">'+pfLogo(business)+'<span class="pf-logo-badge" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-business-logo hidden></label><span class="pf-logo-hint">Tap the logo to change it</span><div class="pf-form">'+field('Business name','name',business.name)+field('Category','category',business.category)+field('Contact number','contact',business.contact,'tel')+field('Service area','area',business.area)+'<div class="acct-actions"><button type="button" class="button ghost" data-business-cancel>Cancel</button><button type="button" class="button primary" data-business-save>Save</button></div></div></section>'
+    :'<section class="pf-hero">'+pfLogo(business)+'<h2>'+esc(business.name)+'</h2>'+(owner?'<button type="button" class="pf-edit-business" data-business-edit>Edit business</button>':'')+'</section>';
+  const team='<section class="acct-section"><div class="acct-section-head"><h2>Access and permissions</h2>'+(owner?'<button type="button" class="acct-edit" data-team-manage>Manage →</button>':'')+'</div><div class="acct-list">'+state.team.map(member=>'<div class="pf-member"><div class="pf-member-copy"><strong>'+esc(pfMemberName(member))+'</strong><span>'+esc(pfAccess(member.role))+'</span></div><span class="pf-role-tag">'+esc(member.role)+'</span></div>').join('')+'</div></section>';
+  const meBlock=editingMe
+    ?'<div class="pf-me pf-me-editing"><label class="acct-row acct-field"><span>Name</span><input data-account-field="name" value="'+esc(me.name||'')+'"></label><label class="acct-row acct-field"><span>Phone</span><input type="tel" data-account-field="phone" value="'+esc(me.phone||'')+'"></label><label class="acct-row acct-field"><span>Email</span><input type="email" data-account-field="email" value="'+esc(me.email||'')+'"></label><div class="acct-actions pf-me-actions"><button type="button" class="button ghost" data-account-cancel>Cancel</button><button type="button" class="button primary" data-account-save>Save</button></div></div>'
+    :'<div class="pf-me"><div class="pf-me-copy"><strong>'+esc(me.name)+' · '+esc(me.role)+'</strong><span>'+esc(me.phone||'')+'</span><span>'+esc(me.email||'')+'</span></div></div>';
+  const link=(title,value,toast)=>'<button type="button" class="pf-link" data-toast="'+toast+'"><strong>'+title+'</strong>'+(value?'<span>'+value+'</span>':'')+'<span class="acct-chevron" aria-hidden="true">›</span></button>';
+  const account='<section class="acct-section"><div class="acct-section-head"><h2>Your account</h2>'+(editingMe?'':'<button type="button" class="acct-edit" data-account-edit>Edit</button>')+'</div><div class="acct-list">'+meBlock+link('Password or PIN','','Password or PIN settings opened')+link('Language','English','Language settings opened')+'</div></section>';
+  return '<div class="acct-page pf-page">'+hero+account+team+'</div>';
+};
+const profileViewBeforeFinal=profileView;
+profileView=function(){return pfView()};
+const renderBeforeProfileFinal=render;
+render=function(){
+  if(state.page!=='profile')state.profileSub=null;
+  if(state.page==='profile')state.profileMode='account';
+  renderBeforeProfileFinal.apply(this,arguments);
+  if(state.page==='menu'){
+    document.querySelectorAll('.menu-page .menu-row').forEach(row=>{if(/Staff accounts/.test(row.textContent))row.remove()});
+    const icon=document.querySelector('.menu-profile-header .menu-profile-icon');if(icon&&state.businessLogo)icon.innerHTML='<img src="'+state.businessLogo+'" alt="">';
+  }
+  if(state.page!=='profile'||state.profileMode!=='account')return;
+  const title=document.querySelector('.topbar .topbar-context strong');if(title)title.textContent=state.profileSub==='team'?'Manage access':'Profile';
+  const back=document.querySelector('[data-profile-back]');
+  if(back&&state.profileSub)back.onclick=()=>{state.profileSub=null;render();const page=document.querySelector('.page');if(page)page.scrollTop=0};
+  document.querySelectorAll('[data-team-manage]').forEach(button=>button.onclick=()=>{state.profileSub='team';state.businessEditing=false;state.accountEditing=false;render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  document.querySelectorAll('[data-business-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-business-field]').forEach(input=>{values[input.dataset.businessField]=String(input.value||'').trim()});
+    if(!values.name){toast('Add the business name');return}
+    state.businessProfile={...(state.businessProfile||{}),...values};pfSave('cabana:business-profile',state.businessProfile);
+    state.businessEditing=false;render();toast('Business details saved');
+  });
+  document.querySelectorAll('[data-business-logo]').forEach(input=>input.onchange=()=>{const file=input.files?.[0];if(!file)return;state.businessLogo=URL.createObjectURL(file);document.querySelectorAll('.pf-logo').forEach(node=>node.innerHTML='<img src="'+state.businessLogo+'" alt="">')});
+  document.querySelectorAll('[data-team-role]').forEach(select=>select.onchange=()=>{const member=state.team[Number(select.dataset.teamRole)];if(!member)return;member.role=select.value;pfSave('cabana:team',state.team);toast(member.name+' is now '+member.role)});
+  document.querySelectorAll('[data-team-remove]').forEach(button=>button.onclick=()=>{const index=Number(button.dataset.teamRemove),member=state.team[index];if(!member||member.id==='owner')return;state.team.splice(index,1);pfSave('cabana:team',state.team);render();toast('Access removed for '+member.name)});
+  document.querySelectorAll('[data-invite-send]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-invite-field]').forEach(input=>{values[input.dataset.inviteField]=String(input.value||'').trim()});
+    if(!values.name||!values.contact){toast('Add a name and email or phone');return}
+    state.team.push({id:'m'+Date.now(),name:values.name,role:values.role||'Staff',contact:values.contact});pfSave('cabana:team',state.team);render();toast('Invite sent to '+values.name);
+  });
+};
+render();
+
+/* Profile: Business details section (owner Edit → Edit business screen), category under the name. */
+const bizCategories=['Transport','Tours','Rentals','Spa & wellness','Products'];
+const bizData=()=>({name:menuProfileForRole().business||'Cabana Transport Services',category:'Transport',contact:'+63 35 422 1188',email:'hello@cabanatransport.com',address:'Rizal Blvd, Dumaguete City',area:'Dumaguete · Sibulan Airport',...(state.businessProfile||{})});
+const bizEditView=()=>{
+  const b=bizData(),input=(label,key,value,type='text',required=false)=>'<label class="biz-field"><span>'+label+(required?' <em>Required</em>':'')+'</span><input type="'+type+'" data-biz-field="'+key+'" value="'+esc(value||'')+'"'+(required?' required':'')+'></label>';
+  return '<div class="acct-page pf-page biz-edit-page"><section class="biz-logo-field"><label class="pf-logo-edit" aria-label="Upload or change logo">'+pfLogo(b)+'<span class="pf-logo-badge" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-biz-logo hidden></label><label class="biz-logo-link">'+(state.businessLogo?'Change logo':'Upload logo')+'<input type="file" accept="image/*" data-biz-logo hidden></label></section>'
+    +'<section class="acct-list biz-form">'+input('Business name','name',b.name,'text',true)
+    +'<label class="biz-field"><span>Category</span><select data-biz-field="category">'+bizCategories.map(option=>'<option'+(option===b.category?' selected':'')+'>'+esc(option)+'</option>').join('')+'</select></label>'
+    +input('Contact number','contact',b.contact,'tel')+'<p class="biz-hint">Business line, not personal</p>'+input('Email','email',b.email,'email')+input('Address','address',b.address)+'<p class="biz-hint">Street, city</p>'+input('Service area','area',b.area)+'<p class="biz-hint">Where you operate, e.g. pickup zones</p></section>'
+    +'<button type="button" class="button primary biz-save" data-biz-save>Save</button></div>';
+};
+const pfView2=()=>{
+  if(state.profileSub==='team'&&state.role==='Owner')return pfTeamView();
+  if(state.profileSub==='business'&&state.role==='Owner')return bizEditView();
+  const owner=state.role==='Owner',b=bizData(),me=accountProfile(),editingMe=Boolean(state.accountEditing);
+  const editingBiz=owner&&Boolean(state.bizEditing);
+  const hero=editingBiz
+    ?'<section class="pf-hero is-editing"><label class="pf-logo-edit" aria-label="Upload or change logo">'+pfLogo(b)+'<span class="pf-logo-badge" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-biz-logo hidden></label><input class="pf-hero-name" data-biz-field="name" value="'+esc(b.name)+'" aria-label="Business name" required><select class="pf-hero-category" data-biz-field="category" aria-label="Category">'+bizCategories.map(option=>'<option'+(option===b.category?' selected':'')+'>'+esc(option)+'</option>').join('')+'</select></section>'
+    :'<section class="pf-hero">'+(owner?'<label class="pf-logo-edit pf-logo-upload" aria-label="Upload profile photo">'+pfLogo(b)+'<span class="pf-logo-badge" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-biz-logo hidden></label>':pfLogo(b))+'<h2>'+esc(b.name)+'</h2><p>'+esc(b.category)+' · Partner vendor</p></section>';
+  const row=(label,key,value,type='text')=>editingBiz
+    ?'<label class="biz-row is-editing"><span>'+label+'</span><input type="'+type+'" data-biz-field="'+key+'" value="'+esc(value||'')+'"></label>'
+    :'<div class="biz-row"><span>'+label+'</span><strong>'+esc(value||'—')+'</strong></div>';
+  const details='<section class="acct-section"><div class="acct-section-head"><h2>Business details</h2>'+(owner&&!editingBiz?'<button type="button" class="acct-edit" data-biz-edit>Edit</button>':'')+'</div><div class="acct-list">'+row('Email','email',b.email,'email')+row('Contact number','contact',b.contact,'tel')+row('Address','address',b.address)+'</div>'+(editingBiz?'<div class="acct-actions biz-inline-actions"><button type="button" class="button ghost" data-biz-cancel>Cancel</button><button type="button" class="button primary" data-biz-save>Save</button></div>':'')+'</section>';
+  const meBlock=editingMe
+    ?'<div class="pf-me pf-me-editing"><label class="biz-row is-editing"><span>Name</span><input data-account-field="name" value="'+esc(me.name||'')+'"></label><label class="biz-row is-editing"><span>Email</span><input type="email" data-account-field="email" value="'+esc(me.email||'')+'"></label><label class="biz-row is-editing"><span>Phone</span><input type="tel" data-account-field="phone" value="'+esc(me.phone||'')+'"></label><div class="acct-actions pf-me-actions"><button type="button" class="button ghost" data-account-cancel>Cancel</button><button type="button" class="button primary" data-account-save>Save</button></div></div>'
+    :'<div class="pf-me pf-me-rows"><div class="biz-row"><span>Name</span><strong>'+esc(me.name||'—')+'</strong></div><div class="biz-row"><span>Email</span><strong>'+esc(me.email||'—')+'</strong></div><div class="biz-row"><span>Phone</span><strong>'+esc(me.phone||'—')+'</strong></div></div>';
+  const link=(title,value,toast)=>'<button type="button" class="pf-link" data-toast="'+toast+'"><strong>'+title+'</strong>'+(value?'<span>'+value+'</span>':'')+'<span class="acct-chevron" aria-hidden="true">›</span></button>';
+  const account='<section class="acct-section"><div class="acct-section-head"><h2>Account details</h2>'+(editingMe?'':'<button type="button" class="acct-edit" data-account-edit>Edit</button>')+'</div><div class="acct-list">'+meBlock+'<button type="button" class="biz-row pf-password-row" data-toast="Password settings opened"><span>Password</span><strong>••••••••</strong><span class="acct-chevron" aria-hidden="true">›</span></button>'+'</div></section>';
+  const memberRow=(member,index)=>{
+    const tappable=owner&&member.id!=='owner',status=member.status==='Invited'?'Invited':(member.role==='Owner'?'Owner':'Staff');
+    const inner='<strong>'+esc(pfDisplayName(member))+'</strong><span class="pf-member-role'+(status==='Invited'?' is-invited':'')+'">'+status+'</span>'+(tappable?'<span class="acct-chevron" aria-hidden="true">›</span>':'');
+    return tappable?'<button type="button" class="pf-member pf-member-tap" data-team-member="'+index+'">'+inner+'</button>':'<div class="pf-member">'+inner+'</div>';
+  };
+  const team='<section class="acct-section"><div class="acct-section-head"><h2>Access and Permissions</h2></div><div class="acct-list">'+state.team.map(memberRow).join('')+(owner?'<button type="button" class="pf-invite-button" data-team-invite><span aria-hidden="true">+</span><span>Invite a member</span></button>':'')+'</div></section>';
+  return '<div class="acct-page pf-page">'+hero+details+account+team+'</div>';
+};
+profileView=function(){return pfView2()};
+const renderBeforeBizDetails=render;
+render=function(){
+  if(state.page!=='profile')state.bizEditing=false;
+  renderBeforeBizDetails.apply(this,arguments);
+  if(state.page!=='profile')return;
+  const title=document.querySelector('.topbar .topbar-context strong');
+  const back=document.querySelector('[data-profile-back]');
+  if(state.profileSub==='business'){
+    if(title)title.textContent='Edit business';
+    if(back){back.textContent='Cancel';back.classList.add('is-cancel');back.setAttribute('aria-label','Cancel editing');back.onclick=()=>{state.profileSub=null;render();const page=document.querySelector('.page');if(page)page.scrollTop=0}}
+  }
+  document.querySelectorAll('[data-biz-edit]').forEach(button=>button.onclick=()=>{state.bizEditing=true;state.accountEditing=false;render();const first=document.querySelector('.biz-row [data-biz-field]');if(first){first.focus();const len=first.value.length;try{first.setSelectionRange(len,len)}catch(error){}}});
+  document.querySelectorAll('[data-biz-cancel]').forEach(button=>button.onclick=()=>{state.bizEditing=false;render()});
+  document.querySelectorAll('[data-account-edit]').forEach(button=>button.addEventListener('click',()=>setTimeout(()=>{const first=document.querySelector('[data-account-field="name"]');if(first){first.focus();const len=first.value.length;try{first.setSelectionRange(len,len)}catch(error){}}},0)));
+  document.querySelectorAll('[data-biz-logo]').forEach(input=>input.onchange=()=>{const file=input.files?.[0];if(!file)return;state.businessLogo=URL.createObjectURL(file);document.querySelectorAll('.pf-logo').forEach(node=>node.innerHTML='<img src="'+state.businessLogo+'" alt="">');document.querySelectorAll('.biz-logo-link').forEach(link=>link.firstChild.textContent='Change logo')});
+  document.querySelectorAll('[data-biz-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-biz-field]').forEach(input=>{values[input.dataset.bizField]=String(input.value||'').trim()});
+    if(!values.name){toast('Business name is required');document.querySelector('[data-biz-field="name"]')?.focus();return}
+    state.businessProfile={...(state.businessProfile||{}),...values};pfSave('cabana:business-profile',state.businessProfile);
+    state.profileSub=null;state.bizEditing=false;render();toast('Business details saved');
+  });
+};
+render();
+
+/* Access and Permissions: member name, then role (Owner shown as Admin). */
+function pfDisplayName(member){return String(pfMemberName(member)).replace(/^Marco Dela Cruz$/,'Marco de la Cruz')}
+
+/* Access and Permissions: Edit shows remove buttons; Invite a member opens an inline form. */
+const renderBeforeTeamInline=render;
+render=function(){
+  if(state.page!=='profile'){state.teamEditing=false;state.teamInviting=false}
+  renderBeforeTeamInline.apply(this,arguments);
+  if(state.page!=='profile'||state.profileSub)return;
+  document.querySelectorAll('[data-team-edit]').forEach(button=>button.onclick=()=>{state.teamEditing=!state.teamEditing;state.teamInviting=false;render()});
+  document.querySelectorAll('[data-invite-open]').forEach(button=>button.onclick=()=>{state.teamInviting=true;state.teamEditing=false;render();document.querySelector('[data-invite-field="name"]')?.focus()});
+  document.querySelectorAll('[data-invite-cancel]').forEach(button=>button.onclick=()=>{state.teamInviting=false;render()});
+  document.querySelectorAll('[data-invite-send]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-invite-field]').forEach(input=>{values[input.dataset.inviteField]=String(input.value||'').trim()});
+    if(!values.name||!values.contact){toast('Add a name and email or phone');return}
+    state.team.push({id:'m'+Date.now(),name:values.name,role:values.role||'Staff',contact:values.contact});pfSave('cabana:team',state.team);
+    state.teamInviting=false;render();toast('Invite sent to '+values.name);
+  });
+  document.querySelectorAll('[data-team-remove]').forEach(button=>button.onclick=()=>{
+    const index=Number(button.dataset.teamRemove),member=state.team[index];if(!member||member.id==='owner')return;
+    state.team.splice(index,1);pfSave('cabana:team',state.team);
+    if(!state.team.some(item=>item.id!=='owner'))state.teamEditing=false;
+    render();toast('Access removed for '+pfDisplayName(member));
+  });
+};
+render();
+
+/* Access and Permissions sheets: tap Staff → Remove from team (with confirm); + Invite a member → Name + Mobile. */
+const pfFirstName=member=>String(pfDisplayName(member)).split(' ')[0];
+const pfTeamSheet=()=>{
+  const sheet=state.teamSheet;if(!sheet)return '';
+  if(sheet.type==='invite')return '<div class="pf-sheet-backdrop" data-team-sheet-close></div><section class="pf-sheet" role="dialog" aria-label="Invite a member"><header><h2>Invite a member</h2><button type="button" data-team-sheet-close aria-label="Close">×</button></header><label class="pf-sheet-field"><span>Name</span><input data-invite-field="name" placeholder="Full name" autocomplete="off"></label><label class="pf-sheet-field"><span>Mobile number</span><input type="tel" data-invite-field="mobile" placeholder="+63 9XX XXX XXXX" autocomplete="off"></label><p class="pf-sheet-note">They’ll join as Staff with access to Bookings and Chat.</p><button type="button" class="button primary pf-sheet-primary" data-team-invite-send>Send invite</button></section>';
+  const member=state.team[sheet.index];if(!member)return '';
+  const body=sheet.confirm
+    ?'<p class="pf-sheet-confirm">Remove '+esc(pfFirstName(member))+'? They’ll lose access right away.</p><div class="pf-sheet-actions"><button type="button" class="button ghost" data-team-confirm-cancel>Cancel</button><button type="button" class="button pf-danger" data-team-confirm-remove>Remove</button></div>'
+    :'<button type="button" class="button pf-danger pf-sheet-primary" data-team-remove-ask>Remove from team</button>';
+  return '<div class="pf-sheet-backdrop" data-team-sheet-close></div><section class="pf-sheet" role="dialog" aria-label="'+esc(pfDisplayName(member))+'"><header><h2>'+esc(pfDisplayName(member))+' · '+(member.status==='Invited'?'Invited':'Staff')+'</h2><button type="button" data-team-sheet-close aria-label="Close">×</button></header>'+body+'</section>';
+};
+const renderBeforeTeamSheet=render;
+render=function(){
+  if(state.page!=='profile')state.teamSheet=null;
+  renderBeforeTeamSheet.apply(this,arguments);
+  document.querySelector('.pf-sheet-wrap')?.remove();
+  if(state.page!=='profile'||state.profileSub)return;
+  const close=()=>{state.teamSheet=null;render()};
+  document.querySelectorAll('[data-team-member]').forEach(button=>button.onclick=()=>{state.teamSheet={type:'member',index:Number(button.dataset.teamMember),confirm:false};render()});
+  document.querySelectorAll('[data-team-invite]').forEach(button=>button.onclick=()=>{state.teamSheet={type:'invite'};render();document.querySelector('[data-invite-field="name"]')?.focus()});
+  if(!state.teamSheet||state.role!=='Owner')return;
+  const wrap=document.createElement('div');wrap.className='pf-sheet-wrap';wrap.innerHTML=pfTeamSheet();document.body.appendChild(wrap);
+  wrap.querySelectorAll('[data-team-sheet-close]').forEach(node=>node.onclick=close);
+  wrap.querySelector('[data-team-remove-ask]')?.addEventListener('click',()=>{state.teamSheet.confirm=true;render()});
+  wrap.querySelector('[data-team-confirm-cancel]')?.addEventListener('click',()=>{state.teamSheet.confirm=false;render()});
+  wrap.querySelector('[data-team-confirm-remove]')?.addEventListener('click',()=>{const member=state.team[state.teamSheet.index];if(member&&member.id!=='owner'){state.team.splice(state.teamSheet.index,1);pfSave('cabana:team',state.team);toast(pfDisplayName(member)+' was removed from the team')}close()});
+  wrap.querySelector('[data-team-invite-send]')?.addEventListener('click',()=>{
+    const name=String(wrap.querySelector('[data-invite-field="name"]')?.value||'').trim(),mobile=String(wrap.querySelector('[data-invite-field="mobile"]')?.value||'').trim();
+    if(!name||!mobile){toast('Add a name and mobile number');return}
+    state.team.push({id:'m'+Date.now(),name,role:'Staff',status:'Invited',contact:mobile});pfSave('cabana:team',state.team);toast('Invite sent to '+name);close();
+  });
+};
+render();
+
+/* Business profile photo: tap the circular logo to upload; kept across refreshes. */
+try{const savedLogo=localStorage.getItem('cabana:business-logo');if(savedLogo)state.businessLogo=savedLogo}catch(error){}
+const renderBeforeLogoUpload=render;
+render=function(){
+  renderBeforeLogoUpload.apply(this,arguments);
+  if(state.page==='menu'&&state.businessLogo){const icon=document.querySelector('.menu-profile-header .menu-profile-icon');if(icon&&!icon.querySelector('img'))icon.innerHTML='<img src="'+state.businessLogo+'" alt="">'}
+  if(state.page!=='profile')return;
+  document.querySelectorAll('[data-biz-logo]').forEach(input=>input.onchange=()=>{
+    const file=input.files?.[0];if(!file)return;
+    if(!/^image\//.test(file.type)){toast('Choose an image file');return}
+    const reader=new FileReader();
+    reader.onload=()=>{
+      const image=new Image();
+      image.onload=()=>{
+        const size=256,canvas=document.createElement('canvas');canvas.width=size;canvas.height=size;
+        const side=Math.min(image.width,image.height),ctx=canvas.getContext('2d');
+        ctx.drawImage(image,(image.width-side)/2,(image.height-side)/2,side,side,0,0,size,size);
+        state.businessLogo=canvas.toDataURL('image/jpeg',0.86);
+        try{localStorage.setItem('cabana:business-logo',state.businessLogo)}catch(error){}
+        render();toast('Profile photo updated');
+      };
+      image.src=reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+};
+render();
+
+/* ===== Profile page (final spec): business header, business details, account details, access and permissions. ===== */
+const pf3Business=()=>{const b=bizData();return {name:b.name,category:b.category||'Transport',email:b.email,contact:b.contact,address:b.address}};
+const pf3Esc=value=>esc(value==null?'':String(value));
+const pf3Role=member=>member.status==='Invited'?'Invited':(member.role==='Owner'?'Owner':'Staff');
+const pf3StaffCount=()=>state.team.filter(member=>member.id!=='owner'&&member.role!=='Owner').length;
+const pf3EditBusinessView=()=>{
+  const b=pf3Business(),field=(label,key,value,type='text',required=false)=>'<label class="biz-field"><span>'+label+(required?' <em>Required</em>':'')+'</span><input type="'+type+'" data-pf3-field="'+key+'" value="'+pf3Esc(value)+'"'+(required?' required':'')+'></label>';
+  return '<div class="acct-page pf-page pf3-page biz-edit-page"><section class="acct-list biz-form">'+field('Business name','name',b.name,'text',true)
+    +'<label class="biz-field"><span>Category</span><select data-pf3-field="category">'+bizCategories.map(option=>'<option'+(option===b.category?' selected':'')+'>'+pf3Esc(option)+'</option>').join('')+'</select></label>'
+    +field('Email','email',b.email,'email')+field('Contact number','contact',b.contact,'tel')+field('Address','address',b.address)+'</section>'
+    +'<div class="pf3-edit-actions"><button type="button" class="button primary biz-save" data-pf3-biz-save>Save</button><button type="button" class="button ghost biz-cancel" data-pf3-sub-cancel>Cancel</button></div></div>';
+};
+const pf3View=()=>{
+  const owner=state.role==='Owner';
+  if(state.profileSub==='business'&&owner)return pf3EditBusinessView();
+  if(state.profileSub==='account')return pf3EditAccountView();
+  const bizInline=false,acctInline=false;
+  const b=pf3Business(),me=accountProfile(),editingMe=Boolean(state.accountEditing),editingTeam=owner&&Boolean(state.pf3TeamEditing)&&pf3StaffCount()>0;
+  const logo=owner?'<label class="pf-logo-edit pf-logo-upload" aria-label="Upload or change logo">'+pfLogo(b)+'<span class="pf-logo-badge" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-biz-logo hidden></label>':pfLogo(b);
+  const hero=bizInline
+    ?'<section class="pf-hero pf3-hero is-editing">'+logo+'<input class="pf-hero-name" data-pf3-inline-biz="name" value="'+pf3Esc(b.name)+'" aria-label="Business name" required><select class="pf-hero-category" data-pf3-inline-biz="category" aria-label="Category">'+bizCategories.map(option=>'<option'+(option===b.category?' selected':'')+'>'+pf3Esc(option)+'</option>').join('')+'</select></section>'
+    :'<section class="pf-hero pf3-hero">'+logo+'<h2>'+pf3Esc(b.name)+'</h2><p>'+pf3Esc(b.category)+'</p></section>';
+  const row=(label,value)=>'<div class="biz-row"><span>'+label+'</span><strong>'+pf3Esc(value||'—')+'</strong></div>';
+  const inputRow=(label,attr,key,value,type='text')=>'<label class="biz-row is-editing"><span>'+label+'</span><input type="'+type+'" '+attr+'="'+key+'" value="'+pf3Esc(value)+'"></label>';
+  const inlineActions=(cancel,save)=>'<div class="acct-actions pf3-inline-actions"><button type="button" class="button ghost" '+cancel+'>Cancel</button><button type="button" class="button primary" '+save+'>Save</button></div>';
+  const details='<section class="acct-section"><div class="acct-section-head"><h2>Business details</h2>'+(owner&&!bizInline?'<button type="button" class="acct-edit" data-pf3-biz-edit>Edit</button>':'')+'</div><div class="acct-list">'+(bizInline?inputRow('Email','data-pf3-inline-biz','email',b.email,'email')+inputRow('Contact number','data-pf3-inline-biz','contact',b.contact,'tel')+inputRow('Address','data-pf3-inline-biz','address',b.address):row('Email',b.email)+row('Contact number',b.contact)+row('Address',b.address))+'</div>'+(bizInline?inlineActions('data-pf3-inline-biz-cancel','data-pf3-inline-biz-save'):'')+'</section>';
+  const accountRows=acctInline
+    ?inputRow('Name','data-pf3-inline-acct','name',me.name)+inputRow('Email','data-pf3-inline-acct','email',me.email,'email')+inputRow('Phone','data-pf3-inline-acct','phone',me.phone,'tel')
+    :'<div class="pf-me pf-me-rows">'+row('Name',me.name)+row('Email',me.email)+row('Phone',me.phone)+'</div><button type="button" class="biz-row pf-password-row" data-pf3-password><span>Password</span><strong>••••••••</strong><span class="acct-chevron" aria-hidden="true">›</span></button>';
+  const account='<section class="acct-section"><div class="acct-section-head"><h2>Account details</h2>'+(acctInline?'':'<button type="button" class="acct-edit" data-pf3-acct-edit>Edit</button>')+'</div><div class="acct-list">'+accountRows+'</div>'+(acctInline?inlineActions('data-pf3-inline-acct-cancel','data-pf3-inline-acct-save'):'')+'</section>';
+  const member=(m,index)=>{const removable=editingTeam&&m.id!=='owner'&&m.role!=='Owner';return '<div class="pf3-member" data-pf3-row="'+index+'">'+(editingTeam?(removable?'<button type="button" class="pf3-minus" data-pf3-remove="'+index+'" aria-label="Remove '+pf3Esc(pfDisplayName(m))+'"><span aria-hidden="true"></span></button>':'<span class="pf3-minus-spacer" aria-hidden="true"></span>'):'')+'<strong>'+pf3Esc(pfDisplayName(m))+'</strong><span class="pf3-role">'+pf3Role(m)+'</span></div>'};
+  const showEdit=owner&&pf3StaffCount()>0;
+  const team='<section class="acct-section"><div class="acct-section-head"><h2>Access and permissions</h2>'+(showEdit?'<button type="button" class="acct-edit" data-pf3-team-edit>'+(editingTeam?'Done':'Edit')+'</button>':'')+'</div><div class="acct-list">'+state.team.map(member).join('')+(owner&&!editingTeam?'<button type="button" class="pf-invite-button" data-pf3-invite><span aria-hidden="true">+</span><span>Invite a member</span></button>':'')+'</div></section>';
+  return '<div class="acct-page pf-page pf3-page">'+hero+details+account+team+'</div>';
+};
+profileView=function(){return pf3View()};
+const pf3Overlay=()=>{
+  const sheet=state.pf3Sheet;
+  if(sheet==='invite')return '<div class="pf-sheet-backdrop" data-pf3-close></div><section class="pf-sheet" role="dialog" aria-label="Invite a member"><header><h2>Invite a member</h2><button type="button" data-pf3-close aria-label="Close">×</button></header><label class="pf-sheet-field"><span>Name</span><input data-pf3-invite="name" placeholder="Full name" autocomplete="off"></label><label class="pf-sheet-field"><span>Email</span><input type="email" data-pf3-invite="email" placeholder="name@example.com" autocomplete="off"></label><label class="pf-sheet-field"><span>Mobile number</span><input type="tel" data-pf3-invite="mobile" placeholder="+63 9XX XXX XXXX" autocomplete="off"></label><button type="button" class="button primary pf-sheet-primary" data-pf3-invite-send>Send invite</button></section>';
+  if(sheet==='password')return '<div class="pf-sheet-backdrop" data-pf3-close></div><section class="pf-sheet" role="dialog" aria-label="Change password"><header><h2>Change password</h2><button type="button" data-pf3-close aria-label="Close">×</button></header><label class="pf-sheet-field"><span>Current password</span><input type="password" data-pf3-pw="current" autocomplete="current-password"></label><label class="pf-sheet-field"><span>New password</span><input type="password" data-pf3-pw="next" autocomplete="new-password"></label><label class="pf-sheet-field"><span>Confirm new password</span><input type="password" data-pf3-pw="confirm" autocomplete="new-password"></label><p class="pf-sheet-note">Use at least 8 characters.</p><button type="button" class="button primary pf-sheet-primary" data-pf3-pw-save>Update password</button></section>';
+  if(Number.isInteger(state.pf3Confirm)){const m=state.team[state.pf3Confirm];if(!m)return '';const name=pf3Esc(pfDisplayName(m));return '<div class="pf-sheet-backdrop" data-pf3-close></div><section class="pf3-dialog" role="alertdialog" aria-labelledby="pf3-dialog-title" aria-describedby="pf3-dialog-body"><h2 id="pf3-dialog-title">Remove '+name+'?</h2><p id="pf3-dialog-body">They’ll lose access to this business right away.</p><div class="pf-sheet-actions"><button type="button" class="button ghost" data-pf3-close>Cancel</button><button type="button" class="button pf-danger" data-pf3-confirm-remove>Remove</button></div></section>'}
+  return '';
+};
+const renderBeforePf3=render;
+render=function(){
+  if(state.page!=='profile'){state.pf3Sheet=null;state.pf3Confirm=null;state.pf3TeamEditing=false}
+  if(state.page==='profile'&&state.profileSub==='team')state.profileSub=null;
+  renderBeforePf3.apply(this,arguments);
+  document.querySelector('.pf3-overlay')?.remove();
+  if(state.page==='menu'){const icon=document.querySelector('.menu-profile-header .menu-profile-icon');if(icon)icon.classList.add('is-business-logo')}
+  if(state.page!=='profile')return;
+  const page=()=>document.querySelector('.page');
+  document.querySelectorAll('[data-pf3-biz-edit]').forEach(button=>button.onclick=()=>{state.profileSub='business';state.accountEditing=false;state.pf3TeamEditing=false;render();if(page())page().scrollTop=0});
+  document.querySelectorAll('[data-pf3-biz-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-pf3-field]').forEach(input=>{values[input.dataset.pf3Field]=String(input.value||'').trim()});
+    if(!values.name){toast('Business name is required');document.querySelector('[data-pf3-field="name"]')?.focus();return}
+    state.businessProfile={...(state.businessProfile||{}),...values};pfSave('cabana:business-profile',state.businessProfile);
+    state.profileSub=null;render();toast('Business details saved');if(page())page().scrollTop=0;
+  });
+  document.querySelectorAll('[data-pf3-password]').forEach(button=>button.onclick=()=>{state.pf3Sheet='password';render();document.querySelector('[data-pf3-pw="current"]')?.focus()});
+  document.querySelectorAll('[data-pf3-team-edit]').forEach(button=>button.onclick=()=>{state.pf3TeamEditing=!state.pf3TeamEditing;render()});
+  document.querySelectorAll('[data-pf3-remove]').forEach(button=>button.onclick=()=>{state.pf3Confirm=Number(button.dataset.pf3Remove);render()});
+  document.querySelectorAll('[data-pf3-invite]').forEach(button=>{if(button.tagName==='BUTTON')button.onclick=()=>{state.pf3Sheet='invite';render();document.querySelector('input[data-pf3-invite="name"]')?.focus()}});
+  const overlay=pf3Overlay();if(!overlay)return;
+  const wrap=document.createElement('div');wrap.className='pf3-overlay';wrap.innerHTML=overlay;document.body.appendChild(wrap);
+  const close=()=>{state.pf3Sheet=null;state.pf3Confirm=null;render()};
+  wrap.querySelectorAll('[data-pf3-close]').forEach(node=>node.onclick=close);
+  wrap.querySelector('[data-pf3-invite-send]')?.addEventListener('click',()=>{
+    const name=String(wrap.querySelector('[data-pf3-invite="name"]')?.value||'').trim(),email=String(wrap.querySelector('[data-pf3-invite="email"]')?.value||'').trim(),mobile=String(wrap.querySelector('[data-pf3-invite="mobile"]')?.value||'').trim();
+    if(!name){toast('Add a name');wrap.querySelector('[data-pf3-invite="name"]')?.focus();return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast('Add a valid email');wrap.querySelector('[data-pf3-invite="email"]')?.focus();return}
+    if(!mobile){toast('Add a mobile number');wrap.querySelector('[data-pf3-invite="mobile"]')?.focus();return}
+    state.team.push({id:'m'+Date.now(),name,role:'Staff',status:'Invited',email,mobile,contact:email});pfSave('cabana:team',state.team);toast('Invite sent to '+name);close();
+  });
+  wrap.querySelector('[data-pf3-pw-save]')?.addEventListener('click',()=>{
+    const v=key=>String(wrap.querySelector('[data-pf3-pw="'+key+'"]')?.value||'');
+    if(!v('current')){toast('Enter your current password');return}
+    if(v('next').length<8){toast('New password needs at least 8 characters');return}
+    if(v('next')!==v('confirm')){toast('New passwords don’t match');return}
+    toast('Password updated');close();
+  });
+  wrap.querySelector('[data-pf3-confirm-remove]')?.addEventListener('click',()=>{
+    const index=state.pf3Confirm,m=state.team[index];state.pf3Confirm=null;wrap.remove();
+    if(!m||m.id==='owner'||m.role==='Owner'){render();return}
+    const rowEl=document.querySelector('[data-pf3-row="'+index+'"]');
+    const finish=()=>{state.team.splice(index,1);pfSave('cabana:team',state.team);render();toast(pfDisplayName(m)+' was removed')};
+    if(rowEl){rowEl.style.height=rowEl.offsetHeight+'px';requestAnimationFrame(()=>rowEl.classList.add('is-removing'));setTimeout(finish,240)}else finish();
+  });
+};
+render();
+
+/* Screens opened from Menu keep the Menu tab highlighted. */
+const menuSubpages=['profile','earnings','listings','staff-listings','insights'];
+const renderBeforeMenuTabActive=render;
+render=function(){
+  renderBeforeMenuTabActive.apply(this,arguments);
+  if(!menuSubpages.includes(state.page))return;
+  document.querySelectorAll('.mobile-nav [data-page="menu"], .nav-list [data-page="menu"]').forEach(button=>{
+    button.classList.add('active');button.setAttribute('aria-current','page');
+    const icon=button.querySelector('.nav-hugeicon');if(icon)icon.classList.add('hgi-solid','nav-hugeicon-active');
+  });
+};
+render();
+
+/* Edit (Business details or Account details): put the cursor in the first field right away. */
+const pfFocusFirst=selector=>{const go=()=>{const field=document.querySelector(selector);if(!field)return false;field.focus({preventScroll:false});if(typeof field.setSelectionRange==='function'&&field.type!=='email'){const len=field.value.length;try{field.setSelectionRange(len,len)}catch(error){}}return true};setTimeout(()=>{if(!go())setTimeout(go,80)},20)};
+window.addEventListener('click',event=>{
+  if(event.target.closest?.('[data-pf3-biz-edit]'))setTimeout(()=>pfFocusFirst('[data-pf3-field="name"]'),0);
+  if(event.target.closest?.('[data-account-edit]'))setTimeout(()=>pfFocusFirst('[data-account-field="name"]'),0);
+});
+
+/* Account details Edit → "Edit account" screen, same pattern as Edit business. */
+function pf3EditAccountView(){
+  const me=accountProfile(),field=(label,key,value,type='text',required=false)=>'<label class="biz-field"><span>'+label+(required?' <em>Required</em>':'')+'</span><input type="'+type+'" data-pf3-acct="'+key+'" value="'+esc(value==null?'':String(value))+'"'+(required?' required':'')+'></label>';
+  return '<div class="acct-page pf-page pf3-page biz-edit-page"><section class="acct-list biz-form">'+field('Name','name',me.name,'text',true)+field('Email','email',me.email,'email')+field('Phone','phone',me.phone,'tel')+'</section><div class="pf3-edit-actions"><button type="button" class="button primary biz-save" data-pf3-acct-save>Save</button><button type="button" class="button ghost biz-cancel" data-pf3-sub-cancel>Cancel</button></div></div>';
+}
+const renderBeforeEditAccount=render;
+render=function(){
+  if(state.page==='profile')state.accountEditing=false;
+  renderBeforeEditAccount.apply(this,arguments);
+  if(state.page!=='profile')return;
+  const pageEl=()=>document.querySelector('.page');
+  document.querySelectorAll('[data-pf3-acct-edit]').forEach(button=>button.onclick=()=>{
+    state.profileSub='account';state.pf3TeamEditing=false;render();if(pageEl())pageEl().scrollTop=0;
+    setTimeout(()=>{const first=document.querySelector('[data-pf3-acct="name"]');if(first){first.focus();const len=first.value.length;try{first.setSelectionRange(len,len)}catch(error){}}},30);
+  });
+  if(state.profileSub!=='account')return;
+  const title=document.querySelector('.topbar .topbar-context strong');if(title)title.textContent='Edit account';
+  const back=document.querySelector('[data-profile-back]');
+  if(back){back.textContent='Cancel';back.classList.add('is-cancel');back.setAttribute('aria-label','Cancel editing');back.onclick=()=>{state.profileSub=null;render();if(pageEl())pageEl().scrollTop=0}}
+  document.querySelectorAll('[data-pf3-acct-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-pf3-acct]').forEach(input=>{values[input.dataset.pf3Acct]=String(input.value||'').trim()});
+    if(!values.name){toast('Name is required');document.querySelector('[data-pf3-acct="name"]')?.focus();return}
+    if(values.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)){toast('Add a valid email');document.querySelector('[data-pf3-acct="email"]')?.focus();return}
+    state.accountProfile={...(state.accountProfile||{}),[state.role]:{...((state.accountProfile||{})[state.role]||{}),...values}};
+    try{localStorage.setItem('cabana:account-profile',JSON.stringify(state.accountProfile))}catch(error){}
+    state.profileSub=null;render();toast('Account details saved');if(pageEl())pageEl().scrollTop=0;
+  });
+};
+render();
+
+/* Inline editing for Business details and Account details (no separate screen). */
+const renderBeforeInlineEdit=render;
+render=function(){
+  if(state.page!=='profile'){state.pf3BizInline=false;state.pf3AcctInline=false}
+  renderBeforeInlineEdit.apply(this,arguments);
+  if(state.page!=='profile')return;
+  const focusFirst=selector=>setTimeout(()=>{const field=document.querySelector(selector);if(!field)return;field.focus();if(field.type!=='email'){const len=field.value.length;try{field.setSelectionRange(len,len)}catch(error){}}},30);
+  const openScreen=(sub,selector)=>{state.profileSub=sub;state.pf3TeamEditing=false;render();const page=document.querySelector('.page');if(page)page.scrollTop=0;focusFirst(selector)};
+  document.querySelectorAll('[data-pf3-biz-edit]').forEach(button=>button.onclick=()=>openScreen('business','[data-pf3-field="name"]'));
+  document.querySelectorAll('[data-pf3-acct-edit]').forEach(button=>button.onclick=()=>openScreen('account','[data-pf3-acct="name"]'));
+  document.querySelectorAll('[data-pf3-inline-biz-cancel]').forEach(button=>button.onclick=()=>{state.pf3BizInline=false;render()});
+  document.querySelectorAll('[data-pf3-inline-acct-cancel]').forEach(button=>button.onclick=()=>{state.pf3AcctInline=false;render()});
+  const validEmail=value=>!value||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  document.querySelectorAll('[data-pf3-inline-biz-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-pf3-inline-biz]').forEach(input=>{values[input.dataset.pf3InlineBiz]=String(input.value||'').trim()});
+    if(!values.name){toast('Business name is required');document.querySelector('[data-pf3-inline-biz="name"]')?.focus();return}
+    if(!validEmail(values.email)){toast('Add a valid email');document.querySelector('[data-pf3-inline-biz="email"]')?.focus();return}
+    state.businessProfile={...(state.businessProfile||{}),...values};pfSave('cabana:business-profile',state.businessProfile);
+    state.pf3BizInline=false;render();toast('Business details saved');
+  });
+  document.querySelectorAll('[data-pf3-inline-acct-save]').forEach(button=>button.onclick=()=>{
+    const values={};document.querySelectorAll('[data-pf3-inline-acct]').forEach(input=>{values[input.dataset.pf3InlineAcct]=String(input.value||'').trim()});
+    if(!values.name){toast('Name is required');document.querySelector('[data-pf3-inline-acct="name"]')?.focus();return}
+    if(!validEmail(values.email)){toast('Add a valid email');document.querySelector('[data-pf3-inline-acct="email"]')?.focus();return}
+    state.accountProfile={...(state.accountProfile||{}),[state.role]:{...((state.accountProfile||{})[state.role]||{}),...values}};
+    try{localStorage.setItem('cabana:account-profile',JSON.stringify(state.accountProfile))}catch(error){}
+    state.pf3AcctInline=false;render();toast('Account details saved');
+  });
+};
+render();
+
+/* Edit business / Edit account: ← back in the header; Cancel as a secondary button under Save. */
+const renderBeforeEditBack=render;
+render=function(){
+  renderBeforeEditBack.apply(this,arguments);
+  if(state.page!=='profile'||!['business','account'].includes(state.profileSub))return;
+  const leave=()=>{state.profileSub=null;render();const page=document.querySelector('.page');if(page)page.scrollTop=0};
+  const back=document.querySelector('[data-profile-back]');
+  if(back){back.textContent='←';back.classList.remove('is-cancel');back.setAttribute('aria-label','Back to Profile');back.onclick=leave}
+  document.querySelectorAll('[data-pf3-sub-cancel]').forEach(button=>button.onclick=leave);
+};
+render();
+
+/* ===== Create listing: 4 steps + review (Basics · Price and capacity · Availability · Booking details), plus Listings ⋯ menu. ===== */
+const lcMonths=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const lcDayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const lcToday=new Date(2026,9,10);
+const lcDefaults=()=>({photos:[],name:'',description:'',location:'',price:'',pricedPer:'Booking',durationMode:'fixed',durationValue:'2',durationUnit:'hours',guestMin:'1',guestMax:'7',guestUnit:'days',countBy:'Passengers',maxPer:'4',payRoom:true,payOnline:true,_payV2:true,days:[true,true,true,true,true,true,true],timeMode:'hours',slots:['07:00','13:00'],hoursStart:'06:00',hoursEnd:'22:00',dailyLimit:'2',blocked:[],notice:'2 hours',fields:{baggage:true,pickup:true,dropoff:true,flight:true,prefs:false,health:false,requests:true},addons:[]});
+state.lc=state.lc||{open:false,step:1,data:lcDefaults(),month:[2026,9]};
+try{const saved=JSON.parse(localStorage.getItem('cabana:created-listings')||'[]');saved.forEach(item=>{if(!listings.some(existing=>existing.id===item.id))listings.push(item)})}catch(error){}
+const lcSaveCreated=()=>{try{localStorage.setItem('cabana:created-listings',JSON.stringify(listings.filter(item=>item.created)))}catch(error){toast('Saved, but photos are too large to keep after refresh')}};
+const lcE=value=>esc(value==null?'':String(value));
+const lcPeso=value=>'₱'+Number(String(value||0).replace(/[^\d]/g,'')||0).toLocaleString('en-PH');
+const lcTime=value=>{const [h,m]=String(value||'00:00').split(':').map(Number);const period=h>=12?'PM':'AM',hour=h%12||12;return hour+':'+String(m||0).padStart(2,'0')+' '+period};
+const lcDuration=d=>d.durationMode==='fixed'?(d.durationValue+' '+(Number(d.durationValue)===1?d.durationUnit.replace(/s$/,''):d.durationUnit)):('Up to '+d.guestMax+' '+(Number(d.guestMax)===1?d.guestUnit.replace(/s$/,''):d.guestUnit));
+const lcSeg=(name,value,options)=>'<div class="lc-seg" role="group">'+options.map(option=>'<button type="button" class="'+(value===option?'is-active':'')+'" data-lc-set="'+name+'" data-lc-value="'+lcE(option)+'">'+lcE(option)+'</button>').join('')+'</div>';
+const lcField=(label,control,hint)=>'<div class="lc-field"><span class="lc-label">'+label+'</span>'+control+(hint?'<small class="lc-hint">'+hint+'</small>':'')+'</div>';
+const lcInput=(key,value,attrs='')=>'<input class="lc-input" data-lc-input="'+key+'" value="'+lcE(value)+'" '+attrs+'>';
+const lcSwitch=(key,on,label,sub,disabled)=>'<label class="lc-switch-row'+(disabled?' is-locked':'')+'"><span><strong>'+label+'</strong>'+(sub?'<small>'+sub+'</small>':'')+'</span><input type="checkbox" data-lc-check="'+key+'"'+(on?' checked':'')+(disabled?' disabled':'')+'><span class="lc-switch" aria-hidden="true"></span></label>';
+const lcStep1=d=>{
+  const tried=Boolean(state.lc.tried1),noName=tried&&!d.name.trim(),noCover=tried&&!d.photos.length;
+  const cover=d.photos[0]
+    ?'<div class="lc1-cover has-photo"><img src="'+d.photos[0]+'" alt="Cover photo"><label class="lc1-change">Change<input type="file" accept="image/*" data-lc-cover-replace hidden></label><button type="button" class="lc-photo-remove" data-lc-photo-remove="0" aria-label="Remove cover photo">×</button></div>'
+    :'<label class="lc1-cover'+(noCover?' has-error':'')+'"><span class="lc1-cover-icon" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><strong>Add cover photo</strong><small>Shown to guests in Kabana</small><input type="file" accept="image/*" data-lc-cover-replace hidden></label>';
+  const slots=[1,2,3,4].map(index=>d.photos[index]
+    ?'<div class="lc1-slot has-photo"><img src="'+d.photos[index]+'" alt="Photo '+(index+1)+'"><button type="button" class="lc-photo-remove" data-lc-photo-remove="'+index+'" aria-label="Remove photo">×</button><button type="button" class="lc1-make-cover" data-lc-cover="'+index+'">Cover</button></div>'
+    :'<label class="lc1-slot" aria-label="Add photo"><span aria-hidden="true">+</span><input type="file" accept="image/*" multiple data-lc-photos hidden></label>').join('');
+  const error=(show,text)=>show?'<small class="lc1-error" role="alert">'+text+'</small>':'';
+  return '<div class="lc1">'
+    +'<div class="lc1-photos">'+cover+error(noCover,'Add a cover photo')+'</div>'
+    +'<div class="lc1-field"><label class="lc1-label" for="lc-name">Listing name</label><input id="lc-name" class="lc1-input'+(noName?' has-error':'')+'" data-lc-input="name" value="'+lcE(d.name)+'" placeholder="e.g. Airport Transfer — Sedan" maxlength="60" autocomplete="off">'+error(noName,'Add a listing name')+'</div>'
+    +'<div class="lc1-field"><div class="lc1-label-row"><label class="lc1-label" for="lc-desc">Description</label><span class="lc1-optional">Optional</span></div><div class="lc1-textarea-wrap"><textarea id="lc-desc" class="lc1-input lc1-textarea" data-lc-input="description" maxlength="300" placeholder="What’s included">'+lcE(d.description)+'</textarea><small class="lc1-count" aria-live="polite"><span data-lc-count>'+d.description.length+'</span>/300</small></div></div>'
+    +'<div class="lc1-field"><label class="lc1-label" for="lc-location">Location</label><input id="lc-location" class="lc1-input" data-lc-input="location" value="'+lcE(d.location)+'" placeholder="e.g. Hotel lobby" autocomplete="off"></div>'
+    +'</div>';
+};
+const lcStep2Ready=d=>Number(String(d.price).replace(/[^\d]/g,''))>0&&Number(d.maxPer)>0&&(d.payRoom||d.payOnline)&&(d.durationMode!=='guest'||Number(d.guestMax)>=1);
+const lcStep2Apply=d=>{
+  const byTime=d.pricedPer==='Hour'||d.pricedPer==='Day';
+  if(d._lastPricedPer!==d.pricedPer){
+    d.durationMode=byTime?'guest':'fixed';
+    if(d._lastPricedPer!==undefined&&byTime)d.guestMax=d.pricedPer==='Hour'?'8':'7';
+    d._lastPricedPer=d.pricedPer;
+  }
+  if(byTime){d.durationMode='guest';d.guestMin='1';d.guestUnit=d.pricedPer==='Hour'?'hours':'days';if(!(Number(d.guestMax)>=1))d.guestMax=d.pricedPer==='Hour'?'8':'7'}
+  else d.durationMode='fixed';
+  if(!['minutes','hours'].includes(d.durationUnit))d.durationUnit='hours';
+  if(d.countBy==='Vehicles')d.countBy='Units';
+  if(!d._payV2){d.payRoom=true;d.payOnline=true;d._payV2=true}
+};
+const lcRangeValid=d=>d.durationMode!=='guest'||Number(d.guestMax)>=1;
+const lcPriceSummary=d=>{
+  const price=Number(String(d.price).replace(/[^\d]/g,''))||0;if(!price)return 'Add a price to see what guests pay';
+  const per=d.pricedPer.toLowerCase(),unitShort=u=>u==='minutes'?'min':u==='hours'?'hrs':'days';
+  if(d.durationMode!=='guest')return 'Guests pay '+lcPeso(price)+' per '+per+' · '+(Number(d.durationValue)||0)+' '+unitShort(d.durationUnit);
+  const min=Number(d.guestMin)||0,max=Number(d.guestMax)||0,range=min+'–'+max+' '+unitShort(d.guestUnit);
+  const matches=(d.pricedPer==='Hour'&&d.guestUnit==='hours')||(d.pricedPer==='Day'&&d.guestUnit==='days');
+  return 'Guests pay '+lcPeso(price)+' per '+per+' · '+range+(matches&&min&&max?' ('+lcPeso(price*min)+'–'+lcPeso(price*max)+')':'');
+};
+const lcDdOptions={};
+const lcGroup=v=>{const n=String(v||'').replace(/[^\d]/g,'');return n?Number(n).toLocaleString('en-US'):''};
+const lcStep2=d=>{
+  lcStep2Apply(d);
+  const tried=Boolean(state.lc.tried2),noPrice=tried&&!(Number(String(d.price).replace(/[^\d]/g,''))>0),noPay=tried&&!d.payRoom&&!d.payOnline;
+  const chips=(name,value,options)=>'<div class="lc2-chips" role="radiogroup">'+options.map(option=>'<button type="button" role="radio" aria-checked="'+(value===option)+'" tabindex="'+(value===option?'0':'-1')+'" class="lc2-chip'+(value===option?' is-active':'')+'" data-lc-set="'+name+'" data-lc-value="'+lcE(option)+'">'+lcE(option)+'</button>').join('')+'</div>';
+  const stepper=(key,value,label,min=1)=>'<div class="lc2-stepper-one" role="group" aria-label="'+label+'"><button type="button" data-lc-step-num="'+key+'" data-lc-delta="-1" aria-label="Decrease '+label+'"'+(Number(value)<=min?' disabled':'')+'>−</button><input data-lc-input="'+key+'" inputmode="numeric" value="'+lcE(value)+'" aria-label="'+label+'"><button type="button" data-lc-step-num="'+key+'" data-lc-delta="1" aria-label="Increase '+label+'">+</button></div>';
+  const select=(key,value,options,label)=>{lcDdOptions[key]={label,options};const current=options.find(([v])=>v===value)||options[0];return '<div class="lc2-select-wrap"><button type="button" class="lc1-input lc2-dd" data-lc-dd="'+key+'" aria-haspopup="dialog" aria-label="'+label+': '+current[1]+'">'+current[1]+'</button></div>'};
+  const error=(show,text)=>show?'<small class="lc1-error" role="alert">'+text+'</small>':'';
+  const byTime=d.pricedPer==='Hour'||d.pricedPer==='Day',unit=d.pricedPer==='Hour'?'hours':'days',max=Number(d.guestMax)||1;
+  const duration=byTime
+    ?'<div class="lc1-field"><span class="lc1-label">Max '+unit+'</span><div class="lc2-row lc2-row-nowrap">'+stepper('guestMax',d.guestMax,'Max '+unit)+'</div></div>'
+    :'<div class="lc1-field"><span class="lc1-label">Duration</span><div class="lc2-row lc2-row-nowrap"><input class="lc1-input lc2-numbox" data-lc-input="durationValue" inputmode="numeric" value="'+lcE(d.durationValue)+'" aria-label="Duration">'+select('durationUnit',d.durationUnit,(Number(d.durationValue)===1?[['minutes','minute'],['hours','hour']]:[['minutes','minutes'],['hours','hours']]),'Duration unit')+'</div></div>';
+  const count=Number(d.maxPer)||0,noun=d.countBy.toLowerCase(),nounText=count===1?noun.replace(/s$/,''):noun;
+  const check=(key,on,label,hint)=>'<label class="lc2-check lc2-pay-card'+(on?' is-on':'')+'"><input type="checkbox" data-lc-check="'+key+'"'+(on?' checked':'')+'><span class="lc2-box" aria-hidden="true"></span><span class="lc2-pay-text"><strong>'+label+'</strong><small>'+hint+'</small></span></label>';
+  return '<div class="lc1 lc2-v4"><div class="lc2-group">'
+    +'<div class="lc1-field"><label class="lc1-label" for="lc-price">Price</label><div class="lc2-row lc2-row-nowrap lc2-price-row"><div class="lc2-price'+(noPrice?' has-error':'')+'"><span>₱</span><input id="lc-price" data-lc-input="price" inputmode="numeric" value="'+lcE(lcGroup(d.price))+'" placeholder="e.g. 1800" autocomplete="off"></div>'+select('pricedPer',d.pricedPer,[['Booking','per booking'],['Person','per person'],['Hour','per hour'],['Day','per day']],'Priced per')+'</div>'+error(noPrice,'Add a price')+'</div>'
+    +duration
+    +'</div><div class="lc2-group">'
+    +'<div class="lc1-field"><span class="lc1-label">Count by</span>'+chips('countBy',d.countBy,['Passengers','Guests','Units'])+'</div>'
+    +'<div class="lc1-field"><span class="lc1-label">Max '+lcE(noun)+'</span><div class="lc2-row">'+stepper('maxPer',d.maxPer,'Max '+noun+' per booking')+'</div></div>'
+    +'</div><div class="lc2-group">'
+    +'<div class="lc1-field lc2-pay"><span class="lc1-label">Payment options</span><div class="lc2-toggles lc2-checks">'+check('payRoom',d.payRoom,'Charge to room','Added to the guest’s hotel bill')+check('payOnline',d.payOnline,'Pay online','Card, GCash or Maya')+'</div>'+error(noPay,'Choose at least one payment option')+'</div>'
+    +'</div></div>';
+};
+const lcCalendar=d=>{
+  const [year,month]=state.lc.month,first=new Date(year,month,1),offset=(first.getDay()+6)%7,days=new Date(year,month+1,0).getDate();
+  let cells='';for(let i=0;i<offset;i++)cells+='<span></span>';
+  for(let day=1;day<=days;day++){const key=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0'),date=new Date(year,month,day),past=date<lcToday,blocked=d.blocked.includes(key);cells+='<button type="button" class="'+(blocked?'is-blocked ':'')+(past?'is-past':'')+'" data-lc-date="'+key+'"'+(past?' disabled':'')+' aria-pressed="'+blocked+'">'+day+'</button>'}
+  const canPrev=year>lcToday.getFullYear()||month>lcToday.getMonth();
+  return '<div class="lc-calendar"><div class="lc-cal-head"><button type="button" data-lc-month="-1"'+(canPrev?'':' disabled')+' aria-label="Previous month">‹</button><strong>'+lcMonths[month]+' '+year+'</strong><button type="button" data-lc-month="1" aria-label="Next month">›</button></div><div class="lc-cal-week">'+lcDayNames.map(n=>'<span>'+n[0]+'</span>').join('')+'</div><div class="lc-cal-grid">'+cells+'</div></div>';
+};
+const lcKey=(y,m,day)=>y+'-'+String(m+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+const lcKeyDate=key=>{const [y,m,day]=key.split('-').map(Number);return new Date(y,m-1,day)};
+const lcKeyAdd=(key,n)=>{const t=lcKeyDate(key);t.setDate(t.getDate()+n);return lcKey(t.getFullYear(),t.getMonth(),t.getDate())};
+const lcTimeOptions=(from='05:00',to='23:00')=>{const out=[];for(let mins=0;mins<24*60;mins+=30){const v=String(Math.floor(mins/60)).padStart(2,'0')+':'+String(mins%60).padStart(2,'0');if(v>=from&&v<=to)out.push([v,lcTime(v)])}return out};
+const lcNoticeOptions=['None','1 hour','2 hours','1 day','2 days'];
+const lcBlocksSync=d=>{
+  if(!Array.isArray(d.blocks))d.blocks=(d.blocked||[]).slice().sort().map(k=>({start:k,end:k}));
+  d.blocks.sort((x,y)=>x.start<y.start?-1:1);
+  const all=[];d.blocks.forEach(b=>{let k=b.start;while(k<=b.end){all.push(k);k=lcKeyAdd(k,1)}});d.blocked=all;
+};
+const lcStep3Apply=d=>{
+  if(d._timePer!==d.pricedPer){d.timeMode=d.pricedPer==='Hour'?'hours':'slots';d._timePer=d.pricedPer}
+  if(!lcNoticeOptions.includes(d.notice))d.notice=d.notice==='No notice needed'?'None':'2 hours';
+  if(!d.pickupStart)d.pickupStart='07:00';if(!d.pickupEnd)d.pickupEnd='18:00';
+  if(!Array.isArray(d.slots))d.slots=['08:00','13:00'];
+  if(!d.blockMode)d.blockMode='Single day';
+  lcBlocksSync(d);
+};
+const lcDdButton=(key,value,options,label,onPick)=>{lcDdOptions[key]={label,options,onPick};const current=options.find(([v])=>v===value)||[value,lcTime(value)];return '<div class="lc2-select-wrap"><button type="button" class="lc1-input lc2-dd" data-lc-dd="'+key+'" aria-haspopup="dialog" aria-label="'+label+': '+current[1]+'">'+current[1]+'</button></div>'};
+const lcCalendar3=d=>{
+  const [year,month]=state.lc.month,first=new Date(year,month,1),offset=(first.getDay()+6)%7,days=new Date(year,month+1,0).getDate();
+  const todayKey=lcKey(lcToday.getFullYear(),lcToday.getMonth(),lcToday.getDate()),pending=state.lc.rangeStart||null;
+  const blockOf=key=>d.blocks.find(b=>key>=b.start&&key<=b.end);
+  let cells='';for(let i=0;i<offset;i++)cells+='<span class="lc3-cell is-empty"></span>';
+  for(let day=1;day<=days;day++){
+    const key=lcKey(year,month,day),date=new Date(year,month,day),col=(offset+day-1)%7,past=date<lcToday&&key!==todayKey,closed=!d.days[col],block=blockOf(key);
+    let cls='lc3-cell';
+    if(block){const single=block.start===block.end,startEdge=key===block.start||col===0||day===1,endEdge=key===block.end||col===6||day===days;cls+=' is-blocked'+(single?' is-single':' is-band'+(startEdge?' is-band-start':'')+(endEdge?' is-band-end':''))}
+    else if(closed&&!past)cls+=' is-closed';
+    if(past)cls+=' is-past';if(key===todayKey)cls+=' is-today';if(pending===key)cls+=' is-pending';
+    const disabled=past||(closed&&!block);
+    cells+='<button type="button" class="'+cls+'" data-lc3-date="'+key+'"'+(disabled?' disabled':'')+' aria-pressed="'+Boolean(block)+'" aria-label="'+lcMonths[month]+' '+day+(block?', blocked':closed?', closed weekly':'')+'"><span>'+day+'</span></button>';
+  }
+  const canPrev=year>lcToday.getFullYear()||month>lcToday.getMonth();
+  return '<div class="lc3-cal"><div class="lc3-cal-head"><strong>'+lcMonths[month]+' '+year+'</strong><div><button type="button" data-lc-month="-1"'+(canPrev?'':' disabled')+' aria-label="Previous month">‹</button><button type="button" data-lc-month="1" aria-label="Next month">›</button></div></div><div class="lc3-week">'+['M','T','W','T','F','S','S'].map(n=>'<span>'+n+'</span>').join('')+'</div><div class="lc3-grid">'+cells+'</div><div class="lc3-legend"><span><i class="is-blocked"></i>Blocked</span><span><i class="is-closed"></i>Closed weekly</span></div></div>';
+};
+const lcBlockLabel=b=>{const s=lcKeyDate(b.start),e=lcKeyDate(b.end),m=x=>lcMonths[x.getMonth()].slice(0,3);if(b.start===b.end)return m(s)+' '+s.getDate();return m(s)+' '+s.getDate()+' – '+(s.getMonth()===e.getMonth()?'':m(e)+' ')+e.getDate()};
+const lcLimitCopy=d=>d.pricedPer==='Day'?['Units available','How many you can rent out at once.']:d.timeMode==='slots'?['Max bookings per slot','Each departure takes one booking.']:['Daily limit','Most bookings you can take in a day.'];
+const lcStep3=d=>{
+  lcStep3Apply(d);
+  const seg=(name,value,options)=>'<div class="lc3-seg" role="radiogroup">'+options.map(o=>'<button type="button" role="radio" aria-checked="'+(value===o)+'" class="'+(value===o?'is-active':'')+'" data-lc-set="'+name+'" data-lc-value="'+lcE(o)+'">'+lcE(o)+'</button>').join('')+'</div>';
+  const timeRange=(startKey,endKey,startLabel,endLabel)=>'<div class="lc3-range">'+lcDdButton(startKey,d[startKey],lcTimeOptions('00:00',lcKeyTimeBefore(d[endKey])),startLabel)+'<span class="lc3-to">to</span>'+lcDdButton(endKey,d[endKey],lcTimeOptions(lcKeyTimeAfter(d[startKey]),'23:30'),endLabel)+'</div>';
+  const slots=d.slots.slice().sort();
+  let times;
+  if(d.pricedPer==='Day')times='<div class="lc1-field"><span class="lc1-label">Pickup hours</span>'+timeRange('pickupStart','pickupEnd','Pickup from','Pickup until')+'</div>';
+  else times='<div class="lc1-field"><span class="lc1-label">Booking times</span>'+seg('timeMode',d.timeMode==='slots'?'Fixed slots':'Any time',['Fixed slots','Any time'])
+    +(d.timeMode==='slots'
+      ?'<div class="lc3-slots">'+slots.map(v=>'<span class="lc3-slot">'+lcTime(v)+'<button type="button" data-lc3-slot-remove="'+v+'" aria-label="Remove '+lcTime(v)+'">✕</button></span>').join('')+(slots.length<8?'<button type="button" class="lc3-slot-add" data-lc-dd="slotAdd" aria-haspopup="dialog">+ Add time</button>':'')+'</div>'+(state.lc.tried3&&!slots.length?'<small class="lc1-error" role="alert">Add at least one time</small>':'')
+      :timeRange('hoursStart','hoursEnd','Opens','Closes'))+'</div>';
+  lcDdOptions.slotAdd={label:'Add time',options:lcTimeOptions().filter(([v])=>!d.slots.includes(v)),onPick:v=>{d.slots.push(v);d.slots.sort()}};
+  const [limitLabel,limitHint]=lcLimitCopy(d),limit=Number(d.dailyLimit)||1;
+  const stepper='<div class="lc2-stepper-one" role="group" aria-label="'+limitLabel+'"><button type="button" data-lc-step-num="dailyLimit" data-lc-delta="-1" aria-label="Decrease"'+(limit<=1?' disabled':'')+'>−</button><input data-lc-input="dailyLimit" inputmode="numeric" value="'+lcE(d.dailyLimit)+'" aria-label="'+limitLabel+'"><button type="button" data-lc-step-num="dailyLimit" data-lc-delta="1" aria-label="Increase">+</button></div>';
+  const count=d.blocked.length,chipsHtml=d.blocks.length?'<div class="lc3-chips">'+d.blocks.map((b,i)=>'<span class="lc3-chip">'+lcBlockLabel(b)+'<button type="button" data-lc3-unblock="'+i+'" aria-label="Unblock '+lcBlockLabel(b)+'">✕</button></span>').join('')+'</div>':'';
+  return '<div class="lc1 lc2-v4 lc3"><div class="lc2-group">'
+    +'<div class="lc1-field"><span class="lc1-label">Available days</span><div class="lc3-days">'+lcDayNames.map((name,i)=>'<button type="button" class="'+(d.days[i]?'is-active':'')+'" data-lc-day="'+i+'" aria-pressed="'+d.days[i]+'">'+name+'</button>').join('')+'</div></div>'
+    +times
+    +'</div><div class="lc2-group">'
+    +'<div class="lc1-field"><span class="lc1-label">Advance notice</span>'+lcDdButton('notice',d.notice,lcNoticeOptions.map(o=>[o,o]),'Advance notice')+'</div>'
+    +'<div class="lc1-field"><span class="lc1-label">'+limitLabel+'</span><div class="lc2-row">'+stepper+'</div><small class="lc3-help">'+limitHint+'</small></div>'
+    +'</div><div class="lc2-group">'
+    +'<div class="lc1-field"><div class="lc3-label-row"><span class="lc1-label">Blocked dates</span><span class="lc3-optional">Optional</span></div>'
+    +'<button type="button" class="lc3-block-row" data-lc3-open-blocks aria-haspopup="dialog"><i class="hgi-stroke hgi-calendar-03" aria-hidden="true"></i><span>'+(count?count+' date'+(count===1?'':'s')+' blocked':'No blocked dates')+'</span><b aria-hidden="true">›</b></button>'
+    +chipsHtml+'</div>'
+    +'</div></div>'
+    +(state.lc.blockSheet?'<div class="lc3-sheet-wrap"><div class="pf-sheet-backdrop" data-lc3-close-blocks></div><section class="lc3-sheet" role="dialog" aria-modal="true" aria-label="Block dates"><span class="lc3-grab" aria-hidden="true"></span><header><h2>Block dates</h2><button type="button" class="lc3-x" data-lc3-close-blocks aria-label="Close">✕</button></header><div class="lc3-sheet-body">'+seg('blockMode',d.blockMode,['Single day','Date range'])+lcCalendar3(d)+chipsHtml+'</div><footer><button type="button" class="button primary lc3-done" data-lc3-close-blocks>Done</button></footer></section></div>':'');
+};
+const lcKeyTimeBefore=t=>{const [h,m]=t.split(':').map(Number),x=h*60+m-30;return x<0?'00:00':String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
+const lcKeyTimeAfter=t=>{const [h,m]=t.split(':').map(Number),x=h*60+m+30;return x>=1440?'23:30':String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
+const lcCategoryKind=d=>{const c=String(d.category||pf3Business?.().category||'Transport');return /spa|wellness|massage/i.test(c)?'spa':/tour|activit|excursion/i.test(c)?'tours':/transport|transfer|vehicle|rental|van|car|shuttle/i.test(c)?'transport':'other'};
+const lcQuestionSets={transport:['pickup','dropoff','flight','baggage'],spa:['prefs','health'],tours:['pickup','health'],other:[]};
+const lcQuestionCopy={pickup:['Pickup location'],dropoff:['Drop-off location'],flight:['Flight number'],baggage:['Baggage'],prefs:['Preferences','e.g. therapist gender'],health:['Health notes'],requests:['Special requests','Include in note']};
+const lcQuestions=d=>lcQuestionSets[lcCategoryKind(d)].concat('requests');
+const lcStep4Apply=d=>{
+  d.fields=d.fields||{};
+  if(d.fields.dropoff===undefined)d.fields.dropoff=d.fields.pickup!==false;
+  if(d.fields.requests===undefined)d.fields.requests=true;
+  if(!d._flightV2){d.fields.flight=true;d._flightV2=true}
+  d.addons=[];
+};
+const lcStep4=d=>{
+  lcStep4Apply(d);
+  const rows=lcQuestions(d).map(k=>lcSwitch('f-'+k,Boolean(d.fields[k]),lcQuestionCopy[k][0],lcQuestionCopy[k][1])).join('');
+  const addons=d.addons.map((a,i)=>'<div class="lc4-addon"><button type="button" class="lc4-addon-main" data-lc4-addon-edit="'+i+'" aria-label="Edit '+lcE(a.name)+'"><span>'+lcE(a.name)+'</span><b>'+lcPeso(a.price||0)+'</b></button><button type="button" class="lc4-addon-x" data-lc4-addon-remove="'+i+'" aria-label="Remove '+lcE(a.name)+'">✕</button></div>').join('');
+  return '<div class="lc1 lc2-v4 lc4"><div class="lc2-group">'
+    +'<div class="lc1-field"><span class="lc1-label">Ask guests for</span><small class="lc4-help">You’ll see their answers on each request.</small><div class="lc4-list">'+rows+'</div><small class="lc4-note">Date, time and '+lcE(d.countBy.toLowerCase())+' are always asked.</small></div>'
+    +'</div></div>';
+};
+const lcAddonSheet=index=>{
+  lcSheetClose();
+  const d=state.lc.data,editing=index!=null,addon=editing?d.addons[index]:{name:'',price:''};
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-lc4-close></div><section class="pf-sheet lc-sheet lc4-sheet" role="dialog" aria-label="'+(editing?'Edit add-on':'Add an add-on')+'"><header><h2>'+(editing?'Edit add-on':'Add an add-on')+'</h2><button type="button" data-lc4-close aria-label="Close">×</button></header><div class="lc4-form"><label class="lc1-field"><span class="lc1-label">Name</span><input class="lc1-input" data-lc4-name value="'+lcE(addon.name)+'" placeholder="e.g. Extra hour" maxlength="40" autocomplete="off"></label><label class="lc1-field"><span class="lc1-label">Price</span><div class="lc2-price"><span>₱</span><input data-lc4-price inputmode="numeric" value="'+lcE(lcGroup(addon.price))+'" placeholder="e.g. 500" autocomplete="off"></div></label><button type="button" class="button primary lc4-save" data-lc4-save>'+(editing?'Save':'Add add-on')+'</button></div></section>';
+  document.body.appendChild(wrap);
+  const name=wrap.querySelector('[data-lc4-name]'),price=wrap.querySelector('[data-lc4-price]'),save=wrap.querySelector('[data-lc4-save]');
+  const ready=()=>{const ok=name.value.trim()&&Number(price.value.replace(/[^\d]/g,''))>0;save.disabled=!ok;return ok};
+  name.oninput=ready;price.oninput=()=>{price.value=lcGroup(price.value);ready()};ready();
+  setTimeout(()=>name.focus(),40);
+  const commit=()=>{if(!ready())return;const item={name:name.value.trim(),price:price.value.replace(/[^\d]/g,'')};if(editing)d.addons[index]=item;else d.addons.push(item);lcSheetClose();lcRerender()};
+  wrap.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();commit()}if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{if(e.target.closest('[data-lc4-close]'))lcSheetClose();else if(e.target.closest('[data-lc4-save]'))commit()};
+};
+const lcCategoryLabel=d=>String(d.category||pf3Business?.().category||'Transport');
+const lcReview=d=>{
+  lcStep3Apply(d);lcStep4Apply(d);
+  const cover=d.photos[0],category=lcCategoryLabel(d),per=d.pricedPer.toLowerCase();
+  const days=d.days.every(Boolean)?'Every day':d.days.some(Boolean)?lcDayNames.filter((n,i)=>d.days[i]).join(', '):'None';
+  const times=d.pricedPer==='Day'?lcTime(d.pickupStart)+' – '+lcTime(d.pickupEnd):d.timeMode==='slots'?(d.slots.slice().sort().map(lcTime).join(', ')||'—'):lcTime(d.hoursStart)+' – '+lcTime(d.hoursEnd);
+  const asked=lcQuestions(d).filter(k=>d.fields[k]).map(k=>lcQuestionCopy[k][0].replace(/ location$/,''));
+  const askedText=asked.length?asked.map((x,i)=>i?x.toLowerCase():x).join(', '):'Nothing extra';
+  const noun=d.countBy.toLowerCase(),max=Number(d.maxPer)||0,maxText=max+' '+(max===1?noun.replace(/s$/,''):noun);
+  const limit=Number(d.dailyLimit)||0,[limitLabel]=lcLimitCopy(d),limitShort=d.pricedPer==='Day'?'Units available':d.timeMode==='slots'?'Max per slot':'Daily limit',limitText=d.pricedPer==='Day'?String(limit):limit+' booking'+(limit===1?'':'s');
+  const row=(k,v,cls='')=>'<div class="lcr-row"><span>'+k+'</span><strong class="'+cls+'">'+v+'</strong></div>';
+  const section=(title,step,rows)=>'<section class="lcr-section"><header><h3>'+title+'</h3><button type="button" class="lcr-edit" data-lc-goto="'+step+'" aria-label="Edit '+title+'">Edit</button></header>'+rows.join('')+'</section>';
+  const preview='<article class="lcr-preview"><div class="lcr-cover">'+(cover?'<img src="'+cover+'" alt="">':'')+'<span class="lcr-tag">'+lcE(category)+'</span></div><div class="lcr-body"><strong>'+lcE(d.name||'Untitled listing')+'</strong><span class="lcr-price"><b>'+lcPeso(d.price)+'</b> / '+lcE(per)+'</span><span class="lcr-meta">'+lcE([lcDuration(d),'Up to '+maxText].join(' · '))+'</span>'+(d.description?'<p>'+lcE(d.description)+'</p>':'')+'</div></article>';
+  return '<div class="lcr">'+preview
+    +section('Basics',1,[row('Category',lcE(category)),row('Cover photo',cover?'<img class="lcr-thumb" src="'+cover+'" alt="Cover photo">':'—'),row('Meeting point',lcE(d.location||'—'))])
+    +section('Price and capacity',2,[row('Price',lcPeso(d.price)+' per '+lcE(per)),row(d.durationMode==='guest'?'Max '+d.guestUnit:'Duration',lcE(d.durationMode==='guest'?d.guestMax+' '+(Number(d.guestMax)===1?d.guestUnit.replace(/s$/,''):d.guestUnit):lcDuration(d))),row('Max per booking',lcE(maxText)),row('Payment',[d.payRoom&&'Charge to room',d.payOnline&&'Pay online'].filter(Boolean).join('<br>')||'—')])
+    +section('Availability',3,[row('Days',lcE(days)),row(d.pricedPer==='Day'?'Pickup hours':'Booking times',lcE(times)),row('Advance notice',lcE(d.notice)),row(limitShort,lcE(limitText)),row('Blocked dates',d.blocks.length?lcE(d.blocks.map(lcBlockLabel).join(', ')):'None',d.blocks.length?'is-blocked':'')])
+    +section('Booking details',4,[row('Ask guests for',lcE(askedText))])
+    +'<p class="lcr-note">Guests can book as soon as you publish.<br>You can edit or deactivate it anytime.</p></div>';
+};
+const lcTitles=['Basics','Price and capacity','Availability','Booking details','Review and publish'];
+const lcSubtitles=['Tell guests what you offer.','Set your price and how many you can take.','Choose when guests can book.','Choose what guests tell you when they book.','Check how guests will see your listing.'];
+const lcStep1Ready=d=>Boolean(d.name.trim()&&d.photos.length);
+const lcMarkup=()=>{
+  const {step,data}=state.lc,review=step===5;
+  const progress='<div class="lc-bars" aria-hidden="true">'+[1,2,3,4].map(n=>'<span class="'+(n<=step?'is-done':'')+'"></span>').join('')+'</div><div class="lc-heading"><span>'+(review?'Review':'Step '+step+' of 4')+'</span><h2>'+lcTitles[step-1]+'</h2><p>'+lcSubtitles[step-1]+'</p></div>';
+  const body=step===1?lcStep1(data):step===2?lcStep2(data):step===3?lcStep3(data):step===4?lcStep4(data):lcReview(data);
+  const nextReady=step===1?lcStep1Ready(data):step===2?lcStep2Ready(data):true;
+  const next=review?'<button type="button" class="button primary" data-lc-publish>Publish</button>':'<button type="button" class="button primary lc-next'+(nextReady?'':' is-waiting')+'" data-lc-next aria-disabled="'+(!nextReady)+'">'+(step===4?'Review listing':'Next')+'</button>';
+  const footer='<footer class="lc-footer'+(step===1?' is-single':'')+'">'+(step>1?'<button type="button" class="button ghost lc-back" data-lc-back>Back</button>':'')+next+'</footer>';
+  if(review)return '<div class="lc-page is-refined is-review">'+progress+'<div class="lc-body">'+body+'</div><footer class="lc-footer is-single"><button type="button" class="button primary" data-lc-publish>Publish listing</button></footer></div>';
+  return '<div class="lc-page is-refined">'+progress+'<div class="lc-body">'+body+'</div>'+footer+'</div>';
+};
+const lcValidate=step=>{
+  const d=state.lc.data;
+  if(step===1&&!lcStep1Ready(d)){state.lc.tried1=true;render();setTimeout(()=>{(d.name.trim()?document.querySelector('.lc1-cover'):document.querySelector('[data-lc-input="name"]'))?.focus?.();document.querySelector('.lc1-error')?.scrollIntoView({block:'center'})},20);return false}
+  if(step===2&&!lcStep2Ready(d)){state.lc.tried2=true;render();setTimeout(()=>{document.querySelector('.lc1-error')?.scrollIntoView({block:'center'});if(!(Number(String(d.price).replace(/[^\d]/g,''))>0))document.querySelector('[data-lc-input="price"]')?.focus()},20);return false}
+  if(step===3&&!d.days.some(Boolean)){toast('Choose at least one available day');return false}
+  if(step===3&&d.pricedPer!=='Day'&&d.timeMode==='slots'&&!d.slots.some(Boolean)){state.lc.tried3=true;render();return false}
+  if(step===3&&!(Number(d.dailyLimit)>0)){toast('Set a daily limit');return false}
+  return true;
+};
+const lcToListing=(status,existingId)=>{
+  const d=state.lc.data,unitLabel={Booking:'per booking',Person:'per person',Hour:'per hour',Day:'per day'}[d.pricedPer];
+  return {id:existingId||('listing-'+Date.now()),created:true,name:d.name.trim()||'Untitled listing',category:pf3Business?.().category||'Transport',price:String(Number(String(d.price).replace(/[^\d]/g,''))||0),unit:unitLabel,stock:'Up to '+d.maxPer+' '+d.countBy.toLowerCase(),status,location:d.location,payment:[d.payRoom&&'Room charge',d.payOnline&&'Online'].filter(Boolean).join(' + '),confirmationMethod:'Manual approval',photo:d.photos[0]||'',photos:d.photos.slice(),description:d.description,setup:JSON.parse(JSON.stringify(d))};
+};
+const lcExit=()=>{state.lc.open=false;render();const page=document.querySelector('.page');if(page)page.scrollTop=0};
+const lcFinish=status=>{
+  const d=state.lc.data;
+  if(status==='Active'&&!lcValidate(1))return;
+  const editingId=state.lc.editingId,listing=lcToListing(status,editingId);
+  const index=listings.findIndex(item=>item.id===editingId);
+  if(index>=0)listings[index]=listing;else listings.unshift(listing);
+  if(typeof listingMockPhotos==='object'&&listing.photo)listingMockPhotos[listing.id]=listing.photo;
+  lcSaveCreated();
+  state.lc={open:false,step:1,data:lcDefaults(),month:[2026,9]};
+  render();toast(status==='Draft'?'Draft saved':'Listing published');
+};
+const lcResize=file=>new Promise(resolve=>{const reader=new FileReader();reader.onload=()=>{const image=new Image();image.onload=()=>{const max=900,scale=Math.min(1,max/Math.max(image.width,image.height)),canvas=document.createElement('canvas');canvas.width=Math.round(image.width*scale);canvas.height=Math.round(image.height*scale);canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',0.8))};image.onerror=()=>resolve(null);image.src=reader.result};reader.readAsDataURL(file)});
+const lcOpen=(listing,duplicate)=>{
+  const data=listing?.setup?JSON.parse(JSON.stringify(listing.setup)):{...lcDefaults(),name:listing?listing.name:'',location:listing?.location||'',price:listing?String(listing.price).replace(/[^\d]/g,''):'',photos:listing?.photo?[listing.photo]:[]};
+  if(duplicate)data.name=(data.name||'Listing')+' (copy)';
+  state.lc={open:true,step:1,data,month:[2026,9],editingId:listing&&!duplicate?listing.id:null};
+  render();const page=document.querySelector('.page');if(page)page.scrollTop=0;
+};
+window.addEventListener('click',event=>{
+  if(event.target.closest?.('[data-listing-new]')){event.preventDefault();event.stopImmediatePropagation();const draft=state.lc;if(draft&&!draft.open&&draft.data&&(draft.data.name||draft.data.photos.length)&&!draft.editingId){state.lc.open=true;render()}else lcOpen(null,false);return}
+},true);
+const renderBeforeCreateListing=render;
+render=function(){
+  if(state.page!=='listings'&&state.lc)state.lc.open=false;
+  renderBeforeCreateListing.apply(this,arguments);
+  if(state.page!=='listings')return;
+  if(!state.lc?.open){lcListingsPolish();return}
+  const pageEl=document.querySelector('.page');if(!pageEl)return;
+  pageEl.innerHTML=lcMarkup();
+  const title=document.querySelector('.topbar .topbar-context strong');if(title){const existing=listings.find(item=>item.id===state.lc.editingId);title.textContent=state.lc.step===5?'Review listing':existing&&existing.status!=='Draft'?'Edit listing':'New listing'}
+  const back=document.querySelector('[data-profile-back]');if(back){back.setAttribute('aria-label','Back to Listings');back.onclick=lcExit}
+  const bar=document.querySelector('.topbar');
+  if(bar&&!bar.querySelector('[data-lc-draft]')){const draft=document.createElement('button');draft.type='button';draft.className='lc-draft-button';draft.setAttribute('data-lc-draft','');draft.textContent='Save draft';bar.appendChild(draft)}
+  lcBind();
+};
+const lcRerender=()=>{const scroll=document.querySelector('.page')?.scrollTop||0;render();const page=document.querySelector('.page');if(page)page.scrollTop=scroll};
+const lcBind=()=>{
+  const d=state.lc.data,q=selector=>document.querySelectorAll(selector);
+  q('[data-lc-draft]').forEach(button=>button.onclick=()=>{if(!d.name.trim()){toast('Add a listing name to save a draft');state.lc.step=1;render();document.querySelector('[data-lc-input="name"]')?.focus();return}d._step=Math.min(4,state.lc.step||1);lcFinish('Draft')});
+  q('[data-lc-input]').forEach(input=>{const update=()=>{const key=input.dataset.lcInput;let value=input.value;if(['price','maxPer','dailyLimit','durationValue','guestMin','guestMax'].includes(key)){value=value.replace(/[^\d]/g,'');if(input.value!==value)input.value=value}d[key]=value;if(key==='description'){const counter=document.querySelector('[data-lc-count]');if(counter)counter.textContent=value.length}};input.oninput=update;input.onchange=update});
+  q('[data-lc-set]').forEach(button=>button.onclick=()=>{const key=button.dataset.lcSet,value=button.dataset.lcValue;if(key==='durationMode')d.durationMode=value==='Fixed'?'fixed':'guest';else if(key==='timeMode')d.timeMode=value==='Fixed slots'?'slots':'hours';else if(key==='blockMode'){d.blockMode=value;state.lc.rangeStart=null}else d[key]=value;lcRerender()});
+  q('[data-lc-check]').forEach(input=>input.onchange=()=>{const key=input.dataset.lcCheck;if(key.startsWith('f-'))d.fields[key.slice(2)]=input.checked;else d[key]=input.checked});
+  q('[data-lc-step-num]').forEach(button=>button.onclick=()=>{const key=button.dataset.lcStepNum;d[key]=String(Math.max(1,Math.min(99,(Number(d[key])||0)+Number(button.dataset.lcDelta))));if(key==='guestMin'&&Number(d.guestMax)<Number(d.guestMin))d.guestMax=d.guestMin;if(key==='guestMax'&&Number(d.guestMax)<Number(d.guestMin))d.guestMin=d.guestMax;lcRerender()});
+  q('[data-lc-day]').forEach(button=>button.onclick=()=>{const i=Number(button.dataset.lcDay);d.days[i]=!d.days[i];lcRerender()});
+  q('[data-lc-slot]').forEach(input=>input.onchange=()=>{d.slots[Number(input.dataset.lcSlot)]=input.value});
+  q('[data-lc-slot-remove]').forEach(button=>button.onclick=()=>{d.slots.splice(Number(button.dataset.lcSlotRemove),1);lcRerender()});
+  q('[data-lc-slot-add]').forEach(button=>button.onclick=()=>{d.slots.push('16:00');lcRerender()});
+  q('[data-lc-date]').forEach(button=>button.onclick=()=>{const key=button.dataset.lcDate,i=d.blocked.indexOf(key);if(i>=0)d.blocked.splice(i,1);else d.blocked.push(key);lcRerender()});
+  q('[data-lc-month]').forEach(button=>button.onclick=()=>{let [y,m]=state.lc.month;m+=Number(button.dataset.lcMonth);if(m<0){m=11;y--}if(m>11){m=0;y++}state.lc.month=[y,m];lcRerender()});
+  q('[data-lc-addon-add]').forEach(button=>button.onclick=()=>{d.addons.push({name:'',price:''});lcRerender();const inputs=document.querySelectorAll('[data-lc-addon-name]');inputs[inputs.length-1]?.focus()});
+  q('[data-lc-addon-remove]').forEach(button=>button.onclick=()=>{d.addons.splice(Number(button.dataset.lcAddonRemove),1);lcRerender()});
+  q('[data-lc-addon-name]').forEach(input=>input.oninput=()=>{d.addons[Number(input.dataset.lcAddonName)].name=input.value});
+  q('[data-lc-addon-price]').forEach(input=>input.oninput=()=>{const value=input.value.replace(/[^\d]/g,'');if(value!==input.value)input.value=value;d.addons[Number(input.dataset.lcAddonPrice)].price=value});
+  q('[data-lc-photos]').forEach(input=>input.onchange=async()=>{const files=[...(input.files||[])].filter(f=>/^image\//.test(f.type)).slice(0,5-d.photos.length);for(const file of files){const src=await lcResize(file);if(src)d.photos.push(src)}lcRerender()});
+  q('[data-lc-photo-remove]').forEach(button=>button.onclick=()=>{d.photos.splice(Number(button.dataset.lcPhotoRemove),1);lcRerender()});
+  q('[data-lc-cover]').forEach(button=>button.onclick=()=>{const i=Number(button.dataset.lcCover),[photo]=d.photos.splice(i,1);d.photos.unshift(photo);lcRerender()});
+  q('[data-lc-goto]').forEach(button=>button.onclick=()=>{state.lc.step=Number(button.dataset.lcGoto);render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  q('[data-lc-back]').forEach(button=>button.onclick=()=>{state.lc.step=Math.max(1,state.lc.step-1);render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  q('[data-lc-next]').forEach(button=>button.onclick=()=>{if(!lcValidate(state.lc.step))return;state.lc.step=Math.min(5,state.lc.step+1);render();const page=document.querySelector('.page');if(page)page.scrollTop=0});
+  q('[data-lc-publish]').forEach(button=>button.onclick=()=>{for(const s of [1,2,3]){if(!lcValidate.call(null,s)){state.lc.step=s;render();return}}lcFinish('Active')});
+};
+/* Listings page: prices without decimals and a ⋯ menu (Edit · Duplicate · Delete) on each card. */
+const lcListingsPolish=()=>{
+  document.querySelectorAll('.page .listing-price-line strong, .page [class*=listing] .price').forEach(node=>{node.textContent=node.textContent.replace(/(₱[\d,]+)\.00\b/,'$1')});
+  document.querySelectorAll('.page [data-listing-card]').forEach(card=>{
+    const id=card.dataset.listingCard,edit=card.querySelector('[data-listing-edit-id]');
+    if(card.querySelector('[data-lc-more]'))return;
+    if(edit)edit.classList.add('lc-hidden-edit');
+    const more=document.createElement('button');more.type='button';more.className='lc-more';more.setAttribute('data-lc-more',id);more.setAttribute('aria-label','More actions');more.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>';
+    (card.querySelector('.listing-compact-actions')||card).appendChild(more);
+  });
+};
+/* ⋯ on a listing card opens a bottom sheet: Edit · Duplicate · Delete (delete confirms inside the sheet). */
+const lcSheetClose=()=>{document.querySelector('.lc-sheet-wrap')?.remove()};
+const lcOpenSheet=(id,confirm)=>{
+  lcSheetClose();
+  const listing=listings.find(item=>item.id===id);if(!listing)return;
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  const body=confirm
+    ?'<p class="lc-sheet-confirm">Guests won’t be able to book it anymore. Past bookings stay in your records.</p><div class="lc-sheet-actions"><button type="button" class="button ghost" data-lc-sheet="back">Cancel</button><button type="button" class="button pf-danger" data-lc-sheet="confirm-delete">Delete</button></div>'
+    :'<div class="lc-sheet-list"><button type="button" data-lc-sheet="edit"><i class="hgi-stroke hgi-edit-02" aria-hidden="true"></i><span>Edit</span></button>'+(listing.status==='Draft'?'':'<button type="button" data-lc-sheet="toggle"><i class="hgi-stroke '+(listing.status==='Active'?'hgi-pause':'hgi-play')+'" aria-hidden="true"></i><span>'+(listing.status==='Active'?'Deactivate':'Activate')+'</span></button>')+'<button type="button" data-lc-sheet="duplicate"><i class="hgi-stroke hgi-copy-01" aria-hidden="true"></i><span>Duplicate</span></button><button type="button" class="is-danger" data-lc-sheet="delete"><i class="hgi-stroke hgi-delete-02" aria-hidden="true"></i><span>Delete</span></button></div>';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-lc-sheet="close"></div><section class="pf-sheet lc-sheet" role="dialog" aria-label="'+lcE(listing.name)+'"><header><h2>'+(confirm?'Delete '+lcE(listing.name)+'?':lcE(listing.name))+'</h2><button type="button" data-lc-sheet="close" aria-label="Close">×</button></header>'+body+'</section>';
+  document.body.appendChild(wrap);
+  wrap.onclick=event=>{
+    const action=event.target.closest('[data-lc-sheet]')?.dataset.lcSheet;if(!action)return;
+    if(action==='close'){lcSheetClose();return}
+    if(action==='back'){lcOpenSheet(id,false);return}
+    if(action==='delete'){lcOpenSheet(id,true);return}
+    lcSheetClose();
+    if(action==='edit'){if(listing.created)lcOpen(listing,false);else document.querySelector('[data-listing-card="'+id+'"] [data-listing-edit-id]')?.click()}
+    if(action==='toggle'){listing.status=listing.status==='Active'?'Paused':'Active';lcSaveCreated();render();toast(listing.name+(listing.status==='Active'?' activated':' deactivated'))}
+    if(action==='duplicate'){const copy={...JSON.parse(JSON.stringify(listing)),id:'listing-'+Date.now(),created:true,name:listing.name+' (copy)',status:'Draft',capacity:lcCapacity(listing)};listings.splice(listings.indexOf(listing)+1,0,copy);if(typeof listingMockPhotos==='object'&&(copy.photo||listingMockPhotos[id]))listingMockPhotos[copy.id]=copy.photo||listingMockPhotos[id];lcSaveCreated();render();toast('Duplicated as a draft')}
+    if(action==='confirm-delete'){const i=listings.indexOf(listing);if(i>=0)listings.splice(i,1);lcSaveCreated();render();toast(listing.name+' deleted')}
+  };
+};
+window.addEventListener('click',event=>{
+  const more=event.target.closest?.('[data-lc-more]');
+  if(!more)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  lcOpenSheet(more.dataset.lcMore,false);
+},true);
+render();
+
+/* Step 1: Next looks disabled until name + cover photo are in; errors clear as soon as they're fixed. */
+const renderBeforeLcStep1=render;
+render=function(){
+  renderBeforeLcStep1.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==1)return;
+  const name=document.querySelector('[data-lc-input="name"]'),next=document.querySelector('[data-lc-next]');
+  if(name)name.addEventListener('input',()=>{const ready=lcStep1Ready(state.lc.data);next?.classList.toggle('is-waiting',!ready);next?.setAttribute('aria-disabled',String(!ready));if(name.value.trim()){name.classList.remove('has-error');name.parentElement.querySelector('.lc1-error')?.remove()}});
+};
+render();
+
+/* Step 2: Next brightens as soon as there's a price and a payment option. */
+const renderBeforeLcStep2=render;
+render=function(){
+  renderBeforeLcStep2.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==2)return;
+  const next=document.querySelector('[data-lc-next]');
+  const refresh=()=>{const ready=lcStep2Ready(state.lc.data);next?.classList.toggle('is-waiting',!ready);next?.setAttribute('aria-disabled',String(!ready))};
+  const price=document.querySelector('[data-lc-input="price"]');
+  if(price)price.addEventListener('input',()=>{refresh();if(Number(price.value)>0){price.parentElement.classList.remove('has-error');price.closest('.lc1-field')?.querySelector('.lc1-error')?.remove()}});
+  document.querySelectorAll('[data-lc-check="payRoom"],[data-lc-check="payOnline"]').forEach(input=>input.addEventListener('change',()=>{refresh();if(state.lc.data.payRoom||state.lc.data.payOnline){const box=document.querySelector('.lc2-toggles');box?.classList.remove('has-error');box?.parentElement.querySelector('.lc1-error')?.remove()}}));
+  const max=document.querySelector('[data-lc-input="maxPer"]');if(max)max.addEventListener('input',refresh);
+};
+render();
+
+/* Listings: show "Inactive" instead of "Paused" (status data unchanged). */
+const renderBeforeInactiveLabel=render;
+render=function(){
+  renderBeforeInactiveLabel.apply(this,arguments);
+  return;
+  const root=document.querySelector('.page');if(!root)return;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+  while((node=walker.nextNode())){if(/\bPaused\b|\bpaused\b/.test(node.nodeValue))node.nodeValue=node.nodeValue.replace(/\bPaused\b/g,'Inactive').replace(/\bpaused\b/g,'inactive')}
+  root.querySelectorAll('[aria-label]').forEach(el=>{const label=el.getAttribute('aria-label');if(/^Pause /.test(label))el.setAttribute('aria-label',label.replace(/^Pause /,'Set inactive: '));else if(/^(Resume|Activate|Unpause) /.test(label))el.setAttribute('aria-label',label.replace(/^(Resume|Activate|Unpause) /,'Set active: '))});
+};
+const toastBeforeInactive=toast;
+toast=function(message){return toastBeforeInactive(String(message))};
+render();
+
+/* Step 1: a single cover photo (add, change or remove). */
+const renderBeforeSingleCover=render;
+render=function(){
+  renderBeforeSingleCover.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==1)return;
+  document.querySelectorAll('[data-lc-cover-replace]').forEach(input=>input.onchange=async()=>{
+    const file=input.files?.[0];if(!file)return;
+    if(!/^image\//.test(file.type)){toast('Choose an image file');return}
+    const src=await lcResize(file);if(!src)return;
+    state.lc.data.photos=[src];
+    const scroll=document.querySelector('.page')?.scrollTop||0;render();const page=document.querySelector('.page');if(page)page.scrollTop=scroll;
+  });
+};
+render();
+
+/* Listing cards: no category, no weekly orders; capacity line; status chips without counts (hidden under 5 listings). */
+const lcSampleCapacity={'airport-sedan':4,innova:7,'tourist-van':12};
+function lcCapacity(listing){
+  if(listing.capacity)return listing.capacity;
+  const setup=listing.setup;
+  if(setup)return 'Up to '+setup.maxPer+' '+String(setup.countBy||'guests').toLowerCase();
+  const people=lcSampleCapacity[listing.id],vehicles=Number(String(listing.stock||'').match(/\d+/)?.[0]||0);
+  return [people?'Up to '+people+' passengers':'',vehicles?vehicles+' vehicle'+(vehicles===1?'':'s'):''].filter(Boolean).join(' · ')||String(listing.stock||'');
+}
+const renderBeforeListingCards=render;
+render=function(){
+  renderBeforeListingCards.apply(this,arguments);
+  if(state.page!=='listings'||state.lc?.open)return;
+  document.querySelectorAll('.page [data-listing-card]').forEach(card=>{
+    const listing=listings.find(item=>item.id===card.dataset.listingCard);if(!listing)return;
+    card.querySelectorAll('.listing-card-heading small, .listing-category').forEach(node=>node.remove());
+    const info=card.querySelector('.listing-quick-info');
+    if(info)info.innerHTML='<span>'+lcE(lcCapacity(listing))+'</span>';
+  });
+  const filters=document.querySelector('.listings-status-filters');
+  if(filters){
+    filters.querySelectorAll('button').forEach(button=>{button.querySelectorAll('b,em,.count,small').forEach(node=>node.remove());button.childNodes.forEach(node=>{if(node.nodeType===3)node.nodeValue=node.nodeValue.replace(/\s*\d+\s*$/,'')})});
+    filters.hidden=false;
+  }
+};
+render();
+
+/* Step 2 radio groups: arrow keys move the selection like native radios. */
+document.addEventListener('keydown',event=>{
+  const option=event.target.closest?.('.lc2-radios [role="radio"], .lc2-chips [role="radio"]');if(!option)return;
+  if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(event.key))return;
+  event.preventDefault();
+  const options=[...option.parentElement.querySelectorAll('[role="radio"]')],index=options.indexOf(option),step=['ArrowRight','ArrowDown'].includes(event.key)?1:-1;
+  const next=options[(index+step+options.length)%options.length],group=next.dataset.lcSet,value=next.dataset.lcValue;
+  next.click();
+  setTimeout(()=>document.querySelector('[role="radio"][data-lc-set="'+group+'"][data-lc-value="'+value+'"]')?.focus(),0);
+});
+
+/* Filter pill counts: Listings and Chat show how many are in each filter; no number when it's 0. */
+const renderBeforePillCounts=render;
+render=function(){
+  renderBeforePillCounts.apply(this,arguments);
+  if(state.page==='listings'&&!state.lc?.open){
+    document.querySelectorAll('.listings-status-filters button').forEach(button=>{
+      const span=button.querySelector('span');
+      if(span){const n=Number(span.textContent.trim());span.hidden=false;span.setAttribute('aria-label',n+' listings')}
+    });
+  }
+  if(state.page==='chat'&&state.cx?.view==='list'){
+    const pool=cxThreads.filter(cxThreadListed).filter(thread=>!cxIsArchived(thread));
+    const counts={All:pool.length,Unread:cxUnreadTotal(),Guests:pool.filter(t=>t.kind==='guest').length,'Front Desk':pool.filter(t=>t.kind==='frontdesk').length};
+    document.querySelectorAll('[data-cx-filter]').forEach(button=>{
+      const name=button.dataset.cxFilter,n=counts[name]||0;
+      button.textContent=name+(n>0?' '+n:'');
+    });
+  }
+};
+render();
+
+/* Refresh also resumes in-progress screens: Create listing (step + entries), Edit business / Edit account, listing detail. */
+const resumeExtraKey='cabana:resume-extra';
+const resumeExtraSave=()=>{
+  if(!window.__cabanaResumeReady)return;
+  const extra={page:state.page,profileSub:state.profileSub||null,listingDetail:state.listingDetail||null,listingEditId:state.listingEditId||null,lc:state.lc?{open:Boolean(state.lc.open),step:state.lc.step,data:state.lc.data,month:state.lc.month,editingId:state.lc.editingId||null,tried1:state.lc.tried1,tried2:state.lc.tried2}:null};
+  try{localStorage.setItem(resumeExtraKey,JSON.stringify(extra))}catch(error){try{const lite={...extra,lc:extra.lc?{...extra.lc,data:{...extra.lc.data,photos:[]}}:null};localStorage.setItem(resumeExtraKey,JSON.stringify(lite))}catch(inner){}}
+};
+const renderBeforeResumeExtra=render;
+render=function(){renderBeforeResumeExtra.apply(this,arguments);resumeExtraSave()};
+document.addEventListener('input',()=>{clearTimeout(window.__cabanaResumeExtraTimer);window.__cabanaResumeExtraTimer=setTimeout(resumeExtraSave,250)},true);
+document.addEventListener('change',()=>{clearTimeout(window.__cabanaResumeExtraTimer);window.__cabanaResumeExtraTimer=setTimeout(resumeExtraSave,250)},true);
+window.addEventListener('pagehide',resumeExtraSave);
+setTimeout(()=>{
+  let extra=null;try{extra=JSON.parse(localStorage.getItem(resumeExtraKey)||'null')}catch(error){}
+  if(extra&&extra.page===state.page){
+    let changed=false;
+    if(state.page==='listings'&&extra.lc?.open&&extra.lc.data){state.lc={open:true,step:Math.min(5,Math.max(1,Number(extra.lc.step)||1)),data:{...lcDefaults(),...extra.lc.data},month:extra.lc.month||[2026,9],editingId:extra.lc.editingId||null,tried1:extra.lc.tried1,tried2:extra.lc.tried2};changed=true}
+    if(state.page==='listings'&&!extra.lc?.open&&extra.listingDetail){state.listingDetail=extra.listingDetail;changed=true}
+    if(state.page==='listings'&&!extra.lc?.open&&extra.listingEditId){state.listingEditId=extra.listingEditId;changed=true}
+    if(state.page==='profile'&&['business','account'].includes(extra.profileSub)){state.profileSub=extra.profileSub;changed=true}
+    if(changed){
+      let saved=null;try{saved=JSON.parse(localStorage.getItem('cabana:resume-view')||'null')}catch(error){}
+      render();
+      const scroll=Number(saved?.scroll)||0,restore=()=>{const page=document.querySelector('.page');if(page)page.scrollTop=scroll};
+      restore();setTimeout(restore,120);
+    }
+  }
+  setTimeout(resumeExtraSave,300);
+},0);
+
+/* Step 2: live price summary above the buttons; Next waits for a price, a payment option and a valid range. */
+const renderBeforeLcSummary=render;
+render=function(){
+  renderBeforeLcSummary.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==2)return;
+  const footer=document.querySelector('.lc-footer');if(!footer)return;
+  footer.querySelector('[data-lc-summary]')?.remove();return;
+  let summary=footer.querySelector('[data-lc-summary]');
+  if(!summary){summary=document.createElement('p');summary.className='lc2-summary';summary.setAttribute('data-lc-summary','');summary.setAttribute('aria-live','polite');footer.prepend(summary)}
+  const next=footer.querySelector('[data-lc-next]');
+  const update=()=>{const d=state.lc.data;summary.textContent=lcPriceSummary(d);summary.classList.toggle('is-empty',!(Number(String(d.price).replace(/[^\d]/g,''))>0));const ready=lcStep2Ready(d);next?.classList.toggle('is-waiting',!ready);next?.setAttribute('aria-disabled',String(!ready))};
+  update();
+  document.querySelectorAll('.lc-page [data-lc-input]').forEach(input=>input.addEventListener('input',update));
+  document.querySelectorAll('.lc-page [data-lc-input="guestMin"],.lc-page [data-lc-input="guestMax"]').forEach(input=>input.addEventListener('change',()=>{const scroll=document.querySelector('.page')?.scrollTop||0;render();const page=document.querySelector('.page');if(page)page.scrollTop=scroll}));
+};
+render();
+
+/* Step 2: dropdowns (Priced per, duration unit) re-render; "Up to N ___ per booking" stays singular/plural as you type. */
+const renderBeforeLcSelects=render;
+render=function(){
+  renderBeforeLcSelects.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==2)return;
+  const d=state.lc.data;
+  document.querySelectorAll('[data-lc-select]').forEach(sel=>sel.onchange=()=>{const scroll=document.querySelector('.page')?.scrollTop||0;d[sel.dataset.lcSelect]=sel.value;render();const page=document.querySelector('.page');if(page)page.scrollTop=scroll});
+  const max=document.querySelector('[data-lc-input="maxPer"]'),noun=document.querySelector('[data-lc-upto-noun]');
+  if(max&&noun)max.addEventListener('input',()=>{const n=d.countBy.toLowerCase();noun.textContent=(Number(max.value)===1?n.replace(/s$/,''):n)+' per booking'});
+  const gmax=document.querySelector('[data-lc-input="guestMax"]');
+  if(gmax)gmax.addEventListener('change',()=>{if(!(Number(gmax.value)>=1))d.guestMax='1';render()});
+};
+render();
+
+/* Step 2: dropdowns open a bottom sheet of options instead of the native picker. */
+const lcDdOpen=key=>{
+  lcSheetClose();
+  const conf=lcDdOptions[key];if(!conf)return;const d=state.lc.data;
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-lc-dd-close></div><section class="pf-sheet lc-sheet lc-dd-sheet" role="dialog" aria-label="'+lcE(conf.label)+'"><header><h2>'+lcE(conf.label)+'</h2><button type="button" data-lc-dd-close aria-label="Close">×</button></header><div class="lc-sheet-list" role="listbox">'+conf.options.map(([v,t])=>'<button type="button" role="option" aria-selected="'+(d[key]===v)+'" class="'+(d[key]===v?'is-selected':'')+'" data-lc-dd-value="'+lcE(v)+'"><span>'+lcE(t)+'</span>'+(d[key]===v?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':'')+'</button>').join('')+'</div></section>';
+  document.body.appendChild(wrap);
+  setTimeout(()=>{const sel=wrap.querySelector('.is-selected')||wrap.querySelector('[data-lc-dd-value]');sel?.scrollIntoView({block:'center'});sel?.focus({preventScroll:true})},30);
+  wrap.onclick=event=>{
+    if(event.target.closest('[data-lc-dd-close]')){lcSheetClose();document.querySelector('[data-lc-dd="'+key+'"]')?.focus();return}
+    const option=event.target.closest('[data-lc-dd-value]');if(!option)return;
+    lcSheetClose();
+    if(conf.onPick||d[key]!==option.dataset.lcDdValue){const scroll=document.querySelector('.page')?.scrollTop||0;if(conf.onPick)conf.onPick(option.dataset.lcDdValue);else d[key]=option.dataset.lcDdValue;render();const page=document.querySelector('.page');if(page)page.scrollTop=scroll}
+    document.querySelector('[data-lc-dd="'+key+'"]')?.focus();
+  };
+};
+window.addEventListener('click',event=>{
+  const dd=event.target.closest?.('[data-lc-dd]');if(!dd)return;
+  event.preventDefault();event.stopImmediatePropagation();lcDdOpen(dd.dataset.lcDd);
+},true);
+window.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.querySelector('.lc-dd-sheet'))lcSheetClose()});
+
+/* Step 2: price shows thousands separators; duration unit reads "hour" when the value is 1. */
+const renderBeforeLcV4=render;
+render=function(){
+  renderBeforeLcV4.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==2)return;
+  const price=document.querySelector('[data-lc-input="price"]');
+  if(price)price.addEventListener('input',()=>{const end=price.value.length-price.selectionEnd;price.value=lcGroup(price.value);const pos=Math.max(0,price.value.length-end);try{price.setSelectionRange(pos,pos)}catch(e){}});
+  const dur=document.querySelector('[data-lc-input="durationValue"]'),unitBtn=document.querySelector('[data-lc-dd="durationUnit"]');
+  if(dur&&unitBtn)dur.addEventListener('input',()=>{const one=Number(dur.value)===1,u=state.lc.data.durationUnit;unitBtn.textContent=u==='minutes'?(one?'minute':'minutes'):(one?'hour':'hours');lcDdOptions.durationUnit.options=one?[['minutes','minute'],['hours','hour']]:[['minutes','minutes'],['hours','hours']]});
+};
+render();
+
+/* Step 2: payment cards highlight when ticked. */
+const renderBeforeLcPayCards=render;
+render=function(){
+  renderBeforeLcPayCards.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==2)return;
+  document.querySelectorAll('.lc2-pay-card input').forEach(input=>input.addEventListener('change',()=>input.closest('.lc2-pay-card').classList.toggle('is-on',input.checked)));
+};
+render();
+
+/* Step 3: calendar taps (single day / date range), unblock chips, slot removal. */
+window.addEventListener('click',event=>{
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==3)return;
+  const d=state.lc.data;
+  const cell=event.target.closest?.('[data-lc3-date]'),unblock=event.target.closest?.('[data-lc3-unblock]'),slot=event.target.closest?.('[data-lc3-slot-remove]');
+  if(!cell&&!unblock&&!slot)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  lcBlocksSync(d);
+  if(slot){d.slots=d.slots.filter(v=>v!==slot.dataset.lc3SlotRemove)}
+  else if(unblock){d.blocks.splice(Number(unblock.dataset.lc3Unblock),1);state.lc.rangeStart=null}
+  else{
+    const key=cell.dataset.lc3Date,hit=d.blocks.findIndex(b=>key>=b.start&&key<=b.end);
+    if(hit>=0&&!state.lc.rangeStart){d.blocks.splice(hit,1)}
+    else if(d.blockMode==='Date range'){
+      if(!state.lc.rangeStart){state.lc.rangeStart=key;d.blocks.push({start:key,end:key})}
+      else{let start=state.lc.rangeStart,end=key;if(end<start)[start,end]=[end,start];state.lc.rangeStart=null;
+        d.blocks=d.blocks.filter(b=>b.end<start||b.start>end);d.blocks.push({start,end})}
+    }
+    else d.blocks.push({start:key,end:key});
+  }
+  lcBlocksSync(d);lcRerender();
+},true);
+
+/* Step 3: blocked dates live in a bottom sheet. */
+window.addEventListener('click',event=>{
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==3)return;
+  const open=event.target.closest?.('[data-lc3-open-blocks]'),close=event.target.closest?.('[data-lc3-close-blocks]');
+  if(!open&&!close)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  state.lc.blockSheet=Boolean(open);state.lc.rangeStart=null;lcRerender();
+  if(close)setTimeout(()=>document.querySelector('[data-lc3-open-blocks]')?.focus({preventScroll:true}),30);
+},true);
+window.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.lc?.blockSheet&&!document.querySelector('.lc-dd-sheet')){state.lc.blockSheet=false;state.lc.rangeStart=null;lcRerender()}});
+const renderBeforeLcBlockSheet=render;
+render=function(){
+  renderBeforeLcBlockSheet.apply(this,arguments);
+  if(state.lc&&!(state.page==='listings'&&state.lc.open&&state.lc.step===3))state.lc.blockSheet=false;
+  const fresh=[...document.querySelectorAll('.lc3-sheet-wrap')].find(x=>x.parentElement!==document.body);
+  document.querySelectorAll('body > .lc3-sheet-wrap').forEach(x=>x.remove());
+  if(fresh)document.body.appendChild(fresh);
+};
+
+/* Step 4: add-on rows open a small sheet; ✕ removes. */
+window.addEventListener('click',event=>{
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==4)return;
+  const add=event.target.closest?.('[data-lc4-addon-new]'),edit=event.target.closest?.('[data-lc4-addon-edit]'),remove=event.target.closest?.('[data-lc4-addon-remove]');
+  if(!add&&!edit&&!remove)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(remove){state.lc.data.addons.splice(Number(remove.dataset.lc4AddonRemove),1);lcRerender()}
+  else lcAddonSheet(edit?Number(edit.dataset.lc4AddonEdit):null);
+},true);
+
+/* Listings: continue an unfinished setup (unsaved progress banner + "Continue setup" on draft cards). */
+const lcHasProgress=lc=>Boolean(lc&&!lc.open&&!lc.editingId&&lc.data&&(String(lc.data.name||'').trim()||(lc.data.photos||[]).length||String(lc.data.price||'').trim()));
+const lcResumeStep=(d,saved)=>Math.max(1,Math.min(4,Number(saved)||1));
+window.addEventListener('click',event=>{
+  const setup=event.target.closest?.('[data-listing-menu-action="setup"]'),cont=event.target.closest?.('[data-lc-continue]'),discard=event.target.closest?.('[data-lc-discard]');
+  if(!setup&&!cont&&!discard)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(discard){state.lc={open:false,step:1,data:lcDefaults(),month:[2026,9]};render();toast('Unfinished listing discarded');return}
+  if(cont){state.lc.open=true;state.lc.step=Math.min(4,state.lc.step||1);render();const page=document.querySelector('.page');if(page)page.scrollTop=0;return}
+  const listing=listings.find(item=>item.id===setup.dataset.listingId);if(!listing)return;
+  lcOpen(listing,false);state.lc.step=lcResumeStep(state.lc.data,state.lc.data._step);render();
+  const page=document.querySelector('.page');if(page)page.scrollTop=0;
+},true);
+const renderBeforeLcContinue=render;
+render=function(){
+  renderBeforeLcContinue.apply(this,arguments);
+  if(state.page!=='listings'||state.listingDetail||!lcHasProgress(state.lc))return;
+  const page=document.querySelector('.page');if(!page||page.querySelector('.lc-continue'))return;
+  const d=state.lc.data,step=Math.min(4,state.lc.step||1),card=document.createElement('section');
+  card.className='lc-continue';card.setAttribute('aria-label','Unfinished listing');
+  card.innerHTML='<div class="lc-continue-text"><span>Unfinished listing</span><strong>'+lcE(String(d.name||'').trim()||'Untitled listing')+'</strong><small>Step '+step+' of 4 · '+lcTitles[step-1].replace('‑','-')+'</small><i class="lc-continue-bar" aria-hidden="true">'+[1,2,3,4].map(n=>'<b class="'+(n<=step?'is-on':'')+'"></b>').join('')+'</i></div><div class="lc-continue-actions"><button type="button" class="button primary" data-lc-continue>Continue setup</button><button type="button" class="lc-continue-discard" data-lc-discard>Discard</button></div>';
+  const anchor=page.querySelector('.listing-toolbar, .listings-status-filters, [data-listing-card]');
+  if(anchor&&anchor.parentElement)anchor.parentElement.insertBefore(card,anchor);else page.prepend(card);
+};
+render();
+
+/* Create/Edit listing: the header back arrow asks before leaving; main action saves a draft and closes. */
+const lcLeaveClose=()=>document.querySelector('.lc-leave-wrap')?.remove();
+const lcLeaveOpen=()=>{
+  lcLeaveClose();
+  const editing=Boolean(state.lc.editingId),wrap=document.createElement('div');wrap.className='lc-leave-wrap';
+  wrap.innerHTML='<div class="lc-leave-backdrop" data-lc-leave="stay"></div><section class="lc-leave" role="alertdialog" aria-modal="true" aria-labelledby="lc-leave-title" aria-describedby="lc-leave-text"><h2 id="lc-leave-title">Leave '+(editing?'editing':'this listing')+'?</h2><p id="lc-leave-text">Your progress will be lost unless you save it as a draft.</p><div class="lc-leave-actions"><button type="button" class="button primary" data-lc-leave="save">Save draft and close</button><button type="button" class="lc-leave-discard" data-lc-leave="discard">Leave without saving</button><button type="button" class="lc-leave-stay" data-lc-leave="stay">Keep editing</button></div></section>';
+  document.body.appendChild(wrap);
+  setTimeout(()=>wrap.querySelector('[data-lc-leave="save"]')?.focus(),30);
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcLeaveClose()};
+  wrap.onclick=e=>{
+    const action=e.target.closest('[data-lc-leave]')?.dataset.lcLeave;if(!action)return;
+    lcLeaveClose();
+    if(action==='save'){const d=state.lc.data;d._step=Math.min(4,state.lc.step||1);lcFinish('Draft');const page=document.querySelector('.page');if(page)page.scrollTop=0}
+    else if(action==='discard'){state.lc={open:false,step:1,data:lcDefaults(),month:[2026,9]};render();const page=document.querySelector('.page');if(page)page.scrollTop=0}
+    else document.querySelector('[data-profile-back]')?.focus();
+  };
+};
+const renderBeforeLcLeave=render;
+render=function(){
+  renderBeforeLcLeave.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open){lcLeaveClose();return}
+  const back=document.querySelector('[data-profile-back]');if(back){back.setAttribute('aria-label',state.lc.step===5?'Back to Booking details':'Back to Listings');back.onclick=event=>{event.preventDefault();if(state.lc.step===5){state.lc.step=4;render();const page=document.querySelector('.page');if(page)page.scrollTop=0;return}lcLeaveOpen()}}
+};
+render();
+
+/* Listings cards v2: photo, title, price / unit, "Up to N · duration"; pill only when not live; actions live in ⋯. */
+const lcSampleDetail={'airport-sedan':[4,'passengers','2 hours'],innova:[7,'passengers','7 days max'],'tourist-van':[12,'passengers','7 days max']};
+const lcCardUnit=listing=>{if(listing.setup?.pricedPer)return listing.setup.pricedPer.toLowerCase();const u=String(listing.unit||'').replace(/^per\s+/i,'').toLowerCase();return u==='trip'?'booking':u};
+const lcCardDetail=listing=>{
+  const s=listing.setup;
+  if(s){const n=Number(s.maxPer)||0,noun=String(s.countBy||'guests').toLowerCase(),nounText=n===1?noun.replace(/s$/,''):noun,time=s.durationMode==='guest'?(s.guestMax+' '+(Number(s.guestMax)===1?String(s.guestUnit).replace(/s$/,''):s.guestUnit)+' max'):lcDuration(s);return 'Up to '+n+' '+nounText+' · '+time}
+  const sample=lcSampleDetail[listing.id];if(sample)return 'Up to '+sample[0]+' '+sample[1]+' · '+sample[2];
+  return String(listing.stock||'');
+};
+listingCardMarkup=function(listing,grid=false){
+  const owner=state.role==='Owner',status=listing.status||'Active',draft=status==='Draft',paused=status==='Paused'||status==='Inactive';
+  const source=listing.photo||(typeof listingMockPhotos==='object'?listingMockPhotos[listing.id]:'');
+  const photo='<span class="lcc-photo">'+(source?'<img src="'+esc(source)+'" alt="" loading="lazy">':'<i class="hgi-stroke hgi-image-01" aria-hidden="true"></i>')+'</span>';
+  const pill=draft?'<em class="lcc-pill is-draft">Draft</em>':paused?'<em class="lcc-pill is-paused">Inactive</em>':'';
+  const main=draft&&owner?'data-listing-menu-action="setup" data-listing-id="'+listing.id+'"':'data-listing-detail="'+listing.id+'"';
+  return '<article class="lcc-card'+(grid?' is-cards':' is-row')+(paused?' is-paused':'')+(draft?' is-draft':'')+'" data-listing-card="'+listing.id+'"><button type="button" class="lcc-main" '+main+' aria-label="'+esc(listing.name)+(pill?', '+(draft?'draft':'inactive'):'')+'">'+photo+'<span class="lcc-body"><span class="lcc-title"><strong>'+esc(listing.name)+'</strong>'+pill+'</span><span class="lcc-price"><b>'+lcPeso(listing.price)+'</b> / '+esc(lcCardUnit(listing))+'</span><span class="lcc-meta">'+esc(lcCardDetail(listing))+'</span></span></button>'+(owner?'<button type="button" class="lc-more lcc-more" data-lc-more="'+listing.id+'" aria-label="More actions for '+esc(listing.name)+'"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg></button>':'')+'</article>';
+};
+const renderBeforeLcCardsV2=render;
+render=function(){
+  renderBeforeLcCardsV2.apply(this,arguments);
+  const dev=document.querySelector('.dev-tools');if(dev)dev.hidden=state.page==='listings';
+  if(state.page!=='listings'||state.lc?.open)return;
+  const cardsBtn=document.querySelector('[data-listing-view="grid"]');
+  const pausedChip=document.querySelector('.listings-status-filters [data-listing-status="Paused"]');
+  if(pausedChip)pausedChip.childNodes.forEach(node=>{if(node.nodeType===3&&/Paused/.test(node.nodeValue))node.nodeValue=node.nodeValue.replace('Paused','Inactive')});
+  if(cardsBtn){cardsBtn.setAttribute('aria-label','Card view');const label=cardsBtn.querySelector('span');if(label)label.textContent='Cards'}
+};
 render();

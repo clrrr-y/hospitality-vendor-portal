@@ -6,15 +6,43 @@
     <meta name="theme-color" content="#ffffff" />
     <title>Cabana Vendor Portal</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23462133'/%3E%3Cpath d='M8 18c4-7 12-7 16 0M10 18v5m12-5v5M7 24h18' stroke='white' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../styles.css?v=243" />
+    <link rel="stylesheet" href="../styles.css?v=885" />
   </head>
   <body class="phone-preview">
     <div id="app" class="app-shell phone-frame" aria-live="polite"></div>
     <div id="toast-region" aria-live="polite"></div>
     <noscript>This portal needs JavaScript enabled.</noscript>
     <script>
+      /* Keep saved state across refreshes even where browser storage is blocked or reset (e.g. sandboxed previews):
+         everything stored is mirrored into window.name, which survives reloads of the same tab/frame. */
+      (function () {
+        var PREFIX = 'cabana-store:';
+        function readName() { try { if (String(window.name).indexOf(PREFIX) === 0) return JSON.parse(window.name.slice(PREFIX.length)) || {}; } catch (e) {} return {}; }
+        function writeName(map) { try { window.name = PREFIX + JSON.stringify(map); } catch (e) {} }
+        var mirror = readName(), has = function (k) { return Object.prototype.hasOwnProperty.call(mirror, k); };
+        var native = null;
+        try { native = window.localStorage; native.setItem('__cabana_probe', '1'); native.removeItem('__cabana_probe'); } catch (e) { native = null; }
+        if (native) {
+          var proto = Storage.prototype, set = proto.setItem, get = proto.getItem, rem = proto.removeItem;
+          proto.setItem = function (k, v) { if (this === native && /^cabana/.test(k)) { mirror[k] = String(v); writeName(mirror); } return set.call(this, k, v); };
+          proto.getItem = function (k) { var v = get.call(this, k); if (v === null && this === native && has(k)) { try { set.call(this, k, mirror[k]); } catch (e) {} return mirror[k]; } return v; };
+          proto.removeItem = function (k) { if (this === native && has(k)) { delete mirror[k]; writeName(mirror); } return rem.call(this, k); };
+        } else {
+          var shim = {
+            getItem: function (k) { return has(k) ? mirror[k] : null; },
+            setItem: function (k, v) { mirror[k] = String(v); writeName(mirror); },
+            removeItem: function (k) { delete mirror[k]; writeName(mirror); },
+            clear: function () { mirror = {}; writeName(mirror); },
+            key: function (i) { return Object.keys(mirror)[i] || null; }
+          };
+          Object.defineProperty(shim, 'length', { get: function () { return Object.keys(mirror).length; } });
+          try { Object.defineProperty(window, 'localStorage', { value: shim, configurable: true }); } catch (e) {}
+        }
+      })();
+    </script>
+    <script>
       try { if (!window.location.hash) localStorage.removeItem('cabana:last-view-v3'); } catch (error) {}
     </script>
-    <script src="../app.js?v=293"></script>
+    <script src="../app.js?v=884"></script>
   </body>
 </html>
