@@ -6375,3 +6375,36 @@ body .app-shell .page:has(.hp){background:#f6f3f5!important}
 .hp-file input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .hp-file i{font-size:19px}
 .hp-meta{margin:-4px 4px 0;color:#8a8287;font-size:12.5px;line-height:1.45}
+
+/* Step 1 Photos (up to 8, first = cover) */
+.lcp{display:grid;gap:8px}
+.lcp-head{display:flex;align-items:baseline;justify-content:space-between}
+.lcp-count{color:var(--muted);font-size:13px;font-weight:600}
+.lcp-empty{position:relative;height:170px;display:grid;place-items:center;align-content:center;gap:6px;border:1.5px dashed #ddc9d3;border-radius:16px;background:#f8f2f5;color:#4a2133;text-align:center;cursor:pointer}
+.lcp-empty:hover,.lcp-empty:focus-visible{border-color:#cdb3c1;background:#f5edf1;outline:none}
+.lcp-empty.has-error{border-color:#d93a2f;background:#fff6f5}
+.lcp-empty strong{font-size:15px;font-weight:700}
+.lcp-empty small{color:var(--muted);font-size:13px}
+.lcp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lcp-tile,.lcp-add{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+.lcp-tile{background:#f1ecee;touch-action:manipulation;transition:transform .12s,box-shadow .12s}
+.lcp-tile.is-cover{grid-column:1/-1;aspect-ratio:16/9;border-radius:16px}
+.lcp-tile img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.lcp-cover-tag{position:absolute;left:10px;bottom:10px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.94);color:#4a2133;font-size:12px;font-weight:700;box-shadow:0 1px 3px rgba(19,10,14,.15)}
+.lcp-remove{position:absolute;top:6px;right:6px;width:24px;height:24px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:rgba(19,10,14,.62);color:#fff;font-size:13px;cursor:pointer}
+.lcp-tile.is-cover .lcp-remove{top:10px;right:10px;width:28px;height:28px;font-size:15px}
+.lcp-add{display:grid;place-items:center;align-content:center;gap:2px;border:1.5px dashed #ddc9d3;background:#f8f2f5;color:#4a2133;cursor:pointer}
+.lcp-add span{font-size:24px;line-height:1}
+.lcp-add small{font-size:12px;font-weight:600}
+.lcp-add:hover{background:#f5edf1}
+.lcp-state{position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.55)}
+.lcp-tile.is-failed .lcp-state{background:rgba(19,10,14,.45)}
+.lcp-spinner{width:24px;height:24px;border:3px solid rgba(74,33,51,.2);border-top-color:#4a2133;border-radius:50%;animation:lcpSpin .8s linear infinite}
+@keyframes lcpSpin{to{transform:rotate(360deg)}}
+.lcp-retry{width:36px;height:36px;display:grid;place-items:center;border:0;border-radius:50%;background:#fff;color:#d93a2f;font-size:18px;cursor:pointer}
+.lcp-hint{color:var(--muted);font-size:12px}
+.lcp-grid.is-sorting .lcp-tile:not(.is-lifted){opacity:.85}
+.lcp-tile.is-lifted{z-index:5;box-shadow:0 10px 24px rgba(19,10,14,.25);opacity:1;transition:none}
+.lcp-tile.is-target{outline:2px solid #4a2133;outline-offset:2px}
+.lcr-photos{display:inline-flex;align-items:center;gap:8px}
+.lcr-photos span{color:var(--muted);font-size:13px}

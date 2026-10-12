@@ -3349,15 +3349,10 @@ const lcInput=(key,value,attrs='')=>'<input class="lc-input" data-lc-input="'+ke
 const lcSwitch=(key,on,label,sub,disabled)=>'<label class="lc-switch-row'+(disabled?' is-locked':'')+'"><span><strong>'+label+'</strong>'+(sub?'<small>'+sub+'</small>':'')+'</span><input type="checkbox" data-lc-check="'+key+'"'+(on?' checked':'')+(disabled?' disabled':'')+'><span class="lc-switch" aria-hidden="true"></span></label>';
 const lcStep1=d=>{
   const tried=Boolean(state.lc.tried1),noName=tried&&!d.name.trim(),noCover=tried&&!d.photos.length;
-  const cover=d.photos[0]
-    ?'<div class="lc1-cover has-photo"><img src="'+d.photos[0]+'" alt="Cover photo"><label class="lc1-change">Change<input type="file" accept="image/*" data-lc-cover-replace hidden></label><button type="button" class="lc-photo-remove" data-lc-photo-remove="0" aria-label="Remove cover photo">×</button></div>'
-    :'<label class="lc1-cover'+(noCover?' has-error':'')+'"><span class="lc1-cover-icon" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><strong>Add cover photo</strong><small>Shown to guests in Kabana</small><input type="file" accept="image/*" data-lc-cover-replace hidden></label>';
-  const slots=[1,2,3,4].map(index=>d.photos[index]
-    ?'<div class="lc1-slot has-photo"><img src="'+d.photos[index]+'" alt="Photo '+(index+1)+'"><button type="button" class="lc-photo-remove" data-lc-photo-remove="'+index+'" aria-label="Remove photo">×</button><button type="button" class="lc1-make-cover" data-lc-cover="'+index+'">Cover</button></div>'
-    :'<label class="lc1-slot" aria-label="Add photo"><span aria-hidden="true">+</span><input type="file" accept="image/*" multiple data-lc-photos hidden></label>').join('');
+  const photosBlock=lcPhotosMarkup(d,noCover);
   const error=(show,text)=>show?'<small class="lc1-error" role="alert">'+text+'</small>':'';
   return '<div class="lc1">'
-    +'<div class="lc1-photos">'+cover+error(noCover,'Add a cover photo')+'</div>'
+    +photosBlock
     +'<div class="lc1-field"><label class="lc1-label" for="lc-name">Listing name</label><input id="lc-name" class="lc1-input'+(noName?' has-error':'')+'" data-lc-input="name" value="'+lcE(d.name)+'" placeholder="e.g. Airport Transfer — Sedan" maxlength="60" autocomplete="off">'+error(noName,'Add a listing name')+'</div>'
     +'<div class="lc1-field"><div class="lc1-label-row"><label class="lc1-label" for="lc-desc">Description</label><span class="lc1-optional">Optional</span></div><div class="lc1-textarea-wrap"><textarea id="lc-desc" class="lc1-input lc1-textarea" data-lc-input="description" maxlength="300" placeholder="What’s included">'+lcE(d.description)+'</textarea><small class="lc1-count" aria-live="polite"><span data-lc-count>'+d.description.length+'</span>/300</small></div></div>'
     +'<div class="lc1-field"><label class="lc1-label" for="lc-location">Location</label><input id="lc-location" class="lc1-input" data-lc-input="location" value="'+lcE(d.location)+'" placeholder="e.g. Hotel lobby" autocomplete="off"></div>'
@@ -3533,7 +3528,7 @@ const lcReview=d=>{
   const section=(title,step,rows)=>'<section class="lcr-section"><header><h3>'+title+'</h3><button type="button" class="lcr-edit" data-lc-goto="'+step+'" aria-label="Edit '+title+'">Edit</button></header>'+rows.join('')+'</section>';
   const preview='<article class="lcr-preview"><div class="lcr-cover">'+(cover?'<img src="'+cover+'" alt="">':'')+'<span class="lcr-tag">'+lcE(category)+'</span></div><div class="lcr-body"><strong>'+lcE(d.name||'Untitled listing')+'</strong><span class="lcr-price"><b>'+lcPeso(d.price)+'</b> / '+lcE(per)+'</span><span class="lcr-meta">'+lcE([lcDuration(d),'Up to '+maxText].join(' · '))+'</span>'+(d.description?'<p>'+lcE(d.description)+'</p>':'')+'</div></article>';
   return '<div class="lcr">'+preview
-    +section('Basics',1,[row('Category',lcE(category)),row('Cover photo',cover?'<img class="lcr-thumb" src="'+cover+'" alt="Cover photo">':'—'),row('Meeting point',lcE(d.location||'—'))])
+    +section('Basics',1,[row('Category',lcE(category)),row('Photos',cover?'<span class="lcr-photos"><img class="lcr-thumb" src="'+cover+'" alt="Cover photo">'+(d.photos.length>1?'<span>+'+(d.photos.length-1)+' photo'+(d.photos.length===2?'':'s')+'</span>':'')+'</span>':'—'),row('Meeting point',lcE(d.location||'—'))])
     +section('Price and capacity',2,[row('Price',lcPeso(d.price)+' per '+lcE(per)),row(d.durationMode==='guest'?'Max '+d.guestUnit:'Duration',lcE(d.durationMode==='guest'?d.guestMax+' '+(Number(d.guestMax)===1?d.guestUnit.replace(/s$/,''):d.guestUnit):lcDuration(d))),row('Max per booking',lcE(maxText)),row('Payment',[d.payRoom&&'Charge to room',d.payOnline&&'Pay online'].filter(Boolean).join('<br>')||'—')])
     +section('Availability',3,[row('Days',lcE(days)),row(d.pricedPer==='Day'?'Pickup hours':'Booking times',lcE(times)),row('Advance notice',lcE(d.notice)),row(limitShort,lcE(limitText)),row('Blocked dates',d.blocks.length?lcE(d.blocks.map(lcBlockLabel).join(', ')):'None',d.blocks.length?'is-blocked':'')])
     +section('Booking details',4,[row('Ask guests for',lcE(askedText))])
@@ -3554,7 +3549,7 @@ const lcMarkup=()=>{
 };
 const lcValidate=step=>{
   const d=state.lc.data;
-  if(step===1&&!lcStep1Ready(d)){state.lc.tried1=true;render();setTimeout(()=>{(d.name.trim()?document.querySelector('.lc1-cover'):document.querySelector('[data-lc-input="name"]'))?.focus?.();document.querySelector('.lc1-error')?.scrollIntoView({block:'center'})},20);return false}
+  if(step===1&&!lcStep1Ready(d)){state.lc.tried1=true;render();setTimeout(()=>{(d.name.trim()?document.querySelector('.lcp-empty'):document.querySelector('[data-lc-input="name"]'))?.focus?.();document.querySelector('.lc1-error')?.scrollIntoView({block:'center'})},20);return false}
   if(step===2&&!lcStep2Ready(d)){state.lc.tried2=true;render();setTimeout(()=>{document.querySelector('.lc1-error')?.scrollIntoView({block:'center'});if(!(Number(String(d.price).replace(/[^\d]/g,''))>0))document.querySelector('[data-lc-input="price"]')?.focus()},20);return false}
   if(step===3&&!d.days.some(Boolean)){toast('Choose at least one available day');return false}
   if(step===3&&d.pricedPer!=='Day'&&d.timeMode==='slots'&&!d.slots.some(Boolean)){state.lc.tried3=true;render();return false}
@@ -5714,4 +5709,107 @@ render();
 /* Kabana support thread: label it as support, not Front Desk. */
 const renderBeforeHpChat=render;
 render=function(){renderBeforeHpChat.apply(this,arguments);if(state.page!=='chat'||state.cx?.threadId!=='kabana-support')return;const w=document.createTreeWalker(document.querySelector('.page')||document.body,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode())){if(/Front Desk · Kabana support/.test(n.nodeValue))n.nodeValue=n.nodeValue.replace('Front Desk · Kabana support','Support · Usually replies within 1 hour')}};
+render();
+
+/* ===== Step 1 Photos: up to 8, first is the cover; multi-select add, ✕ remove, long-press drag to reorder, per-photo upload state. ===== */
+const LCP_MAX=8;
+function lcpPending(){state.lc.pending=state.lc.pending||[];return state.lc.pending}
+function lcPhotosMarkup(d,noCover){
+  const pending=lcpPending(),total=d.photos.length+pending.length;
+  const head='<div class="lcp-head"><span class="lc1-label">Photos</span><span class="lcp-count">'+(total?total+' of '+LCP_MAX:'Up to '+LCP_MAX)+'</span></div>';
+  const input='<input type="file" accept="image/*" multiple data-lcp-add hidden>';
+  const err=noCover&&!total?'<small class="lc1-error" role="alert">Add at least 1 photo</small>':'';
+  if(!total)return '<div class="lcp">'+head+'<label class="lcp-empty'+(noCover?' has-error':'')+'" tabindex="0"><span class="lc1-cover-icon" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><strong>Add photos</strong><small>The first photo is your cover</small>'+input+'</label>'+err+'</div>';
+  const tile=(src,i)=>'<div class="lcp-tile'+(i===0?' is-cover':'')+'" data-lcp-tile="'+i+'"><img src="'+src+'" alt="'+(i===0?'Cover photo':'Photo '+(i+1))+'" draggable="false">'+(i===0?'<span class="lcp-cover-tag">Cover</span>':'')+'<button type="button" class="lcp-remove" data-lcp-remove="'+i+'" aria-label="Remove photo">'+'<i class="hgi-stroke hgi-cancel-01" aria-hidden="true"></i></button></div>';
+  const pend=p=>'<div class="lcp-tile is-'+p.status+'"><img src="'+p.src+'" alt="" draggable="false"><span class="lcp-state">'+(p.status==='failed'?'<button type="button" class="lcp-retry" data-lcp-retry="'+p.id+'" aria-label="Retry upload"><i class="hgi-stroke hgi-reload" aria-hidden="true"></i></button>':'<span class="lcp-spinner" aria-label="Uploading"></span>')+'</span><button type="button" class="lcp-remove" data-lcp-drop="'+p.id+'" aria-label="Remove photo"><i class="hgi-stroke hgi-cancel-01" aria-hidden="true"></i></button></div>';
+  const cover=d.photos.length?tile(d.photos[0],0):pend(pending[0]);
+  const rest=d.photos.slice(1).map((src,k)=>tile(src,k+1)).concat((d.photos.length?pending:pending.slice(1)).map(pend));
+  const add=total<LCP_MAX?'<label class="lcp-add" aria-label="Add photos"><span aria-hidden="true">+</span><small>Add</small>'+input+'</label>':'';
+  return '<div class="lcp">'+head+'<div class="lcp-grid" data-lcp-grid>'+cover+rest.join('')+add+'</div>'+(d.photos.length>1?'<small class="lcp-hint">Hold and drag to reorder</small>':'')+'</div>';
+}
+function lcpRerender(){const page=document.querySelector('.page'),top=page?.scrollTop||0;render();const p=document.querySelector('.page');if(p)p.scrollTop=top}
+function lcpUpload(item){
+  item.status='uploading';
+  setTimeout(()=>{
+    const list=lcpPending(),i=list.indexOf(item);if(i<0)return;
+    if(!navigator.onLine){item.status='failed'}
+    else{list.splice(i,1);state.lc.data.photos.push(item.src)}
+    if(state.page==='listings'&&state.lc?.open&&state.lc.step===1)lcpRerender();
+  },700+Math.random()*600);
+}
+async function lcpAdd(files){
+  const d=state.lc.data,room=LCP_MAX-d.photos.length-lcpPending().length;
+  const images=[...(files||[])].filter(f=>/^image\//.test(f.type));
+  if(images.length>room)toast('You can add up to '+LCP_MAX+' photos');
+  for(const file of images.slice(0,Math.max(0,room))){const src=await lcResize(file);if(src){const item={id:'p'+Date.now()+Math.random().toString(36).slice(2,6),src,status:'uploading'};lcpPending().push(item);lcpUpload(item)}}
+  lcpRerender();
+}
+const renderBeforeLcPhotos=render;
+render=function(){
+  renderBeforeLcPhotos.apply(this,arguments);
+  if(state.page!=='listings'||!state.lc?.open||state.lc.step!==1)return;
+  const d=state.lc.data;
+  const next=document.querySelector('[data-lc-next]');
+  if(next){const ready=Boolean(d.name.trim()&&d.photos.length);next.classList.toggle('is-waiting',!ready);next.setAttribute('aria-disabled',String(!ready))}
+  document.querySelectorAll('[data-lcp-add]').forEach(input=>input.onchange=()=>{lcpAdd(input.files);input.value=''});
+  document.querySelector('.lcp-empty')?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.currentTarget.querySelector('input')?.click()}});
+  document.querySelectorAll('[data-lcp-remove]').forEach(b=>b.onclick=e=>{e.stopPropagation();d.photos.splice(Number(b.dataset.lcpRemove),1);lcpRerender()});
+  document.querySelectorAll('[data-lcp-drop]').forEach(b=>b.onclick=()=>{const list=lcpPending(),i=list.findIndex(p=>p.id===b.dataset.lcpDrop);if(i>=0)list.splice(i,1);lcpRerender()});
+  document.querySelectorAll('[data-lcp-retry]').forEach(b=>b.onclick=()=>{const item=lcpPending().find(p=>p.id===b.dataset.lcpRetry);if(item){lcpUpload(item);lcpRerender()}});
+  lcpBindDrag(d);
+};
+/* Long-press (350ms) a photo, then drag; dropping on another tile moves it there. Index 0 = cover. */
+let lcpDrag=null;
+function lcpBindDrag(d){
+  const grid=document.querySelector('[data-lcp-grid]');if(!grid)return;
+  grid.querySelectorAll('[data-lcp-tile]').forEach(tile=>{
+    tile.oncontextmenu=e=>e.preventDefault();
+    tile.onpointerdown=e=>{
+      if(e.target.closest('.lcp-remove')||d.photos.length<2)return;
+      const from=Number(tile.dataset.lcpTile),sx=e.clientX,sy=e.clientY;
+      const timer=setTimeout(()=>{
+        lcpDrag={from,to:from,tile,sx,sy};tile.classList.add('is-lifted');grid.classList.add('is-sorting');
+        navigator.vibrate?.(15);
+      },350);
+      const move=ev=>{
+        if(!lcpDrag){if(Math.hypot(ev.clientX-sx,ev.clientY-sy)>8){clearTimeout(timer);end(false)}return}
+        ev.preventDefault();
+        tile.style.transform='translate('+(ev.clientX-sx)+'px,'+(ev.clientY-sy)+'px) scale(1.04)';
+        tile.style.pointerEvents='none';
+        const over=document.elementFromPoint(ev.clientX,ev.clientY)?.closest?.('[data-lcp-tile]');
+        grid.querySelectorAll('.is-target').forEach(n=>n.classList.remove('is-target'));
+        if(over&&over!==tile){over.classList.add('is-target');lcpDrag.to=Number(over.dataset.lcpTile)}else if(!over)lcpDrag.to=lcpDrag.from;
+      };
+      const end=commit=>{
+        clearTimeout(timer);window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',cancel);
+        const drag=lcpDrag;lcpDrag=null;if(!drag)return;
+        if(commit&&drag.to!==drag.from){const [src]=d.photos.splice(drag.from,1);d.photos.splice(drag.to,0,src);if(drag.to===0)toast('Cover photo updated')}
+        lcpRerender();
+      };
+      const up=()=>end(true),cancel=()=>end(false);
+      window.addEventListener('pointermove',move,{passive:false});window.addEventListener('pointerup',up);window.addEventListener('pointercancel',cancel);
+    };
+  });
+}
+document.addEventListener('touchmove',e=>{if(lcpDrag)e.preventDefault()},{passive:false});
+render();
+
+/* Dev tool: "Reset page" wipes saved demo state and reloads the same screen blank (same page and role; Create listing reopens empty at Step 1). */
+devTools=(function(base){return function(){return base.apply(this,arguments).replace(/<button data-dev-reset-simulations>[^<]*<\/button>/,'<button data-dev-reset-simulations>Reset page</button>')}})(devTools);
+window.addEventListener('click',event=>{
+  if(!event.target.closest?.('[data-dev-reset-simulations]'))return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const page=state.page==='insights'?'dashboard':state.page||'dashboard',keep={'cabana:dev-position':localStorage.getItem('cabana:dev-position')};
+  const wipe=()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('cabana:')).forEach(k=>localStorage.removeItem(k));Object.entries(keep).forEach(([k,v])=>{if(v!=null)localStorage.setItem(k,v)})}catch(e){}};
+  window.__cabanaResumeReady=false;try{cabanaBooting=true}catch(e){}
+  wipe();window.addEventListener('pagehide',wipe);window.addEventListener('beforeunload',wipe);
+  try{sessionStorage.clear();sessionStorage.setItem('cabana:dev-reset-screen',JSON.stringify({page,role:state.role||'Owner',lcNew:Boolean(page==='listings'&&state.lc?.open)}))}catch(e){}
+  location.replace(location.pathname+location.search+'#view='+encodeURIComponent(page));
+  location.reload();
+},true);
+(()=>{let screen=null;try{screen=JSON.parse(sessionStorage.getItem('cabana:dev-reset-screen')||'null');sessionStorage.removeItem('cabana:dev-reset-screen')}catch(e){}
+  if(!screen)return;
+  const apply=()=>{state.role=screen.role||'Owner';state.page=screen.page;if(screen.lcNew)lcOpen(null,false);else render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  apply();setTimeout(apply,60);
+})();
 render();
