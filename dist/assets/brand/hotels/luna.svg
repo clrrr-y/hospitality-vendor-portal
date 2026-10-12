@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Luna Bay Resort">
+  <defs><linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B2A55"/><stop offset="1" stop-color="#2B5BA8"/></linearGradient></defs>
+  <rect width="120" height="120" fill="url(#n)"/>
+  <path d="M70 26 A22 22 0 1 0 86 62 A17 17 0 1 1 70 26Z" fill="#F4E3B5"/>
+  <path d="M0 80 Q20 72 40 80 T80 80 T120 80 V120 H0Z" fill="#7FB3E0" opacity=".55"/>
+  <path d="M0 90 Q20 82 40 90 T80 90 T120 90 V120 H0Z" fill="#CFE3F5" opacity=".7"/>
+  <circle cx="30" cy="30" r="1.6" fill="#fff"/><circle cx="44" cy="20" r="1.2" fill="#fff"/><circle cx="96" cy="24" r="1.4" fill="#fff"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Coral Cove Hotel">
+  <rect width="120" height="120" fill="#F3E3D3"/>
+  <path d="M0 96 Q30 86 60 96 T120 96 V120 H0Z" fill="#7CC3C0"/>
+  <g fill="none" stroke="#D9573E" stroke-width="5" stroke-linecap="round">
+    <path d="M60 94 V54"/><path d="M60 72 C50 66 44 58 44 46"/><path d="M60 64 C70 58 76 50 76 38"/><path d="M44 46 C40 42 40 36 42 32"/><path d="M76 38 C80 34 80 28 78 24"/><path d="M60 54 C58 46 60 40 64 36"/>
+  </g>
+  <circle cx="92" cy="30" r="9" fill="#F0A35E"/>
+</svg>

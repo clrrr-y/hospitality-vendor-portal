@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Henry’s Resort Dumaguete">
+  <rect width="120" height="120" fill="#123F4A"/>
+  <circle cx="60" cy="64" r="34" fill="#F2C178" opacity=".18"/>
+  <path d="M30 88 H90" stroke="#F2C178" stroke-width="3" stroke-linecap="round"/>
+  <path d="M60 84 C58 66 60 52 66 40" fill="none" stroke="#F7EEF3" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M66 40 C56 34 46 36 40 44 C50 41 58 41 66 40Z M66 40 C72 30 84 28 92 34 C82 35 74 37 66 40Z M66 40 C62 30 54 26 46 27 C54 31 61 35 66 40Z" fill="#F7EEF3"/>
+  <text x="60" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="2" fill="#F2C178">HENRY’S</text>
+</svg>

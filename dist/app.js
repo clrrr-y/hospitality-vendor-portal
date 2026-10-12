@@ -55,19 +55,19 @@ const listings=[
  {id:'coffee',name:'Cold Brew Bottle',category:'Drinks',price:'₱220',unit:'per item',stock:'Paused',status:'Paused',location:'Pick-up at shop',payment:'Gateway only'}
 ];
 const orders=[
- {id:'ORD-1042',kind:'In-app order',guest:'John D.',hotel:'Luna Bay Resort',room:'101',item:'Whole Sans Rival Cake',quantity:'Qty 1',when:'Pickup Oct 6 · 3:00 PM',fulfilment:'Pick-up at shop',total:'₱1,200.00',payment:'Charge to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:60,timeline:[['Booking requested','Sep 29 · 8:14 AM']],notes:'Please write “Happy Anniversary” on the box.',contact:'Open guest chat'},
- {id:'CB-8821',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Private bakery tasting',quantity:'2 guests',when:'Oct 6 · 5:30 PM · 1 hour',fulfilment:'Tasting room',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Sep 29 · 9:02 AM']],notes:'Window seat if available.',contact:'Open guest chat'},
- {id:'CB-9001',kind:'Booking',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Island Hopping Tour',quantity:'3 guests',when:'Oct 7 · 9:00 AM · 4 hours',fulfilment:'Hotel pick-up',total:'₱7,500.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 1 · 9:02 AM']],notes:'Hotel pick-up confirmed.',contact:'Open guest chat'},
- {id:'CB-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Private bakery tasting',quantity:'4 guests',when:'Oct 6 · 2:00 PM · 1 hour',fulfilment:'Tasting room',total:'₱4,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 2 · 11:20 AM']],notes:'Tasting room prepared.',contact:'Open guest chat'},
- {id:'ORD-1044',kind:'In-app order',guest:'Leo Santos',hotel:'Luna Bay Resort',room:'207',item:'Island Breakfast Box',quantity:'2 ×',when:'Oct 8 · 11:30 AM',fulfilment:'Delivery to room',total:'₱1,360.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Order confirmed','Oct 3 · 4:15 PM']],notes:'Deliver before noon.',contact:'Open guest chat'},
- {id:'CT-2208',kind:'Counter charge',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Coffee and pastry set',quantity:'2 ×',when:'Today · 10:15 AM',fulfilment:'Counter',total:'₱540',payment:'Charged to room',settlement:'Posted to room',status:'Posted to room',timeline:[['Posted by validator app','Sep 29 · 10:15 AM']],notes:'Read-only record. Voids happen in the validator app.',contact:'View record'},
- {id:'ORD-1037',kind:'In-app order',guest:'Oliver Brown',hotel:'Luna Bay Resort',room:'205',item:'Island Breakfast Box',quantity:'2 ×',when:'Today · 8:00 AM',fulfilment:'Delivery to room',total:'₱1,360',payment:'Paid via gateway',settlement:'In payout',status:'Completed',timeline:[['Order placed','Sep 28 · 6:40 PM'],['Completed','Sep 29 · 8:32 AM']],notes:'No nuts, please.',contact:'Open guest chat'},
- {id:'CB-8812',kind:'Booking',guest:'Priya Shah',hotel:'Luna Bay Resort',room:'412',item:'Chef’s counter experience',quantity:'4 guests',when:'Sep 28 · 7:00 PM',fulfilment:'Chef’s counter',total:'₱8,800',payment:'Charged to room',settlement:'Guest checked out',status:'Completed',timeline:[['Booking confirmed','Sep 25 · 11:20 AM'],['Completed','Sep 28 · 9:10 PM'],['Guest checked out','Sep 29 · 11:04 AM']],notes:'',contact:'View guest record'}
+ {id:'ORD-1042',kind:'In-app order',guest:'John D.',hotel:'Henry’s Resort Dumaguete',room:'101',item:'Whole Sans Rival Cake',quantity:'Qty 1',when:'Pickup Oct 6 · 3:00 PM',fulfilment:'Pick-up at shop',total:'₱1,200.00',payment:'Charge to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:60,timeline:[['Booking requested','Sep 29 · 8:14 AM']],notes:'Please write “Happy Anniversary” on the box.',contact:'Open guest chat'},
+ {id:'CB-8821',kind:'Booking',guest:'Amelia Reyes',hotel:'Henry’s Resort Dumaguete',room:'508',item:'Private bakery tasting',quantity:'2 guests',when:'Oct 6 · 5:30 PM · 1 hour',fulfilment:'Tasting room',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Sep 29 · 9:02 AM']],notes:'Window seat if available.',contact:'Open guest chat'},
+ {id:'CB-9001',kind:'Booking',guest:'Maya Tan',hotel:'Henry’s Resort Dumaguete',room:'314',item:'Island Hopping Tour',quantity:'3 guests',when:'Oct 7 · 9:00 AM · 4 hours',fulfilment:'Hotel pick-up',total:'₱7,500.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 1 · 9:02 AM']],notes:'Hotel pick-up confirmed.',contact:'Open guest chat'},
+ {id:'CB-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Henry’s Resort Dumaguete',room:'203',item:'Private bakery tasting',quantity:'4 guests',when:'Oct 6 · 2:00 PM · 1 hour',fulfilment:'Tasting room',total:'₱4,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 2 · 11:20 AM']],notes:'Tasting room prepared.',contact:'Open guest chat'},
+ {id:'ORD-1044',kind:'In-app order',guest:'Leo Santos',hotel:'Henry’s Resort Dumaguete',room:'207',item:'Island Breakfast Box',quantity:'2 ×',when:'Oct 8 · 11:30 AM',fulfilment:'Delivery to room',total:'₱1,360.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Order confirmed','Oct 3 · 4:15 PM']],notes:'Deliver before noon.',contact:'Open guest chat'},
+ {id:'CT-2208',kind:'Counter charge',guest:'Maya Tan',hotel:'Henry’s Resort Dumaguete',room:'314',item:'Coffee and pastry set',quantity:'2 ×',when:'Today · 10:15 AM',fulfilment:'Counter',total:'₱540',payment:'Charged to room',settlement:'Posted to room',status:'Posted to room',timeline:[['Posted by validator app','Sep 29 · 10:15 AM']],notes:'Read-only record. Voids happen in the validator app.',contact:'View record'},
+ {id:'ORD-1037',kind:'In-app order',guest:'Oliver Brown',hotel:'Henry’s Resort Dumaguete',room:'205',item:'Island Breakfast Box',quantity:'2 ×',when:'Today · 8:00 AM',fulfilment:'Delivery to room',total:'₱1,360',payment:'Paid via gateway',settlement:'In payout',status:'Completed',timeline:[['Order placed','Sep 28 · 6:40 PM'],['Completed','Sep 29 · 8:32 AM']],notes:'No nuts, please.',contact:'Open guest chat'},
+ {id:'CB-8812',kind:'Booking',guest:'Priya Shah',hotel:'Henry’s Resort Dumaguete',room:'412',item:'Chef’s counter experience',quantity:'4 guests',when:'Sep 28 · 7:00 PM',fulfilment:'Chef’s counter',total:'₱8,800',payment:'Charged to room',settlement:'Guest checked out',status:'Completed',timeline:[['Booking confirmed','Sep 25 · 11:20 AM'],['Completed','Sep 28 · 9:10 PM'],['Guest checked out','Sep 29 · 11:04 AM']],notes:'',contact:'View guest record'}
 ];
 const pendingRequestCount=()=>typeof orders!=='undefined'?orders.filter(order=>order.status==='Pending').length:0;
 const navBadge=id=>id==='dashboard'&&pendingRequestCount()?`<b class="nav-badge">${pendingRequestCount()}</b>`:'';
 let nav=(id,label,icon)=>`<button class="nav-item ${state.page===id?'active':''}" data-page="${id}"><span class="nav-icon">${navIcon(icon,state.page===id)}</span><span>${label}</span>${navBadge(id)}</button>`;
-function shell(content){return `<aside class="sidebar"><div class="brand"><span class="brand-mark">C</span>Cabana</div><button class="outlet-button"><span class="outlet-avatar">CT</span><span><strong>Cabana Transport Services</strong><small>Transportation rental service · Live</small></span><span>⌄</span></button><nav class="nav-list">${nav('dashboard','Home','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav><div class="sidebar-bottom"><div class="partner-mini"><strong>${state.role}</strong><span>Portal access</span></div></div></aside><div class="main-wrap"><header class="topbar"><div class="topbar-context"><strong>${state.page==='listings'?'Listings':(['orders','bookings'].includes(state.page)?'Bookings':state.page[0].toUpperCase()+state.page.slice(1))}</strong></div></header><main class="page">${content}</main><nav class="mobile-nav">${nav('dashboard','Home','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav></div>`}
+function shell(content){return `<aside class="sidebar"><div class="brand"><span class="brand-mark">C</span>Cabana</div><button class="outlet-button"><span class="outlet-avatar">CT</span><span><strong>Lakbay Negros Rentals</strong><small>Transportation rental service · Live</small></span><span>⌄</span></button><nav class="nav-list">${nav('dashboard','Home','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav><div class="sidebar-bottom"><div class="partner-mini"><strong>${state.role}</strong><span>Portal access</span></div></div></aside><div class="main-wrap"><header class="topbar"><div class="topbar-context"><strong>${state.page==='listings'?'Listings':(['orders','bookings'].includes(state.page)?'Bookings':state.page[0].toUpperCase()+state.page.slice(1))}</strong></div></header><main class="page">${content}</main><nav class="mobile-nav">${nav('dashboard','Home','home')}${nav('orders','Bookings','orders')}${nav('chat','Chat','chat')}${nav('menu','Menu','menu')}</nav></div>`}
 function nav2(id,label,ico){return `<button class="nav-item ${state.page===id?'active':''}" data-page="${id}"><span class="nav-icon">${navIcon(ico,state.page===id)}</span><span>${label}</span>${navBadge(id)}</button>`}
 function shell2(content){const html=shell(content);const side=html.match(/<nav class="nav-list">[\s\S]*?<\/nav>/)?.[0];const mobile=html.match(/<nav class="mobile-nav">[\s\S]*?<\/nav>/)?.[0];const sideNav=`<nav class="nav-list">${nav2('dashboard','Home','home')}${nav2('orders','Bookings','orders')}${nav2('chat','Chat','chat')}${nav2('menu','Menu','menu')}</nav>`;const mobileNav=`<nav class="mobile-nav ${state.role==='Staff'?'staff-nav':''}">${nav2('dashboard','Home','home')}${nav2('orders','Bookings','orders')}${nav2('chat','Chat','chat')}${nav2('menu','Menu','menu')}</nav>`;return html.replace(side,sideNav).replace(mobile,mobileNav)}
 function head(title,sub,action=''){return `<div class="page-head"><div><h1>${title}</h1>${sub?`<p class="subtext">${sub}</p>`:''}</div>${action}</div>`}
@@ -103,17 +103,17 @@ function ordersView(){const selected=state.range==='Today'?'Today · Sep 30, 202
 function orderCard(o){return `<button class="order-card" data-detail="${o.id}"><div class="order-card-top"><div><span class="type-badge ${o.kind.toLowerCase().replaceAll(' ','-')}">${o.kind}</span><strong>${esc(o.guest)} <small>Room ${esc(o.room)}</small></strong></div><span class="status ${o.status.toLowerCase().replaceAll(' ','-')}">${o.status}</span></div><div class="order-card-body"><div><span class="order-item">${esc(o.item)}</span><small>${esc(o.quantity)} · ${esc(o.when)}</small></div><div><span class="payment-badge ${o.payment.includes('room')?'room':'gateway'}">${o.payment}</span><strong class="order-total">${o.total}</strong></div></div><div class="order-card-foot"><span>${o.hotel} · ${o.fulfilment}</span><span>${icons.arrow}</span></div></button>`}
 function calendarOrders(){return `<section class="card calendar-card"><div class="card-header"><div><h2>October 2026</h2><span class="count">Monday, Sep 28 – Sunday, Oct 4</span></div><div class="calendar-controls"><button class="button small">Day</button><button class="button small active">Week</button><button class="button small">Month</button></div></div><div class="calendar-capacity"><span>Today’s capacity</span><strong>3 of 12 bakery slots booked</strong><button class="button small" data-toast="Availability blocker opened">Block date or unit</button></div><div class="schedule-grid">${['Mon 28','Tue 29','Wed 30','Thu 1','Fri 2','Sat 3','Sun 4'].map((d,i)=>`<div class="schedule-day"><strong>${d}</strong>${i===1?`<button data-detail="CT-2208"><b>10:15</b> Counter charge</button>`:''}${i===3?`<button data-detail="ORD-1042"><b>3:00 PM</b> Cake pick-up</button>`:''}${i===4?`<button data-detail="CB-8821"><b>5:30 PM</b> Tasting booking</button>`:''}</div>`).join('')}</div></section>`}
 function orderDetail(){const o=orders.find(x=>x.id===state.detail);if(!o)return ordersView();const counter=o.kind==='Counter charge';return `<button class="back" data-page="orders">← Back to orders</button><div class="detail-panel"><div class="detail-main"><section class="card detail-card"><div class="detail-title"><div><div class="section-label">${o.kind} · ${o.id}</div><h1>${esc(o.item)}</h1><p class="subtext">${esc(o.guest)} · ${o.hotel} · Room ${o.room}</p></div><span class="status ${o.status.toLowerCase().replaceAll(' ','-')}">${o.status}</span></div><div class="detail-meta"><div class="meta-item"><label>Guest</label><strong>${esc(o.guest)} · Room ${esc(o.room)}</strong></div><div class="meta-item"><label>Date / time</label><strong>${o.when}</strong></div><div class="meta-item"><label>Fulfilment</label><strong>${o.fulfilment}</strong></div><div class="meta-item"><label>Payment</label><strong>${o.payment}</strong></div><div class="meta-item"><label>Settlement</label><strong>${o.settlement}</strong></div><div class="meta-item"><label>Total</label><strong>${o.total}</strong></div></div><div class="detail-contact"><button class="button small" data-toast="${o.contact}">${o.contact}</button><span>Guest details shown only for fulfilment.</span></div></section><section class="card detail-card"><div class="section-label">Items and notes</div><div class="line-item"><span>${esc(o.item)} <small>${esc(o.quantity)}</small></span><strong>${o.total}</strong></div><div class="price-breakdown"><span>Unit price × quantity</span><strong>${o.total}</strong><span>Add-ons</span><strong>₱0</strong><span class="total-line">Total</span><strong class="total-line">${o.total}</strong></div><div class="info-block"><strong>Guest notes</strong><p>${esc(o.notes||'No special notes.')}</p></div></section></div><aside class="detail-side"><section class="card side-action"><h3>${counter?'Record status':'Next action'}</h3>${counter?`<div class="notice">Counter charges are read-only here. Voids happen in the separate validator app.</div>`:`<div class="action-stack">${o.status==='Pending'?`<button class="button primary" data-action="confirm">Confirm</button><button class="button" data-action="reschedule">Reschedule</button><button class="button danger" data-action="cancel">Decline / cancel</button>`:o.status==='Confirmed'?`<button class="button primary" data-action="preparing">Mark preparing</button><button class="button" data-action="inuse">Mark in use</button><button class="button danger" data-action="cancel">Cancel</button>`:o.status==='Preparing'?`<button class="button primary" data-action="ready">Mark ready · notify guest</button><button class="button danger" data-action="cancel">Cancel</button>`:o.status==='Ready'?`<button class="button primary" data-action="complete">Mark completed</button>`:`<span class="completion-note">No further vendor action is needed.</span>`}</div>`}</section><section class="card side-action"><h3>Status timeline</h3><div class="timeline">${o.timeline.map((t,i)=>`<div class="timeline-row"><span class="timeline-dot"></span><div><strong>${t[0]}</strong><span>${t[1]}</span></div></div>`).join('')}</div></section></aside></div>`}
-function listingsView(){return `${head('Listings','Manage what guests can book or buy, at your own prices.',`<button class="button primary" data-listing-new>${icons.plus} Add listing</button>`)}<div class="listing-toolbar"><div class="listing-summary"><strong>${listings.filter(x=>x.status==='Active').length} active listings</strong><span>Visible to guests of Luna Bay Resort</span></div><button class="button" data-toast="Availability settings opened">Availability settings</button></div><div class="listing-grid">${listings.map(l=>`<article class="listing-card"><div class="listing-photo">${l.category==='Bakery'?'CAKE':l.category==='Food'?'BOX':'COFFEE'}</div><div class="listing-content"><div class="listing-heading"><div><span class="section-label">${l.category}</span><h2>${l.name}</h2></div><span class="status ${l.status.toLowerCase()}">${l.status}</span></div><div class="listing-price"><strong>${l.price}</strong><span>${l.unit}</span></div><div class="listing-details"><span>${l.stock}</span><span>${l.location}</span><span>${l.payment}</span></div><div class="listing-actions"><button class="button small" data-toast="${l.name} editor opened">Edit</button><button class="toggle ${l.status==='Active'?'on':''}" aria-label="Toggle ${l.name}"></button></div></div></article>`).join('')}</div><section class="card listing-rules"><div class="card-header"><div><h2>Booking and payment rules</h2><span class="count">Applied to new guest requests</span></div><button class="button small" data-toast="Rules editor opened">Edit</button></div><div class="rules-grid"><div><strong>Payment options</strong><span>Charge to room · Pay now via gateway</span></div><div><strong>Cancellation policy</strong><span>Moderate · Refund amount shown before cancel</span></div><div><strong>Pre-arrival booking</strong><span>Allowed · Gateway payment only before check-in</span></div><div><strong>Operating hours</strong><span>Daily · 7:00 AM–9:00 PM</span></div></div></section>`}
+function listingsView(){return `${head('Listings','Manage what guests can book or buy, at your own prices.',`<button class="button primary" data-listing-new>${icons.plus} Add listing</button>`)}<div class="listing-toolbar"><div class="listing-summary"><strong>${listings.filter(x=>x.status==='Active').length} active listings</strong><span>Visible to guests of Henry’s Resort Dumaguete</span></div><button class="button" data-toast="Availability settings opened">Availability settings</button></div><div class="listing-grid">${listings.map(l=>`<article class="listing-card"><div class="listing-photo">${l.category==='Bakery'?'CAKE':l.category==='Food'?'BOX':'COFFEE'}</div><div class="listing-content"><div class="listing-heading"><div><span class="section-label">${l.category}</span><h2>${l.name}</h2></div><span class="status ${l.status.toLowerCase()}">${l.status}</span></div><div class="listing-price"><strong>${l.price}</strong><span>${l.unit}</span></div><div class="listing-details"><span>${l.stock}</span><span>${l.location}</span><span>${l.payment}</span></div><div class="listing-actions"><button class="button small" data-toast="${l.name} editor opened">Edit</button><button class="toggle ${l.status==='Active'?'on':''}" aria-label="Toggle ${l.name}"></button></div></div></article>`).join('')}</div><section class="card listing-rules"><div class="card-header"><div><h2>Booking and payment rules</h2><span class="count">Applied to new guest requests</span></div><button class="button small" data-toast="Rules editor opened">Edit</button></div><div class="rules-grid"><div><strong>Payment options</strong><span>Charge to room · Pay now via gateway</span></div><div><strong>Cancellation policy</strong><span>Moderate · Refund amount shown before cancel</span></div><div><strong>Pre-arrival booking</strong><span>Allowed · Gateway payment only before check-in</span></div><div><strong>Operating hours</strong><span>Daily · 7:00 AM–9:00 PM</span></div></div></section>`}
 function earningsClean(){return earningsView().replace('<button>Refunds <b>1</b></button>','')}
 function listingsClean(){return listingsView().replace('Add listing','Create listing').replace('Refund amount shown before cancel','Cancellation terms shown before cancel')}
 function servicesClean(){return listingsClean().replace('<h1>Listings</h1>','<h1>Services</h1>')}
-function profileView(){return `${head('Profile','Business details, team access, settlement terms, and support.')}<div class="profile-grid"><section class="card profile-card"><div class="card-header"><h2>Business details</h2><button class="button small" data-toast="Business details editor opened">Edit</button></div><div class="profile-body"><div class="profile-identity"><span class="profile-avatar">SB</span><div><strong>Sans Rival Bakehouse</strong><span>Bakery · Partner vendor</span></div></div><div class="settings-list"><div class="setting-row"><div><strong>Contact</strong><span>Leah Santos · +63 917 555 0182</span></div></div><div class="setting-row"><div><strong>Address</strong><span>South wing · Luna Bay Resort</span></div></div><div class="setting-row"><div><strong>Linked hotel</strong><span>Luna Bay Resort</span></div></div></div></div></section><section class="card profile-card"><div class="card-header"><h2>Verification documents</h2><span class="status confirmed">Verified</span></div><div class="profile-body"><div class="setting-row"><div><strong>Business permit</strong><span>Uploaded Sep 12 · Valid through 2027</span></div><button class="button small" data-toast="Document viewer opened">View</button></div><div class="setting-row"><div><strong>Owner ID</strong><span>Uploaded Sep 12 · Verified</span></div><button class="button small" data-toast="Document viewer opened">View</button></div></div></section><section class="card profile-card"><div class="card-header"><h2>Team accounts</h2><button class="button small" data-toast="Invite staff opened">Add staff</button></div><div class="profile-body"><div class="setting-row"><div><strong>Leah Santos</strong><span>Owner · Full access</span></div><span class="status confirmed">Active</span></div><div class="setting-row"><div><strong>Marco Dela Cruz</strong><span>Staff · Orders and Listings view</span></div><span class="status confirmed">Active</span></div></div></section><section class="card profile-card"><div class="card-header"><h2>Payout account</h2><button class="button small" data-toast="Payout account editor opened">Edit</button></div><div class="profile-body"><div class="setting-row"><div><strong>BDO · ending 2084</strong><span>Weekly settlement by default · Every Friday</span></div><span class="status confirmed">Verified</span></div><div class="setting-row"><div><strong>Notifications</strong><span>Push, SMS, and email for order updates</span></div><button class="toggle on" aria-label="Notifications enabled"></button></div><div class="profile-links"><button data-toast="Help center opened">Help & support ${icons.arrow}</button><button data-toast="Logged out">Log out ${icons.arrow}</button></div></div></section></div>`}
+function profileView(){return `${head('Profile','Business details, team access, settlement terms, and support.')}<div class="profile-grid"><section class="card profile-card"><div class="card-header"><h2>Business details</h2><button class="button small" data-toast="Business details editor opened">Edit</button></div><div class="profile-body"><div class="profile-identity"><span class="profile-avatar">SB</span><div><strong>Sans Rival Bakehouse</strong><span>Bakery · Partner vendor</span></div></div><div class="settings-list"><div class="setting-row"><div><strong>Contact</strong><span>Leah Santos · +63 917 555 0182</span></div></div><div class="setting-row"><div><strong>Address</strong><span>South wing · Henry’s Resort Dumaguete</span></div></div><div class="setting-row"><div><strong>Linked hotel</strong><span>Henry’s Resort Dumaguete</span></div></div></div></div></section><section class="card profile-card"><div class="card-header"><h2>Verification documents</h2><span class="status confirmed">Verified</span></div><div class="profile-body"><div class="setting-row"><div><strong>Business permit</strong><span>Uploaded Sep 12 · Valid through 2027</span></div><button class="button small" data-toast="Document viewer opened">View</button></div><div class="setting-row"><div><strong>Owner ID</strong><span>Uploaded Sep 12 · Verified</span></div><button class="button small" data-toast="Document viewer opened">View</button></div></div></section><section class="card profile-card"><div class="card-header"><h2>Team accounts</h2><button class="button small" data-toast="Invite staff opened">Add staff</button></div><div class="profile-body"><div class="setting-row"><div><strong>Leah Santos</strong><span>Owner · Full access</span></div><span class="status confirmed">Active</span></div><div class="setting-row"><div><strong>Marco Dela Cruz</strong><span>Staff · Orders and Listings view</span></div><span class="status confirmed">Active</span></div></div></section><section class="card profile-card"><div class="card-header"><h2>Payout account</h2><button class="button small" data-toast="Payout account editor opened">Edit</button></div><div class="profile-body"><div class="setting-row"><div><strong>BDO · ending 2084</strong><span>Weekly settlement by default · Every Friday</span></div><span class="status confirmed">Verified</span></div><div class="setting-row"><div><strong>Notifications</strong><span>Push, SMS, and email for order updates</span></div><button class="toggle on" aria-label="Notifications enabled"></button></div><div class="profile-links"><button data-toast="Help center opened">Help & support ${icons.arrow}</button><button data-toast="Logged out">Log out ${icons.arrow}</button></div></div></section></div>`}
 function insightMoney(n){return '₱'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
 function dashboard18(){let html=dashboard16(),today=state.range==='Today',owner=state.role==='Owner',period={title:'Today',sub:'Orders by hour',values:[0,1,2,3,7,5],labels:['8 AM','9 AM','10 AM','11 AM','12 PM','1 PM'],intervals:['8–9 AM','9–10 AM','10–11 AM','11 AM–12 PM','12–1 PM','1–2 PM'],highlight:4,takeaway:'Busiest time: 12–1 PM · 7 orders',compare:'vs yesterday',change:'+12%'};if(state.range==='Yesterday')period={title:'Yesterday',sub:'Orders by hour',values:[1,2,4,5,3,2],labels:['8 AM','9 AM','10 AM','11 AM','12 PM','1 PM'],intervals:['8–9 AM','9–10 AM','10–11 AM','11 AM–12 PM','12–1 PM','1–2 PM'],highlight:3,takeaway:'Busiest time: 11 AM–12 PM · 5 orders',compare:'vs previous day',change:'+6%'};if(state.range==='Last week')period={title:'Last week',sub:'Orders by day',values:[5,7,4,8,10,6,8],labels:['Sep 24','25','26','27','28','29','30'],intervals:['Sep 24','Sep 25','Sep 26','Sep 27','Sep 28','Sep 29','Sep 30'],highlight:4,takeaway:'Busiest day: Sep 28 · 10 orders',compare:'vs previous week',change:'+9%'};if(state.range==='This month')period={title:'This month',sub:'Orders by day',values:[12,16,10,18,22,15,19],labels:['Sep 1','5','10','15','20','25','30'],intervals:['Sep 1','Sep 5','Sep 10','Sep 15','Sep 20','Sep 25','Sep 30'],highlight:4,takeaway:'Busiest day: Sep 20 · 22 orders',compare:'vs previous month',change:'+14%'};if(state.range==='Custom range')period={title:'Custom range',sub:'Orders by day',values:[4,6,5,8,7,10,8],labels:['Day 1','2','3','4','5','6','7'],intervals:['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7'],highlight:5,takeaway:'Busiest day: Day 6 · 10 orders',compare:'vs previous period',change:'+8%'};const ordersValue=today?'18':state.range==='Yesterday'?'15':state.range==='This month'?'124':state.range==='Last week'?'48':'42',revenueValue=today?'₱6,420':state.range==='Yesterday'?'₱5,880':state.range==='This month'?'₱124,860':state.range==='Last week'?'₱84,260':'₱84,260',tab=state.performanceTab==='top'?'top':'activity',fullTopCounts=dashboardTopListings(),topCounts=fullTopCounts.slice(0,3),activityContent='<div class="performance-card-heading"><div><h3>Order activity</h3><span>'+period.title+' · '+period.sub+'</span></div></div>'+dashboardPerformanceChart(period.values,period.labels,period.takeaway,period.intervals,period.highlight),topContent='<div class="polished-card-header"><div><h2>Top listings</h2></div>'+(fullTopCounts.length>3?'<button class="button ghost" data-view-all-listings>View all listings '+icons.arrow+'</button>':'')+'</div><div class="performance-listing-list">'+topCounts.map(x=>'<div class="performance-listing-row"><strong>'+x[0]+'</strong><span>'+x[1]+'</span></div>').join('')+'</div>';const performance='<section class="dashboard-performance"><div class="performance-heading"><h2>Performance</h2>'+(owner?'<button class="performance-insights" data-insights>View insights '+icons.arrow+'</button>':'')+'</div><div class="performance-kpis '+(owner?'owner':'staff')+'"><article class="performance-kpi"><span>Orders</span><strong>'+ordersValue+'</strong><small>↑ '+period.change+' <em>'+period.compare+'</em></small></article>'+(owner?'<article class="performance-kpi"><span>Revenue</span><strong>'+revenueValue+'</strong><small>↑ +8.1% <em>'+period.compare+'</em></small></article>':'')+'</div><div class="performance-tabs" role="tablist"><button class="'+(tab==='activity'?'active':'')+'" data-performance-tab="activity">Order activity</button><button class="'+(tab==='top'?'active':'')+'" data-performance-tab="top">Top listings</button></div><section class="performance-tab-card card" data-performance-panel>'+(tab==='top'?topContent:activityContent)+'</section></section>';return html.replace(/<section class="dashboard-performance">[\s\S]*?(?=<section class="dashboard-section card schedule-section)/,performance)}
 function insightRangeLabel(){return state.range==='Last 30 days'?'Sep 1–30, 2026':state.range==='This month'?'Sep 1–30, 2026':state.range==='Last month'?'Aug 1–31, 2026':state.range==='Custom range'?(state.customFrom&&state.customTo?state.customFrom+' – '+state.customTo:'Custom range'):'Sep 24–30, 2026'}
 function insightLineChart(values,previous,labels){const w=560,h=156,p=10,all=values.concat(previous||[]),max=Math.max.apply(null,all.concat([1]))*1.08;const path=a=>a.map((n,i)=>{const x=p+i*(w-p*2)/Math.max(1,a.length-1),y=h-p-(n/max)*(h-p*2);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join(' ');return '<div class="insight-line-wrap"><svg class="insight-line" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none" role="img" aria-label="Trend chart"><defs><linearGradient id="insight-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18a66d" stop-opacity=".18"/><stop offset="1" stop-color="#18a66d" stop-opacity="0"/></linearGradient></defs><path class="insight-gridline" d="M0 42H560M0 84H560M0 126H560"/><path class="insight-area" d="'+path(values)+' L550 146 L10 146 Z"/><path class="insight-previous-line" d="'+path(previous||[])+'"/><path class="insight-current-line" d="'+path(values)+'"/></svg><div class="insight-line-labels">'+labels.map(x=>'<span>'+x+'</span>').join('')+'</div></div>'}
 function insightMetricCard(label,value,change,trend,color='#18a66d'){return '<article class="insight-summary-card"><span>'+label+'</span><strong>'+value+'</strong><small class="'+(change<0?'down':'up')+'">'+(change<0?'↓ ':'↑ ') +Math.abs(change)+'% <em>vs '+(state.compareMode==='year'?'same period last year':'previous period')+'</em></small>'+insightSpark('spark-'+label.replace(/[^a-z]/gi,'').toLowerCase(),color)+'</article>'}
-function insightsPageNew(){if(state.role!=='Owner')return '<div class="insights-access card"><strong>Owner access required</strong><span>Insights and financial reporting are available to the establishment owner.</span><button class="button primary" data-insights-back>Back to Dashboard</button></div>';const range=insightRangeLabel(),metricRevenue=state.insightMetric!=='orders',sales=[8200,7600,9400,11800,10200,13600,12400],previous=[7400,7200,8600,9900,9800,11200,10800],orderSeries=[8,7,10,12,9,14,12],tabs=[['sales','Sales'],['orders','Orders'],['listings','Listings'],['guests','Guests & hotels']],all=insightsListingRows(),query=state.insightQuery.toLowerCase(),rows=all.filter(x=>x.join(' ').toLowerCase().includes(query)).sort((a,b)=>state.insightSort==='count'?b[1]-a[1]:b[3]-a[3]),totalRevenue=84260,comparison=state.compareMode==='year'?'+5.4%':'+8.1%';return '<div class="insights-page-new"><header class="insights-header-new"><button class="insights-back-new" data-insights-back aria-label="Back to Dashboard">←</button><div><h1>Insights</h1><span>Sans Rival Bakehouse · '+range+'</span></div><button class="insights-header-filter" data-header-filter aria-label="Filter insights"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32M14 24h20M20 36h8"/></svg></button></header><div class="insights-tools"><span class="insights-export-label">Filtered reporting</span><div><button class="button small" data-toast="CSV export prepared for '+state.insightTab+' · '+range+' · '+(state.compareMode==='year'?'same period last year':'previous period')+'">Export CSV</button><button class="button small" data-toast="PDF export prepared for '+state.insightTab+' · '+range+' · '+(state.compareMode==='year'?'same period last year':'previous period')+'">Export PDF</button></div></div><nav class="insights-tabs" aria-label="Insights sections">'+tabs.map(x=>'<button class="'+(state.insightTab===x[0]?'active':'')+'" data-insight-tab="'+x[0]+'">'+x[1]+'</button>').join('')+'</nav><main class="insights-content"><section class="insights-tab-panel '+(state.insightTab==='sales'?'active':'')+'" data-tab-panel="sales"><div class="insights-section-title"><h2>Sales</h2><span>'+range+'</span></div><div class="insights-summary-grid">'+insightMetricCard('Gross revenue',insightMoney(84260),8.1,'')+insightMetricCard('Commission',insightMoney(8426),6.2,'','#c7e8d5')+insightMetricCard('Net earnings',insightMoney(75834),8.3,'')+insightMetricCard('Average order value',insightMoney(2006),4.2,'')+'</div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Revenue over time</h3><span>'+range+' · '+(state.range==='Last 7 days'?'daily':'weekly')+'</span></div><div class="insight-toggle"><button class="'+(metricRevenue?'active':'')+'" data-insight-metric="revenue">Revenue</button><button class="'+(!metricRevenue?'active':'')+'" data-insight-metric="orders">Orders</button></div></div><div class="insight-total"><strong>'+ (metricRevenue?insightMoney(totalRevenue):42) +'</strong><span class="insight-positive">'+comparison+'</span></div>'+insightLineChart(metricRevenue?sales:orderSeries,metricRevenue?previous:[7,6,8,9,8,11,10],['Sep 24','25','26','27','28','29','30'])+'<div class="insight-legend"><span><i class="current-dot"></i>Selected period</span><span><i class="previous-dot"></i>Comparison</span></div></section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Room charge vs. Gateway</h3><span>Weekly payment mix</span></div></div><div class="stacked-weeks"><div><span><i style="height:66%"></i><i style="height:34%"></i></span><small>Week 1</small></div><div><span><i style="height:58%"></i><i style="height:42%"></i></span><small>Week 2</small></div><div><span><i style="height:72%"></i><i style="height:28%"></i></span><small>Week 3</small></div><div><span><i style="height:61%"></i><i style="height:39%"></i></span><small>Week 4</small></div></div><div class="insight-legend"><span><i class="current-dot"></i>Gateway · ₱52,240.00</span><span><i class="room-dot"></i>Charge to room · ₱32,020.00</span></div></section></div><section class="insight-report-card"><div class="insight-report-head"><div><h3>Revenue by day of the week</h3><span>'+range+'</span></div></div>'+insightBars([18,14,22,28,20,30,24],['Mon','Tue','Wed','Thu','Fri','Sat','Sun'])+'<p class="insight-takeaway">Saturdays account for 30% of revenue.</p></section></section><section class="insights-tab-panel '+(state.insightTab==='orders'?'active':'')+'" data-tab-panel="orders"><div class="insights-section-title"><h2>Orders</h2><span>'+range+'</span></div><div class="insights-summary-grid order-summary-grid"><div class="insight-summary-text"><span>Total orders</span><strong>42</strong><small>+12% vs previous period</small></div><div class="insight-summary-text"><span>Completed</span><strong>34</strong><small>80.9% of orders</small></div><div class="insight-summary-text"><span>Cancelled</span><strong>3</strong><small>7.1% of orders</small></div><div class="insight-summary-text"><span>No-shows</span><strong>1</strong><small>2.4% of bookings</small></div></div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Orders over time</h3><span>'+range+'</span></div></div>'+insightBars(orderSeries,['Sep 24','25','26','27','28','29','30'])+'</section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Order type split</h3><span>All order records</span></div></div><div class="split-list"><div><span>Bookings</span><strong>18 · 43%</strong><i style="width:43%"></i></div><div><span>In-app orders</span><strong>19 · 45%</strong><i style="width:45%"></i></div><div><span>Counter charges</span><strong>5 · 12%</strong><i style="width:12%"></i></div></div></section></div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Busiest hours</h3><span>Orders by hour</span></div></div>'+insightBars([4,8,12,9,6,3],['8 AM','10 AM','12 PM','2 PM','4 PM','6 PM'])+'</section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Cancellation and no-show rate</h3><span>Selected period</span></div></div>'+insightLineChart([3,5,4,8,7,9,7],[1,2,2,3,3,4,3],['24','25','26','27','28','29','30'])+'<div class="reason-list"><strong>Leading cancellation reasons</strong><span>Guest changed plans · 2</span><span>Capacity unavailable · 1</span></div></section></div></section><section class="insights-tab-panel '+(state.insightTab==='listings'?'active':'')+'" data-tab-panel="listings"><div class="insights-section-title"><h2>Listings</h2><span>'+range+'</span></div><section class="insight-report-card"><div class="insight-report-head"><div><h3>Top listings</h3><span>All listings · sortable</span></div><div class="insight-sort"><button class="'+(state.insightSort==='revenue'?'active':'')+'" data-insight-sort="revenue">Revenue</button><button class="'+(state.insightSort==='count'?'active':'')+'" data-insight-sort="count">Orders</button></div></div><label class="insight-search">⌕<input data-insight-search value="'+esc(state.insightQuery)+'" placeholder="Search listings"></label><div class="insights-table-scroll"><table class="insights-table"><thead><tr><th>Rank</th><th>Listing</th><th>Orders</th><th>Revenue</th><th>% of total</th></tr></thead><tbody>'+(rows.length?rows.map((x,i)=>'<tr><td>'+ (i+1) +'</td><td><strong>'+x[0]+'</strong></td><td>'+x[1]+'</td><td>'+insightMoney(x[3])+'</td><td>'+Math.round(x[3]/totalRevenue*100)+'%</td></tr>').join(''):'<tr><td colspan="5">No listings match your search.</td></tr>')+'</tbody></table></div></section><section class="insight-report-card low-performers"><div class="insight-report-head"><div><h3>Low performers</h3><span>Active listings with few or no orders</span></div></div><p>Cold Brew Bottle has 4 orders in this period. Review its photos or pricing to improve visibility.</p></section></section><section class="insights-tab-panel '+(state.insightTab==='guests'?'active':'')+'" data-tab-panel="guests"><div class="insights-section-title"><h2>Guests &amp; hotels</h2><span>'+range+'</span></div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Orders by partner hotel</h3><span>Volume and revenue</span></div></div><div class="hotel-bars"><div><span>Luna Bay Resort</span><i style="width:82%"></i><strong>42 orders · ₱84,260.00</strong></div><div><span>Harborview Hotel</span><i style="width:38%"></i><strong>18 orders · ₱31,420.00</strong></div></div></section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Pre-arrival vs. In-stay orders</h3><span>Guest timing</span></div></div><div class="prestay-bar"><span style="width:18%"></span><span style="width:82%"></span></div><div class="split-legend"><span>Pre-arrival <strong>8 · 18%</strong></span><span>In-stay <strong>34 · 82%</strong></span></div><div class="repeat-guest"><span>Repeat guests</span><strong>12 · 29%</strong></div></section></div><section class="insight-report-card"><div class="insight-report-head"><div><h3>Guest ratings</h3><span>Reviews have not launched yet</span></div></div><div class="insight-empty-state">Guest ratings will appear after reviews launch.</div></section></section></main></div>'}
+function insightsPageNew(){if(state.role!=='Owner')return '<div class="insights-access card"><strong>Owner access required</strong><span>Insights and financial reporting are available to the establishment owner.</span><button class="button primary" data-insights-back>Back to Dashboard</button></div>';const range=insightRangeLabel(),metricRevenue=state.insightMetric!=='orders',sales=[8200,7600,9400,11800,10200,13600,12400],previous=[7400,7200,8600,9900,9800,11200,10800],orderSeries=[8,7,10,12,9,14,12],tabs=[['sales','Sales'],['orders','Orders'],['listings','Listings'],['guests','Guests & hotels']],all=insightsListingRows(),query=state.insightQuery.toLowerCase(),rows=all.filter(x=>x.join(' ').toLowerCase().includes(query)).sort((a,b)=>state.insightSort==='count'?b[1]-a[1]:b[3]-a[3]),totalRevenue=84260,comparison=state.compareMode==='year'?'+5.4%':'+8.1%';return '<div class="insights-page-new"><header class="insights-header-new"><button class="insights-back-new" data-insights-back aria-label="Back to Dashboard">←</button><div><h1>Insights</h1><span>Sans Rival Bakehouse · '+range+'</span></div><button class="insights-header-filter" data-header-filter aria-label="Filter insights"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32M14 24h20M20 36h8"/></svg></button></header><div class="insights-tools"><span class="insights-export-label">Filtered reporting</span><div><button class="button small" data-toast="CSV export prepared for '+state.insightTab+' · '+range+' · '+(state.compareMode==='year'?'same period last year':'previous period')+'">Export CSV</button><button class="button small" data-toast="PDF export prepared for '+state.insightTab+' · '+range+' · '+(state.compareMode==='year'?'same period last year':'previous period')+'">Export PDF</button></div></div><nav class="insights-tabs" aria-label="Insights sections">'+tabs.map(x=>'<button class="'+(state.insightTab===x[0]?'active':'')+'" data-insight-tab="'+x[0]+'">'+x[1]+'</button>').join('')+'</nav><main class="insights-content"><section class="insights-tab-panel '+(state.insightTab==='sales'?'active':'')+'" data-tab-panel="sales"><div class="insights-section-title"><h2>Sales</h2><span>'+range+'</span></div><div class="insights-summary-grid">'+insightMetricCard('Gross revenue',insightMoney(84260),8.1,'')+insightMetricCard('Commission',insightMoney(8426),6.2,'','#c7e8d5')+insightMetricCard('Net earnings',insightMoney(75834),8.3,'')+insightMetricCard('Average order value',insightMoney(2006),4.2,'')+'</div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Revenue over time</h3><span>'+range+' · '+(state.range==='Last 7 days'?'daily':'weekly')+'</span></div><div class="insight-toggle"><button class="'+(metricRevenue?'active':'')+'" data-insight-metric="revenue">Revenue</button><button class="'+(!metricRevenue?'active':'')+'" data-insight-metric="orders">Orders</button></div></div><div class="insight-total"><strong>'+ (metricRevenue?insightMoney(totalRevenue):42) +'</strong><span class="insight-positive">'+comparison+'</span></div>'+insightLineChart(metricRevenue?sales:orderSeries,metricRevenue?previous:[7,6,8,9,8,11,10],['Sep 24','25','26','27','28','29','30'])+'<div class="insight-legend"><span><i class="current-dot"></i>Selected period</span><span><i class="previous-dot"></i>Comparison</span></div></section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Room charge vs. Gateway</h3><span>Weekly payment mix</span></div></div><div class="stacked-weeks"><div><span><i style="height:66%"></i><i style="height:34%"></i></span><small>Week 1</small></div><div><span><i style="height:58%"></i><i style="height:42%"></i></span><small>Week 2</small></div><div><span><i style="height:72%"></i><i style="height:28%"></i></span><small>Week 3</small></div><div><span><i style="height:61%"></i><i style="height:39%"></i></span><small>Week 4</small></div></div><div class="insight-legend"><span><i class="current-dot"></i>Gateway · ₱52,240.00</span><span><i class="room-dot"></i>Charge to room · ₱32,020.00</span></div></section></div><section class="insight-report-card"><div class="insight-report-head"><div><h3>Revenue by day of the week</h3><span>'+range+'</span></div></div>'+insightBars([18,14,22,28,20,30,24],['Mon','Tue','Wed','Thu','Fri','Sat','Sun'])+'<p class="insight-takeaway">Saturdays account for 30% of revenue.</p></section></section><section class="insights-tab-panel '+(state.insightTab==='orders'?'active':'')+'" data-tab-panel="orders"><div class="insights-section-title"><h2>Orders</h2><span>'+range+'</span></div><div class="insights-summary-grid order-summary-grid"><div class="insight-summary-text"><span>Total orders</span><strong>42</strong><small>+12% vs previous period</small></div><div class="insight-summary-text"><span>Completed</span><strong>34</strong><small>80.9% of orders</small></div><div class="insight-summary-text"><span>Cancelled</span><strong>3</strong><small>7.1% of orders</small></div><div class="insight-summary-text"><span>No-shows</span><strong>1</strong><small>2.4% of bookings</small></div></div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Orders over time</h3><span>'+range+'</span></div></div>'+insightBars(orderSeries,['Sep 24','25','26','27','28','29','30'])+'</section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Order type split</h3><span>All order records</span></div></div><div class="split-list"><div><span>Bookings</span><strong>18 · 43%</strong><i style="width:43%"></i></div><div><span>In-app orders</span><strong>19 · 45%</strong><i style="width:45%"></i></div><div><span>Counter charges</span><strong>5 · 12%</strong><i style="width:12%"></i></div></div></section></div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Busiest hours</h3><span>Orders by hour</span></div></div>'+insightBars([4,8,12,9,6,3],['8 AM','10 AM','12 PM','2 PM','4 PM','6 PM'])+'</section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Cancellation and no-show rate</h3><span>Selected period</span></div></div>'+insightLineChart([3,5,4,8,7,9,7],[1,2,2,3,3,4,3],['24','25','26','27','28','29','30'])+'<div class="reason-list"><strong>Leading cancellation reasons</strong><span>Guest changed plans · 2</span><span>Capacity unavailable · 1</span></div></section></div></section><section class="insights-tab-panel '+(state.insightTab==='listings'?'active':'')+'" data-tab-panel="listings"><div class="insights-section-title"><h2>Listings</h2><span>'+range+'</span></div><section class="insight-report-card"><div class="insight-report-head"><div><h3>Top listings</h3><span>All listings · sortable</span></div><div class="insight-sort"><button class="'+(state.insightSort==='revenue'?'active':'')+'" data-insight-sort="revenue">Revenue</button><button class="'+(state.insightSort==='count'?'active':'')+'" data-insight-sort="count">Orders</button></div></div><label class="insight-search">⌕<input data-insight-search value="'+esc(state.insightQuery)+'" placeholder="Search listings"></label><div class="insights-table-scroll"><table class="insights-table"><thead><tr><th>Rank</th><th>Listing</th><th>Orders</th><th>Revenue</th><th>% of total</th></tr></thead><tbody>'+(rows.length?rows.map((x,i)=>'<tr><td>'+ (i+1) +'</td><td><strong>'+x[0]+'</strong></td><td>'+x[1]+'</td><td>'+insightMoney(x[3])+'</td><td>'+Math.round(x[3]/totalRevenue*100)+'%</td></tr>').join(''):'<tr><td colspan="5">No listings match your search.</td></tr>')+'</tbody></table></div></section><section class="insight-report-card low-performers"><div class="insight-report-head"><div><h3>Low performers</h3><span>Active listings with few or no orders</span></div></div><p>Cold Brew Bottle has 4 orders in this period. Review its photos or pricing to improve visibility.</p></section></section><section class="insights-tab-panel '+(state.insightTab==='guests'?'active':'')+'" data-tab-panel="guests"><div class="insights-section-title"><h2>Guests &amp; hotels</h2><span>'+range+'</span></div><div class="insights-report-grid"><section class="insight-report-card"><div class="insight-report-head"><div><h3>Orders by partner hotel</h3><span>Volume and revenue</span></div></div><div class="hotel-bars"><div><span>Henry’s Resort Dumaguete</span><i style="width:82%"></i><strong>42 orders · ₱84,260.00</strong></div><div><span>Harborview Hotel</span><i style="width:38%"></i><strong>18 orders · ₱31,420.00</strong></div></div></section><section class="insight-report-card"><div class="insight-report-head"><div><h3>Pre-arrival vs. In-stay orders</h3><span>Guest timing</span></div></div><div class="prestay-bar"><span style="width:18%"></span><span style="width:82%"></span></div><div class="split-legend"><span>Pre-arrival <strong>8 · 18%</strong></span><span>In-stay <strong>34 · 82%</strong></span></div><div class="repeat-guest"><span>Repeat guests</span><strong>12 · 29%</strong></div></section></div><section class="insight-report-card"><div class="insight-report-head"><div><h3>Guest ratings</h3><span>Reviews have not launched yet</span></div></div><div class="insight-empty-state">Guest ratings will appear after reviews launch.</div></section></section></main></div>'}
 function insightsPageListingsFocus(){if(state.role!=='Owner')return '<div class="insights-access card"><strong>Owner access required</strong><span>Insights and financial reporting are available to the establishment owner.</span><button class="button primary" data-insights-back>Back to Dashboard</button></div>';const rows=insightsListingRows(),query=state.insightQuery.trim().toLowerCase(),hasOrders=rows.some(x=>x[1]>0),filtered=rows.filter(x=>(!state.listingsZeroOnly||x[1]===0)&&x.join(' ').toLowerCase().includes(query)).sort((a,b)=>state.insightSort==='count'?b[1]-a[1]:b[3]-a[3]),sortLabel=state.insightSort==='count'?'Orders':'Revenue',range=insightRangeLabel(),renderRow=x=>'<article class="insights-listing-card"><h3>'+esc(x[0])+'</h3><div class="insights-listing-metrics"><div><span>Orders</span><strong>'+x[1]+'</strong></div>'+(state.role==='Owner'?'<div><span>Revenue</span><strong>'+insightMoney(x[3])+'</strong></div>':'')+'</div></article>',empty=query?'<div class="insights-listing-empty">No listings match your search</div>':'',noOrdersNote=!hasOrders?'<div class="insights-listing-empty">No orders in this period</div>':'';return '<div class="insights-listings-focus"><header class="insights-focus-header"><button class="insights-back-new" data-insights-back aria-label="Back to Dashboard">←</button><div class="insights-focus-title"><h1>Insights</h1><span>Sans Rival Bakehouse · '+range+'</span></div><div class="insights-focus-actions"><button class="insights-export-icon" data-listings-export-toggle aria-label="Export listings"><i class="hgi-stroke hgi-download-04" aria-hidden="true"></i></button><button class="insights-header-filter" data-header-filter aria-label="Filter insights"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32M14 24h20M20 36h8"/></svg></button>'+(state.listingsExportOpen?'<div class="insights-export-menu"><button data-toast="CSV export prepared for listings · '+range+'">CSV</button><button data-toast="PDF export prepared for listings · '+range+'">PDF</button></div>':'')+'</div></header><nav class="insights-tabs" aria-label="Insights sections"><button class="'+(state.insightTab==='sales'?'active':'')+'" data-insight-tab="sales">Sales</button><button class="'+(state.insightTab==='orders'?'active':'')+'" data-insight-tab="orders">Orders</button><button class="active" data-insight-tab="listings">Listings</button></nav><main class="insights-focus-content"><div class="insights-listing-heading"><h2>Listing performance</h2><span>'+rows.length+' listings</span></div><label class="insights-listing-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input data-insight-search value="'+esc(state.insightQuery)+'" placeholder="Search listings" aria-label="Search listings"></label><div class="insights-listing-controls"><div class="insights-listing-sort-wrap"><button class="insights-listing-sort" data-listing-sort-toggle>Sort by: '+sortLabel+' <span>⌄</span></button>'+(state.listingSortOpen?'<div class="insights-listing-sort-menu"><button data-listing-sort-option="count" class="'+(state.insightSort==='count'?'active':'')+'">Orders</button><button data-listing-sort-option="revenue" class="'+(state.insightSort==='revenue'?'active':'')+'">Revenue</button></div>':'')+'</div>'+(rows.some(x=>x[1]===0)?'<div class="insights-listing-filter-group" role="group" aria-label="Listing filter"><button class="'+(!state.listingsZeroOnly?'active':'')+'" data-listing-filter="all" aria-pressed="'+(!state.listingsZeroOnly)+'">All listings</button><button class="'+(state.listingsZeroOnly?'active':'')+'" data-listing-filter="zero" aria-pressed="'+state.listingsZeroOnly+'">No orders</button></div>':'')+'</div><div class="insights-listing-cards">'+noOrdersNote+(filtered.length?filtered.map(renderRow).join(''):empty)+'</div></main></div>'}
 function dashboardTopListings(){const ranges={Today:[['Whole Sans Rival Cake','8 orders'],['Island Breakfast Box','5 orders'],['Cold Brew Bottle','3 orders'],['Celebration Cake Slice','2 orders'],['Pandan Latte','1 order'],['Seasonal tart','0 orders']],Yesterday:[['Whole Sans Rival Cake','7 orders'],['Island Breakfast Box','5 orders'],['Cold Brew Bottle','3 orders'],['Celebration Cake Slice','2 orders'],['Pandan Latte','1 order'],['Seasonal tart','0 orders']],'Last week':[['Whole Sans Rival Cake','42 orders'],['Island Breakfast Box','28 orders'],['Cold Brew Bottle','18 orders'],['Celebration Cake Slice','14 orders'],['Pandan Latte','11 orders'],['Seasonal tart','0 orders']],'This month':[['Whole Sans Rival Cake','48 orders'],['Island Breakfast Box','32 orders'],['Cold Brew Bottle','22 orders'],['Celebration Cake Slice','16 orders'],['Pandan Latte','12 orders'],['Seasonal tart','0 orders']],'Custom range':[['Whole Sans Rival Cake','42 orders'],['Island Breakfast Box','28 orders'],['Cold Brew Bottle','18 orders'],['Celebration Cake Slice','14 orders'],['Pandan Latte','11 orders'],['Seasonal tart','0 orders']]};return ranges[state.range]||ranges['Custom range']}
 function insightsListingRows(){const revenue={Today:[9600,3400,660,440,220,0],Yesterday:[8400,3400,660,440,220,0],'Last week':[50400,19040,3960,2800,2420,0],'This month':[57600,21760,4840,3200,2640,0], 'Custom range':[50400,19040,3960,2800,2420,0]};return dashboardTopListings().map((x,i)=>[x[0],parseInt(x[1],10),parseInt(x[1],10)+(i<2?i+1:0),(revenue[state.range]||revenue['Custom range'])[i]])}
@@ -482,7 +482,7 @@ function listingStatusCounts(){return {All:listings.length,Active:listings.filte
 function listingFilteredRows(){const query=(state.listingQuery||'').trim().toLowerCase(),status=state.listingStatusFilter||'All';return listings.filter(listing=>(status==='All'||(status==='Drafts'?listing.status==='Draft':listing.status===status))&&(!query||listing.name.toLowerCase().includes(query)))}
 function listingMenuMarkup(listing){if(state.listingMenu!==listing.id)return '';const pause=listing.status==='Active'?'Pause':'Resume';return '<div class="listing-action-menu" role="menu"><button data-listing-menu-action="edit" data-listing-id="'+listing.id+'">Edit</button><button data-listing-menu-action="preview" data-listing-id="'+listing.id+'">Preview as guest</button><button data-listing-menu-action="duplicate" data-listing-id="'+listing.id+'">Duplicate</button><button data-listing-menu-action="pause" data-listing-id="'+listing.id+'">'+pause+'</button><button data-listing-menu-action="delete" data-listing-id="'+listing.id+'">Delete</button></div>'}
 function listingCardMarkup(listing,grid=false){const owner=state.role==='Owner',count=listingOrderCount(listing),draft=listing.status==='Draft',statusClass=(listing.status||'').toLowerCase();return '<article class="listing-compact-card '+(grid?'listing-grid-card':'listing-list-card')+'" data-listing-card="'+listing.id+'">'+(grid?listingPhotoMarkup(listing,true):listingPhotoMarkup(listing,false))+'<div class="listing-compact-body"><button class="listing-card-main" data-listing-detail="'+listing.id+'"><span class="listing-card-heading"><span><strong>'+esc(listing.name)+'</strong><small>'+esc(listing.category)+'</small></span><em class="listing-status-pill '+statusClass+'">'+esc(listing.status)+'</em></span>'+(grid?'<span class="listing-price-line"><strong>'+listingMoney(listing.price)+'</strong><small>/ '+esc(String(listing.unit||'').replace(/^per\s+/i,''))+'</small></span>':'<span class="listing-price-line"><strong>'+listingMoney(listing.price)+'</strong><small>/ '+esc(String(listing.unit||'').replace(/^per\s+/i,''))+'</small></span>')+'<span class="listing-quick-info"><span>'+count+' '+(count===1?'order':'orders')+' this week</span><span>'+listingAvailabilitySummary(listing)+'</span></span></button><div class="listing-compact-actions">'+(draft?'<button class="listing-setup-action" data-listing-menu-action="setup" data-listing-id="'+listing.id+'">Continue setup</button>':owner?'<label class="listing-toggle-control"><input type="checkbox" data-listing-toggle data-listing-id="'+listing.id+'" '+(listing.status==='Active'?'checked':'')+' aria-label="'+(listing.status==='Active'?'Pause ':'Activate ')+esc(listing.name)+'"><span></span></label>':'')+(owner?'<button class="listing-menu-trigger" data-listing-menu-toggle data-listing-id="'+listing.id+'" aria-label="More actions for '+esc(listing.name)+'">•••</button>':'')+listingMenuMarkup(listing)+'</div></div></article>'}
-function compactListingsPage(){const owner=state.role==='Owner',counts=listingStatusCounts(),rows=listingFilteredRows(),cards=rows.length?rows.map(x=>listingCardMarkup(x,state.listingView==='grid')).join(''):(state.listingQuery?'<div class="listings-empty-state"><strong>No listings match your search.</strong></div>':owner?'<div class="listings-empty-state"><strong>You don’t have any listings yet.</strong><span>Create your first listing so Cabana guests can book or buy from you.</span><button class="button primary" data-listing-new>+ New listing</button></div>':'<div class="listings-empty-state"><strong>No listings yet.</strong><span>Ask your business owner to add one.</span></div>');const filters=[['All',counts.All],['Active',counts.Active],['Paused',counts.Paused],['Drafts',counts.Drafts]];return head('Listings','',owner?'<button class="button primary listings-create-action" data-listing-new>'+icons.plus+' New listing</button>':'')+'<section class="listings-workspace"><div class="listings-toolbar-compact"><label class="listings-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input data-listings-search value="'+esc(state.listingQuery||'')+'" placeholder="Search listings" aria-label="Search listings"></label><div class="listings-view-controls" role="group" aria-label="Listing view"><button class="'+(state.listingView==='list'?'active':'')+'" data-listing-view="list" aria-label="List view"><i class="hgi-stroke hgi-list-view" aria-hidden="true"></i><span>List</span></button><button class="'+(state.listingView==='grid'?'active':'')+'" data-listing-view="grid" aria-label="Grid view"><i class="hgi-stroke hgi-grid-view" aria-hidden="true"></i><span>Grid</span></button></div></div><div class="listings-status-filters" role="tablist" aria-label="Listing status">'+filters.map(([label,count])=>'<button class="'+(state.listingStatusFilter===label?'active':'')+'" data-listing-status="'+label+'">'+label+' <span>'+count+'</span></button>').join('')+'</div><div class="listing-grid compact-listing-grid '+(state.listingView==='grid'?'is-grid':'is-list')+'">'+cards+'</div></section>'}
+function compactListingsPage(){const owner=state.role==='Owner',counts=listingStatusCounts(),rows=listingFilteredRows(),cards=rows.length?rows.map(x=>listingCardMarkup(x,state.listingView==='grid')).join(''):(state.listingQuery?'<div class="listings-empty-state"><strong>No listings match your search.</strong></div>':owner?'<div class="listings-empty-state"><strong>You don’t have any listings yet.</strong><span>Create your first listing so Cabana guests can book or buy from you.</span><button class="button primary" data-listing-new>+ Create new listing</button></div>':'<div class="listings-empty-state"><strong>No listings yet.</strong><span>Ask your business owner to add one.</span></div>');const filters=[['All',counts.All],['Active',counts.Active],['Paused',counts.Paused],['Drafts',counts.Drafts]];return head('Listings','',owner?'<button class="button primary listings-create-action" data-listing-new>'+icons.plus+' Create new listing</button>':'')+'<section class="listings-workspace"><div class="listings-toolbar-compact"><label class="listings-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input data-listings-search value="'+esc(state.listingQuery||'')+'" placeholder="Search listings" aria-label="Search listings"></label><div class="listings-view-controls" role="group" aria-label="Listing view"><button class="'+(state.listingView==='list'?'active':'')+'" data-listing-view="list" aria-label="List view"><i class="hgi-stroke hgi-list-view" aria-hidden="true"></i><span>List</span></button><button class="'+(state.listingView==='grid'?'active':'')+'" data-listing-view="grid" aria-label="Grid view"><i class="hgi-stroke hgi-grid-view" aria-hidden="true"></i><span>Grid</span></button></div></div><div class="listings-status-filters" role="tablist" aria-label="Listing status">'+filters.map(([label,count])=>'<button class="'+(state.listingStatusFilter===label?'active':'')+'" data-listing-status="'+label+'">'+label+' <span>'+count+'</span></button>').join('')+'</div><div class="listing-grid compact-listing-grid '+(state.listingView==='grid'?'is-grid':'is-list')+'">'+cards+'</div></section>'}
 function listingDetailPage(){const listing=listings.find(x=>x.id===state.listingDetail);if(!listing)return compactListingsPage();const owner=state.role==='Owner',count=listingOrderCount(listing),stock=listingAvailabilitySummary(listing);return '<div class="listing-detail-page"><button class="listing-detail-back" data-listing-detail-back>← Listings</button><header class="listing-detail-header">'+listingPhotoMarkup(listing,true)+'<div><span class="listing-status-pill '+String(listing.status||'').toLowerCase()+'">'+esc(listing.status)+'</span><h1>'+esc(listing.name)+'</h1><p>'+esc(listing.category)+' · '+listingMoney(listing.price)+' / '+esc(String(listing.unit||'').replace(/^per\s+/i,''))+'</p></div></header><div class="listing-detail-actions">'+(owner?'<button class="button primary" data-toast="Guest preview opened">Preview as guest</button><button class="button ghost" data-listing-edit> Edit </button>':'')+'</div><section class="listing-detail-section"><h2>Details</h2><p>'+esc(listing.category)+' listing with guest-facing descriptions and photos.</p></section><section class="listing-detail-section"><h2>Pricing</h2><p>'+listingMoney(listing.price)+' per '+esc(String(listing.unit||'').replace(/^per\s+/i,''))+' · Payment: '+esc(listing.payment||'Not set')+'</p></section><section class="listing-detail-section"><h2>Availability</h2><div class="listing-availability-summary"><strong>'+esc(stock)+'</strong><span>Select a date to manage units, price, or blocks.</span></div><div class="listing-calendar-mini">'+['Oct 5','Oct 6','Oct 7','Oct 8','Oct 9'].map((day,i)=>'<button data-listing-date="'+day+'"><strong>'+day+'</strong><span>'+((i===2&&!listingHasStock(listing))?'Available':'Open')+'</span></button>').join('')+'</div></section><section class="listing-detail-section"><h2>Capacity</h2><p>'+esc(listing.stock||'Capacity configured in availability')+'</p></section><section class="listing-detail-section"><h2>Location &amp; instructions</h2><p>'+esc(listing.location||'Service location not set')+'</p></section><section class="listing-detail-section"><h2>Booking rules</h2><p>Confirmation method: '+esc(listing.confirmationMethod||'Manual approval')+'</p></section><section class="listing-detail-section"><h2>Payment</h2><p>'+esc(listing.payment||'Payment methods not set')+'</p></section>'+(owner?'<section class="listing-detail-section"><h2>Performance</h2><p>'+count+' orders this month</p><button class="button ghost" data-insights>View insights →</button></section>':'')+'</div>'}
 listingsClean=function(){return compactListingsPage()};
 const viewBeforeCompactListings=view;
@@ -665,9 +665,9 @@ if(!window.__cabanaChatFinalized){
 
 /* Chat workspace: partner hotel threads stay pinned above guest conversations. */
 const cabanaChatThreads=[
-  {id:'front-desk-luna',kind:'frontdesk',name:'Luna Bay Resort',role:'Front Desk',hotel:'Luna Bay Resort',room:'',time:'10:42 AM',preview:'Can you take 2 more pax tomorrow?',unread:1,icon:'⌂',messages:[{from:'them',text:'Can you take 2 more pax tomorrow?',time:'10:42 AM'}]},
-  {id:'nina-garcia',kind:'guest',name:'Nina Garcia',role:'Guest',hotel:'Luna Bay Resort',room:'203',booking:'#BK-9002',time:'9:15 AM',preview:'Thanks, see you at the lobby!',icon:'NG',messages:[{from:'them',text:'Thanks, see you at the lobby!',time:'9:15 AM'},{from:'me',text:'You’re welcome — we’ll see you there.',time:'9:18 AM'}]},
-  {id:'marco-santos',kind:'guest',name:'Marco Santos',role:'Guest',hotel:'Luna Bay Resort',room:'508',booking:'#BK-9003',time:'Yesterday',preview:'What time is pickup?',icon:'MS',messages:[{from:'them',text:'What time is pickup?',time:'Yesterday'},{from:'me',text:'Pickup is at 4:30 PM from the lobby.',time:'Yesterday'}]}
+  {id:'front-desk-luna',kind:'frontdesk',name:'Henry’s Resort Dumaguete',role:'Front Desk',hotel:'Henry’s Resort Dumaguete',room:'',time:'10:42 AM',preview:'Can you take 2 more pax tomorrow?',unread:1,icon:'⌂',messages:[{from:'them',text:'Can you take 2 more pax tomorrow?',time:'10:42 AM'}]},
+  {id:'nina-garcia',kind:'guest',name:'Nina Garcia',role:'Guest',hotel:'Henry’s Resort Dumaguete',room:'203',booking:'#BK-9002',time:'9:15 AM',preview:'Thanks, see you at the lobby!',icon:'NG',messages:[{from:'them',text:'Thanks, see you at the lobby!',time:'9:15 AM'},{from:'me',text:'You’re welcome — we’ll see you there.',time:'9:18 AM'}]},
+  {id:'marco-santos',kind:'guest',name:'Marco Santos',role:'Guest',hotel:'Henry’s Resort Dumaguete',room:'508',booking:'#BK-9003',time:'Yesterday',preview:'What time is pickup?',icon:'MS',messages:[{from:'them',text:'What time is pickup?',time:'Yesterday'},{from:'me',text:'Pickup is at 4:30 PM from the lobby.',time:'Yesterday'}]}
 ];
 state.chatFilter=state.chatFilter||'All';
 state.chatThread=state.chatThread||'front-desk-luna';
@@ -756,7 +756,7 @@ function bookingLatestDateMatches(record,date,filters){
 bookingLatestFilterSheet=function(){
   if(!state.bookingFilterOpen)return '';
   const f=state.bookingLatestFilters||{},selectedListings=bookingLatestSelectedListings(),allListingsSelected=!selectedListings.length;
-  const dateOptions=state.bookingTab==='Past'?['All dates','Today','Last 7 days','Last 30 days','Custom range…']:['All dates','Today','Tomorrow','This week','Custom range…'];
+  const dateOptions=['All dates','Last 7 days','Last 30 days','This month','Last month','This year','Custom range…'];
   const dateChoice=value=>'<label class="booking-choice booking-choice-radio '+(f.date===value?'active':'')+'"><input type="radio" name="booking-date-filter" value="'+esc(value)+'" data-latest-filter-option="date" '+(f.date===value?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>';
   const listingChoice=value=>{const checked=value==='All listings'?allListingsSelected:selectedListings.includes(value);return '<label class="booking-choice booking-choice-checkbox '+(checked?'active':'')+'"><input type="checkbox" name="booking-listing-filter" value="'+esc(value)+'" data-latest-filter-option="listing" '+(checked?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>'};
   const custom=f.date==='Custom range…'?'<div class="booking-custom-range"><label>From<input type="date" data-latest-custom-from value="'+esc(f.customFrom||'')+'"></label><label>To<input type="date" data-latest-custom-to value="'+esc(f.customTo||'')+'"></label></div>':'';
@@ -801,10 +801,10 @@ dashboardOperationalBookingRow=function(order,dateLabel){
 
 /* Final Bookings schedule refinement: calendar-day groups, no Later bucket, no QR controls. */
 const bookingScheduleExtras=[
-  {id:'CB-9007',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 7 · 4:30 PM · 2 hours',fulfilment:'Hotel pick-up · Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
-  {id:'CB-9010',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 9 · 8:30 AM · 2 hours',fulfilment:'Hotel pick-up · Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 2 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
-  {id:'CB-9013',kind:'Booking',guest:'Leo Santos',hotel:'Luna Bay Resort',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 13 · 9:00 AM–Oct 14 · 9:00 AM · 1 day',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 4 · 1:20 PM']],notes:'Return by 9:00 AM on Oct 14.',contact:'Open guest chat'},
-  {id:'PAST-DECLINED-02',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Private bakery tasting',quantity:'4 guests',when:'Oct 2 · 2:00 PM · 1 hour',fulfilment:'Tasting room',total:'₱4,800.00',payment:'Gateway payment pending',settlement:'Vendor declined',status:'Declined',timeline:[['Booking requested','Sep 29 · 4:00 PM'],['Declined','Oct 1 · 8:14 AM']],notes:'',contact:'View guest record'}
+  {id:'CB-9007',kind:'Booking',guest:'Amelia Reyes',hotel:'Henry’s Resort Dumaguete',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 7 · 4:30 PM · 2 hours',fulfilment:'Hotel pick-up · Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
+  {id:'CB-9010',kind:'Booking',guest:'Amelia Reyes',hotel:'Henry’s Resort Dumaguete',room:'508',item:'Airport Transfer — Sedan',quantity:'2 pax · 2 bags',when:'Oct 9 · 8:30 AM · 2 hours',fulfilment:'Hotel pick-up · Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Confirmed',timeline:[['Booking confirmed','Oct 2 · 10:14 AM']],notes:'Child seat requested.',contact:'Open guest chat'},
+  {id:'CB-9013',kind:'Booking',guest:'Leo Santos',hotel:'Henry’s Resort Dumaguete',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 13 · 9:00 AM–Oct 14 · 9:00 AM · 1 day',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 4 · 1:20 PM']],notes:'Return by 9:00 AM on Oct 14.',contact:'Open guest chat'},
+  {id:'PAST-DECLINED-02',kind:'Booking',guest:'Nina Garcia',hotel:'Henry’s Resort Dumaguete',room:'203',item:'Private bakery tasting',quantity:'4 guests',when:'Oct 2 · 2:00 PM · 1 hour',fulfilment:'Tasting room',total:'₱4,800.00',payment:'Gateway payment pending',settlement:'Vendor declined',status:'Declined',timeline:[['Booking requested','Sep 29 · 4:00 PM'],['Declined','Oct 1 · 8:14 AM']],notes:'',contact:'View guest record'}
 ];
 function bookingCalendarLabel(o){
   const raw=String(o.when||'');
@@ -924,7 +924,7 @@ const dashboardRoomChargeScannerMarkup=function(){
   if(!state.dashboardRoomChargeQrOpen)return '';
   const step=state.dashboardRoomChargeQrStep||'scan';
   let body='';
-  if(step==='scanned')body='<div class="dashboard-qr-guest"><span class="dashboard-qr-guest-label">Guest identified</span><strong>Amelia Reyes</strong><span>Luna Bay Resort · Room 508</span></div><p class="dashboard-qr-confirm-note">Review the guest details before charging this purchase to the room. Scanning did not create a charge.</p><div class="dashboard-qr-actions"><button class="button" data-dashboard-qr-close>Cancel</button><button class="button primary" data-dashboard-qr-confirm>Confirm room charge</button></div>';
+  if(step==='scanned')body='<div class="dashboard-qr-guest"><span class="dashboard-qr-guest-label">Guest identified</span><strong>Amelia Reyes</strong><span>Henry’s Resort Dumaguete · Room 508</span></div><p class="dashboard-qr-confirm-note">Review the guest details before charging this purchase to the room. Scanning did not create a charge.</p><div class="dashboard-qr-actions"><button class="button" data-dashboard-qr-close>Cancel</button><button class="button primary" data-dashboard-qr-confirm>Confirm room charge</button></div>';
   else if(step==='invalid')body='<div class="dashboard-qr-error"><strong>QR code not recognized</strong><span>The code may be invalid, expired, or too blurry to read.</span></div><button class="button primary" data-dashboard-qr-retry>Try again</button>';
   else if(step==='confirmed')body='<div class="dashboard-qr-success">Room charge confirmed for Amelia Reyes · Room 508.</div><button class="button primary" data-dashboard-qr-close>Done</button>';
   else body='<div class="dashboard-qr-frame"><i class="hgi-stroke hgi-qr-code-01" aria-hidden="true"></i><span>Place the guest’s QR code inside the frame</span></div><p>Ask the guest to open their Cabana room-charge QR. Scan it to verify their name, hotel, and room. Nothing is charged until you confirm.</p><button class="button primary" data-dashboard-qr-scan>Scan guest QR</button><button class="dashboard-qr-help" data-dashboard-qr-invalid>Show unreadable-code error</button>';
@@ -972,8 +972,8 @@ setTimeout(()=>{
 
 /* Final Bookings workflow: decided records only; requests stay on Home. */
 var bookingPastExtras=[
- {id:'PAST-DECLINED-01',kind:'Booking',guest:'John D.',hotel:'Luna Bay Resort',room:'101',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 4 · 1 day',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Vehicle unavailable',status:'Declined',timeline:[['Booking requested','Oct 4 · 7:10 AM'],['Declined','Oct 4 · 7:18 AM']]},
- {id:'PAST-EXPIRED-01',kind:'Booking',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Airport Transfer — Van',quantity:'4 pax',when:'Oct 3 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱3,600.00',payment:'Paid in app',settlement:'Confirmation deadline passed',status:'Expired',timeline:[['Booking requested','Oct 3 · 9:00 AM'],['Expired','Oct 3 · 10:00 AM']]}
+ {id:'PAST-DECLINED-01',kind:'Booking',guest:'John D.',hotel:'Henry’s Resort Dumaguete',room:'101',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 4 · 1 day',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Vehicle unavailable',status:'Declined',timeline:[['Booking requested','Oct 4 · 7:10 AM'],['Declined','Oct 4 · 7:18 AM']]},
+ {id:'PAST-EXPIRED-01',kind:'Booking',guest:'Maya Tan',hotel:'Henry’s Resort Dumaguete',room:'314',item:'Airport Transfer — Van',quantity:'4 pax',when:'Oct 3 · 2:00 PM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: Dumaguete–Sibulan Airport',total:'₱3,600.00',payment:'Paid in app',settlement:'Confirmation deadline passed',status:'Expired',timeline:[['Booking requested','Oct 3 · 9:00 AM'],['Expired','Oct 3 · 10:00 AM']]}
 ];
 function bookingFinalKind(o){return /rental|transfer/i.test(o.item||'')?'Service & rental':'Product'}
 function bookingFinalRecords(){return orders.concat(bookingPastExtras)}
@@ -1022,27 +1022,30 @@ render();
 const transportListings=[
   {id:'airport-sedan',name:'Airport Transfer — Sedan',category:'Transfer',price:'1800',unit:'per trip',stock:'2 sedans available',status:'Active',location:'Hotel lobby pickup · Airport drop-off',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1596429916858-6f97b5b9cf48?auto=format&fit=crop&w=1200&q=82'},
   {id:'innova',name:'Toyota Innova Rental',category:'Vehicle rental',price:'3200',unit:'per day',stock:'1 vehicle available',status:'Active',location:'Hotel pickup · Return to vendor yard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1748215210939-ad8b6c8c086d?auto=format&fit=crop&w=1200&q=82'},
-  {id:'tourist-van',name:'Tourist Van Rental',category:'Vehicle rental',price:'5500',unit:'per day',stock:'2 vans available',status:'Active',location:'Hotel pickup · Return to vendor yard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1787028331201-75a0abb8ab0e?auto=format&fit=crop&w=1200&q=82'}
+  {id:'van-driver',name:'Van with Driver — Full Day',category:'Vehicle rental',price:'3500',unit:'per day',stock:'Up to 12 passengers',status:'Active',location:'Hotel pickup',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1787028331201-75a0abb8ab0e?auto=format&fit=crop&w=1200&q=82'},
+  {id:'city-tour',name:'Dumaguete City Tour',category:'Tour',price:'650',unit:'per person',stock:'Up to 4 guests',status:'Active',location:'Rizal Boulevard',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1765862857338-aba0a47782c6?auto=format&fit=crop&w=1200&q=82'},
+  {id:'island-hopping',name:'Island Hopping Tour',category:'Tour',price:'1200',unit:'per person',stock:'Up to 10 guests',status:'Paused',location:'Resort beach front',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1759773106970-9e3b78cac2fb?auto=format&fit=crop&w=1200&q=82'},
+  {id:'scooter',name:'Scooter Rental',category:'Vehicle rental',price:'500',unit:'per day',stock:'2 units',status:'Draft',location:'Resort lobby',payment:'Room charge + Gateway',confirmationMethod:'Manual approval',photo:'https://images.unsplash.com/photo-1503434396599-58ba8a18d932?auto=format&fit=crop&w=1200&q=82',setup:{photos:['https://images.unsplash.com/photo-1503434396599-58ba8a18d932?auto=format&fit=crop&w=1200&q=82'],name:'Scooter Rental',description:'',location:'Resort lobby',price:'500',pricedPer:'Day',durationMode:'guest',durationValue:'1',durationUnit:'hours',guestMin:'1',guestMax:'7',guestUnit:'days',countBy:'Units',maxPer:'2',payRoom:true,payOnline:true,_payV2:true,days:[true,true,true,true,true,true,true],timeMode:'hours',slots:['08:00','13:00'],hoursStart:'06:00',hoursEnd:'22:00',dailyLimit:'2',blocked:[],notice:'2 hours',fields:{baggage:false,pickup:false,dropoff:false,flight:false,prefs:false,health:false,requests:true},addons:[],_step:2}}
 ];
 const transportOrders=[
-  {id:'ORD-1042',kind:'Booking',guest:'Amelia Reyes',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 8:30 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Oct 6 · 8:06 AM']],notes:'Flight pickup for an early departure.',contact:'Open guest chat'},
-  {id:'CB-8821',kind:'Booking',guest:'John D.',hotel:'Luna Bay Resort',room:'101',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 7 · 9:00 AM – Oct 8 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:60,timeline:[['Booking requested','Oct 6 · 8:12 AM']],notes:'Return vehicle by Oct 8 at 9:00 AM.',contact:'Open guest chat'},
-  {id:'CB-8830',kind:'Booking',guest:'Sofia Lim',hotel:'Luna Bay Resort',room:'602',item:'Airport Transfer — Sedan',quantity:'3 passengers · 4 suitcases',when:'Oct 7 · 11:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱3,600.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:18,timeline:[['Booking requested','Oct 6 · 8:18 AM']],notes:'Please allow space for four checked bags.',contact:'Open guest chat'},
-  {id:'CB-8835',kind:'Booking',guest:'Daniel Cruz',hotel:'Luna Bay Resort',room:'410',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 8 · 1:30 PM – Oct 9 · 1:30 PM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:42,timeline:[['Booking requested','Oct 6 · 8:22 AM']],notes:'Family luggage included; return by Oct 9 at 1:30 PM.',contact:'Open guest chat'},
-  {id:'CB-8840',kind:'Booking',guest:'Lara Villanueva',hotel:'Luna Bay Resort',room:'118',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 9 · 10:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:36,timeline:[['Booking requested','Oct 6 · 8:26 AM']],notes:'Morning airport transfer.',contact:'Open guest chat'},
-  {id:'CB-8854',kind:'Booking',guest:'Paolo Garcia',hotel:'Luna Bay Resort',room:'309',item:'Toyota Innova Rental',quantity:'1 vehicle · 3 passengers',when:'Oct 9 · 9:00 AM – Oct 10 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:40,timeline:[['Booking requested','Oct 6 · 8:28 AM']],notes:'Day rental for a family trip to the hot springs.',contact:'Open guest chat'},
-  {id:'CB-9001',kind:'Booking',guest:'Maya Tan',hotel:'Luna Bay Resort',room:'314',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 8 · 9:00 AM – Oct 9 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Scheduled',timeline:[['Booking confirmed','Oct 5 · 9:02 AM']],notes:'Return deadline Oct 9 at 9:00 AM.',contact:'Open guest chat'},
-  {id:'CB-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['Driver dispatched','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.',contact:'Open guest chat'},
-  {id:'ORD-1044',kind:'Booking',guest:'Leo Santos',hotel:'Luna Bay Resort',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 10 · 11:30 AM – Oct 12 · 11:30 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱6,400.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 4:15 PM']],notes:'Return deadline Oct 12 at 11:30 AM.',contact:'Open guest chat'},
-  {id:'ORD-1037',kind:'Booking',guest:'Oliver Brown',hotel:'Luna Bay Resort',room:'205',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 6 · 8:00 AM – Oct 6 · 6:00 PM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',payment:'Paid via gateway',settlement:'In payout',status:'Completed',timeline:[['Booking confirmed','Oct 4 · 6:40 PM'],['Completed','Oct 6 · 6:12 PM']],notes:'Vehicle returned and checked.',contact:'View booking record'},
-  {id:'CB-8812',kind:'Booking',guest:'Priya Shah',hotel:'Luna Bay Resort',room:'412',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 3 · 7:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱1,800.00',payment:'Charged to room',settlement:'Guest checked out',status:'Completed',timeline:[['Booking confirmed','Oct 2 · 11:20 AM'],['Completed','Oct 3 · 9:10 PM']],notes:'Transfer completed.',contact:'View booking record'}
+  {id:'ORD-1042',kind:'Booking',guest:'Amelia Reyes',hotel:'Henry’s Resort Dumaguete',room:'508',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 8:30 AM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:24,timeline:[['Booking requested','Oct 6 · 8:06 AM']],notes:'Flight pickup for an early departure.',contact:'Open guest chat'},
+  {id:'CB-8821',kind:'Booking',guest:'John D.',hotel:'Henry’s Resort Dumaguete',room:'101',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 7 · 9:00 AM – Oct 8 · 9:00 AM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱4,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:60,timeline:[['Booking requested','Oct 6 · 8:12 AM']],notes:'Return vehicle by Oct 8 at 9:00 AM.',contact:'Open guest chat'},
+  {id:'CB-8830',kind:'Booking',guest:'Sofia Lim',hotel:'Henry’s Resort Dumaguete',room:'602',item:'Airport Transfer — Sedan',quantity:'3 passengers · 4 suitcases',when:'Oct 7 · 11:00 AM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: Dumaguete–Sibulan Airport',total:'₱3,600.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Pending',responseMinutes:18,timeline:[['Booking requested','Oct 6 · 8:18 AM']],notes:'Please allow space for four checked bags.',contact:'Open guest chat'},
+  {id:'CB-8835',kind:'Booking',guest:'Daniel Cruz',hotel:'Henry’s Resort Dumaguete',room:'410',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 8 · 1:30 PM – Oct 9 · 1:30 PM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱5,500.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:42,timeline:[['Booking requested','Oct 6 · 8:22 AM']],notes:'Family luggage included; return by Oct 9 at 1:30 PM.',contact:'Open guest chat'},
+  {id:'CB-8840',kind:'Booking',guest:'Lara Villanueva',hotel:'Henry’s Resort Dumaguete',room:'118',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 9 · 10:00 AM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:36,timeline:[['Booking requested','Oct 6 · 8:26 AM']],notes:'Morning airport transfer.',contact:'Open guest chat'},
+  {id:'CB-8854',kind:'Booking',guest:'Paolo Garcia',hotel:'Henry’s Resort Dumaguete',room:'309',item:'Toyota Innova Rental',quantity:'1 vehicle · 3 passengers',when:'Oct 9 · 9:00 AM – Oct 10 · 9:00 AM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱3,200.00',payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:40,timeline:[['Booking requested','Oct 6 · 8:28 AM']],notes:'Day rental for a family trip to the hot springs.',contact:'Open guest chat'},
+  {id:'CB-9001',kind:'Booking',guest:'Maya Tan',hotel:'Henry’s Resort Dumaguete',room:'314',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 8 · 9:00 AM – Oct 9 · 9:00 AM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱5,500.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Scheduled',timeline:[['Booking confirmed','Oct 5 · 9:02 AM']],notes:'Return deadline Oct 9 at 9:00 AM.',contact:'Open guest chat'},
+  {id:'CB-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Henry’s Resort Dumaguete',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['Driver dispatched','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.',contact:'Open guest chat'},
+  {id:'ORD-1044',kind:'Booking',guest:'Leo Santos',hotel:'Henry’s Resort Dumaguete',room:'207',item:'Toyota Innova Rental',quantity:'1 vehicle',when:'Oct 10 · 11:30 AM – Oct 12 · 11:30 AM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱6,400.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 4:15 PM']],notes:'Return deadline Oct 12 at 11:30 AM.',contact:'Open guest chat'},
+  {id:'ORD-1037',kind:'Booking',guest:'Oliver Brown',hotel:'Henry’s Resort Dumaguete',room:'205',item:'Tourist Van Rental',quantity:'1 vehicle · 5 passengers',when:'Oct 6 · 8:00 AM – Oct 6 · 6:00 PM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱5,500.00',payment:'Paid via gateway',settlement:'In payout',status:'Completed',timeline:[['Booking confirmed','Oct 4 · 6:40 PM'],['Completed','Oct 6 · 6:12 PM']],notes:'Vehicle returned and checked.',contact:'View booking record'},
+  {id:'CB-8812',kind:'Booking',guest:'Priya Shah',hotel:'Henry’s Resort Dumaguete',room:'412',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 3 · 7:00 PM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: Dumaguete–Sibulan Airport',total:'₱1,800.00',payment:'Charged to room',settlement:'Guest checked out',status:'Completed',timeline:[['Booking confirmed','Oct 2 · 11:20 AM'],['Completed','Oct 3 · 9:10 PM']],notes:'Transfer completed.',contact:'View booking record'}
 ];
 orders.splice(0,orders.length,...transportOrders);
 /* Seed a representative Home queue: four existing requests and three newly arrived ones. */
 const homeSeededNewPendingIds=[];
 const dashboardPendingDisplayIds=new Set(['ORD-1042','CB-8835','CB-8840','CB-8854']);
 listings.splice(0,listings.length,...transportListings);
-Object.assign(listingMockPhotos,{ 'airport-sedan':transportListings[0].photo, innova:transportListings[1].photo, 'tourist-van':transportListings[2].photo });
+transportListings.forEach(item=>{listingMockPhotos[item.id]=item.photo});
 listingHasStock=function(){return false};
 listingAvailabilitySummary=function(listing){return listing.stock||'Availability managed by vehicle capacity'};
 bookingType=function(){return 'Booking'};
@@ -1068,11 +1071,15 @@ dashboardOperationalMarkup=function(){const owner=state.role==='Owner',pending=d
 dashboard17=function(){return dashboardOperationalMarkup()};
 dashboardTopListings=function(){return [['Airport Transfer — Sedan','14 orders'],['Toyota Innova Rental','8 orders'],['Tourist Van Rental','6 orders']]};
 phase1ListingData=function(){const rows=[['Airport Transfer — Sedan',14,25200],['Toyota Innova Rental',8,25600],['Tourist Van Rental',6,33000]];return state.phase1ListingMetric==='revenue'?rows.slice().sort((a,b)=>b[2]-a[2]):rows};
-profileView=function(){return head('Profile','Business details, team access, settlement terms, and support.')+'<div class="profile-grid"><section class="card profile-card"><div class="card-header"><h2>Business details</h2><button class="button small" data-toast="Business details editor opened">Edit</button></div><div class="profile-body"><div class="profile-identity"><span class="profile-avatar">CT</span><div><strong>Cabana Transport Services</strong><span>Transportation rental service · Partner vendor</span></div></div><div class="settings-list"><div class="setting-row"><div><strong>Contact</strong><span>Leah Santos · +63 917 555 0182</span></div></div><div class="setting-row"><div><strong>Service area</strong><span>Luna Bay Resort · Manila airport corridor</span></div></div><div class="setting-row"><div><strong>Linked hotel</strong><span>Luna Bay Resort</span></div></div></div></div></section><section class="card profile-card"><div class="card-header"><h2>Team accounts</h2></div><div class="profile-body"><div class="setting-row"><div><strong>Leah Santos</strong><span>Owner · Full access</span></div><span class="status confirmed">Active</span></div><div class="setting-row"><div><strong>Marco Dela Cruz</strong><span>Staff · Bookings and Listings view</span></div><span class="status confirmed">Active</span></div></div></section><section class="card profile-card"><div class="card-header"><h2>Payout account</h2><button class="button small" data-toast="Payout account editor opened">Edit</button></div><div class="profile-body"><div class="setting-row"><div><strong>BDO · ending 2084</strong><span>Weekly settlement by default · Every Friday</span></div><span class="status confirmed">Verified</span></div></div></section></div>'};
+profileView=function(){return head('Profile','Business details, team access, settlement terms, and support.')+'<div class="profile-grid"><section class="card profile-card"><div class="card-header"><h2>Business details</h2><button class="button small" data-toast="Business details editor opened">Edit</button></div><div class="profile-body"><div class="profile-identity"><span class="profile-avatar">CT</span><div><strong>Lakbay Negros Rentals</strong><span>Transportation rental service · Partner vendor</span></div></div><div class="settings-list"><div class="setting-row"><div><strong>Contact</strong><span>Leah Santos · +63 917 555 0182</span></div></div><div class="setting-row"><div><strong>Service area</strong><span>Henry’s Resort Dumaguete · Manila airport corridor</span></div></div><div class="setting-row"><div><strong>Linked hotel</strong><span>Henry’s Resort Dumaguete</span></div></div></div></div></section><section class="card profile-card"><div class="card-header"><h2>Team accounts</h2></div><div class="profile-body"><div class="setting-row"><div><strong>Leah Santos</strong><span>Owner · Full access</span></div><span class="status confirmed">Active</span></div><div class="setting-row"><div><strong>Marco Dela Cruz</strong><span>Staff · Bookings and Listings view</span></div><span class="status confirmed">Active</span></div></div></section><section class="card profile-card"><div class="card-header"><h2>Payout account</h2><button class="button small" data-toast="Payout account editor opened">Edit</button></div><div class="profile-body"><div class="setting-row"><div><strong>BDO · ending 2084</strong><span>Weekly settlement by default · Every Friday</span></div><span class="status confirmed">Verified</span></div></div></section></div>'};
 const transportEarnings=[
  {id:'TX-1042',date:'Oct 7, 2026',sort:202610070830,listing:'Airport Transfer — Sedan',guest:'Amelia Reyes',room:'508',orderId:'ORD-1042',type:'Booking',method:'Gateway',gross:2400,commission:240,refunds:0,adjustments:0,status:'Awaiting settlement',detail:'Gateway payment is pending confirmation.'},
- {id:'TX-1048',date:'Oct 7, 2026',sort:202610070900,listing:'Toyota Innova Rental',guest:'John D.',room:'101',orderId:'CB-8821',type:'Booking',method:'Room charge',gross:4800,commission:480,refunds:0,adjustments:0,status:'Awaiting guest checkout',detail:'Guest checkout is expected after the rental return.'},
- {id:'TX-1037',date:'Oct 8, 2026',sort:202610080900,listing:'Tourist Van Rental',guest:'Maya Tan',room:'314',orderId:'CB-9001',type:'Booking',method:'Room charge',gross:5500,commission:550,refunds:0,adjustments:0,status:'Awaiting settlement',detail:'Hotel settlement is being reconciled.'},
+ {id:'TX-1047',date:'Oct 10, 2026',sort:202610100900,listing:'Dumaguete City Tour',guest:'Carlo Ramos',room:'315',orderId:'BK1047',type:'Booking',method:'Room charge',gross:1200,commission:0,refunds:0,adjustments:0,status:'Awaiting guest checkout',detail:''},
+ {id:'TX-1042',date:'Oct 9, 2026',sort:202610091400,listing:'Airport Transfer — Sedan',guest:'Sofia Lim',room:'602',orderId:'BK1042',type:'Booking',method:'Room charge',gross:1800,commission:0,refunds:0,adjustments:0,status:'Awaiting guest checkout',detail:''},
+ {id:'TX-1040',date:'Oct 9, 2026',sort:202610090900,listing:'Island Hopping Tour',guest:'Nina Cruz',room:'118',orderId:'BK1040',type:'Booking',method:'Room charge',gross:1200,commission:0,refunds:0,adjustments:0,status:'Awaiting guest checkout',detail:''},
+ {id:'TX-1038',date:'Oct 8, 2026',sort:202610081000,listing:'Island Hopping Tour',guest:'Paolo Diaz',room:'410',orderId:'BK1038',type:'Booking',method:'Room charge',gross:1200,commission:0,refunds:0,adjustments:0,status:'Awaiting guest checkout',detail:''},
+ {id:'TX-1031',date:'Oct 5, 2026',sort:202610050900,listing:'Van with Driver — Full Day',guest:'Maya Tan',room:'210',orderId:'BK1031',type:'Booking',method:'Room charge',gross:2070,commission:0,refunds:0,adjustments:0,status:'Awaiting settlement',detail:'',checkout:'Oct 7'},
+ {id:'TX-1019',date:'Sep 27, 2026',sort:202609270900,listing:'Airport Transfer — Sedan',guest:'John D.',room:'305',orderId:'BK1019',type:'Booking',method:'Room charge',gross:1800,commission:0,refunds:0,adjustments:0,status:'Awaiting settlement',detail:'',checkout:'Sep 30'},
  {id:'TX-1007',date:'Oct 6, 2026',sort:202610061400,listing:'Airport Transfer — Sedan',guest:'Nina Garcia',room:'203',orderId:'CB-9002',type:'Booking',method:'Gateway',gross:1800,commission:180,refunds:0,adjustments:0,status:'Ready for payout',detail:'Eligible for the next payout.'},
  {id:'TX-0991',date:'Oct 3, 2026',sort:202610032110,listing:'Airport Transfer — Sedan',guest:'Priya Shah',room:'412',orderId:'CB-8812',type:'Booking',method:'Room charge',gross:1800,commission:180,refunds:0,adjustments:0,status:'Paid',detail:'Included in payout CAB-PAY-1003.'},
  {id:'TX-0987',date:'Oct 1, 2026',sort:202610011100,listing:'Toyota Innova Rental',guest:'Oliver Brown',room:'205',orderId:'ORD-1037',type:'Refund',method:'Room charge',gross:0,commission:0,refunds:1200,adjustments:0,status:'Deducted from payout',detail:'Cancelled rental refund deducted from payout.'}
@@ -1083,7 +1090,7 @@ bookingDeclineModal=function(){if(!state.declineId)return '';return '<div class=
 try{localStorage.setItem('cabana:latest-revision','transport-rental-v1')}catch(error){}
 state.page='dashboard';state.detail=null;state.bookingTab='Requests';state.orderView='list';state.range='Today';
 const transportRenderBefore=render;
-render=function(){transportRenderBefore();document.querySelectorAll('#app *').forEach(node=>{if(node.children.length===0&&node.textContent.includes('Sans Rival Bakehouse'))node.textContent=node.textContent.replaceAll('Sans Rival Bakehouse','Cabana Transport Services');if(node.children.length===0&&node.textContent.includes('Bakery · Live'))node.textContent=node.textContent.replaceAll('Bakery · Live','Transportation rental service · Live')});bindDashboardOperational()};
+render=function(){transportRenderBefore();document.querySelectorAll('#app *').forEach(node=>{if(node.children.length===0&&node.textContent.includes('Sans Rival Bakehouse'))node.textContent=node.textContent.replaceAll('Sans Rival Bakehouse','Lakbay Negros Rentals');if(node.children.length===0&&node.textContent.includes('Bakery · Live'))node.textContent=node.textContent.replaceAll('Bakery · Live','Transportation rental service · Live')});bindDashboardOperational()};
 render();
 
 /* Latest revision: keep the requested Insights → Bookings view visible. */
@@ -1206,7 +1213,7 @@ dashboardOperationalReceivables=function(){return dashboardOperationalReceivable
 try{localStorage.setItem('cabana:latest-revision','transport-rental-v1')}catch(error){}
 state.page='dashboard';state.detail=null;state.bookingTab='Requests';state.orderView='list';state.range='Today';
 const transportFinalRenderBefore=render;
-render=function(){transportFinalRenderBefore();document.querySelectorAll('#app *').forEach(node=>{if(node.children.length===0&&node.textContent.includes('Sans Rival Bakehouse'))node.textContent=node.textContent.replaceAll('Sans Rival Bakehouse','Cabana Transport Services');if(node.children.length===0&&node.textContent.includes('Bakery · Live'))node.textContent=node.textContent.replaceAll('Bakery · Live','Transportation rental service · Live')});bindDashboardOperational()};
+render=function(){transportFinalRenderBefore();document.querySelectorAll('#app *').forEach(node=>{if(node.children.length===0&&node.textContent.includes('Sans Rival Bakehouse'))node.textContent=node.textContent.replaceAll('Sans Rival Bakehouse','Lakbay Negros Rentals');if(node.children.length===0&&node.textContent.includes('Bakery · Live'))node.textContent=node.textContent.replaceAll('Bakery · Live','Transportation rental service · Live')});bindDashboardOperational()};
 render();
 
 /* Latest revision activation: Insights → Bookings must be the visible page. */
@@ -1274,7 +1281,7 @@ render=function(){latestMainBookingsRender();if(state.page==='orders'){document.
 
 /* Owner receivables explain the money movement from guest checkout to hotel payment. */
 const outstandingReceivablesMoney=value=>{const formatted=earningsMoney(value);return formatted.endsWith('.00')?formatted.slice(0,-3):formatted};
-dashboardOperationalReceivables=function(){if(state.role!=='Owner')return '';const ledger=typeof cabanaEarningsTransactions!=='undefined'?cabanaEarningsTransactions:[],rows=ledger.filter(item=>item.method==='Room charge'&&['Awaiting guest checkout','Awaiting settlement'].includes(item.status)),total=rows.reduce((sum,item)=>sum+earningsTransactionNet(item),0),served=dashboardOperationalTodayServed(),checkout=rows.filter(item=>item.status==='Awaiting guest checkout').reduce((sum,item)=>sum+earningsTransactionNet(item),0),settlement=rows.filter(item=>item.status==='Awaiting settlement').reduce((sum,item)=>sum+earningsTransactionNet(item),0);return '<section class="dashboard-operational-section dashboard-receivables"><div class="dashboard-receivable-header"><div><h2>Outstanding Receivables</h2><strong>'+outstandingReceivablesMoney(total)+'</strong></div><button class="dashboard-inline-link" data-page="earnings">View earnings '+icons.arrow+'</button></div><div class="dashboard-receivable-metrics"><div><span>Guests still staying</span><strong>'+outstandingReceivablesMoney(checkout)+'</strong><small>Paid after checkout</small></div><div><span>Hotel to pay you</span><strong>'+outstandingReceivablesMoney(settlement)+'</strong><small>Guests have checked out</small></div></div><div class="dashboard-receivable-footer"><span>From <strong>'+served+'</strong> bookings</span></div></section>'};
+dashboardOperationalReceivables=function(){if(state.role!=='Owner')return '';const ledger=typeof cabanaEarningsTransactions!=='undefined'?cabanaEarningsTransactions:[],rows=ledger.filter(item=>item.method==='Room charge'&&['Awaiting guest checkout','Awaiting settlement'].includes(item.status)),total=rows.reduce((sum,item)=>sum+earningsTransactionNet(item),0),served=dashboardOperationalTodayServed(),checkout=rows.filter(item=>item.status==='Awaiting guest checkout').reduce((sum,item)=>sum+earningsTransactionNet(item),0),settlement=rows.filter(item=>item.status==='Awaiting settlement').reduce((sum,item)=>sum+earningsTransactionNet(item),0);return '<section class="dashboard-operational-section dashboard-receivables"><div class="dashboard-receivable-header"><div><h2>Receivables</h2></div><button class="dashboard-inline-link" data-page="earnings">View earnings '+icons.arrow+'</button></div><div class="dashboard-receivable-metrics hr-totals"><div><span>Received</span><strong>'+outstandingReceivablesMoney(window.cabanaReceivedTotal?window.cabanaReceivedTotal('Last 30 days'):0)+'</strong><small>Last 30 days</small></div><div><span>To receive</span><strong>'+outstandingReceivablesMoney(total)+'</strong><small>Unpaid room charges</small></div></div><div class="dashboard-receivable-metrics"><div><span>Guests still staying</span><strong>'+outstandingReceivablesMoney(checkout)+'</strong><small>Paid after checkout</small></div><div><span>Hotel to pay you</span><strong>'+outstandingReceivablesMoney(settlement)+'</strong><small>Guests have checked out</small></div></div><div class="dashboard-receivable-footer"><span>From <strong>'+served+'</strong> bookings</span></div></section>'};
 render();
 const outstandingReceivablesViewAllBase=dashboardOperationalReceivables;
 dashboardOperationalReceivables=function(){return outstandingReceivablesViewAllBase().replace('View earnings','View All')};
@@ -1467,7 +1474,7 @@ render=function(){
     const id=button.dataset.finalStatusId||button.dataset.finalDetailId,record=bookingLatestAll().find(item=>item.id===id);
     if(!record)return;
     const action=button.dataset.finalStatusAction||button.dataset.finalDetailAction;
-    if(action==='complete'&&!window.confirm('Mark this booking as completed?'))return;
+    if(action==='complete'&&!button.dataset.confirmed){lccDialog({title:'Mark as completed?',body:'The booking moves to Past and the guest can no longer change it.',confirm:'Mark as completed',onConfirm:()=>{button.dataset.confirmed='1';button.onclick(event);delete button.dataset.confirmed}});return}
     record.status=action==='progress'?'In progress':'Completed';
     record.timeline=Array.isArray(record.timeline)?record.timeline.concat([[action==='progress'?'In progress':'Completed',todayLabel()]]):record.timeline;
     if(record.status==='Completed'){state.bookingTab='Past';state.detail=null;}
@@ -1508,7 +1515,7 @@ render=function(){
     const record=bookingLatestAll().find(item=>item.id===(button.dataset.finalStatusId||button.dataset.finalDetailId));
     if(!record)return;
     const action=button.dataset.finalStatusAction||button.dataset.finalDetailAction;
-    if(action==='complete'&&!window.confirm('Mark this booking as completed?'))return;
+    if(action==='complete'&&!button.dataset.confirmed){lccDialog({title:'Mark as completed?',body:'The booking moves to Past and the guest can no longer change it.',confirm:'Mark as completed',onConfirm:()=>{button.dataset.confirmed='1';button.onclick(event);delete button.dataset.confirmed}});return}
     record.status=action==='progress'?'In progress':'Completed';
     if(record.status==='Completed'){state.bookingTab='Past';state.detail=null;}
     render();
@@ -1525,8 +1532,8 @@ render();
 
 /* Final Active examples and menu behavior for the transportation vendor view. */
 const bookingPromptRecords=[
-  {id:'BK-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['In progress','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.'},
-  {id:'BK-9003',kind:'Booking',guest:'Marco Santos',hotel:'Luna Bay Resort',room:'508',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 4:30 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.'}
+  {id:'BK-9002',kind:'Booking',guest:'Nina Garcia',hotel:'Henry’s Resort Dumaguete',room:'203',item:'Airport Transfer — Sedan',quantity:'3 passengers · 3 suitcases',when:'Oct 6 · 2:00 PM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: NAIA Terminal 1',total:'₱1,800.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed','Oct 6 · 10:20 AM'],['In progress','Oct 6 · 1:45 PM']],notes:'Driver is en route to the hotel.'},
+  {id:'BK-9003',kind:'Booking',guest:'Marco Santos',hotel:'Henry’s Resort Dumaguete',room:'508',item:'Airport Transfer — SUV',quantity:'2 passengers · 2 suitcases',when:'Oct 7 · 4:30 PM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'Confirmed',timeline:[['Booking confirmed','Oct 6 · 10:14 AM']],notes:'Child seat requested.'}
 ];
 const bookingPromptHiddenIds=new Set(['CB-9002']);
 const bookingLatestAllBeforePrompt=bookingLatestAll;
@@ -1607,7 +1614,7 @@ dashboardOperationalBookingQuantity=function(order){return homeQuantityWithoutBa
 bookingLatestFilterSheet=function(){
   if(!state.bookingFilterOpen)return '';
   const f=state.bookingLatestFilters||{},selectedListings=bookingLatestSelectedListings(),allListingsSelected=!selectedListings.length;
-  const dateOptions=state.bookingTab==='Past'?['All dates','Today','Last 7 days','Last 30 days','Custom range…']:['All dates','Today','Tomorrow','This week','Custom range…'];
+  const dateOptions=['All dates','Last 7 days','Last 30 days','This month','Last month','This year','Custom range…'];
   const dateChoice=value=>'<label class="booking-choice booking-choice-radio '+(f.date===value?'active':'')+'"><input type="radio" name="booking-date-filter" value="'+esc(value)+'" data-latest-filter-option="date" '+(f.date===value?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>';
   const listingChoice=value=>{const checked=value==='All listings'?allListingsSelected:selectedListings.includes(value);return '<label class="booking-choice booking-choice-checkbox '+(checked?'active':'')+'"><input type="checkbox" name="booking-listing-filter" value="'+esc(value)+'" data-latest-filter-option="listing" '+(checked?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>'};
   const custom=f.date==='Custom range…'?'<div class="booking-custom-range"><label>From<input type="date" data-latest-custom-from value="'+esc(f.customFrom||'')+'"></label><label>To<input type="date" data-latest-custom-to value="'+esc(f.customTo||'')+'"></label></div>':'';
@@ -1730,8 +1737,8 @@ const sendNewPendingRequestNotification=async order=>{if(!order||typeof Notifica
 const requestNotificationPermission=async()=>{if(typeof Notification==='undefined')return 'denied';if(Notification.permission!=='default')return Notification.permission;try{return await Notification.requestPermission()}catch(error){return 'denied'}};
 const initializePendingRequestNotifications=()=>{const currentIds=currentPendingRequestIds(),savedSnapshot=readPendingStorage(pendingSnapshotKey,null),savedNew=readPendingStorage(pendingNewKey,[]);state.dashboardNewPendingRequests=savedNew.filter(id=>currentIds.includes(id));if(!Array.isArray(savedSnapshot))writePendingStorage(pendingSnapshotKey,currentIds);if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});navigator.serviceWorker.addEventListener('message',event=>{if(event.data?.type==='open-pending-request')openPendingRequestFromNotification(event.data.requestId)})}};
 const checkForNewPendingRequests=async()=>{const currentIds=currentPendingRequestIds(),previous=readPendingStorage(pendingSnapshotKey,null);if(!Array.isArray(previous)){writePendingStorage(pendingSnapshotKey,currentIds);return}const arrivals=currentIds.filter(id=>!previous.includes(id));if(arrivals.length){state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),...arrivals])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentIds);if(state.page==='dashboard')render()}else if(previous.some(id=>!currentIds.includes(id))){writePendingStorage(pendingSnapshotKey,currentIds);state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>currentIds.includes(id));writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests)}};
-const simulatedRequestTemplates=[{guest:'Bianca Torres',room:'402',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 10 · 6:00 AM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',notes:'Early flight, please arrive 10 minutes ahead.'},{guest:'Kenji Watanabe',room:'611',item:'Toyota Innova Rental',quantity:'1 vehicle · 4 passengers',when:'Oct 10 · 9:00 AM – Oct 11 · 9:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱3,200.00',notes:'Day trip to Tagaytay.'},{guest:'Grace Lim',room:'226',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 11 · 8:00 AM – Oct 12 · 8:00 AM',fulfilment:'Pickup and return: Luna Bay Resort lobby',total:'₱5,500.00',notes:'Family tour, child seat requested.'},{guest:'Marcus Bell',room:'318',item:'Airport Transfer — SUV',quantity:'3 passengers · 4 suitcases',when:'Oct 11 · 2:00 PM',fulfilment:'Pickup: Luna Bay Resort lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',notes:'Extra luggage space needed.'}];
-const simulateOnePendingRequest=async()=>{const nextNumber=Math.max(8854,...orders.map(item=>Number(String(item.id).match(/^CB-(88\d\d)$/)?.[1]||0)))+1,id='CB-'+nextNumber,simCount=readPendingStorage(simulatedPendingKey,[]).length,template=simulatedRequestTemplates[simCount%simulatedRequestTemplates.length],placedMinutes=42+simCount*4,placed='Oct 6 · '+(8+Math.floor(placedMinutes/60))+':'+String(placedMinutes%60).padStart(2,'0')+' AM',order={id,kind:'Booking',hotel:'Luna Bay Resort',...template,payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:60,timeline:[['Booking requested',placed]],contact:'Open guest chat'};orders.push(order);dashboardPendingDisplayIds.add(id);const stored=readPendingStorage(simulatedPendingKey,[]);writePendingStorage(simulatedPendingKey,[...stored.filter(item=>item.id!==id),order]);state.page='dashboard';state.detail=null;state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),id])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render()};
+const simulatedRequestTemplates=[{guest:'Bianca Torres',room:'402',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:'Oct 10 · 6:00 AM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: Dumaguete–Sibulan Airport',total:'₱2,400.00',notes:'Early flight, please arrive 10 minutes ahead.'},{guest:'Kenji Watanabe',room:'611',item:'Toyota Innova Rental',quantity:'1 vehicle · 4 passengers',when:'Oct 10 · 9:00 AM – Oct 11 · 9:00 AM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱3,200.00',notes:'Day trip to Tagaytay.'},{guest:'Grace Lim',room:'226',item:'Tourist Van Rental',quantity:'1 vehicle · 6 passengers',when:'Oct 11 · 8:00 AM – Oct 12 · 8:00 AM',fulfilment:'Pickup and return: Henry’s Resort Dumaguete lobby',total:'₱5,500.00',notes:'Family tour, child seat requested.'},{guest:'Marcus Bell',room:'318',item:'Airport Transfer — SUV',quantity:'3 passengers · 4 suitcases',when:'Oct 11 · 2:00 PM',fulfilment:'Pickup: Henry’s Resort Dumaguete lobby · Destination: NAIA Terminal 1',total:'₱2,900.00',notes:'Extra luggage space needed.'}];
+const simulateOnePendingRequest=async()=>{const nextNumber=Math.max(8854,...orders.map(item=>Number(String(item.id).match(/^CB-(88\d\d)$/)?.[1]||0)))+1,id='CB-'+nextNumber,simCount=readPendingStorage(simulatedPendingKey,[]).length,template=simulatedRequestTemplates[simCount%simulatedRequestTemplates.length],placedMinutes=42+simCount*4,placed='Oct 6 · '+(8+Math.floor(placedMinutes/60))+':'+String(placedMinutes%60).padStart(2,'0')+' AM',order={id,kind:'Booking',hotel:'Henry’s Resort Dumaguete',...template,payment:'Gateway payment pending',settlement:'Payment pending',status:'Pending',responseMinutes:60,timeline:[['Booking requested',placed]],contact:'Open guest chat'};orders.push(order);dashboardPendingDisplayIds.add(id);const stored=readPendingStorage(simulatedPendingKey,[]);writePendingStorage(simulatedPendingKey,[...stored.filter(item=>item.id!==id),order]);state.page='dashboard';state.detail=null;state.dashboardNewPendingRequests=[...new Set([...(state.dashboardNewPendingRequests||[]),id])];writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render()};
 const simulateNewPendingRequest=async()=>{await simulateOnePendingRequest();await simulateOnePendingRequest()};
 const resetDevSimulations=()=>{const simulated=readPendingStorage(simulatedPendingKey,[]),simulatedIds=new Set(simulated.map(item=>item?.id).filter(Boolean));orders.splice(0,orders.length,...orders.filter(order=>!simulatedIds.has(order.id)&&!String(order.id).startsWith('SIM-')));try{localStorage.removeItem(simulatedPendingKey)}catch(error){}state.dashboardNewPendingRequests=(state.dashboardNewPendingRequests||[]).filter(id=>!simulatedIds.has(id)&&!String(id).startsWith('SIM-'));state.dashboardRequestFocusId=null;writePendingStorage(pendingNewKey,state.dashboardNewPendingRequests);writePendingStorage(pendingSnapshotKey,currentPendingRequestIds());render();toast('Simulations reset')};
 initializePendingRequestNotifications();
@@ -2022,7 +2029,7 @@ render=function(){chatReferenceRenderFinal();if(state.page!=='chat')return;docum
 render();
 
 /* Menu information architecture: role-aware groups and profile header. */
-const menuProfileForRole=()=>state.role==='Owner'?{business:'Cabana Transport Services',name:'Leah Santos',role:'Owner',phone:'+63 917 555 0182',email:'leah@cabanatransport.com'}:{business:'Cabana Transport Services',name:'Marco Dela Cruz',role:'Staff',phone:'+63 917 555 0183',email:'marco@cabanatransport.com'};
+const menuProfileForRole=()=>state.role==='Owner'?{business:'Lakbay Negros Rentals',name:'Leah Santos',role:'Owner',phone:'+63 917 555 0182',email:'leah@lakbaynegros.com'}:{business:'Lakbay Negros Rentals',name:'Marco Dela Cruz',role:'Staff',phone:'+63 917 555 0183',email:'marco@lakbaynegros.com'};
 const menuSection=(title,rows)=>'<section class="menu-section"><h2>'+title+'</h2><div class="menu-section-list">'+rows.join('')+'</div></section>';
 const menuProfileInitials=profile=>String(profile.name||'').split(/\s+/).map(part=>part[0]||'').join('').slice(0,2).toUpperCase();
 const menuProfileHeader=profile=>'<button class="menu-profile-header" type="button" data-menu-account><span class="menu-profile-icon">'+esc(menuProfileInitials(profile))+'</span><span><strong>'+esc(profile.name)+'</strong><small>'+esc(profile.role)+' · '+esc(profile.business)+'</small></span><span class="menu-profile-action" aria-hidden="true">›</span></button>';
@@ -2030,7 +2037,7 @@ const menuRowFinal=(label,icon,attrs='')=>'<button class="menu-row" '+attrs+'><s
 const menuAccountView=profile=>'<div class="menu-account-page"><section class="menu-account-card"><span class="menu-account-avatar">'+esc(menuProfileInitials(profile))+'</span><div><h2>'+esc(profile.name)+'</h2><p>'+esc(profile.role)+' · '+esc(profile.business)+'</p></div></section><section class="menu-account-section"><h2>Personal details</h2><div class="menu-account-list"><div><strong>Phone</strong><span>'+esc(profile.phone)+'</span></div><div><strong>Email</strong><span>'+esc(profile.email)+'</span></div></div></section><section class="menu-account-section"><h2>Security and preferences</h2><div class="menu-account-list"><button type="button" data-toast="Password or PIN settings opened"><strong>Password or PIN</strong><span>Update your sign-in method <b>›</b></span></button><button type="button" data-toast="Language settings opened"><strong>Language</strong><span>English <b>›</b></span></button></div></section></div>';
 const profileViewBeforeMenuAccount=profileView;
 profileView=function(){return state.profileMode==='account'?menuAccountView(menuProfileForRole()):profileViewBeforeMenuAccount()};
-menuView=function(){const owner=state.role==='Owner',profile=menuProfileForRole(),business=owner?[menuRowFinal('Insights','analytics-01','data-insights'),menuRowFinal('Earnings','wallet-01','data-page="earnings"'),menuRowFinal('Listings','grid-02','data-page="listings"'),menuRowFinal('Partner hotels','hotel-01','data-toast="Partner hotels opened"'),menuRowFinal('Staff accounts','user-group','data-toast="Staff accounts opened"')]:[];const settings=owner?[menuRowFinal('Business profile','store-01','data-business-profile'),menuRowFinal('Payout account','bank','data-toast="Payout account settings opened"'),menuRowFinal('Auto-messages','message-02','data-cx-booking-messages'),menuRowFinal('Notifications','notification-03','data-toast="Notification settings opened"')]:[menuRowFinal('Notifications','notification-03','data-toast="Notification settings opened"')];const support=[menuRowFinal('Help and support','help-circle','data-toast="Help center opened"'),menuRowFinal('Log out','logout-01','data-logout')];return '<div class="menu-page"><header class="menu-page-header"><h1>Menu</h1></header>'+menuProfileHeader(profile)+(owner?menuSection('Business',business):'')+menuSection('Settings',settings)+menuSection('Support',support)+'</div>'};
+menuView=function(){const owner=state.role==='Owner',profile=menuProfileForRole(),business=owner?[menuRowFinal('Insights','analytics-01','data-insights'),menuRowFinal('Earnings','wallet-01','data-page="earnings"'),menuRowFinal('Listings','grid-02','data-page="listings"'),menuRowFinal('Partner hotels','hotel-01','data-toast="Partner hotels opened"'),menuRowFinal('Staff accounts','user-group','data-toast="Staff accounts opened"')]:[menuRowFinal('Listings','grid-02','data-page="listings"'),menuRowFinal('Partner hotels','hotel-01','data-toast="Partner hotels opened"')];const settings=owner?[menuRowFinal('Business profile','store-01','data-business-profile'),menuRowFinal('Payout account','bank','data-toast="Payout account settings opened"'),menuRowFinal('Auto-messages','message-02','data-cx-booking-messages'),menuRowFinal('Notifications','notification-03','data-toast="Notification settings opened"')]:[menuRowFinal('Notifications','notification-03','data-toast="Notification settings opened"')];const support=[menuRowFinal('Help and support','help-circle','data-toast="Help center opened"'),menuRowFinal('Log out','logout-01','data-logout')];return '<div class="menu-page"><header class="menu-page-header"><h1>Menu</h1></header>'+menuProfileHeader(profile)+(business.length?menuSection('Business',business):'')+menuSection('Settings',settings)+menuSection('Support',support)+'</div>'};
 const menuRenderFinal=render;
 render=function(){menuRenderFinal();document.querySelector('#app')?.classList.toggle('menu-route',state.page==='menu');document.querySelectorAll('[data-menu-account]').forEach(button=>button.onclick=()=>{state.page='profile';state.profileMode='account';state.detail=null;render()});document.querySelectorAll('[data-business-profile]').forEach(button=>button.onclick=()=>{state.page='profile';state.profileMode='business';state.detail=null;render()});document.querySelectorAll('[data-menu-back]').forEach(button=>button.onclick=()=>{state.page='menu';state.profileMode=null;state.detail=null;render()})};
 render();
@@ -2076,7 +2083,7 @@ bookingLatestActiveFilterCount=function(){
 bookingLatestFilterSheet=function(){
   if(!state.bookingFilterOpen)return '';
   const f=state.bookingLatestFilters||{},selectedStatuses=bookingLatestSelectedStatusesFinal(),selectedListings=bookingLatestSelectedListings(),allListingsSelected=!selectedListings.length;
-  const dateOptions=state.bookingTab==='Past'?['All dates','Today','Last 7 days','Last 30 days','Custom range…']:['All dates','Today','Tomorrow','This week','Custom range…'];
+  const dateOptions=['All dates','Last 7 days','Last 30 days','This month','Last month','This year','Custom range…'];
   const dateChoice=value=>'<label class="booking-choice booking-choice-radio '+(f.date===value?'active':'')+'"><input type="radio" name="booking-date-filter" value="'+esc(value)+'" data-latest-filter-option="date" '+(f.date===value?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>';
   const statusChoice=value=>{const checked=value==='All statuses'?!selectedStatuses.length:selectedStatuses.includes(value);return '<label class="booking-choice booking-choice-checkbox '+(checked?'active':'')+'"><input type="checkbox" name="booking-status-filter" value="'+esc(value)+'" data-latest-status-filter="'+esc(value)+'" '+(checked?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>'};
   const listingChoice=value=>{const checked=value==='All listings'?allListingsSelected:selectedListings.includes(value);return '<label class="booking-choice booking-choice-checkbox '+(checked?'active':'')+'"><input type="checkbox" name="booking-listing-filter" value="'+esc(value)+'" data-latest-filter-option="listing" '+(checked?'checked':'')+'><span class="booking-choice-indicator" aria-hidden="true"></span><span class="booking-choice-label">'+esc(value)+'</span></label>'};
@@ -2372,40 +2379,40 @@ const cxStatus=record=>{if(!record)return '';const status=typeof bookingFinalDis
 const cxStatusClass=status=>'cx-status-'+String(status||'').toLowerCase().replace(/[^a-z]+/g,'-');
 const cxBookingEnd=record=>{const text=String(record?.when||''),dates=[...text.matchAll(/([A-Z][a-z]{2})\s+(\d{1,2})(?:\s*[·,]\s*(\d{1,2}:\d{2}\s*[AP]M))?/g)];if(!dates.length)return 0;const last=dates[dates.length-1];let end=cxStamp(last[1]+' '+last[2],last[3]||'11:59 PM');const hours=text.match(/·\s*(\d+)\s*hours?\s*$/i),days=dates.length===1&&text.match(/·\s*(\d+)\s*days?\s*$/i);if(hours)end+=Number(hours[1])*3600000;else if(days)end+=Number(days[1])*86400000;else if(dates.length===1&&last[3])end+=2*3600000;return end};
 const cxThreads=[
-  {id:'fd-luna',kind:'frontdesk',hotel:'Luna Bay Resort',unread:1,messages:[
+  {id:'fd-luna',kind:'frontdesk',hotel:'Henry’s Resort Dumaguete',unread:1,messages:[
     {day:cxYesterday,time:'4:10 PM',from:'them',text:'Hi! Guest in Room 314 wants a van for a day trip.'},
     {day:cxYesterday,time:'4:14 PM',from:'system',kind:'created',booking:'CB-9001',text:'Booking #BK-9001 created by Front Desk for Room 314'},
     {day:cxYesterday,time:'4:20 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Got it. The van will be ready at 9:00 AM.'},
     {day:cxToday,time:'10:42 AM',from:'them',text:'Can you take 2 more pax tomorrow?'}]},
-  {id:'g-marco',kind:'guest',name:'Marco Santos',room:'508',hotel:'Luna Bay Resort',unread:2,messages:[
+  {id:'g-marco',kind:'guest',name:'Marco Santos',room:'508',hotel:'Henry’s Resort Dumaguete',unread:2,messages:[
     {day:cxToday,time:'9:02 AM',from:'system',kind:'confirmed',booking:'BK-9003',text:'Booking #BK-9003 confirmed · Today 4:30 PM'},
     {day:cxToday,time:'9:40 AM',from:'them',text:'Hi! What time should I be at the lobby?'},
     {day:cxToday,time:'9:44 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Please be at the lobby by 4:15 PM. Your driver will message you here.'},
     {day:cxToday,time:'10:30 AM',from:'them',text:'Is the SUV big enough for 4 suitcases?'},
     {day:cxToday,time:'10:31 AM',from:'them',text:'What time is pickup?'}]},
-  {id:'g-amelia',kind:'guest',name:'Amelia Reyes',room:'508',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-amelia',kind:'guest',name:'Amelia Reyes',room:'508',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     {day:cxYesterday,time:'6:05 PM',from:'system',kind:'confirmed',booking:'CB-9007',text:'Booking #BK-9007 confirmed · Oct 7 4:30 PM'},
     {day:cxYesterday,time:'6:20 PM',from:'them',text:'Can we keep the car for an extra hour?'},
     {day:cxYesterday,time:'6:24 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Yes, we can. I’ve added the extra hour.'},
     {day:cxYesterday,time:'6:25 PM',from:'system',kind:'charge',booking:'CB-9007',text:'Extra charge ₱500 · Extra hour'},
     {day:cxToday,time:'8:12 AM',from:'system',kind:'confirmed',booking:'CB-9010',text:'Booking #BK-9010 confirmed · Oct 9 8:30 AM'},
     {day:cxToday,time:'8:20 AM',from:'me',sender:'Leah · Owner',status:'failed',text:'See you at the lobby at 4:30 PM today.'}]},
-  {id:'g-maya',kind:'guest',name:'Maya Tan',room:'314',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-maya',kind:'guest',name:'Maya Tan',room:'314',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     {day:'Oct 2',time:'3:15 PM',from:'them',text:'Do you have a van for the airport tomorrow?'},
     {day:'Oct 2',time:'3:20 PM',from:'me',sender:'Ana · Staff',status:'read',text:'We do. Please send the request in the app and we’ll confirm.'},
     {day:cxToday,time:'7:30 AM',from:'divider',booking:'CB-9001',text:'New booking #BK-9001 · Oct 6'},
     {day:cxToday,time:'7:32 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Hi Maya, your van is booked for 9:00 AM tomorrow. See you at the lobby.'},
     {day:cxToday,time:'7:50 AM',from:'them',text:'Perfect, thank you!'}]},
-  {id:'g-sofia',kind:'guest',name:'Sofia Lim',room:'602',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-sofia',kind:'guest',name:'Sofia Lim',room:'602',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     {day:cxToday,time:'9:55 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Your driver is at the lobby.'},
     {day:cxToday,time:'11:40 AM',from:'them',text:'Made it to the airport. Thanks!'}]},
-  {id:'g-nina',kind:'guest',name:'Nina Garcia',room:'203',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-nina',kind:'guest',name:'Nina Garcia',room:'203',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     {day:cxYesterday,time:'9:15 AM',from:'them',text:'Thanks, see you at the lobby!'},
     {day:cxYesterday,time:'9:18 AM',from:'me',sender:'Ana · Staff',status:'read',text:'You’re welcome. We’ll see you there.'}]},
-  {id:'g-oliver',kind:'guest',name:'Oliver Brown',room:'205',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-oliver',kind:'guest',name:'Oliver Brown',room:'205',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     {day:cxYesterday,time:'7:45 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Good morning! Your van is outside.'},
     {day:cxYesterday,time:'6:30 PM',from:'them',text:'Great day out. Thanks for the ride!'}]},
-  {id:'g-priya',kind:'guest',name:'Priya Shah',room:'412',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-priya',kind:'guest',name:'Priya Shah',room:'412',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     {day:'Oct 2',time:'9:00 AM',from:'system',kind:'cancelled',text:'Booking cancelled · Weather'},
     {day:'Oct 3',time:'10:05 AM',from:'divider',booking:'CB-8812',text:'New booking #BK-8812 · Oct 3'},
     {day:'Oct 3',time:'6:40 PM',from:'me',sender:'Leah · Owner',status:'read',text:'Your sedan is at the lobby.'},
@@ -2416,11 +2423,11 @@ const cxResetChatThreads=()=>{const clean=JSON.parse(JSON.stringify(cxThreadSeed
 cxResetChatThreads();
 const cxDefaultBookingTemplate='Hi {guest name}! Your {listing} on {date & time} is confirmed. We’ll message you here if anything changes. See you soon!';
 try{state.cxBookingTemplate=localStorage.getItem('cabana:booking-message-template')||cxDefaultBookingTemplate}catch(error){state.cxBookingTemplate=cxDefaultBookingTemplate}
-const cxBookingMessageBusiness=()=>{try{return menuProfileForRole?.().business||'Cabana Transport Services'}catch(error){return 'Cabana Transport Services'}};
+const cxBookingMessageBusiness=()=>{try{return menuProfileForRole?.().business||'Lakbay Negros Rentals'}catch(error){return 'Lakbay Negros Rentals'}};
 const cxBookingMessageText=record=>String(state.cxBookingTemplate||cxDefaultBookingTemplate).replaceAll('{guest name}',String(record.guest||'guest').split(' ')[0]).replaceAll('{listing}',String(record.item||'your booking')).replaceAll('{date & time}',cxWhenLabel(record)).replaceAll('{booking number}',cxBookingRef(record.id));
 const cxGuestThreadForBooking=record=>{
   let thread=cxThreads.find(item=>item.kind==='guest'&&item.name===record.guest&&String(item.room)===String(record.room)&&item.hotel===record.hotel);
-  if(!thread){thread={id:'g-'+String(record.guest||'guest').toLowerCase().replace(/[^a-z]+/g,'-')+'-'+String(record.room||'room'),kind:'guest',name:record.guest,room:String(record.room||''),hotel:record.hotel||'Luna Bay Resort',unread:0,messages:[]};cxThreads.push(thread)}
+  if(!thread){thread={id:'g-'+String(record.guest||'guest').toLowerCase().replace(/[^a-z]+/g,'-')+'-'+String(record.room||'room'),kind:'guest',name:record.guest,room:String(record.room||''),hotel:record.hotel||'Henry’s Resort Dumaguete',unread:0,messages:[]};cxThreads.push(thread)}
   return thread;
 };
 const cxSendBookingConfirmation=record=>{
@@ -2656,11 +2663,11 @@ const cxNotificationSheet=()=>'<div class="cx-sheet-backdrop" data-cx-sheet-clos
   +'<div class="cx-sheet-row is-stacked"><span><strong>Chat message sound</strong><small>Plays for new messages from guests and the Front Desk.</small></span><div class="cx-segment">'+['Default','Soft','Off'].map(name=>'<button type="button" class="'+(state.cxSound===name?'is-active':'')+'" data-cx-sound="'+name+'">'+name+'</button>').join('')+'</div></div></section>';
 window.addEventListener('click',event=>{
   const bookingMessages=event.target.closest?.('[data-cx-booking-messages]');
-  if(bookingMessages){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();const wrap=document.createElement('div');wrap.className='cx-sheet-wrap';wrap.innerHTML=cxBookingMessagesSheet();document.body.appendChild(wrap);return}
+  if(bookingMessages){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();state.amDraft=null;state.page='automessages';render();const p=document.querySelector('.page');if(p)p.scrollTop=0;return}
   const templateSave=event.target.closest?.('[data-cx-template-save]');
   if(templateSave){const value=String(document.querySelector('[data-cx-booking-template]')?.value||'').trim();if(!value){toast('Add a confirmation message first');return}state.cxBookingTemplate=value;try{localStorage.setItem('cabana:booking-message-template',value)}catch(error){}document.querySelector('.cx-sheet-wrap')?.remove();toast('Booking message template saved');return}
   const row=event.target.closest?.('[data-toast="Notification settings opened"]');
-  if(row){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();const wrap=document.createElement('div');wrap.className='cx-sheet-wrap';wrap.innerHTML=cxNotificationSheet();document.body.appendChild(wrap);return}
+  if(row){event.preventDefault();event.stopImmediatePropagation();document.querySelector('.cx-sheet-wrap')?.remove();state.page='notifs';render();const pg=document.querySelector('.page');if(pg)pg.scrollTop=0;return}
   const sound=event.target.closest?.('[data-cx-sound]');
   if(sound){state.cxSound=sound.dataset.cxSound;try{localStorage.setItem('cabana:chat-sound',state.cxSound)}catch(error){}const wrap=document.querySelector('.cx-sheet-wrap');if(wrap)wrap.innerHTML=cxNotificationSheet();return}
   if(event.target.closest?.('[data-cx-sheet-close]'))document.querySelector('.cx-sheet-wrap')?.remove();
@@ -2702,45 +2709,45 @@ setTimeout(()=>{
 function cxWhenLabel(record){const match=String(record?.when||'').match(/([A-Z][a-z]{2}\s+\d{1,2})(?:\s*[·,]\s*(\d{1,2}:\d{2}\s*[AP]M))?/);if(!match)return 'the scheduled time';return match[2]?match[1]+' at '+match[2]:match[1]}
 const cxAutoSeed=(bookingId,day,time)=>{const record=cxBooking(bookingId)||{id:bookingId,guest:'',item:'booking',when:''};return {day,time,from:'auto',sender:cxBookingMessageBusiness(),booking:bookingId,text:cxBookingMessageText(record)}};
 const cxRuleThreads=[
-  {id:'fd-luna',kind:'frontdesk',hotel:'Luna Bay Resort',unread:1,messages:[
+  {id:'fd-luna',kind:'frontdesk',hotel:'Henry’s Resort Dumaguete',unread:1,messages:[
     {day:cxYesterday,time:'4:10 PM',from:'them',text:'Hi! Guest in Room 314 wants a van for a day trip.'},
     {day:cxYesterday,time:'4:14 PM',from:'system',kind:'created',booking:'CB-9001',text:'Booking #BK-9001 created by Front Desk for Room 314'},
     {day:cxYesterday,time:'4:20 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Got it. The van will be ready at 9:00 AM.'},
     {day:cxToday,time:'10:42 AM',from:'them',text:'Can you take 2 more pax tomorrow?'}]},
-  {id:'g-marco',kind:'guest',name:'Marco Santos',room:'508',hotel:'Luna Bay Resort',unread:2,messages:[
+  {id:'g-marco',kind:'guest',name:'Marco Santos',room:'508',hotel:'Henry’s Resort Dumaguete',unread:2,messages:[
     cxAutoSeed('BK-9003',cxToday,'9:02 AM'),
     {day:cxToday,time:'9:40 AM',from:'them',text:'Thanks! What time should I be at the lobby?'},
     {day:cxToday,time:'9:44 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Please be at the lobby by 4:15 PM. Your driver will message you here.'},
     {day:cxToday,time:'10:30 AM',from:'them',text:'Is the SUV big enough for 4 suitcases?'},
     {day:cxToday,time:'10:31 AM',from:'them',text:'What time is pickup?'}]},
-  {id:'g-amelia',kind:'guest',name:'Amelia Reyes',room:'508',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-amelia',kind:'guest',name:'Amelia Reyes',room:'508',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('CB-9007',cxYesterday,'6:05 PM'),
     {day:cxYesterday,time:'6:20 PM',from:'them',text:'Can we keep the car for an extra hour?'},
     {day:cxYesterday,time:'6:24 PM',from:'me',sender:'Ana · Staff',status:'read',text:'Yes, we can. I’ve added the extra hour.'},
     {day:cxYesterday,time:'6:25 PM',from:'system',kind:'charge',booking:'CB-9007',text:'Extra charge ₱500 · Extra hour'},
     cxAutoSeed('CB-9010',cxToday,'8:12 AM'),
     {day:cxToday,time:'8:20 AM',from:'me',sender:'Leah · Owner',status:'failed',text:'See you at the lobby at 4:30 PM today.'}]},
-  {id:'g-maya',kind:'guest',name:'Maya Tan',room:'314',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-maya',kind:'guest',name:'Maya Tan',room:'314',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('CB-9001',cxYesterday,'4:16 PM'),
     {day:cxYesterday,time:'5:02 PM',from:'them',text:'Perfect, thank you!'}]},
-  {id:'g-leo',kind:'guest',name:'Leo Santos',room:'207',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-leo',kind:'guest',name:'Leo Santos',room:'207',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('ORD-1044',cxYesterday,'11:05 AM'),
     cxAutoSeed('CB-9013',cxToday,'7:45 AM'),
     {day:cxToday,time:'8:03 AM',from:'them',text:'Great, two rentals booked. Can I pick up both at the lobby?'},
     {day:cxToday,time:'8:10 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Yes, both cars will be ready at the lobby.'}]},
-  {id:'g-sofia',kind:'guest',name:'Sofia Lim',room:'602',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-sofia',kind:'guest',name:'Sofia Lim',room:'602',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('CB-8830',cxYesterday,'2:10 PM'),
     {day:cxToday,time:'9:55 AM',from:'me',sender:'Leah · Owner',status:'read',text:'Your driver is at the lobby.'},
     {day:cxToday,time:'11:40 AM',from:'them',text:'Made it to the airport. Thanks!'}]},
-  {id:'g-nina',kind:'guest',name:'Nina Garcia',room:'203',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-nina',kind:'guest',name:'Nina Garcia',room:'203',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('BK-9002','Oct 5','3:30 PM'),
     {day:cxYesterday,time:'9:15 AM',from:'them',text:'Thanks, see you at the lobby!'},
     {day:cxYesterday,time:'9:18 AM',from:'me',sender:'Ana · Staff',status:'read',text:'You’re welcome. We’ll see you there.'}]},
-  {id:'g-oliver',kind:'guest',name:'Oliver Brown',room:'205',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-oliver',kind:'guest',name:'Oliver Brown',room:'205',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('ORD-1037','Oct 5','6:20 PM'),
     {day:cxYesterday,time:'7:45 AM',from:'me',sender:'Ana · Staff',status:'read',text:'Good morning! Your van is outside.'},
     {day:cxYesterday,time:'6:30 PM',from:'them',text:'Great day out. Thanks for the ride!'}]},
-  {id:'g-priya',kind:'guest',name:'Priya Shah',room:'412',hotel:'Luna Bay Resort',unread:0,messages:[
+  {id:'g-priya',kind:'guest',name:'Priya Shah',room:'412',hotel:'Henry’s Resort Dumaguete',unread:0,messages:[
     cxAutoSeed('CB-8812','Oct 2','10:05 AM'),
     {day:'Oct 3',time:'6:40 PM',from:'me',sender:'Leah · Owner',status:'read',text:'Your sedan is at the lobby.'},
     {day:'Oct 3',time:'9:10 PM',from:'them',text:'Arrived safely. Thank you!'}]}
@@ -2801,7 +2808,7 @@ render();
 const renderBeforeProfileBack=render;
 render=function(){
   renderBeforeProfileBack.apply(this,arguments);
-  if(!['profile','earnings','listings','staff-listings'].includes(state.page))return;
+  if(!['profile','earnings','listings','staff-listings','vinsights','automessages'].includes(state.page))return;
   const bar=document.querySelector('.main-wrap > .topbar, .topbar');
   if(!bar||bar.querySelector('[data-profile-back]'))return;
   bar.classList.add('profile-topbar');
@@ -2884,7 +2891,7 @@ render();
 
 /* Profile (simple): business is the hero; your account is one compact block. Replaces the "My account" layout. */
 try{state.businessProfile=JSON.parse(localStorage.getItem('cabana:business-profile')||'null')||{}}catch(error){state.businessProfile={}}
-const businessProfile=()=>({name:menuProfileForRole().business||'Cabana Transport Services',category:'Transport · Partner vendor',...(state.businessProfile||{})});
+const businessProfile=()=>({name:menuProfileForRole().business||'Lakbay Negros Rentals',category:'Transport · Partner vendor',...(state.businessProfile||{})});
 const businessInitials=name=>String(name||'').split(/\s+/).filter(word=>/^[A-Za-z]/.test(word)).map(word=>word[0]).join('').slice(0,2).toUpperCase();
 const profileSimpleView=()=>{
   const owner=state.role==='Owner',business=businessProfile(),me=accountProfile(),editingBusiness=owner&&Boolean(state.businessEditing),editingMe=Boolean(state.accountEditing);
@@ -2930,9 +2937,9 @@ render();
 /* Profile (final): business header, access and permissions (Manage → for owners), your account. */
 const pfStore=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch(error){return fallback}};
 const pfSave=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(error){}};
-state.team=pfStore('cabana:team',null)||[{id:'owner',name:'Leah Santos',role:'Owner',contact:'leah@cabanatransport.com'},{id:'staff',name:'Marco Dela Cruz',role:'Staff',contact:'marco@cabanatransport.com'}];
+state.team=pfStore('cabana:team',null)||[{id:'owner',name:'Leah Santos',role:'Owner',contact:'leah@lakbaynegros.com'},{id:'staff',name:'Marco Dela Cruz',role:'Staff',contact:'marco@lakbaynegros.com'}];
 const pfAccess=role=>role==='Owner'?'Full access':'Bookings · Chat';
-const pfBusiness=()=>({name:menuProfileForRole().business||'Cabana Transport Services',category:'Transport',contact:'+63 917 555 0182',area:'Luna Bay Resort · Dumaguete airport corridor',...(state.businessProfile||{})});
+const pfBusiness=()=>({name:menuProfileForRole().business||'Lakbay Negros Rentals',category:'Transport',contact:'+63 917 555 0182',area:'Henry’s Resort Dumaguete · Dumaguete airport corridor',...(state.businessProfile||{})});
 const pfMemberName=member=>{const linked=member.id==='owner'?'Owner':member.id==='staff'?'Staff':null;const saved=linked&&(state.accountProfile||{})[linked]?.name;return saved||member.name};
 const pfLogo=(business,size)=>'<span class="pf-logo'+(size?' '+size:'')+'">'+(state.businessLogo?'<img src="'+state.businessLogo+'" alt="">':esc(businessInitials(business.name)))+'</span>';
 const pfTeamView=()=>{
@@ -2991,7 +2998,7 @@ render();
 
 /* Profile: Business details section (owner Edit → Edit business screen), category under the name. */
 const bizCategories=['Transport','Tours','Rentals','Spa & wellness','Products'];
-const bizData=()=>({name:menuProfileForRole().business||'Cabana Transport Services',category:'Transport',contact:'+63 35 422 1188',email:'hello@cabanatransport.com',address:'Rizal Blvd, Dumaguete City',area:'Dumaguete · Sibulan Airport',...(state.businessProfile||{})});
+const bizData=()=>({name:menuProfileForRole().business||'Lakbay Negros Rentals',category:'Transport',contact:'+63 35 422 1188',email:'hello@lakbaynegros.com',address:'Rizal Blvd, Dumaguete City',area:'Dumaguete · Sibulan Airport',...(state.businessProfile||{})});
 const bizEditView=()=>{
   const b=bizData(),input=(label,key,value,type='text',required=false)=>'<label class="biz-field"><span>'+label+(required?' <em>Required</em>':'')+'</span><input type="'+type+'" data-biz-field="'+key+'" value="'+esc(value||'')+'"'+(required?' required':'')+'></label>';
   return '<div class="acct-page pf-page biz-edit-page"><section class="biz-logo-field"><label class="pf-logo-edit" aria-label="Upload or change logo">'+pfLogo(b)+'<span class="pf-logo-badge" aria-hidden="true"><i class="hgi-stroke hgi-camera-01"></i></span><input type="file" accept="image/*" data-biz-logo hidden></label><label class="biz-logo-link">'+(state.businessLogo?'Change logo':'Upload logo')+'<input type="file" accept="image/*" data-biz-logo hidden></label></section>'
@@ -3113,6 +3120,7 @@ render();
 
 /* Business profile photo: tap the circular logo to upload; kept across refreshes. */
 try{const savedLogo=localStorage.getItem('cabana:business-logo');if(savedLogo)state.businessLogo=savedLogo}catch(error){}
+if(!state.businessLogo)state.businessLogo='assets/brand/lakbay-negros-logo.svg';
 const renderBeforeLogoUpload=render;
 render=function(){
   renderBeforeLogoUpload.apply(this,arguments);
@@ -3167,7 +3175,7 @@ const pf3View=()=>{
   const details='<section class="acct-section"><div class="acct-section-head"><h2>Business details</h2>'+(owner&&!bizInline?'<button type="button" class="acct-edit" data-pf3-biz-edit>Edit</button>':'')+'</div><div class="acct-list">'+(bizInline?inputRow('Email','data-pf3-inline-biz','email',b.email,'email')+inputRow('Contact number','data-pf3-inline-biz','contact',b.contact,'tel')+inputRow('Address','data-pf3-inline-biz','address',b.address):row('Email',b.email)+row('Contact number',b.contact)+row('Address',b.address))+'</div>'+(bizInline?inlineActions('data-pf3-inline-biz-cancel','data-pf3-inline-biz-save'):'')+'</section>';
   const accountRows=acctInline
     ?inputRow('Name','data-pf3-inline-acct','name',me.name)+inputRow('Email','data-pf3-inline-acct','email',me.email,'email')+inputRow('Phone','data-pf3-inline-acct','phone',me.phone,'tel')
-    :'<div class="pf-me pf-me-rows">'+row('Name',me.name)+row('Email',me.email)+row('Phone',me.phone)+'</div><button type="button" class="biz-row pf-password-row" data-pf3-password><span>Password</span><strong>••••••••</strong><span class="acct-chevron" aria-hidden="true">›</span></button>';
+    :'<div class="pf-me pf-me-rows">'+row('Name',me.name)+row('Email',me.email)+row('Phone',me.phone)+'</div><button type="button" class="biz-row pf-password-row" data-pf3-password><span>Password</span><span class="acct-chevron" aria-hidden="true">›</span></button>';
   const account='<section class="acct-section"><div class="acct-section-head"><h2>Account details</h2>'+(acctInline?'':'<button type="button" class="acct-edit" data-pf3-acct-edit>Edit</button>')+'</div><div class="acct-list">'+accountRows+'</div>'+(acctInline?inlineActions('data-pf3-inline-acct-cancel','data-pf3-inline-acct-save'):'')+'</section>';
   const member=(m,index)=>{const removable=editingTeam&&m.id!=='owner'&&m.role!=='Owner';return '<div class="pf3-member" data-pf3-row="'+index+'">'+(editingTeam?(removable?'<button type="button" class="pf3-minus" data-pf3-remove="'+index+'" aria-label="Remove '+pf3Esc(pfDisplayName(m))+'"><span aria-hidden="true"></span></button>':'<span class="pf3-minus-spacer" aria-hidden="true"></span>'):'')+'<strong>'+pf3Esc(pfDisplayName(m))+'</strong><span class="pf3-role">'+pf3Role(m)+'</span></div>'};
   const showEdit=owner&&pf3StaffCount()>0;
@@ -3231,7 +3239,7 @@ render=function(){
 render();
 
 /* Screens opened from Menu keep the Menu tab highlighted. */
-const menuSubpages=['profile','earnings','listings','staff-listings','insights'];
+const menuSubpages=['profile','earnings','listings','staff-listings','insights','vinsights','automessages','vperf','photels','payacct','notifs','help'];
 const renderBeforeMenuTabActive=render;
 render=function(){
   renderBeforeMenuTabActive.apply(this,arguments);
@@ -3638,8 +3646,8 @@ const lcOpenSheet=(id,confirm)=>{
   const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
   const body=confirm
     ?'<p class="lc-sheet-confirm">Guests won’t be able to book it anymore. Past bookings stay in your records.</p><div class="lc-sheet-actions"><button type="button" class="button ghost" data-lc-sheet="back">Cancel</button><button type="button" class="button pf-danger" data-lc-sheet="confirm-delete">Delete</button></div>'
-    :'<div class="lc-sheet-list"><button type="button" data-lc-sheet="edit"><i class="hgi-stroke hgi-edit-02" aria-hidden="true"></i><span>Edit</span></button>'+(listing.status==='Draft'?'':'<button type="button" data-lc-sheet="toggle"><i class="hgi-stroke '+(listing.status==='Active'?'hgi-pause':'hgi-play')+'" aria-hidden="true"></i><span>'+(listing.status==='Active'?'Deactivate':'Activate')+'</span></button>')+'<button type="button" data-lc-sheet="duplicate"><i class="hgi-stroke hgi-copy-01" aria-hidden="true"></i><span>Duplicate</span></button><button type="button" class="is-danger" data-lc-sheet="delete"><i class="hgi-stroke hgi-delete-02" aria-hidden="true"></i><span>Delete</span></button></div>';
-  wrap.innerHTML='<div class="pf-sheet-backdrop" data-lc-sheet="close"></div><section class="pf-sheet lc-sheet" role="dialog" aria-label="'+lcE(listing.name)+'"><header><h2>'+(confirm?'Delete '+lcE(listing.name)+'?':lcE(listing.name))+'</h2><button type="button" data-lc-sheet="close" aria-label="Close">×</button></header>'+body+'</section>';
+    :'<div class="lc-sheet-list"><button type="button" data-lc-sheet="edit"><i class="hgi-stroke hgi-edit-02" aria-hidden="true"></i><span>Edit</span></button><button type="button" data-lc-sheet="duplicate"><i class="hgi-stroke hgi-copy-01" aria-hidden="true"></i><span>Duplicate</span></button><button type="button" class="is-danger" data-lc-sheet="delete"><i class="hgi-stroke hgi-delete-02" aria-hidden="true"></i><span>Delete</span></button></div>';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-lc-sheet="close"></div><section class="pf-sheet lc-sheet" role="dialog" data-lc-sheet-id="'+lcE(listing.id)+'" aria-label="'+lcE(listing.name)+'"><header><h2>'+(confirm?'Delete '+lcE(listing.name)+'?':lcE(listing.name))+'</h2><button type="button" data-lc-sheet="close" aria-label="Close">×</button></header>'+body+'</section>';
   document.body.appendChild(wrap);
   wrap.onclick=event=>{
     const action=event.target.closest('[data-lc-sheet]')?.dataset.lcSheet;if(!action)return;
@@ -3792,7 +3800,7 @@ setTimeout(()=>{
     if(state.page==='listings'&&extra.lc?.open&&extra.lc.data){state.lc={open:true,step:Math.min(5,Math.max(1,Number(extra.lc.step)||1)),data:{...lcDefaults(),...extra.lc.data},month:extra.lc.month||[2026,9],editingId:extra.lc.editingId||null,tried1:extra.lc.tried1,tried2:extra.lc.tried2};changed=true}
     if(state.page==='listings'&&!extra.lc?.open&&extra.listingDetail){state.listingDetail=extra.listingDetail;changed=true}
     if(state.page==='listings'&&!extra.lc?.open&&extra.listingEditId){state.listingEditId=extra.listingEditId;changed=true}
-    if(state.page==='profile'&&['business','account'].includes(extra.profileSub)){state.profileSub=extra.profileSub;changed=true}
+    if(state.page==='profile'&&['business','account','password'].includes(extra.profileSub)){state.profileSub=extra.profileSub;changed=true}
     if(changed){
       let saved=null;try{saved=JSON.parse(localStorage.getItem('cabana:resume-view')||'null')}catch(error){}
       render();
@@ -3981,18 +3989,18 @@ render=function(){
 render();
 
 /* Listings cards v2: photo, title, price / unit, "Up to N · duration"; pill only when not live; actions live in ⋯. */
-const lcSampleDetail={'airport-sedan':[4,'passengers','2 hours'],innova:[7,'passengers','7 days max'],'tourist-van':[12,'passengers','7 days max']};
+const lcSampleDetail={'airport-sedan':[4,'passengers','2 hours'],innova:[7,'passengers','7 days max'],'tourist-van':[12,'passengers','7 days max'],'island-hopping':[10,'guests','6 hours'],'van-driver':[12,'passengers','1 day'],'city-tour':[4,'guests','3 hours'],scooter:[2,'units','']};
 const lcCardUnit=listing=>{if(listing.setup?.pricedPer)return listing.setup.pricedPer.toLowerCase();const u=String(listing.unit||'').replace(/^per\s+/i,'').toLowerCase();return u==='trip'?'booking':u};
 const lcCardDetail=listing=>{
   const s=listing.setup;
   if(s){const n=Number(s.maxPer)||0,noun=String(s.countBy||'guests').toLowerCase(),nounText=n===1?noun.replace(/s$/,''):noun,time=s.durationMode==='guest'?(s.guestMax+' '+(Number(s.guestMax)===1?String(s.guestUnit).replace(/s$/,''):s.guestUnit)+' max'):lcDuration(s);return 'Up to '+n+' '+nounText+' · '+time}
-  const sample=lcSampleDetail[listing.id];if(sample)return 'Up to '+sample[0]+' '+sample[1]+' · '+sample[2];
+  const sample=lcSampleDetail[listing.id];if(sample)return 'Up to '+sample[0]+' '+sample[1]+(sample[2]?' · '+sample[2]:'');
   return String(listing.stock||'');
 };
 listingCardMarkup=function(listing,grid=false){
   const owner=state.role==='Owner',status=listing.status||'Active',draft=status==='Draft',paused=status==='Paused'||status==='Inactive';
   const source=listing.photo||(typeof listingMockPhotos==='object'?listingMockPhotos[listing.id]:'');
-  const photo='<span class="lcc-photo">'+(source?'<img src="'+esc(source)+'" alt="" loading="lazy">':'<i class="hgi-stroke hgi-image-01" aria-hidden="true"></i>')+'</span>';
+  const photo='<span class="lcc-photo">'+(source?'<img src="'+esc(source)+'" alt="">':'<i class="hgi-stroke hgi-image-01" aria-hidden="true"></i>')+'</span>';
   const pill=draft?'<em class="lcc-pill is-draft">Draft</em>':paused?'<em class="lcc-pill is-paused">Inactive</em>':'';
   const main=draft&&owner?'data-listing-menu-action="setup" data-listing-id="'+listing.id+'"':'data-listing-detail="'+listing.id+'"';
   return '<article class="lcc-card'+(grid?' is-cards':' is-row')+(paused?' is-paused':'')+(draft?' is-draft':'')+'" data-listing-card="'+listing.id+'"><button type="button" class="lcc-main" '+main+' aria-label="'+esc(listing.name)+(pill?', '+(draft?'draft':'inactive'):'')+'">'+photo+'<span class="lcc-body"><span class="lcc-title"><strong>'+esc(listing.name)+'</strong>'+pill+'</span><span class="lcc-price"><b>'+lcPeso(listing.price)+'</b> / '+esc(lcCardUnit(listing))+'</span><span class="lcc-meta">'+esc(lcCardDetail(listing))+'</span></span></button>'+(owner?'<button type="button" class="lc-more lcc-more" data-lc-more="'+listing.id+'" aria-label="More actions for '+esc(listing.name)+'"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg></button>':'')+'</article>';
@@ -4000,11 +4008,1710 @@ listingCardMarkup=function(listing,grid=false){
 const renderBeforeLcCardsV2=render;
 render=function(){
   renderBeforeLcCardsV2.apply(this,arguments);
-  const dev=document.querySelector('.dev-tools');if(dev)dev.hidden=state.page==='listings';
+  const dev=document.querySelector('.dev-tools');if(dev)dev.hidden=['listings','vinsights'].includes(state.page);
   if(state.page!=='listings'||state.lc?.open)return;
   const cardsBtn=document.querySelector('[data-listing-view="grid"]');
   const pausedChip=document.querySelector('.listings-status-filters [data-listing-status="Paused"]');
   if(pausedChip)pausedChip.childNodes.forEach(node=>{if(node.nodeType===3&&/Paused/.test(node.nodeValue))node.nodeValue=node.nodeValue.replace('Paused','Inactive')});
   if(cardsBtn){cardsBtn.setAttribute('aria-label','Card view');const label=cardsBtn.querySelector('span');if(label)label.textContent='Cards'}
 };
+render();
+
+/* Listings v3: switch on each card (Active/Inactive), draft footer, ⋮ sheet (Edit · Duplicate · Delete), undo toast, empty states. */
+const lcKebab='<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>';
+const lcUpcoming=listing=>orders.filter(o=>o.item===listing.name&&!['Completed','Cancelled','Declined','No-show'].includes(o.status)).length;
+listingCardMarkup=function(listing,grid=false){
+  const owner=state.role==='Owner',status=listing.status||'Active',draft=status==='Draft',off=status==='Paused'||status==='Inactive';
+  const source=listing.photo||(typeof listingMockPhotos==='object'?listingMockPhotos[listing.id]:'');
+  const photo='<span class="lcc-photo">'+(source?'<img src="'+esc(source)+'" alt="">':'<i class="hgi-stroke hgi-image-01" aria-hidden="true"></i>')+'</span>';
+  const main=draft&&owner?'data-listing-menu-action="setup" data-listing-id="'+listing.id+'"':'data-listing-detail="'+listing.id+'"';
+  const sw=owner&&!draft?'<button type="button" class="lcc-switch" role="switch" aria-checked="'+(!off)+'" data-lcc-toggle="'+listing.id+'" aria-label="Show '+esc(listing.name)+' to guests"><span></span></button>':'';
+  const more=owner?'<button type="button" class="lc-more lcc-more" data-lc-more="'+listing.id+'" aria-label="More actions for '+esc(listing.name)+'">'+lcKebab+'</button>':'';
+  const price='<span class="lcc-price"><b>'+lcPeso(listing.price)+'</b> / '+esc(lcCardUnit(listing))+'</span>';
+  if(!grid)return '<article class="lcc-card is-row'+(off?' is-paused':'')+(draft?' is-draft':'')+'" data-listing-card="'+listing.id+'"><button type="button" class="lcc-main" '+main+'>'+photo+'<span class="lcc-body"><span class="lcc-title"><strong>'+esc(listing.name)+'</strong></span>'+price+(draft?'<em class="lcc-pill is-draft">Draft</em>':'')+'</span></button><span class="lcc-row-actions">'+sw+more+'</span></article>';
+  const foot=draft?'<div class="lcc-foot"><em class="lcc-pill is-draft">Draft</em>'+(owner?'<button type="button" class="lcc-finish" data-listing-menu-action="setup" data-listing-id="'+listing.id+'">Finish setup ›</button>':'')+'</div>'
+    :'<div class="lcc-foot"><span class="lcc-status'+(off?' is-off':'')+'">'+(off?'Inactive':'Active')+'</span>'+sw+'</div>';
+  return '<article class="lcc-card is-cards'+(off?' is-paused':'')+(draft?' is-draft':'')+'" data-listing-card="'+listing.id+'"><button type="button" class="lcc-main" '+main+'>'+photo+'<span class="lcc-body"><span class="lcc-title"><strong>'+esc(listing.name)+'</strong></span>'+price+'<span class="lcc-meta">'+esc(lcCardDetail(listing))+'</span></span></button>'+more+foot+'</article>';
+};
+const lccToast=(message,undo)=>{
+  document.querySelectorAll('.lcc-toast').forEach(n=>n.remove());
+  const node=document.createElement('div');node.className='toast lcc-toast';node.setAttribute('role','status');
+  node.innerHTML='<span>'+lcE(message)+'</span>'+(undo?'<button type="button">Undo</button>':'');
+  (document.querySelector('#toast-region')||document.body).append(node);
+  if(undo)node.querySelector('button').onclick=()=>{node.remove();undo()};
+  setTimeout(()=>node.remove(),4000);
+};
+const lccSetStatus=(listing,on,withUndo=true)=>{
+  const before=listing.status;listing.status=on?'Active':'Paused';
+  if(listing.created)lcSaveCreated();lcRerender();
+  lccToast(on?'Visible to guests':'Hidden from guests',withUndo&&!on?()=>{listing.status=before;if(listing.created)lcSaveCreated();lcRerender()}:null);
+};
+const lccDialog=({title,body,confirm,danger,onConfirm})=>{
+  lcLeaveClose();
+  const wrap=document.createElement('div');wrap.className='lc-leave-wrap';
+  wrap.innerHTML='<div class="lc-leave-backdrop" data-lcc-d="cancel"></div><section class="lc-leave lcc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="lcc-d-title"><h2 id="lcc-d-title">'+title+'</h2><p>'+body+'</p><div class="lcc-dialog-actions"><button type="button" class="button ghost" data-lcc-d="cancel">Cancel</button><button type="button" class="button primary'+(danger?' is-danger':'')+'" data-lcc-d="ok">'+confirm+'</button></div></section>';
+  document.body.appendChild(wrap);setTimeout(()=>wrap.querySelector('[data-lcc-d="cancel"].button')?.focus(),30);
+  wrap.onkeydown=e=>{if(e.key==='Escape')wrap.remove()};
+  wrap.onclick=e=>{const a=e.target.closest('[data-lcc-d]')?.dataset.lccD;if(!a)return;wrap.remove();if(a==='ok')onConfirm()};
+};
+window.addEventListener('click',event=>{
+  const toggle=event.target.closest?.('[data-lcc-toggle]'),del=event.target.closest?.('.lc-sheet [data-lc-sheet="delete"]');
+  if(!toggle&&!del)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(toggle){
+    const listing=listings.find(item=>item.id===toggle.dataset.lccToggle);if(!listing)return;
+    const on=!(listing.status==='Active');
+    if(!on&&lcUpcoming(listing)>0)lccDialog({title:'Turn off this listing?',body:'Existing bookings will continue. Guests can’t make new ones.',confirm:'Turn off',onConfirm:()=>lccSetStatus(listing,false)});
+    else lccSetStatus(listing,on);
+    return;
+  }
+  const id=document.querySelector('.lc-sheet')?.dataset.lcSheetId;const listing=listings.find(item=>item.id===id);
+  lcSheetClose();if(!listing)return;
+  lccDialog({title:'Delete this listing?',body:'This can’t be undone.',confirm:'Delete',danger:true,onConfirm:()=>{const i=listings.indexOf(listing);if(i>=0)listings.splice(i,1);lcSaveCreated();render();toast(listing.name+' deleted')}});
+},true);
+const renderBeforeLccV3=render;
+render=function(){
+  renderBeforeLccV3.apply(this,arguments);
+  if(state.page!=='listings'||state.lc?.open||state.listingDetail)return;
+  const empty=document.querySelector('.page .listings-empty-state');
+  if(empty&&!(state.listingQuery||'').trim()){
+    const filter=state.listingStatusFilter||'All';
+    if(!listings.length)empty.innerHTML='<strong>Create your first listing so guests can book you.</strong><button type="button" class="button primary" data-listing-new>+ Create new listing</button>';
+    else empty.innerHTML='<span>'+(filter==='Drafts'?'No drafts':filter==='Paused'?'No inactive listings':filter==='Active'?'No active listings':'No listings')+'</span>';
+    empty.classList.toggle('is-filter',listings.length>0);
+  }
+};
+render();
+
+/* Listings: cards only — no List/Cards switch. */
+const renderBeforeCardsOnly=render;
+render=function(){
+  state.listingView='grid';
+  renderBeforeCardsOnly.apply(this,arguments);
+  document.querySelectorAll('.listings-view-controls').forEach(node=>node.remove());
+};
+render();
+
+/* Profile: Password opens its own "Change password" screen (not a sheet). */
+window.addEventListener('click',event=>{
+  if(!event.target.closest?.('[data-pf3-password]'))return;
+  event.preventDefault();event.stopImmediatePropagation();
+  state.pf3Sheet=null;state.profileSub='password';state.pf3TeamEditing=false;render();
+  const page=document.querySelector('.page');if(page)page.scrollTop=0;
+  setTimeout(()=>document.querySelector('[data-pf3-newpw="current"]')?.focus(),30);
+},true);
+const renderBeforePf3Password=render;
+render=function(){
+  renderBeforePf3Password.apply(this,arguments);
+  if(state.page!=='profile'||state.profileSub!=='password')return;
+  const page=document.querySelector('.page');if(!page)return;
+  const field=(label,key,auto)=>'<label class="biz-field"><span>'+label+'</span><input type="password" data-pf3-newpw="'+key+'" autocomplete="'+auto+'"></label>';
+  page.innerHTML='<div class="acct-page pf-page pf3-page biz-edit-page pf3-pw-page"><section class="acct-list biz-form">'+field('Current password','current','current-password')+field('New password','next','new-password')+field('Confirm new password','confirm','new-password')+'</section><p class="pf3-pw-note">Use at least 8 characters.</p><p class="pf3-pw-error" role="alert" hidden></p><div class="pf3-edit-actions"><button type="button" class="button primary biz-save" data-pf3-newpw-save>Update password</button><button type="button" class="button ghost biz-cancel" data-pf3-newpw-cancel>Cancel</button></div></div>';
+  const leave=()=>{state.profileSub=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  const title=document.querySelector('.topbar .topbar-context strong');if(title)title.textContent='Change password';
+  const back=document.querySelector('[data-profile-back]');
+  if(back){back.textContent='←';back.classList.remove('is-cancel');back.setAttribute('aria-label','Back to Profile');back.onclick=leave}
+  page.querySelector('[data-pf3-newpw-cancel]').onclick=leave;
+  const error=page.querySelector('.pf3-pw-error');
+  const fail=(message,key)=>{error.textContent=message;error.hidden=false;page.querySelector('[data-pf3-newpw="'+key+'"]')?.focus()};
+  page.querySelectorAll('[data-pf3-newpw]').forEach(input=>input.addEventListener('input',()=>{error.hidden=true}));
+  page.querySelector('[data-pf3-newpw-save]').onclick=()=>{
+    const v=key=>String(page.querySelector('[data-pf3-newpw="'+key+'"]')?.value||'');
+    if(!v('current'))return fail('Enter your current password','current');
+    if(v('next').length<8)return fail('New password needs at least 8 characters','next');
+    if(v('next')!==v('confirm'))return fail('New passwords don’t match','confirm');
+    leave();toast('Password updated');
+  };
+};
+render();
+
+/* ===== Insights (owner-only): Week | Month | Year with ‹ ›, Sales and Bookings tabs. ===== */
+const viMonths=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const viToday=new Date(2026,9,10),viStart=new Date(2026,5,1); /* pilot data starts Jun 1, 2026 */
+const viSeed=n=>{let x=Math.sin(n*9301+49297)*233280;return x-Math.floor(x)};
+const viPeso=n=>'₱'+Math.round(n).toLocaleString('en-PH');
+const viState=()=>{state.vi=state.vi||{period:'Month',offset:0,tab:'Sales'};return state.vi};
+const viRange=(period,offset)=>{
+  if(period==='Week'){const monday=new Date(viToday);monday.setDate(viToday.getDate()-((viToday.getDay()+6)%7)+offset*7);const end=new Date(monday);end.setDate(monday.getDate()+6);const f=d=>viMonths[d.getMonth()]+' '+d.getDate();return {start:monday,end,label:f(monday)+' – '+(monday.getMonth()===end.getMonth()?end.getDate():f(end)),short:'last week',days:7,key:'w'+offset}}
+  if(period==='Year'){const y=viToday.getFullYear()+offset;return {start:new Date(y,0,1),end:new Date(y,11,31),label:String(y),short:String(y-1),days:12,key:'y'+offset}}
+  const d=new Date(viToday.getFullYear(),viToday.getMonth()+offset,1),end=new Date(d.getFullYear(),d.getMonth()+1,0);
+  const prev=new Date(d.getFullYear(),d.getMonth()-1,1);
+  return {start:d,end,label:viMonths[d.getMonth()]+' '+d.getFullYear(),short:viMonths[prev.getMonth()],days:end.getDate(),key:'m'+offset};
+};
+const viData=(period,offset)=>{
+  const r=viRange(period,offset);
+  if(r.end<viStart)return null;
+  const scale=period==='Week'?.24:period==='Year'?(offset===0?4.2:0):1;
+  if(!scale)return null;
+  const s=k=>viSeed(offset*13+k+(period==='Week'?100:period==='Year'?200:0));
+  const factor=(offset===0?1:(.78+s(1)*.17))*scale*(r.start<viStart?.55:1);
+  const completed=Math.max(1,Math.round(32*factor)),sales=Math.round(48600*factor/100)*100,outstanding=Math.round(sales*(.12+s(2)*.08)/100)*100;
+  const received=Math.round(completed*1.25),declined=Math.max(0,Math.round(received*.05)),expired=Math.max(0,Math.round(received*(.06+s(3)*.06))),confirmed=received-declined-expired;
+  const bars=Array.from({length:r.days},(_,i)=>{const future=period!=='Year'&&new Date(r.start.getFullYear(),r.start.getMonth(),r.start.getDate()+i)>viToday;const futureMonth=period==='Year'&&new Date(r.start.getFullYear(),i,1)>viToday;return future||futureMonth?0:Math.round((.35+viSeed(offset*31+i+7)*.9)*100)});
+  const total=bars.reduce((a,b)=>a+b,0)||1;
+  const weekday=[.9,.8,.85,1,1.25,1.5,1.35].map((w,i)=>Math.round(completed*w/7.65*(.9+viSeed(i+offset)*.2)));
+  const top=[['Airport Transfer — Sedan',.46],['Toyota Innova Rental',.36],['Island Hopping Tour',.18]].map(([name,share],i)=>({name,sales:Math.round(sales*share/100)*100,bookings:Math.max(0,Math.round(completed*[.53,.25,.22][i]))}));
+  if(period==='Month'&&offset===0)return {r,sales:48600,collected:41200,outstanding:7400,completed:32,received:40,confirmed:34,declined:2,expired:4,response:18,cancelGuest:3,cancelYou:1,bars:bars.map(b=>Math.round(48600*b/total)),weekday,top:[{name:'Airport Transfer — Sedan',sales:22400,bookings:17},{name:'Toyota Innova Rental',sales:17600,bookings:8},{name:'Island Hopping Tour',sales:8600,bookings:7}]};
+  if(period==='Month'&&offset===-1)return {r,sales:43400,collected:43400,outstanding:0,completed:29,received:37,confirmed:30,declined:3,expired:4,response:24,cancelGuest:2,cancelYou:1,bars,weekday,top};
+  return {r,sales,collected:sales-outstanding,outstanding,completed,received,confirmed,declined,expired,response:Math.round(14+s(4)*10),cancelGuest:Math.round(3*factor/scale*(scale<1?.4:1)),cancelYou:Math.round(1*factor/scale*(scale<1?.4:1)),bars:bars.map(b=>Math.round(sales*b/total)),weekday,top};
+};
+const viChange=(now,before,label,invert)=>{
+  if(before==null||!before)return '';
+  const pct=Math.round((now-before)/before*100);if(!pct)return '<span class="vi-change is-flat">Same as '+label+'</span>';
+  const up=pct>0,good=invert?!up:up;
+  return '<span class="vi-change '+(good?'is-good':'is-bad')+'">'+(up?'▲':'▼')+' '+Math.abs(pct)+'% vs '+label+'</span>';
+};
+const viBars=(values,labels,opts={})=>{
+  const max=Math.max(...values,1),every=values.length>12?Math.ceil(values.length/6):1;
+  return '<div class="vi-bars'+(values.length>12?' is-dense':'')+'" role="img" aria-label="'+(opts.aria||'Chart')+'">'+values.map((v,i)=>'<span class="vi-bar'+(opts.highlight===i?' is-top':'')+'"><i style="height:'+Math.max(v?4:0,Math.round(v/max*100))+'%"></i><em>'+(i%every===0||values.length<=12?labels[i]:'')+'</em></span>').join('')+'</div>';
+};
+const viPage=()=>{
+  if(state.role!=='Owner')return '<div class="vi-page"><div class="vi-empty"><strong>Owner access only</strong><span>Insights show revenue, so only the business owner can see them.</span></div></div>';
+  const st=viState(),d=viData(st.period,st.offset),prev=viData(st.period,st.offset-1),r=viRange(st.period,st.offset);
+  const canPrev=viRange(st.period,st.offset-1).end>=viStart&&!(st.period==='Year'),canNext=st.offset<0;
+  const head='<div class="vi-controls"><div class="vi-seg" role="radiogroup" aria-label="Period">'+['Week','Month','Year'].map(p=>'<button type="button" role="radio" aria-checked="'+(st.period===p)+'" class="'+(st.period===p?'is-active':'')+'" data-vi-period="'+p+'">'+p+'</button>').join('')+'</div><div class="vi-nav"><button type="button" data-vi-step="-1" aria-label="Previous period"'+(canPrev?'':' disabled')+'>‹</button><strong>'+r.label+'</strong><button type="button" data-vi-step="1" aria-label="Next period"'+(canNext?'':' disabled')+'>›</button></div></div>'
+    +'<div class="vi-tabs" role="tablist">'+['Sales','Bookings'].map(t=>'<button type="button" role="tab" aria-selected="'+(st.tab===t)+'" class="'+(st.tab===t?'is-active':'')+'" data-vi-tab="'+t+'">'+t+'</button>').join('')+'</div>';
+  if(!d||!d.completed)return '<div class="vi-page">'+head+'<div class="vi-empty"><i class="hgi-stroke hgi-analytics-01" aria-hidden="true"></i><strong>No insights yet</strong><span>Your insights will appear after your first completed booking.</span></div></div>';
+  const label=r.short,card=(cls,html)=>'<section class="vi-card '+cls+'">'+html+'</section>';
+  const chartLabels=st.period==='Year'?viMonths.map(m=>m[0]):st.period==='Week'?['M','T','W','T','F','S','S']:d.bars.map((_,i)=>String(i+1));
+  let body='';
+  if(st.tab==='Sales'){
+    body=card('vi-hero','<span class="vi-label">Total sales</span><strong class="vi-big">'+viPeso(d.sales)+'</strong>'+viChange(d.sales,prev?.sales,label)+'<small class="vi-note">From completed bookings</small>')
+      +'<button type="button" class="vi-card vi-money" data-vi-outstanding><span><span class="vi-label">Collected</span><strong>'+viPeso(d.collected)+'</strong></span><span><span class="vi-label">Outstanding</span><strong class="is-due">'+viPeso(d.outstanding)+'</strong></span><b aria-hidden="true">›</b></button>'
+      +card('','<div class="vi-card-head"><h3>Sales</h3><span>'+(st.period==='Year'?'by month':'by day')+'</span></div>'+viBars(d.bars,chartLabels,{aria:'Sales '+(st.period==='Year'?'by month':'by day')}))
+      +card('','<div class="vi-card-head"><h3>Top listings</h3><span>by sales</span></div>'+d.top.slice().sort((a,b)=>b.sales-a.sales).map((t,i)=>'<div class="vi-row"><span class="vi-rank">'+(i+1)+'</span><span class="vi-row-name">'+esc(t.name)+'<small>'+t.bookings+' booking'+(t.bookings===1?'':'s')+'</small></span><strong>'+viPeso(t.sales)+'</strong></div>').join(''));
+  }else{
+    const maxDay=d.weekday.indexOf(Math.max(...d.weekday));
+    body=card('vi-hero','<span class="vi-label">Completed bookings</span><strong class="vi-big">'+d.completed+'</strong>'+viChange(d.completed,prev?.completed,label))
+      +card('','<div class="vi-card-head"><h3>Requests</h3><span>'+d.received+' received</span></div><div class="vi-funnel"><span><strong>'+d.confirmed+'</strong>Confirmed</span><span><strong>'+d.declined+'</strong>Declined</span><span class="is-warn"><strong>'+d.expired+'</strong>Expired</span></div>')
+      +card('vi-response','<span class="vi-label">Average response time</span><strong class="vi-mid">'+d.response+' min</strong>'+viChange(d.response,prev?.response,label,true)+'<small class="vi-note">Reply faster so requests don’t expire. Expired requests are lost bookings.</small>')
+      +card('','<div class="vi-card-head"><h3>Cancellations</h3></div><div class="vi-funnel is-two"><span><strong>'+d.cancelGuest+'</strong>By guest</span><span><strong>'+d.cancelYou+'</strong>By you</span></div>')
+      +card('','<div class="vi-card-head"><h3>Busiest days</h3><span>bookings by weekday</span></div>'+viBars(d.weekday,['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],{highlight:maxDay,aria:'Bookings by weekday'}))
+      +card('','<div class="vi-card-head"><h3>Top listings</h3><span>by bookings</span></div>'+d.top.slice().sort((a,b)=>b.bookings-a.bookings).map((t,i)=>'<div class="vi-row"><span class="vi-rank">'+(i+1)+'</span><span class="vi-row-name">'+esc(t.name)+'</span><strong>'+t.bookings+'</strong></div>').join(''));
+  }
+  return '<div class="vi-page">'+head+'<div class="vi-body">'+body+'</div></div>';
+};
+const viewBeforeVi=view;
+view=function(){if(state.page!=='vinsights')return viewBeforeVi.apply(this,arguments);try{if(window.cabanaInsightsPage)return window.cabanaInsightsPage()}catch(error){console.error('Insights render failed',error)}return '<div class="vi2"></div>'};
+window.addEventListener('click',event=>{
+  const open=event.target.closest?.('[data-insights]');
+  if(open){event.preventDefault();event.stopImmediatePropagation();if(state.role!=='Owner'){toast('Insights are for the business owner');return}state.page='vinsights';render();const p=document.querySelector('.page');if(p)p.scrollTop=0;return}
+  if(state.page!=='vinsights')return;
+  const st=viState(),period=event.target.closest?.('[data-vi-period]'),step=event.target.closest?.('[data-vi-step]'),tab=event.target.closest?.('[data-vi-tab]'),due=event.target.closest?.('[data-vi-outstanding]');
+  if(!period&&!step&&!tab&&!due)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(period){st.period=period.dataset.viPeriod;st.offset=0}
+  if(step&&!step.disabled)st.offset+=Number(step.dataset.viStep);
+  if(tab)st.tab=tab.dataset.viTab;
+  if(due){state.page='earnings';state.earningsTab='Upcoming';state.earningsFilterStatus='Awaiting guest checkout';state.earningsPayoutDetail=null;state.earningsTransactionDetail=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0;return}
+  const scroll=document.querySelector('.page')?.scrollTop||0;render();if(tab||period){const p=document.querySelector('.page');if(p)p.scrollTop=0}else{const p=document.querySelector('.page');if(p)p.scrollTop=scroll}
+},true);
+const renderBeforeVi=render;
+render=function(){
+  if(state.page==='vinsights'&&state.role!=='Owner')state.page='menu';
+  renderBeforeVi.apply(this,arguments);
+  if(state.page!=='vinsights')return;
+  const page=document.querySelector('.page');if(page&&window.cabanaInsightsPage&&!page.querySelector('.vi2'))page.innerHTML=window.cabanaInsightsPage();
+  const title=document.querySelector('.topbar .topbar-context strong, .topbar h1');if(title)title.textContent='Insights';
+  document.querySelectorAll('.bottom-nav [data-page="menu"], nav [data-page="menu"]').forEach(b=>b.classList.add('active'));
+};
+render();
+
+/* ===== Insights v2 (Shopify-style): one range pill, sales line chart vs previous period, overview grid, requests bar, top listings. ===== */
+const vi2Ranges=['Last 7 days','Last 30 days','This month','Last month','This year'];
+const vi2Fmt=d=>viMonths[d.getMonth()]+' '+d.getDate();
+const vi2Day=(n)=>{const d=new Date(viToday);d.setDate(d.getDate()+n);return d};
+const vi2Series=(n,total,seed,zeroUntil=0)=>{let v=.9;const walk=Array.from({length:n},(_,i)=>{v=Math.min(1.45,Math.max(.5,v+(viSeed(seed+i*1.7)-.5)*.42));return v});const raw=walk.map((w,i)=>i<zeroUntil?0:(i>0&&i<n-1?(walk[i-1]+w*2+walk[i+1])/4:w));const sum=raw.reduce((a,b)=>a+b,0)||1;return raw.map(v=>Math.round(total*v/sum))};
+const vi2Data=range=>{
+  if(range==='Custom')return vi2CustomData();
+  const base={sales:48600,prev:43400,bookings:32,prevBookings:29,response:18,prevResponse:24,collected:41200,outstanding:7400,received:40,confirmed:34,declined:2,expired:4};
+  const k={'Last 7 days':.24,'Last 30 days':1,'This month':.33,'Last month':.9,'This year':4.6}[range];
+  const scaled=v=>Math.round(v*k/100)*100,count=v=>Math.max(1,Math.round(v*k));
+  let d=range==='Last 30 days'?{...base}:{sales:scaled(base.sales),prev:range==='This year'?0:scaled(base.prev*(range==='Last month'?.94:1.02)),bookings:count(base.bookings),prevBookings:range==='This year'?0:count(base.prevBookings),response:range==='Last 7 days'?16:range==='Last month'?22:19,prevResponse:range==='This year'?0:23,collected:0,outstanding:range==='Last month'?0:scaled(base.outstanding),received:count(base.received),declined:Math.max(0,Math.round(2*k)),expired:Math.max(0,Math.round(4*k))};
+  if(range!=='Last 30 days'){d.collected=d.sales-d.outstanding;d.confirmed=d.received-d.declined-d.expired}
+  if(range==='Last 7 days'){d.points=7;d.labels=[vi2Fmt(vi2Day(-6)),vi2Fmt(vi2Day(-3)),vi2Fmt(viToday)];d.compare='previous 7 days';d.legend=['Last 7 days','Previous 7 days']}
+  else if(range==='Last 30 days'){d.points=30;d.labels=[vi2Fmt(vi2Day(-29)),vi2Fmt(vi2Day(-15)),vi2Fmt(viToday)];d.compare='previous 30 days';d.legend=['Last 30 days','Previous 30 days']}
+  else if(range==='This month'){d.points=10;d.labels=['Oct 1','Oct 5','Oct 10'];d.compare='Sep 1–10';d.legend=['Oct 1–10','Sep 1–10']}
+  else if(range==='Last month'){d.points=30;d.labels=['Sep 1','Sep 15','Sep 30'];d.compare='August';d.legend=['September','August']}
+  else {d.points=10;d.labels=['Jan','May','Oct'];d.compare='';d.legend=['2026',''];d.zeroUntil=5}
+  const seed=vi2Ranges.indexOf(range)*41+3;
+  d.series=vi2Series(d.points,d.sales,seed,d.zeroUntil||0);
+  d.prevSeries=d.prev?vi2Series(d.points,d.prev,seed+97):null;
+  const share=[[.46,.53],[.36,.25],[.18,.22]];
+  d.top=[['airport-sedan','Airport Transfer — Sedan'],['innova','Toyota Innova Rental'],['island-hopping','Island Hopping Tour']].map(([id,name],i)=>({id,name,sales:range==='Last 30 days'?[22400,17600,8600][i]:Math.round(d.sales*share[i][0]/100)*100,bookings:range==='Last 30 days'?[17,8,7][i]:Math.max(1,Math.round(d.bookings*share[i][1]))}));
+  return d;
+};
+const vi2Pct=(now,before)=>before?Math.round((now-before)/before*100):null;
+const vi2Chart=d=>{
+  const W=320,H=150,pad=6,all=[...d.series,...(d.prevSeries||[])].filter(v=>v>0),max=Math.max(...all,1)*1.08,min=d.zeroUntil?0:Math.min(...all)*.55,n=d.points;
+  const x=i=>n===1?W/2:pad+(W-pad*2)*i/(n-1),y=v=>H-pad-(H-pad*2)*Math.max(0,v-min)/Math.max(1,max-min);
+  const path=arr=>arr.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+  const line=path(d.series),area=line+' L'+x(n-1).toFixed(1)+' '+(H-pad)+' L'+x(0).toFixed(1)+' '+(H-pad)+' Z';
+  const avg=d.series.reduce((a,b)=>a+b,0)/n;
+  return '<svg class="vi2-chart" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" role="img" aria-label="Sales over time'+(d.prevSeries?', compared with '+d.compare:'')+'"><defs><linearGradient id="vi2fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A2133" stop-opacity=".12"/><stop offset="1" stop-color="#4A2133" stop-opacity="0"/></linearGradient></defs>'
+    +'<line x1="0" x2="'+W+'" y1="'+y(avg).toFixed(1)+'" y2="'+y(avg).toFixed(1)+'" stroke="#E3DDE0" stroke-width="1" vector-effect="non-scaling-stroke"/>'
+    +'<line x1="0" x2="'+W+'" y1="'+(H-pad)+'" y2="'+(H-pad)+'" stroke="#E3DDE0" stroke-width="1" vector-effect="non-scaling-stroke"/>'
+    +'<path d="'+area+'" fill="url(#vi2fill)"/>'
+    +(d.prevSeries?'<path d="'+path(d.prevSeries)+'" fill="none" stroke="#B9AEB4" stroke-width="1.6" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/>':'')
+    +'<path d="'+line+'" fill="none" stroke="#4A2133" stroke-width="2.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>'
+    +'</svg><span class="vi2-dot" style="left:'+(x(n-1)/W*100).toFixed(2)+'%;top:'+(y(d.series[n-1])/H*100).toFixed(2)+'%"></span>';
+};
+const viPage2=()=>{
+  if(state.role!=='Owner')return '<div class="vi2"><div class="vi-empty"><strong>Owner access only</strong><span>Insights show revenue, so only the business owner can see them.</span></div></div>';
+  state.vi2Range=state.vi2Range||'Last 30 days';
+  const d=vi2Data(state.vi2Range),pct=vi2Pct(d.sales,d.prev),bk=vi2Pct(d.bookings,d.prevBookings),rt=d.prevResponse?Math.round((d.prevResponse-d.response)/d.prevResponse*100):null;
+  if(!d.bookings)return '<div class="vi2"><div class="vi-empty"><strong>No insights yet</strong><span>Your insights will appear after your first completed booking.</span></div></div>';
+  const change=(v,word)=>v==null?'':'<span class="vi2-change '+(v>=0?'is-up':'is-down')+'">'+(v>=0?'▲':'▼')+' '+Math.abs(v)+'%'+(word?'</span><span class="vi2-vs"> '+word+'</span>':'</span>');
+  const tot=d.confirmed+d.declined+d.expired||1,seg=(n,c)=>n?'<i class="'+c+'" style="flex:'+n+'"></i>':'';
+  const photo=id=>{const src=listings.find(l=>l.id===id)?.photo||listingMockPhotos?.[id];return '<span class="vi2-thumb">'+(src?'<img src="'+esc(src)+'" alt="">':'')+'</span>'};
+  const reqRate=Math.round(d.confirmed/(d.received||1)*100);window.vi2Current=d;
+  const toReceive=typeof vi2ToReceive==='function'?vi2ToReceive():d.outstanding;
+  const received=window.cabanaReceivedTotal?window.cabanaReceivedTotal(state.vi2Range||'Last 30 days'):d.sales-toReceive;
+  return '<div class="vi2 is-cards"><button type="button" class="e5-switch vi2-range-row" data-vi2-range aria-haspopup="dialog"><span class="e5-tile"><i class="hgi-stroke hgi-calendar-03" aria-hidden="true"></i></span><span class="e5-name">'+esc(state.vi2Range==='Custom'&&typeof vi2CustomLabel==='function'?vi2CustomLabel():(state.vi2Range||'Last 30 days'))+'</span><i class="e5-caret" aria-hidden="true">▾</i></button>'
+    +'<section class="vi2-card vi2-hero"><span class="vi2-label">Sales</span><strong class="vi2-total">'+viPeso(d.sales)+'</strong>'
+    +(pct!=null?'<p class="vi2-delta">'+change(pct,'vs '+d.compare)+'</p>':'<p class="vi2-delta is-muted">No earlier period to compare yet</p>')
+    +'<div class="vi2-legend"><span><i class="is-solid"></i>'+d.legend[0]+'</span>'+(d.prevSeries?'<span><i class="is-dash"></i>'+d.legend[1]+'</span>':'')+'</div>'
+    +'<div class="vi2-chart-wrap" data-vi2-scrub tabindex="0" aria-label="Sales chart. Drag or use arrow keys to see each day.">'+vi2Chart(d)+'<span class="vi2-guide" hidden></span><span class="vi2-hover-dot" hidden></span><div class="vi2-tip" hidden></div></div><div class="vi2-axis"><span>'+d.labels[0]+'</span><span>'+d.labels[1]+'</span><span>'+d.labels[2]+'</span></div></section>'
+    +'<section class="vi2-card vi2-pay"><h3>Payments</h3><div class="vi2-pair">'
+    +'<div><span class="vi2-label">Received</span><strong>'+viPeso(received)+'</strong><small>In this period</small></div>'
+    +'<div><span class="vi2-label">To receive</span><strong>'+viPeso(toReceive)+'</strong><small>'+(toReceive?'As of today':'All caught up')+'</small></div>'
+    +'</div><button type="button" class="vi2-foot" data-vi2-earnings><span>View earnings</span><i aria-hidden="true">›</i></button></section>'
+    +'<section class="vi2-card"><h3>Bookings</h3><div class="vi2-pair">'
+    +'<div><span class="vi2-label">Completed</span><strong>'+d.bookings+'</strong>'+change(bk)+'</div>'
+    +'<div><span class="vi2-label">Avg. response time</span><strong>'+d.response+' min</strong>'+(rt==null?'':'<span class="vi2-change '+(rt>=0?'is-up':'is-down')+'">'+(rt>=0?'▼ '+rt+'% faster':'▲ '+Math.abs(rt)+'% slower')+'</span>')+'</div>'
+    +'</div><div class="vi2-sub"><div class="vi2-head"><h4>Requests</h4><span>'+d.received+' received</span></div><div class="vi2-bar" role="img" aria-label="'+d.confirmed+' confirmed, '+d.declined+' declined, '+d.expired+' expired">'+seg(d.confirmed,'is-ok')+seg(d.declined,'is-no')+seg(d.expired,'is-exp')+'</div><div class="vi2-keys"><span><i class="is-ok"></i>Confirmed <b>'+d.confirmed+'</b></span><span><i class="is-no"></i>Declined <b>'+d.declined+'</b></span><span><i class="is-exp"></i>Expired <b>'+d.expired+'</b></span></div></div></section>'
+    +'<section class="vi2-card"><div class="vi2-head"><h3>Top listings</h3>'+(vi2Perf(state.vi2Range).length>3?'<button type="button" class="vi2-link" data-vi2-all>See all</button>':'')+'</div>'
+    +vi2Perf(state.vi2Range).slice(0,5).filter(t=>t.bookings>0).map(t=>'<div class="vi2-row">'+photo(t.id)+'<span class="vi2-row-name"><strong>'+esc(t.name)+'</strong><small>'+t.bookings+' booking'+(t.bookings===1?'':'s')+'</small></span><b>'+viPeso(t.sales)+'</b></div>').join('')+'</section>'
+    +'</div>';
+};
+window.cabanaInsightsPage=viPage2;
+const vi2Sheet=()=>{
+  lcSheetClose();
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  const cur=state.vi2Range||'Last 30 days',c=state.vi2Custom||{start:'2026-09-01',end:'2026-09-30'};
+  const list='<div class="lc-sheet-list" role="listbox">'+vi2Ranges.concat('Custom').map(r=>'<button type="button" role="option" aria-selected="'+(cur===r)+'" class="'+(cur===r?'is-selected':'')+'" data-vi2-pick="'+r+'"><span>'+(r==='Custom'?'Custom range'+(cur==='Custom'?' · '+vi2CustomLabel():''):r)+'</span>'+(cur===r?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':'<i class="vi2-sheet-chev" aria-hidden="true">'+(r==='Custom'?'›':'')+'</i>')+'</button>').join('')+'</div>';
+  const form='<div class="vi2-custom"><label><span>Start date</span><input type="date" data-vi2-start min="2026-06-01" max="2026-10-10" value="'+c.start+'"></label><label><span>End date</span><input type="date" data-vi2-end min="2026-06-01" max="2026-10-10" value="'+c.end+'"></label><p class="vi2-custom-note">Data is available from Jun 1, 2026.</p><p class="vi2-custom-error" role="alert" hidden></p><button type="button" class="button primary vi2-custom-apply" data-vi2-apply>Apply</button><button type="button" class="vi2-custom-back" data-vi2-back>Back to ranges</button></div>';
+  const show=mode=>{wrap.innerHTML='<div class="pf-sheet-backdrop" data-vi2-close></div><section class="pf-sheet lc-sheet lc-dd-sheet" role="dialog" aria-label="Date range"><header><h2>'+(mode==='custom'?'Custom range':'Date range')+'</h2><button type="button" data-vi2-close aria-label="Close">×</button></header>'+(mode==='custom'?form:list)+'</section>';if(mode==='custom')setTimeout(()=>wrap.querySelector('[data-vi2-start]')?.focus(),30)};
+  show('list');document.body.appendChild(wrap);
+  wrap.onclick=e=>{
+    if(e.target.closest('[data-vi2-close]')){lcSheetClose();return}
+    if(e.target.closest('[data-vi2-back]')){show('list');return}
+    if(e.target.closest('[data-vi2-apply]')){
+      const st=wrap.querySelector('[data-vi2-start]').value,en=wrap.querySelector('[data-vi2-end]').value,err=wrap.querySelector('.vi2-custom-error');
+      const fail=m=>{err.textContent=m;err.hidden=false};
+      if(!st||!en)return fail('Choose a start and end date');
+      if(st>en)return fail('The start date must be before the end date');
+      if(st<'2026-06-01'||en>'2026-10-10')return fail('Choose dates between Jun 1 and Oct 10, 2026');
+      state.vi2Custom={start:st,end:en};state.vi2Range='Custom';lcSheetClose();render();return;
+    }
+    const pick=e.target.closest('[data-vi2-pick]');if(!pick)return;
+    if(pick.dataset.vi2Pick==='Custom'){show('custom');return}
+    state.vi2Range=pick.dataset.vi2Pick;lcSheetClose();render();
+  };
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+};
+window.addEventListener('click',event=>{
+  if(state.page!=='vinsights')return;
+  const pill=event.target.closest?.('[data-vi2-range]'),due=event.target.closest?.('[data-vi2-receivables]'),all=event.target.closest?.('[data-vi2-all]');
+  if(!pill&&!due&&!all)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(pill){vi2Sheet();return}
+  if(due){state.vrecvFrom='vinsights';state.page='vrecv'}
+  if(all){state.page='vperf';state.vperfSort=state.vperfSort||'Sales'}
+  render();const p=document.querySelector('.page');if(p)p.scrollTop=0;
+},true);
+const renderBeforeVi2=render;
+render=function(){
+  renderBeforeVi2.apply(this,arguments);
+  const bar=document.querySelector('.topbar');
+  bar?.querySelectorAll('[data-vi2-range]').forEach(n=>{if(state.page!=='vinsights')n.remove()});
+  document.querySelector('.app-shell')?.classList.remove('is-vi2');
+  if(state.page!=='vinsights'||state.role!=='Owner'||!bar)return;
+  let pill=bar.querySelector('[data-vi2-range]');
+  if(!pill){pill=document.createElement('button');pill.type='button';pill.className='vi2-range';pill.setAttribute('data-vi2-range','');pill.setAttribute('aria-haspopup','dialog');bar.appendChild(pill)}
+  pill.innerHTML='<span>'+(state.vi2Range==='Custom'?vi2CustomLabel():(state.vi2Range||'Last 30 days'))+'</span><i aria-hidden="true">▾</i>';
+};
+render();
+
+/* Insights: any legacy route to 'insights' (old menu/dashboard handlers, saved views) opens the new Insights page. */
+const renderBeforeViRoute=render;
+render=function(){
+  if(state.page==='insights')state.page=state.role==='Owner'?'vinsights':'menu';
+  try{renderBeforeViRoute.apply(this,arguments)}
+  catch(error){
+    console.error('Render failed',error);
+    if(state.page==='vinsights'&&window.cabanaInsightsPage){const page=document.querySelector('.page');if(page)page.innerHTML=window.cabanaInsightsPage()}
+  }
+};
+document.addEventListener('click',event=>{
+  const open=event.target.closest?.('[data-insights]');if(!open||state.page==='vinsights')return;
+  if(state.role!=='Owner')return;
+  event.preventDefault();state.page='vinsights';render();const p=document.querySelector('.page');if(p)p.scrollTop=0;
+},true);
+
+/* Menu → Auto-messages: its own page (not a bottom sheet) with the confirmation template, quick-insert fields and a live preview. */
+const amFields=[['{guest name}','Guest name'],['{listing}','Listing'],['{date & time}','Date & time'],['{booking number}','Booking number']];
+const amSample=text=>String(text||'').replaceAll('{guest name}','Amelia').replaceAll('{listing}','Airport Transfer — Sedan').replaceAll('{date & time}','Oct 12, 8:30 AM').replaceAll('{booking number}','#BK-1042');
+const amPage=()=>{
+  const value=state.amDraft!=null?state.amDraft:(state.cxBookingTemplate||cxDefaultBookingTemplate);
+  return '<div class="acct-page pf-page pf3-page biz-edit-page am-page">'
+    +'<p class="am-intro">This message is sent to the guest in Chat as soon as you confirm a booking.</p>'
+    +'<section class="am-card"><label class="am-label" for="am-template">Booking confirmed</label><div class="am-textarea-wrap"><textarea id="am-template" class="am-textarea" data-am-template maxlength="240" rows="5">'+esc(value)+'</textarea><span class="am-count" data-am-count>'+value.length+'/240</span></div>'
+    +'<span class="am-sub">Tap to insert</span><div class="am-chips">'+amFields.map(([token,label])=>'<button type="button" class="am-chip" data-am-insert="'+esc(token)+'">'+label+'</button>').join('')+'</div></section>'
+    +'<p class="am-error" role="alert" hidden></p>'
+    +'<div class="pf3-edit-actions"><button type="button" class="button primary biz-save" data-am-save>Save</button><button type="button" class="button ghost biz-cancel" data-am-cancel>Cancel</button><button type="button" class="am-reset" data-am-reset>Reset to default</button></div></div>';
+};
+window.cabanaAutoMessagesPage=amPage;
+const viewBeforeAm=view;
+view=function(){return state.page==='automessages'?window.cabanaAutoMessagesPage():viewBeforeAm.apply(this,arguments)};
+window.addEventListener('click',event=>{
+  if(!event.target.closest?.('[data-cx-booking-messages]'))return;
+  event.preventDefault();event.stopImmediatePropagation();
+  document.querySelector('.cx-sheet-wrap')?.remove();
+  state.amDraft=null;state.page='automessages';render();const p=document.querySelector('.page');if(p)p.scrollTop=0;
+},true);
+const renderBeforeAm=render;
+render=function(){
+  renderBeforeAm.apply(this,arguments);
+  if(state.page!=='automessages')return;
+  const page=document.querySelector('.page');if(!page)return;
+  if(!page.querySelector('.am-page'))page.innerHTML=amPage();
+  const title=document.querySelector('.topbar .topbar-context strong, .topbar h1');if(title)title.textContent='Auto-messages';
+  const leave=()=>{state.amDraft=null;state.page='menu';render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  const back=document.querySelector('[data-profile-back]');if(back){back.textContent='←';back.setAttribute('aria-label','Back to Menu');back.onclick=leave}
+  const area=page.querySelector('[data-am-template]'),count=page.querySelector('[data-am-count]'),preview=page.querySelector('[data-am-preview]'),error=page.querySelector('.am-error');
+  const sync=()=>{state.amDraft=area.value;count.textContent=area.value.length+'/240';if(preview)preview.textContent=amSample(area.value)||' ';error.hidden=true};
+  area.addEventListener('input',sync);
+  ['focus','click','keyup','select'].forEach(ev=>area.addEventListener(ev,()=>{area.dataset.touched='1'}));
+  page.querySelectorAll('[data-am-insert]').forEach(chip=>chip.onclick=()=>{
+    const token=chip.dataset.amInsert,touched=area.dataset.touched==='1',start=touched?(area.selectionStart??area.value.length):area.value.length,end=touched?(area.selectionEnd??start):start;
+    if(area.value.length-(end-start)+token.length>240)return;
+    area.value=area.value.slice(0,start)+token+area.value.slice(end);area.focus();const pos=start+token.length;area.setSelectionRange(pos,pos);sync();
+  });
+  page.querySelector('[data-am-reset]').onclick=()=>{area.value=cxDefaultBookingTemplate;sync();area.focus()};
+  page.querySelector('[data-am-cancel]').onclick=leave;
+  page.querySelector('[data-am-save]').onclick=()=>{
+    const value=area.value.trim();
+    if(!value){error.textContent='Add a confirmation message first';error.hidden=false;area.focus();return}
+    state.cxBookingTemplate=value;try{localStorage.setItem('cabana:booking-message-template',value)}catch(e){}
+    state.amDraft=null;state.page='menu';render();toast('Auto-message saved');
+  };
+};
+render();
+
+/* Insights: drag left/right across the sales chart (or use arrow keys) to read each point. */
+const vi2PointDate=(d,i)=>{
+  const range=state.vi2Range||'Last 30 days',fmt=x=>viMonths[x.getMonth()]+' '+x.getDate();
+  if(range==='Custom'){const x=vi2CustomStart();x.setDate(x.getDate()+i);return fmt(x)}
+  if(range==='This year')return viMonths[i]+' 2026';
+  if(range==='This month')return 'Oct '+(i+1);
+  if(range==='Last month')return 'Sep '+(i+1);
+  const day=new Date(viToday);day.setDate(viToday.getDate()-(d.points-1-i));return fmt(day);
+};
+const vi2PrevDate=(d,i)=>{
+  const range=state.vi2Range||'Last 30 days';
+  if(range==='Custom'){const x=vi2CustomStart();x.setDate(x.getDate()+i-d.points);return viMonths[x.getMonth()]+' '+x.getDate()}
+  if(range==='This month')return 'Sep '+(i+1);
+  if(range==='Last month')return 'Aug '+(i+1);
+  const day=new Date(viToday);day.setDate(viToday.getDate()-(d.points-1-i)-d.points);return viMonths[day.getMonth()]+' '+day.getDate();
+};
+const renderBeforeVi2Scrub=render;
+render=function(){
+  renderBeforeVi2Scrub.apply(this,arguments);
+  if(state.page!=='vinsights')return;
+  const wrap=document.querySelector('[data-vi2-scrub]'),d=window.vi2Current;if(!wrap||!d||wrap.dataset.bound)return;
+  wrap.dataset.bound='1';
+  const svg=wrap.querySelector('svg'),guide=wrap.querySelector('.vi2-guide'),dot=wrap.querySelector('.vi2-hover-dot'),tip=wrap.querySelector('.vi2-tip'),end=wrap.querySelector('.vi2-dot');
+  const W=320,H=150,pad=6,all=[...d.series,...(d.prevSeries||[])].filter(v=>v>0),max=Math.max(...all,1)*1.08,min=d.zeroUntil?0:Math.min(...all)*.55,n=d.points;
+  const xPct=i=>(n===1?50:(pad+(W-pad*2)*i/(n-1))/W*100),yPct=v=>(H-pad-(H-pad*2)*Math.max(0,v-min)/Math.max(1,max-min))/H*100;
+  let current=null;
+  const show=i=>{
+    i=Math.max(0,Math.min(n-1,i));current=i;
+    const x=xPct(i);guide.hidden=dot.hidden=tip.hidden=false;if(end)end.style.opacity='0';
+    guide.style.left=x+'%';dot.style.left=x+'%';dot.style.top=yPct(d.series[i])+'%';
+    tip.innerHTML='<strong>'+viPeso(d.series[i])+'</strong><span>'+vi2PointDate(d,i)+'</span>'+(d.prevSeries?'<em>'+viPeso(d.prevSeries[i])+' · '+vi2PrevDate(d,i)+'</em>':'');
+    const w=wrap.clientWidth,h=wrap.clientHeight,tw=tip.offsetWidth,th=tip.offsetHeight,px=x/100*w,py=yPct(d.series[i])/100*h;tip.style.left=Math.max(0,Math.min(w-tw,px-tw/2))+'px';tip.style.top=(py-th-14>=-8?py-th-14:py+14)+'px';
+  };
+  const hide=()=>{current=null;guide.hidden=dot.hidden=tip.hidden=true;if(end)end.style.opacity=''};
+  const indexAt=clientX=>{const r=svg.getBoundingClientRect(),rel=(clientX-r.left)/r.width*W;return Math.round((rel-pad)/(W-pad*2)*(n-1))};
+  let dragging=false,startX=0,startY=0,locked=false;
+  wrap.addEventListener('pointerdown',e=>{dragging=true;locked=e.pointerType==='mouse';startX=e.clientX;startY=e.clientY;if(locked){wrap.setPointerCapture(e.pointerId);show(indexAt(e.clientX))}});
+  wrap.addEventListener('pointermove',e=>{
+    if(e.pointerType==='mouse'&&!dragging){show(indexAt(e.clientX));return}
+    if(!dragging)return;
+    if(!locked){const dx=Math.abs(e.clientX-startX),dy=Math.abs(e.clientY-startY);if(dx<6&&dy<6)return;if(dy>dx){dragging=false;return}locked=true;wrap.setPointerCapture(e.pointerId)}
+    show(indexAt(e.clientX));
+  });
+  const stop=e=>{if(dragging&&!locked&&e?.type==='pointerup')show(indexAt(e.clientX));dragging=false;locked=false};
+  wrap.addEventListener('pointerup',stop);wrap.addEventListener('pointercancel',()=>{dragging=false;locked=false});
+  wrap.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')hide()});
+  wrap.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(current==null?n-1:current+(e.key==='ArrowRight'?1:-1))}if(e.key==='Escape')hide()});
+  wrap.addEventListener('blur',hide);
+  document.addEventListener('pointerdown',e=>{if(!wrap.isConnected)return;if(!wrap.contains(e.target))hide()},{capture:true});
+};
+render();
+
+/* Listing performance: every bookable listing ranked for the selected Insights period. */
+function vi2Perf(range,sort='Sales'){
+  const vi2PerfBase={'airport-sedan':[18000,10],innova:[12800,4],'van-driver':[10500,3],'island-hopping':[6000,3],'city-tour':[1300,1]};
+  const k=range==='Custom'?vi2CustomDays()/30:{'Last 7 days':.24,'Last 30 days':1,'This month':.33,'Last month':.9,'This year':4.6}[range||'Last 30 days'];
+  const rows=listings.filter(l=>l.status!=='Draft').map(l=>{const b=vi2PerfBase[l.id]||[0,0];const bookings=k===1?b[1]:Math.round(b[1]*k);return {id:l.id,name:l.name,status:l.status,sales:k===1?b[0]:(bookings?Math.round(b[0]*k/100)*100:0),bookings}});
+  return rows.sort((a,b)=>sort==='Bookings'?(b.bookings-a.bookings||b.sales-a.sales):(b.sales-a.sales||b.bookings-a.bookings));
+}
+const vpPhoto=id=>{const src=listings.find(l=>l.id===id)?.photo||(typeof listingMockPhotos==='object'?listingMockPhotos[id]:'');return '<span class="vi2-thumb">'+(src?'<img src="'+esc(src)+'" alt="">':'')+'</span>'};
+const vpPage=()=>{
+  const sort=state.vperfSort||'Sales',rows=vi2Perf(state.vi2Range,sort);
+  if(!rows.length)return '<div class="vi2 vp"><div class="vi-empty"><strong>No listings yet</strong><span>Your listings will appear here once they’re live.</span></div></div>';
+  return '<div class="vi2 vp"><div class="vp-bar"><span>'+rows.length+' listing'+(rows.length===1?'':'s')+'</span><button type="button" class="vp-sort" data-vp-sort aria-haspopup="dialog">Sort: '+sort+' <i aria-hidden="true">▾</i></button></div>'
+    +'<section class="vi2-card vp-list">'+rows.map((t,i)=>{const off=t.status==='Paused'||t.status==='Inactive';return '<button type="button" class="vi2-row vp-row" data-vp-open="'+t.id+'"><span class="vp-rank">'+(i+1)+'</span>'+vpPhoto(t.id)+'<span class="vi2-row-name"><strong>'+esc(t.name)+'</strong><small>'+t.bookings+' booking'+(t.bookings===1?'':'s')+(off?' <em>· Inactive</em>':'')+'</small></span><b>'+viPeso(t.sales)+'</b></button>'}).join('')+'</section></div>';
+};
+window.cabanaListingPerfPage=vpPage;
+const viewBeforeVp=view;
+view=function(){if(state.page==='vperf')return window.cabanaListingPerfPage();if(state.page==='listings'&&state.listingDetail&&!state.lc?.open&&listings.some(l=>l.id===state.listingDetail))return listingDetailPage();return viewBeforeVp.apply(this,arguments)};
+const vpSortSheet=()=>{
+  lcSheetClose();
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';const cur=state.vperfSort||'Sales';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-vp-close></div><section class="pf-sheet lc-sheet lc-dd-sheet" role="dialog" aria-label="Sort by"><header><h2>Sort by</h2><button type="button" data-vp-close aria-label="Close">×</button></header><div class="lc-sheet-list" role="listbox">'+['Sales','Bookings'].map(o=>'<button type="button" role="option" aria-selected="'+(cur===o)+'" class="'+(cur===o?'is-selected':'')+'" data-vp-pick="'+o+'"><span>'+o+'</span>'+(cur===o?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':'')+'</button>').join('')+'</div></section>';
+  document.body.appendChild(wrap);
+  wrap.onclick=e=>{if(e.target.closest('[data-vp-close]')){lcSheetClose();return}const pick=e.target.closest('[data-vp-pick]');if(!pick)return;state.vperfSort=pick.dataset.vpPick;lcSheetClose();render()};
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+};
+window.addEventListener('click',event=>{
+  if(state.page!=='vperf')return;
+  const sort=event.target.closest?.('[data-vp-sort]'),row=event.target.closest?.('[data-vp-open]'),pill=event.target.closest?.('[data-vi2-range]');
+  if(!sort&&!row&&!pill)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(pill){vi2Sheet();return}
+  if(sort){vpSortSheet();return}
+  const id=row.dataset.vpOpen;state.page='listings';if(state.lc)state.lc.open=false;state.listingDetail=null;state.listingStatusFilter='All';state.listingQuery='';render();
+  setTimeout(()=>{const card=document.querySelector('[data-listing-card="'+id+'"]');if(!card)return;card.scrollIntoView({block:'center'});card.classList.add('is-spotlight');setTimeout(()=>card.classList.remove('is-spotlight'),1800)},60);
+},true);
+const renderBeforeVp=render;
+render=function(){
+  renderBeforeVp.apply(this,arguments);
+  if(state.page!=='vperf')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.vp'))page.innerHTML=vpPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  const title=bar.querySelector('.topbar-context strong, h1');if(title)title.textContent='Listing performance';
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  back.setAttribute('aria-label','Back to Insights');back.onclick=()=>{state.page='vinsights';render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  let pill=bar.querySelector('[data-vi2-range]');
+  if(!pill){pill=document.createElement('button');pill.type='button';pill.className='vi2-range';pill.setAttribute('data-vi2-range','');pill.setAttribute('aria-haspopup','dialog');bar.appendChild(pill)}
+  pill.innerHTML='<span>'+(state.vi2Range==='Custom'?vi2CustomLabel():(state.vi2Range||'Last 30 days'))+'</span><i aria-hidden="true">▾</i>';
+  document.querySelector('.dev-tools')?.setAttribute('hidden','');
+  document.querySelectorAll('.bottom-nav [data-page="menu"], nav [data-page="menu"]').forEach(b=>b.classList.add('active'));
+};
+render();
+
+/* "To receive" = room charges the resort still owes (same total and list as the Home card). */
+function vi2ToReceive(){try{const ledger=typeof cabanaEarningsTransactions!=='undefined'?cabanaEarningsTransactions:[];return Math.round(ledger.filter(item=>item.method==='Room charge'&&['Awaiting guest checkout','Awaiting settlement'].includes(item.status)).reduce((sum,item)=>sum+earningsTransactionNet(item),0))}catch(e){return 0}}
+
+/* Receivables: one total, split in the order money moves (awaiting checkout → awaiting resort payment). Opened from Insights and Home. */
+const vrPaymentDays=7;
+const vrRows=()=>{const ledger=typeof cabanaEarningsTransactions!=='undefined'?cabanaEarningsTransactions:[];return ledger.filter(t=>t.method==='Room charge'&&['Awaiting guest checkout','Awaiting settlement'].includes(t.status))};
+const vrOverdue=t=>{if(!t.checkout)return false;const [m,dd]=t.checkout.split(' ');const date=new Date(2026,viMonths.indexOf(m),Number(dd));return (viToday-date)/864e5>vrPaymentDays};
+const vrPage=()=>{
+  const rows=vrRows(),net=t=>earningsTransactionNet(t),total=rows.reduce((a,t)=>a+net(t),0);
+  const stay=rows.filter(t=>t.status==='Awaiting guest checkout').sort((a,b)=>b.sort-a.sort),resort=rows.filter(t=>t.status==='Awaiting settlement').sort((a,b)=>a.sort-b.sort);
+  const day=t=>String(t.date).replace(/, \d{4}$/,'');
+  const group=(title,sub,list,line)=>'<section class="vi2-card vr-group"><div class="vr-group-head"><span><h3>'+title+'</h3><small>'+sub+' · '+list.length+' booking'+(list.length===1?'':'s')+'</small></span><b>'+viPeso(list.reduce((a,t)=>a+net(t),0))+'</b></div>'
+    +(list.length?list.map(t=>'<div class="vr-row'+(vrOverdue(t)?' is-overdue':'')+'"><span><strong>#'+esc(String(t.orderId).replace(/^#/,''))+' · Room '+esc(t.room)+'</strong><small>'+line(t)+(vrOverdue(t)?' · <em>Overdue</em>':'')+'</small></span><b>'+viPeso(net(t))+'</b></div>').join(''):'<p class="vr-empty">Nothing here right now.</p>')+'</section>';
+  if(!rows.length)return '<div class="vi2 vr"><div class="vi-empty"><strong>Nothing to receive</strong><span>When guests charge bookings to their room, you’ll see them here until the resort pays you.</span></div></div>';
+  return '<div class="vi2 vr"><section class="vi2-card vr-total"><span class="vi2-label">To receive</span><strong>'+viPeso(total)+'</strong><small>Unpaid room charges. Once the resort pays, a booking moves to Received.</small></section>'
+    +group('Awaiting checkout','Guests still staying',stay,t=>esc(t.listing)+' · '+day(t))
+    +group('Awaiting resort payment','Guests checked out',resort,t=>'Checked out '+esc(t.checkout||day(t)))
+    +'<p class="vr-note">The resort pays room charges within '+vrPaymentDays+' days of checkout. Late ones are marked Overdue so you know what to raise with the front desk.</p></div>';
+};
+window.cabanaReceivablesPage=vrPage;
+const viewBeforeVr=view;
+view=function(){if(state.page==='vrecv'){try{return window.cabanaReceivablesPage()}catch(e){console.error('Receivables render failed',e);return '<div class="vi2"></div>'}}return viewBeforeVr.apply(this,arguments)};
+window.addEventListener('click',event=>{
+  const home=event.target.closest?.('.dashboard-receivables .dashboard-inline-link, .dashboard-receivables [data-page="earnings"]');
+  if(!home)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  enGo('dashboard');
+},true);
+const renderBeforeVr=render;
+render=function(){
+  renderBeforeVr.apply(this,arguments);
+  if(state.page!=='vrecv')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.vr'))page.innerHTML=vrPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  bar.querySelectorAll('[data-vi2-range]').forEach(n=>n.remove());
+  const title=bar.querySelector('.topbar-context strong, h1');if(title)title.textContent='Receivables';
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  const to=state.vrecvFrom||'vinsights';
+  back.setAttribute('aria-label',to==='dashboard'?'Back to Home':'Back to Insights');back.onclick=()=>{state.page=to;render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  document.querySelector('.dev-tools')?.setAttribute('hidden','');
+};
+render();
+
+/* ===== Money: one Earnings page (To receive + Received), Insights Payments card, Home Receivables link. ===== */
+function cabanaReceivedRows(){
+  const raw=[['BK1036','online','Oct 9',1800,'Airport Transfer — Sedan','Lea Gomez','506'],['BK1033','room','Oct 8',3200,'Toyota Innova Rental','Ken Sato','221'],['BK1030','online','Oct 7',1200,'Island Hopping Tour','Ana Lopez','330'],
+    ['BK1028','online','Oct 6',3500,'Van with Driver — Full Day','Rico Tan','415'],['BK1026','room','Oct 5',1800,'Airport Transfer — Sedan','Mia Reyes','207'],['BK1025','online','Oct 4',1300,'Dumaguete City Tour','Jun Park','612'],['BK1023','room','Oct 3',3200,'Toyota Innova Rental','Bea Cruz','318'],['BK1021','online','Oct 2',1800,'Airport Transfer — Sedan','Tom Hale','509'],
+    ['BK1017','room','Sep 30',2400,'Island Hopping Tour','Ivy Lim','122'],['BK1015','online','Sep 28',3500,'Van with Driver — Full Day','Sam Ortiz','430'],['BK1013','online','Sep 26',1800,'Airport Transfer — Sedan','Liza Ong','214'],['BK1011','room','Sep 24',3200,'Toyota Innova Rental','Noel Yap','305'],['BK1009','online','Sep 21',1300,'Dumaguete City Tour','Kai Wong','611'],['BK1007','room','Sep 19',1800,'Airport Transfer — Sedan','Rose Uy','402'],['BK1005','online','Sep 16',3200,'Toyota Innova Rental','Dan Go','218'],['BK1003','online','Sep 14',1200,'Island Hopping Tour','Ella Sy','127'],['BK1001','room','Sep 12',3130,'Toyota Innova Rental','Gil Chua','520'],
+    ['BK0998','online','Sep 9',1800,'Airport Transfer — Sedan','Pia Lao','301'],['BK0995','room','Sep 6',3200,'Toyota Innova Rental','Ray Dee','210'],['BK0992','online','Sep 3',1200,'Island Hopping Tour','Joy Ty','118'],['BK0988','online','Aug 28',3500,'Van with Driver — Full Day','Al Co','404'],['BK0984','room','Aug 20',1800,'Airport Transfer — Sedan','Mae Sia','309']];
+  return raw.map(([id,how,date,amount,item,guest,room])=>{const [m,d]=date.split(' ');return {id,how,date,amount,item,guest,room,at:new Date(2026,viMonths.indexOf(m),Number(d))}});
+}
+function cabanaRangeStart(range){if(range==='Custom')return vi2CustomStart();const t=new Date(2026,9,10);if(range==='Last 7 days')return new Date(2026,9,4);if(range==='This month')return new Date(2026,9,1);if(range==='Last month')return new Date(2026,8,1);if(range==='This year')return new Date(2026,0,1);return new Date(2026,8,11)}
+function cabanaRangeEnd(range){if(range==='Custom')return vi2CustomEnd();return range==='Last month'?new Date(2026,8,30):new Date(2026,9,10)}
+function cabanaReceivedIn(range){const a=cabanaRangeStart(range),b=cabanaRangeEnd(range);return cabanaReceivedRows().filter(r=>r.at>=a&&r.at<=b)}
+window.cabanaReceivedTotal=range=>cabanaReceivedIn(range).reduce((s,r)=>s+r.amount,0);
+/* Make every money row open Request details. */
+function cabanaEnsureOrders(){
+  if(typeof orders==='undefined'||!orders.length)return;
+  const base=orders[0],add=(id,o)=>{if(orders.some(x=>x.id===id))return;orders.push({...JSON.parse(JSON.stringify(base)),id,...o,timeline:[['Booking requested',o.when]],notes:'',contact:'Open guest chat'})};
+  cabanaReceivedRows().forEach(r=>add(r.id,{guest:r.guest,room:r.room,item:r.item,quantity:'1 booking',when:r.date+' · 9:00 AM',total:'₱'+r.amount.toLocaleString('en-PH')+'.00',payment:r.how==='online'?'Paid online':'Charged to room',settlement:r.how==='online'?'Paid':'Paid by resort',status:'Completed'}));
+  (typeof cabanaEarningsTransactions!=='undefined'?cabanaEarningsTransactions:[]).filter(t=>t.method==='Room charge'&&['Awaiting guest checkout','Awaiting settlement'].includes(t.status)).forEach(t=>add(t.orderId,{guest:t.guest,room:t.room,item:t.listing,quantity:'1 booking',when:String(t.date).replace(/, \d{4}$/,'')+' · 9:00 AM',total:'₱'+earningsTransactionNet(t).toLocaleString('en-PH')+'.00',payment:'Charged to room',settlement:t.status==='Awaiting guest checkout'?'Awaiting guest checkout':'Awaiting resort payment',status:t.status==='Awaiting guest checkout'?'Confirmed':'Completed'}));
+}
+cabanaEnsureOrders();
+const enRanges=['Last 7 days','Last 30 days','This month','Last month'];
+const enPage=()=>{
+  const rows=vrRows(),net=t=>earningsTransactionNet(t),total=rows.reduce((a,t)=>a+net(t),0);
+  const stay=rows.filter(t=>t.status==='Awaiting guest checkout').sort((a,b)=>b.sort-a.sort),resort=rows.filter(t=>t.status==='Awaiting settlement').sort((a,b)=>b.sort-a.sort);
+  const day=t=>String(t.date).replace(/, \d{4}$/,'');
+  const bk=id=>'#'+String(id).replace(/^#/,'').replace(/^BK-?/,'BK');
+  const row=(id,top,sub,amount,overdue)=>'<button type="button" class="en-row" data-en-open="'+esc(id)+'"><span><strong>'+top+'</strong><small>'+sub+(overdue?' · <em>Overdue</em>':'')+'</small></span><b>'+viPeso(amount)+'</b></button>';
+  const group=(title,sub,list,line)=>{const sum=list.reduce((a,t)=>a+net(t),0);if(!sum)return '';return '<div class="en-group"><div class="en-group-head"><strong>'+title+'</strong><b>'+viPeso(sum)+'</b></div><small class="en-group-sub">'+sub+' · '+list.length+' booking'+(list.length===1?'':'s')+'</small>'+list.map(t=>row(t.orderId,bk(t.orderId)+' · Room '+esc(t.room),line(t),net(t),vrOverdue(t))).join('')+'</div>'};
+  const toReceive='<section class="en-card"><div class="en-title"><h3>To receive</h3><span>As of today</span></div><strong class="en-big">'+viPeso(total)+'</strong>'
+    +(total?group('Awaiting checkout','Guests still staying',stay,t=>'Stay '+day(t))+group('Awaiting resort payment','Guests checked out',resort,t=>'Checked out '+esc(t.checkout||day(t))):'<p class="en-empty">All caught up</p>')+'</section>';
+  const range=state.enRange||'Last 30 days',got=cabanaReceivedIn(range).sort((a,b)=>b.at-a.at),sum=got.reduce((a,r)=>a+r.amount,0);
+  const received='<section class="en-card"><div class="en-title"><h3>Received</h3><button type="button" class="vi2-range en-range" data-en-range aria-haspopup="dialog"><span>'+range+'</span><i aria-hidden="true">▾</i></button></div><strong class="en-big">'+viPeso(sum)+'</strong>'
+    +(got.length?'<div class="en-group">'+got.slice(0,state.enShowAll?got.length:10).map(r=>row(r.id,bk(r.id)+' · '+(r.how==='online'?'Paid online':'Charged to room'),(r.how==='online'?'':'Paid by resort ')+r.date,r.amount)).join('')+(got.length>10&&!state.enShowAll?'<button type="button" class="en-more" data-en-more>Show more</button>':'')+'</div>':'<p class="en-empty">No payments in this period</p>')+'</section>';
+  return '<div class="en">'+toReceive+received+'</div>';
+};
+window.cabanaEarningsPage=enPage;
+const viewBeforeEn=view;
+view=function(){if(state.page==='earnings'&&state.role==='Owner'){try{return window.cabanaEarningsPage()}catch(e){console.error('Earnings render failed',e);return '<div class="en"></div>'}}return viewBeforeEn.apply(this,arguments)};
+const enRangeSheet=()=>{
+  lcSheetClose();const cur=state.enRange||'Last 30 days',wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-en-close></div><section class="pf-sheet lc-sheet lc-dd-sheet" role="dialog" aria-label="Date range"><header><h2>Date range</h2><button type="button" data-en-close aria-label="Close">×</button></header><div class="lc-sheet-list" role="listbox">'+enRanges.map(r=>'<button type="button" role="option" aria-selected="'+(cur===r)+'" class="'+(cur===r?'is-selected':'')+'" data-en-pick="'+r+'"><span>'+r+'</span>'+(cur===r?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':'')+'</button>').join('')+'</div></section>';
+  document.body.appendChild(wrap);
+  wrap.onclick=e=>{if(e.target.closest('[data-en-close]')){lcSheetClose();return}const pick=e.target.closest('[data-en-pick]');if(!pick)return;state.enRange=pick.dataset.enPick;state.enShowAll=false;lcSheetClose();const sc=document.querySelector('.page')?.scrollTop||0;render();const p=document.querySelector('.page');if(p)p.scrollTop=sc};
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+};
+const enGo=from=>{state.enFrom=from;state.enShowAll=false;state.page='earnings';state.earningsPayoutDetail=null;state.earningsTransactionDetail=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+window.addEventListener('click',event=>{
+  const t=event.target;
+  const home=t.closest?.('.dashboard-receivables .dashboard-inline-link, .dashboard-receivables [data-page="earnings"]');
+  const ins=t.closest?.('[data-vi2-earnings]'),open=state.page==='earnings'&&t.closest?.('[data-en-open]'),pill=state.page==='earnings'&&t.closest?.('[data-en-range]');
+  if(!home&&!ins&&!open&&!pill)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(home)return enGo('dashboard');
+  if(ins)return enGo('vinsights');
+  if(pill)return enRangeSheet();
+  state.enReturn=true;state.page='orders';state.detail=open.dataset.enOpen;render();const p=document.querySelector('.page');if(p)p.scrollTop=0;
+},true);
+const renderBeforeEn=render;
+render=function(){
+  if(state.page==='vrecv'){state.enFrom=state.vrecvFrom||'vinsights';state.page='earnings'}
+  if(state.page==='earnings'&&state.role!=='Owner')state.page='menu';
+  if(state.page!=='orders'&&state.page!=='earnings')state.enReturn=false;
+  renderBeforeEn.apply(this,arguments);
+  const homeLink=document.querySelector('.dashboard-receivables .dashboard-inline-link');
+  if(homeLink&&!homeLink.dataset.enLabel&&!homeLink.classList.contains('e4-home-foot')){homeLink.dataset.enLabel='1';homeLink.innerHTML='View earnings <span aria-hidden="true">›</span>'}
+  if(state.page==='orders'&&state.enReturn&&state.detail){const lb=document.querySelector('[data-latest-back]');if(lb)lb.setAttribute('aria-label','Back to Earnings');const back=document.querySelector('[data-detail-back], .detail-back, [data-back]');if(back&&!back.dataset.enBound){back.dataset.enBound='1';back.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();state.detail=null;state.enReturn=false;state.page='earnings';render()},true)}}
+  if(state.page!=='earnings')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.en'))page.innerHTML=enPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  bar.querySelectorAll('[data-vi2-range]').forEach(n=>n.remove());
+  const title=bar.querySelector('.topbar-context strong, h1');if(title)title.textContent='Earnings';
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  const to=state.enFrom||'menu';back.setAttribute('aria-label','Back');back.onclick=()=>{state.page=to;state.enFrom=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  document.querySelector('.dev-tools')?.setAttribute('hidden','');
+};
+render();
+/* Request details opened from Earnings: back returns to Earnings. */
+window.addEventListener('click',event=>{
+  if(!state.enReturn||state.page!=='orders')return;
+  const back=event.target.closest?.('[data-latest-back], .latest-request-back, .booking-back');if(!back)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  state.detail=null;state.enReturn=false;state.page='earnings';render();
+},true);
+
+/* Insights: custom date range. */
+function vi2CustomStart(){const c=state.vi2Custom||{start:'2026-09-01'};const [y,m,d]=c.start.split('-').map(Number);return new Date(y,m-1,d)}
+function vi2CustomEnd(){const c=state.vi2Custom||{end:'2026-09-30'};const [y,m,d]=c.end.split('-').map(Number);return new Date(y,m-1,d)}
+function vi2CustomDays(){return Math.max(1,Math.round((vi2CustomEnd()-vi2CustomStart())/864e5)+1)}
+function vi2CustomLabel(){const a=vi2CustomStart(),b=vi2CustomEnd(),M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return a.getMonth()===b.getMonth()?M[a.getMonth()]+' '+a.getDate()+'–'+b.getDate():M[a.getMonth()]+' '+a.getDate()+' – '+M[b.getMonth()]+' '+b.getDate()}
+function vi2CustomData(){
+  const days=vi2CustomDays(),k=days/30,start=vi2CustomStart(),end=vi2CustomEnd(),M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],f=x=>M[x.getMonth()]+' '+x.getDate();
+  const prevStart=new Date(start);prevStart.setDate(start.getDate()-days);const hasPrev=prevStart>=new Date(2026,5,1);
+  const r100=v=>Math.round(v/100)*100,c=v=>Math.max(1,Math.round(v));
+  const d={sales:r100(48600*k),prev:hasPrev?r100(43400*k):0,bookings:c(32*k),prevBookings:hasPrev?c(29*k):0,response:Math.round(16+viSeed(days)*6),prevResponse:hasPrev?23:0,received:c(40*k),declined:Math.round(2*k),expired:Math.round(4*k)};
+  d.outstanding=0;d.collected=d.sales;d.confirmed=Math.max(0,d.received-d.declined-d.expired);
+  d.points=days;const mid=new Date(start);mid.setDate(start.getDate()+Math.floor((days-1)/2));d.labels=[f(start),f(mid),f(end)];
+  const prevEnd=new Date(start);prevEnd.setDate(start.getDate()-1);
+  d.compare=hasPrev?'previous '+days+' day'+(days===1?'':'s'):'';d.legend=[vi2CustomLabel(),hasPrev?f(prevStart)+' – '+f(prevEnd):''];
+  d.series=vi2Series(days,d.sales,days*7+start.getDate());d.prevSeries=hasPrev?vi2Series(days,d.prev,days*7+start.getDate()+97):null;
+  return d;
+}
+
+window.addEventListener('click',event=>{
+  if(state.page!=='earnings'||!event.target.closest?.('[data-en-more]'))return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const sc=document.querySelector('.page')?.scrollTop||0;state.enShowAll=true;render();const p=document.querySelector('.page');if(p)p.scrollTop=sc;
+},true);
+window.addEventListener('click',event=>{
+  const row=event.target.closest?.('.page [data-page="earnings"]');if(!row||state.page!=='menu')return;
+  state.enFrom='menu';state.enShowAll=false;
+},true);
+
+/* ===== Earnings v3: summary tiles (To receive | Received), detail one tap away. ===== */
+const e3Net=t=>earningsTransactionNet(t);
+const e3Day=t=>String(t.date).replace(/, \d{4}$/,'');
+const e3Bk=id=>'#'+String(id).replace(/^#/,'').replace(/^BK-?/,'BK');
+const e3Short=d=>viMonths[d.getMonth()]+' '+d.getDate();
+function e3Owed(){
+  const rows=vrRows(),stay=rows.filter(t=>t.status==='Awaiting guest checkout'),resort=rows.filter(t=>t.status==='Awaiting settlement');
+  const sum=l=>l.reduce((a,t)=>a+e3Net(t),0),overdue=resort.filter(vrOverdue);
+  return {rows,stay,resort,total:sum(rows),stayTotal:sum(stay),resortTotal:sum(resort),overdue,overdueTotal:sum(overdue)};
+}
+function e3Buckets(range){
+  const a=cabanaRangeStart(range),b=cabanaRangeEnd(range),days=Math.round((b-a)/864e5)+1,rows=cabanaReceivedIn(range),out=[];
+  if(days<=10){for(let i=0;i<days;i++){const d=new Date(a);d.setDate(a.getDate()+i);out.push({start:d,end:d,label:range==='Last 7 days'?['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]:String(d.getDate()),full:e3Short(d)})}}
+  else{const n=Math.max(1,Math.floor(days/7));for(let i=0;i<n;i++){const s=new Date(a);s.setDate(a.getDate()+i*7);const e=i===n-1?new Date(b):new Date(s.getFullYear(),s.getMonth(),s.getDate()+6);const lab=s.getMonth()===e.getMonth()?viMonths[s.getMonth()]+' '+s.getDate()+'–'+e.getDate():e3Short(s)+'–'+e3Short(e);out.push({start:s,end:e,label:lab,full:lab})}}
+  out.forEach(k=>{k.total=rows.filter(r=>r.at>=k.start&&r.at<=k.end).reduce((s,r)=>s+r.amount,0)});
+  return out;
+}
+const e3Icon=(name,cls='')=>'<span class="e3-ic '+cls+'"><i class="hgi-stroke hgi-'+name+'" aria-hidden="true"></i></span>';
+const e3PayRow=r=>'<button type="button" class="e3-pay" data-en-open="'+esc(r.id)+'">'+e3Icon(r.how==='online'?'credit-card':'key-01','is-tile')+'<span><strong>'+e3Bk(r.id)+' · '+(r.how==='online'?'Paid online':'Charged to room')+'</strong><small>'+(r.how==='online'?r.date:'Paid by resort · '+r.date)+'</small></span><b>'+viPeso(r.amount)+'</b></button>';
+const e3Pill=(attr,label)=>'<button type="button" class="vi2-range e3-pill" '+attr+' aria-haspopup="dialog"><span>'+label+'</span><i aria-hidden="true">▾</i></button>';
+function e3Main(){
+  const o=e3Owed(),range=state.enRange||'Last 30 days',recv=cabanaReceivedIn(range),recvTotal=recv.reduce((a,r)=>a+r.amount,0);
+  if(!state.enView)state.enView=o.total?'receive':'received';
+  const v=state.enView,tile=(key,label,amount,help)=>'<button type="button" class="e3-tile'+(v===key?' is-on':'')+'" data-e3-view="'+key+'" aria-pressed="'+(v===key)+'"><span>'+label+'</span><strong>'+viPeso(amount)+'</strong><small>'+help+'</small></button>';
+  let body='';
+  if(v==='receive'){
+    if(!o.total)body='<section class="en-card e3-empty"><strong>All caught up</strong><span>Room charges you’re owed will appear here.</span></section>';
+    else{
+      const old=o.overdue.slice().sort((a,b)=>a.sort-b.sort)[0];
+      body=(o.overdue.length?'<button type="button" class="e3-alert" data-e3-sub="resort" data-e3-overdue><span class="e3-alert-ic"><i class="hgi-stroke hgi-alert-circle" aria-hidden="true"></i></span><span><strong>'+o.overdue.length+' overdue payment'+(o.overdue.length===1?'':'s')+' · '+viPeso(o.overdueTotal)+'</strong><small>'+(o.overdue.length===1?'Checked out '+esc(old.checkout||e3Day(old))+' · Room '+esc(old.room):'Oldest: checked out '+esc(old.checkout||e3Day(old)))+'</small></span><i class="e3-chev" aria-hidden="true">›</i></button>':'')
+        +'<section class="en-card e3-stages">'
+        +(o.stayTotal?'<button type="button" class="e3-stage" data-e3-sub="checkout">'+e3Icon('bed-double')+'<span><strong>Awaiting checkout</strong><small>Still staying · '+o.stay.length+' booking'+(o.stay.length===1?'':'s')+'</small></span><b>'+viPeso(o.stayTotal)+'</b><i class="e3-chev" aria-hidden="true">›</i></button>':'')
+        +(o.resortTotal?'<button type="button" class="e3-stage" data-e3-sub="resort">'+e3Icon('building-03')+'<span><strong>Awaiting resort payment</strong><small>Checked out · '+o.resort.length+' booking'+(o.resort.length===1?'':'s')+'</small></span><b>'+viPeso(o.resortTotal)+'</b><i class="e3-chev" aria-hidden="true">›</i></button>':'')
+        +'</section>';
+    }
+  }else{
+    const buckets=e3Buckets(range),max=Math.max(...buckets.map(k=>k.total),1),weekly=buckets.length&&buckets[0].start!==buckets[0].end;
+    body='<section class="en-card e3-chart"><div class="en-title"><h3>'+(weekly?'By week':'By day')+'</h3>'+e3Pill('data-en-range',range)+'</div>'
+      +(recvTotal?'<div class="e3-bars" role="img" aria-label="Received '+(weekly?'by week':'by day')+'">'+buckets.map((k,i)=>'<button type="button" class="e3-bar'+(i===buckets.length-1?' is-now':'')+'" data-e3-bar="'+i+'" aria-label="'+k.full+': '+viPeso(k.total)+'"><span class="e3-bar-col"><i style="height:'+Math.max(k.total?4:0,Math.round(k.total/max*100))+'%"></i></span><em>'+k.label+'</em></button>').join('')+'<div class="e3-tip" hidden></div></div>':'<p class="en-empty">No payments in this period</p>')+'</section>'
+      +(recv.length?'<section class="en-card e3-recent"><span class="e3-caps">Recent payments</span>'+recv.slice().sort((a,b)=>b.at-a.at).slice(0,3).map(e3PayRow).join('')+'<button type="button" class="vi2-foot e3-foot" data-e3-sub="payments"><span>See all payments</span><i aria-hidden="true">›</i></button></section>':'');
+  }
+  return '<div class="en e3"><div class="e3-tiles">'+tile('receive','To receive',o.total,'As of today')+tile('received','Received',recvTotal,range)+'</div>'+body+'</div>';
+}
+function e3Group(list,dateOf,rowHtml,headTotal){
+  const groups=[];list.forEach(x=>{const k=dateOf(x);let g=groups.find(g=>g.key===k);if(!g){g={key:k,items:[]};groups.push(g)}g.items.push(x)});
+  return groups.map(g=>'<div class="e3-date"><span>'+g.key.toUpperCase()+'</span>'+(headTotal?'<b>'+viPeso(headTotal(g.items))+'</b>':'')+'</div><section class="en-card e3-list">'+g.items.map(rowHtml).join('')+'</section>').join('');
+}
+function e3Sub(){
+  const sub=state.enSub,limit=state.enLimit||20;
+  if(sub==='checkout'||sub==='resort'){
+    const o=e3Owed();let list=(sub==='checkout'?o.stay:o.resort).slice();
+    if(state.enOverdueOnly&&sub==='resort')list=list.filter(vrOverdue);
+    list.sort((a,b)=>(vrOverdue(b)-vrOverdue(a))||(b.sort-a.sort));
+    const total=list.reduce((a,t)=>a+e3Net(t),0);
+    const row=t=>'<button type="button" class="e3-pay" data-en-open="'+esc(t.orderId)+'"><span><strong>'+e3Bk(t.orderId)+' · Room '+esc(t.room)+'</strong><small>'+(sub==='checkout'?'Stay '+e3Day(t):'Checked out '+esc(t.checkout||e3Day(t)))+'</small></span>'+(vrOverdue(t)?'<em class="e3-overdue">Overdue</em>':'')+'<b>'+viPeso(e3Net(t))+'</b></button>';
+    const filter=sub==='resort'&&o.overdue.length?'<div class="e3-chips">'+[['all','All'],['overdue','Overdue']].map(([k,l])=>'<button type="button" class="e3-chip'+((state.enOverdueOnly?'overdue':'all')===k?' is-on':'')+'" data-e3-overdue-chip="'+k+'">'+l+'</button>').join('')+'</div>':'';
+    return '<div class="en e3 e3-sub"><p class="e3-summary"><strong>'+viPeso(total)+'</strong> · '+list.length+' booking'+(list.length===1?'':'s')+'</p>'+filter
+      +(list.length?e3Group(list.slice(0,limit),t=>sub==='checkout'?e3Day(t):(t.checkout||e3Day(t)),row):'<section class="en-card e3-empty"><strong>Nothing here</strong></section>')+(list.length>limit?'<div class="e3-loading" data-e3-more>Loading more…</div>':'')+'</div>';
+  }
+  const range=state.enRange||'Last 30 days',kind=state.enPayFilter||'all';
+  let list=cabanaReceivedIn(range).filter(r=>kind==='all'||r.how===kind).sort((a,b)=>b.at-a.at);
+  const chips='<div class="e3-chips">'+[['all','All'],['online','Paid online'],['room','Charged to room']].map(([k,l])=>'<button type="button" class="e3-chip'+(kind===k?' is-on':'')+'" data-e3-pay-chip="'+k+'">'+l+'</button>').join('')+'</div>';
+  return '<div class="en e3 e3-sub"><div class="e3-subbar">'+e3Pill('data-en-range',range)+'</div>'+chips
+    +(list.length?e3Group(list.slice(0,limit),r=>r.date,e3PayRow,items=>items.reduce((a,r)=>a+r.amount,0)):'<section class="en-card e3-empty"><strong>No payments in this period</strong></section>')+(list.length>limit?'<div class="e3-loading" data-e3-more>Loading more…</div>':'')+'</div>';
+}
+window.cabanaEarningsPage=()=>state.enSub?e3Sub():e3Main();
+window.addEventListener('click',event=>{
+  if(state.page!=='earnings')return;
+  const t=event.target,view=t.closest?.('[data-e3-view]'),sub=t.closest?.('[data-e3-sub]'),bar=t.closest?.('[data-e3-bar]'),pc=t.closest?.('[data-e3-pay-chip]'),oc=t.closest?.('[data-e3-overdue-chip]');
+  if(!view&&!sub&&!bar&&!pc&&!oc)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(bar){const wrap=bar.closest('.e3-bars'),tip=wrap.querySelector('.e3-tip'),k=e3Buckets(state.enRange||'Last 30 days')[Number(bar.dataset.e3Bar)];wrap.querySelectorAll('.e3-bar').forEach(b=>b.classList.toggle('is-picked',b===bar));tip.textContent=k.full+' · '+viPeso(k.total);tip.hidden=false;const wr=wrap.getBoundingClientRect(),br=bar.getBoundingClientRect(),tw=tip.offsetWidth;tip.style.left=Math.max(0,Math.min(wr.width-tw,br.left-wr.left+br.width/2-tw/2))+'px';return}
+  if(view){state.enView=view.dataset.e3View}
+  if(sub){state.enSub=sub.dataset.e3Sub;state.enOverdueOnly=sub.hasAttribute('data-e3-overdue');state.enLimit=20;state.enPayFilter='all'}
+  if(pc){state.enPayFilter=pc.dataset.e3PayChip;state.enLimit=20}
+  if(oc){state.enOverdueOnly=oc.dataset.e3OverdueChip==='overdue'}
+  render();if(sub){const p=document.querySelector('.page');if(p)p.scrollTop=0}
+},true);
+document.addEventListener('scroll',event=>{
+  if(state.page!=='earnings'||!state.enSub)return;
+  const p=event.target;if(!(p instanceof Element)||!p.classList.contains('page'))return;
+  if(p.scrollTop+p.clientHeight>=p.scrollHeight-120&&document.querySelector('[data-e3-more]')){const sc=p.scrollTop;state.enLimit=(state.enLimit||20)+20;render();const q=document.querySelector('.page');if(q)q.scrollTop=sc}
+},true);
+const renderBeforeE3=render;
+render=function(){
+  if(state.page!=='earnings'&&state.page!=='orders'){state.enSub=null}
+  renderBeforeE3.apply(this,arguments);
+  if(state.page!=='earnings'||state.role!=='Owner')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.e3'))page.innerHTML=window.cabanaEarningsPage();
+  const title=document.querySelector('.topbar .topbar-context strong, .topbar h1');
+  const names={checkout:'Awaiting checkout',resort:'Awaiting resort payment',payments:'Payments'};
+  if(title)title.textContent=state.enSub?names[state.enSub]:'Earnings';
+  const back=document.querySelector('[data-profile-back]');
+  if(back&&state.enSub){back.onclick=()=>{state.enSub=null;state.enOverdueOnly=false;render();const p=document.querySelector('.page');if(p)p.scrollTop=0}}
+};
+render();
+
+/* ===== Earnings v4: Awaiting checkout → Ready to request → Requested → Paid (hotel payouts + online). ===== */
+const e4Hotels={henrys:'Henry’s Resort Dumaguete',luna:'Luna Bay Resort'};
+const e4M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const e4Date=s=>{const [m,d]=String(s).split(' ');return new Date(2026,e4M.indexOf(m),Number(d))};
+const e4Fmt=d=>e4M[d.getMonth()]+' '+d.getDate();
+const e4Today=()=>new Date(2026,9,10);
+const e4Peso=n=>'₱'+Math.round(n).toLocaleString('en-PH');
+function e4Split(prefix,start,n,total,hotel,dateOut){const out=[];let left=total;for(let i=0;i<n;i++){const amt=i===n-1?left:Math.round(total/n/10)*10;left-=amt;const od=e4Date(dateOut);od.setDate(od.getDate()-Math.round((n-1-i)*6/Math.max(1,n-1)));out.push({id:'BK'+(start+i),hotel,room:String(200+((start+i)*37)%500),amount:amt,out:e4Fmt(od),item:['Airport Transfer — Sedan','Toyota Innova Rental','Island Hopping Tour','Dumaguete City Tour','Van with Driver — Full Day'][(start+i)%5],guest:['Ana Cruz','Ben Yu','Cara Lim','Dino Sy','Eva Tan','Fe Ong'][(start+i)%6]})}return out}
+function e4Seed(){return {
+  bookings:[
+    {id:'BK1047',hotel:'henrys',room:'315',item:'Dumaguete City Tour',guest:'Carlo Ramos',amount:1200,stage:'checkout',until:'Oct 12'},
+    {id:'BK1042',hotel:'henrys',room:'602',item:'Airport Transfer — Sedan',guest:'Sofia Lim',amount:1800,stage:'checkout',until:'Oct 11'},
+    {id:'BK1040',hotel:'henrys',room:'118',item:'Island Hopping Tour',guest:'Nina Cruz',amount:1200,stage:'checkout',until:'Oct 13'},
+    {id:'BK1038',hotel:'henrys',room:'410',item:'Island Hopping Tour',guest:'Paolo Diaz',amount:1200,stage:'checkout',until:'Oct 12'},
+    {id:'BK1031',hotel:'henrys',room:'210',item:'Van with Driver — Full Day',guest:'Maya Tan',amount:1170,stage:'ready',out:'Oct 7'},
+    {id:'BK1035',hotel:'henrys',room:'220',item:'Dumaguete City Tour',guest:'Leo Bautista',amount:900,stage:'ready',out:'Oct 9'},
+    {id:'BK1034',hotel:'luna',room:'305',item:'Airport Transfer — Sedan',guest:'John D.',amount:1800,stage:'ready',out:'Oct 8'}
+  ],
+  requests:[
+    {id:'RQ208',hotel:'henrys',date:'Oct 8',bookings:e4Split('BK',1022,3,4400,'henrys','Oct 6')},
+    {id:'RQ201',hotel:'henrys',date:'Oct 1',bookings:[{id:'BK1019',hotel:'henrys',room:'305',amount:1800,out:'Sep 30',item:'Airport Transfer — Sedan',guest:'John D.'}]}
+  ],
+  payouts:[
+    {id:'PO114',hotel:'henrys',date:'Oct 6',bookings:e4Split('BK',1008,5,7400,'henrys','Oct 2')},
+    {id:'PO109',hotel:'henrys',date:'Sep 29',bookings:e4Split('BK',990,4,6200,'henrys','Sep 25')},
+    {id:'PO103',hotel:'henrys',date:'Sep 20',bookings:e4Split('BK',980,3,5130,'henrys','Sep 16')},
+    {id:'PO097',hotel:'henrys',date:'Sep 5',bookings:e4Split('BK',960,3,4800,'henrys','Sep 1')},
+    {id:'PO090',hotel:'henrys',date:'Aug 22',bookings:e4Split('BK',950,2,3600,'henrys','Aug 18')},
+    {id:'PO088',hotel:'luna',date:'Aug 28',bookings:e4Split('BK',940,3,4200,'luna','Aug 24')}
+  ]}}
+function e4Model(){
+  if(!state.e4Model){try{state.e4Model=JSON.parse(localStorage.getItem('cabana:earnings-model-v4')||'null')}catch(e){}if(!state.e4Model||!state.e4Model.bookings)state.e4Model=e4Seed()}
+  return state.e4Model;
+}
+const e4Save=()=>{try{localStorage.setItem('cabana:earnings-model-v4',JSON.stringify(state.e4Model))}catch(e){}};
+const e4Sum=l=>l.reduce((a,x)=>a+x.amount,0);
+function e4Online(){return (typeof cabanaReceivedRows==='function'?cabanaReceivedRows():[]).filter(r=>r.how==='online').map(r=>({kind:'online',hotel:'henrys',id:r.id,date:r.date,at:r.at,amount:r.amount,item:r.item,guest:r.guest,room:r.room}))}
+function e4Paid(){const m=e4Model();return m.payouts.map(p=>({kind:'payout',id:p.id,hotel:p.hotel,date:p.date,at:e4Date(p.date),amount:e4Sum(p.bookings),count:p.bookings.length})).concat(e4Online()).sort((a,b)=>b.at-a.at)}
+function e4Totals(){const m=e4Model(),ready=m.bookings.filter(b=>b.stage==='ready'),checkout=m.bookings.filter(b=>b.stage==='checkout'),requested=m.requests.reduce((a,r)=>a+e4Sum(r.bookings),0);return {ready,checkout,readyTotal:e4Sum(ready),checkoutTotal:e4Sum(checkout),requested,toReceive:e4Sum(ready)+e4Sum(checkout)+requested}}
+const e4Age=date=>Math.round((e4Today()-e4Date(date))/864e5);
+/* Date range for Paid */
+function e4Range(r){
+  r=r||state.e4Range||{preset:'Last 30 days'};const t=e4Today();
+  if(r.preset==='Today')return {start:t,end:t,label:'Today',sub:e4Fmt(t)};
+  if(r.preset==='Last 7 days'){const s=new Date(2026,9,4);return {start:s,end:t,label:'Last 7 days',sub:e4Fmt(s)+' – '+e4Fmt(t)}}
+  if(r.preset==='This month')return {start:new Date(2026,9,1),end:t,label:'Oct 2026',sub:'Oct 1 – '+e4Fmt(t)};
+  if(r.preset==='Last month')return {start:new Date(2026,8,1),end:new Date(2026,8,30),label:'Sep 2026',sub:'Sep 1 – Sep 30'};
+  if(r.preset==='Custom'){const s=new Date(r.start),e=new Date(r.end);return {start:s,end:e,label:e4Fmt(s)+' – '+e4Fmt(e),sub:e4Fmt(s)+' – '+e4Fmt(e)+', '+e.getFullYear()}}
+  const s=new Date(2026,8,11);return {start:s,end:t,label:'Last 30 days',sub:e4Fmt(s)+' – '+e4Fmt(t)};
+}
+const e4PaidIn=(r,hotel)=>{const x=e4Range(r);return e4Paid().filter(p=>p.at>=x.start&&p.at<=x.end&&(!hotel||p.hotel===hotel))};
+/* Insights + Home use the same model */
+window.cabanaReceivedTotal=range=>{const a=cabanaRangeStart(range),b=cabanaRangeEnd(range);return e4Paid().filter(p=>p.at>=a&&p.at<=b).reduce((s,p)=>s+p.amount,0)};
+vi2ToReceive=function(){return e4Totals().toReceive};
+const e4Pill=(attr,label)=>'<button type="button" class="vi2-range e3-pill" '+attr+' aria-haspopup="dialog"><span>'+label+'</span><i aria-hidden="true">▾</i></button>';
+const e4StatusPill=req=>e4Age(req.date)>7?'<em class="e4-pill is-follow">Follow up</em>':'<em class="e4-pill is-req">Requested</em>';
+const e4ShortHotel=h=>String(e4Hotels[h]||'').replace(/ Dumaguete$/,'');
+const e4Method=id=>['GCash','Maya','Card','GCash'][Number(String(id).replace(/\D/g,''))%4];
+const e4PaidRow=p=>p.kind==='payout'
+  ?'<button type="button" class="e3-pay" data-e4-open="payout:'+p.id+'">'+e3Icon('building-03','is-tile is-plum')+'<span><strong>Payout</strong><small>'+(state.e4Sub==='payments'?'':p.date+' · ')+(['GCash','Card'][Number(String(p.id).replace(/\D/g,''))%2])+'</small></span><b>'+e4Peso(p.amount)+'</b></button>'
+  :'<button type="button" class="e3-pay" data-en-open="'+esc(p.id)+'">'+e3Icon('credit-card','is-tile is-blue')+'<span><strong>Online payment</strong><small>'+(state.e4Sub==='payments'?'':p.date+' · ')+e4Method(p.id)+'</small></span><b>'+e4Peso(p.amount)+'</b></button>';
+function e4Main(){
+  const m=e4Model(),t=e4Totals(),range=e4Range(),paid=e4PaidIn(),hotels=[...new Set(t.ready.map(b=>b.hotel))];
+  const hero='<section class="e4-hero"><span>Available for payout</span><strong>'+e4Peso(t.readyTotal)+'</strong><small>'+(t.readyTotal?'From checked-out guests':'Nothing available yet')+'</small><button type="button" class="e4-hero-btn" data-e4-request'+(t.readyTotal?'':' disabled')+'>Request payout</button></section>';
+  const reqs=m.requests.slice().sort((a,b)=>e4Date(b.date)-e4Date(a.date));
+  const requested=reqs.length?'<div class="e4-sec"><h3>Requested payouts</h3></div><section class="en-card e4-list">'+reqs.map(r=>{return '<button type="button" class="e3-stage" data-e4-open="request:'+r.id+'">'+e3Icon('clock-01','is-amber')+'<span><strong class="e4-one">'+esc(e4ShortHotel(r.hotel))+'</strong><small>'+r.date+'</small></span><span class="e4-right"><b>'+e4Peso(e4Sum(r.bookings))+'</b></span><i class="e3-chev" aria-hidden="true">›</i></button>'}).join('')+'</section>':'';
+  const notReady=t.checkoutTotal?'<div class="e4-sec"><h3>Awaiting checkout</h3></div><section class="en-card e4-list"><button type="button" class="e3-stage" data-e4-open="checkout">'+e3Icon('bed-double')+'<span><strong>'+t.checkout.length+' booking'+(t.checkout.length===1?'':'s')+'</strong><small>Guests still staying</small></span><b>'+e4Peso(t.checkoutTotal)+'</b><i class="e3-chev" aria-hidden="true">›</i></button></section>':'';
+  const paidSec='<div class="e4-sec"><h3>Payments received</h3>'+e4Pill('data-e4-range',range.label)+'</div><section class="en-card e4-list e4-paid">'
+    +(paid.length?'<div class="e4-paid-total"><strong>'+e4Peso(e4Sum(paid))+'</strong><small>'+range.sub+'</small></div>'+paid.slice(0,3).map(e4PaidRow).join('')+'<button type="button" class="vi2-foot e3-foot" data-e4-open="payments"><span>View payment history</span><i aria-hidden="true">›</i></button>':'<p class="en-empty">No payments in this range</p>')+'</section>';
+  return '<div class="en e3 e4">'+hero+'<div class="e4-hero-note"><span>As of today</span></div>'+requested+notReady+paidSec+'</div>';
+}
+function e4Detail(){
+  const m=e4Model(),[kind,id]=String(state.e4Sub).split(':'),limit=state.enLimit||20;
+  const bookingRow=(b,line)=>'<button type="button" class="e3-pay" data-en-open="'+esc(b.id)+'"><span><strong>#'+esc(b.id)+' · Room '+esc(b.room)+'</strong><small>'+line+'</small></span><b>'+e4Peso(b.amount)+'</b></button>';
+  if(kind==='request'||kind==='payout'){
+    const r=(kind==='request'?m.requests:m.payouts).find(x=>x.id===id);if(!r)return '<div class="en e3 e4"></div>';
+    const paid=kind==='payout',short=e4ShortHotel(r.hotel),reqDate=paid?(r.requested||e4Fmt(new Date(e4Date(r.date).getTime()-2*864e5))):r.date;
+    const status=paid
+      ?'<div class="e4-status is-paid"><span class="e4-status-ic"><i class="hgi-stroke hgi-checkmark-circle-02" aria-hidden="true"></i></span><span><strong>Paid '+r.date+'</strong><small>Requested '+reqDate+' · Paid to '+(r.account||'BDO •••• 4821')+'</small></span></div>'
+      :'<div class="e4-status"><span class="e4-status-ic"><i class="hgi-stroke hgi-clock-01" aria-hidden="true"></i></span><span><strong>Waiting for '+esc(short)+' to pay</strong><small>Requested '+reqDate+' · To '+(r.account||'BDO •••• 4821')+'</small></span></div>';
+    const row=b=>'<button type="button" class="e3-pay" data-en-open="'+esc(b.id)+'"><span><strong>#'+esc(b.id)+' · Room '+esc(b.room)+'</strong><small>Checked out '+b.out+'</small></span><b>'+e4Peso(b.amount)+'</b><i class="e3-chev" aria-hidden="true">›</i></button>';
+    return '<div class="en e3 e4 e4-req"><section class="en-card e4-req-top"><span class="e4-req-hotel">'+esc(e4Hotels[r.hotel])+'</span><strong>'+e4Peso(e4Sum(r.bookings))+'</strong>'+status+'</section>'
+      +'<div class="e4-sec"><h3>Room charges ('+r.bookings.length+')</h3></div><section class="en-card e4-list">'+r.bookings.map(row).join('')+'</section>'
+      +(paid?'':'<button type="button" class="e4-outline" data-e4-message="'+r.hotel+'"><i class="hgi-stroke hgi-message-01" aria-hidden="true"></i>Message front desk</button>')+'</div>';
+  }
+  if(kind==='checkout'){
+    const list=m.bookings.filter(b=>b.stage==='checkout');
+    return '<div class="en e3 e4"><p class="e3-summary"><strong>'+e4Peso(e4Sum(list))+'</strong> · '+list.length+' booking'+(list.length===1?'':'s')+'</p>'+Object.keys(e4Hotels).map(h=>{const l=list.filter(b=>b.hotel===h);return l.length?'<div class="e3-date"><span>'+e4Hotels[h].toUpperCase()+'</span><b>'+e4Peso(e4Sum(l))+'</b></div><section class="en-card e3-list">'+l.map(b=>bookingRow(b,'Staying until '+b.until)).join('')+'</section>':''}).join('')+'</div>';
+  }
+  const range=e4Range(),f=state.e4PayFilter||'all',list=e4PaidIn(null,e4CurHotel()).filter(p=>f==='all'||(f==='payout'?p.kind==='payout':p.kind==='online'));
+  const chips='<div class="e3-chips">'+[['all','All'],['payout','Payouts'],['online','Online payments']].map(([k,l])=>'<button type="button" class="e3-chip'+(f===k?' is-on':'')+'" data-e4-chip="'+k+'">'+l+'</button>').join('')+'</div>';
+  const groups=[];list.slice(0,limit).forEach(p=>{let g=groups.find(g=>g.key===p.date);if(!g){g={key:p.date,items:[]};groups.push(g)}g.items.push(p)});
+  return '<div class="en e3 e4 e4-history"><div class="e4-sticky">'+chips+'</div>'
+    +(list.length?'<section class="en-card e4-statement">'+groups.map(g=>'<div class="e4-day-head"><span>'+g.key.toUpperCase()+'</span></div>'+g.items.map(e4PaidRow).join('')).join('')+'</section>':'<section class="en-card e3-empty"><strong>No payments in this range</strong></section>')
+    +(list.length>limit?'<div class="e3-loading" data-e4-more>Loading more…</div>':'')+'</div>';
+}
+window.cabanaEarningsPage=()=>state.e4Sub?e4Detail():e4Main();
+/* Request payout sheet */
+function e4RequestSheet(){
+  lcSheetClose();const t=e4Totals(),hotels=Object.keys(e4Hotels).filter(h=>t.ready.some(b=>b.hotel===h));if(!hotels.length)return;
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  const rowFor=h=>{const l=t.ready.filter(b=>b.hotel===h),ds=l.map(b=>e4Date(b.out)).sort((a,b)=>a-b),span=ds.length>1&&+ds[0]!==+ds[ds.length-1]?e4Fmt(ds[0])+'–'+(ds[0].getMonth()===ds[ds.length-1].getMonth()?ds[ds.length-1].getDate():e4Fmt(ds[ds.length-1])):e4Fmt(ds[0]);return '<label class="e4-check"><input type="checkbox" data-e4-hotel="'+h+'" checked><span class="lc2-box" aria-hidden="true"></span><span><strong>'+esc(e4Hotels[h])+'</strong><small>'+l.length+' booking'+(l.length===1?'':'s')+' · checked out '+span+'</small></span><b data-amt="'+e4Sum(l)+'">'+e4Peso(e4Sum(l))+'</b></label>'};
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e4-close></div><section class="pf-sheet lc-sheet e4-sheet" role="dialog" aria-label="Request payout"><header><h2>Request payout</h2><button type="button" data-e4-close aria-label="Close">×</button></header><p class="e4-help">Each hotel pays its own room charges. We’ll notify the front desk.</p><div class="e4-checks">'+hotels.map(rowFor).join('')+'</div><div class="e4-total"><span>Total</span><b data-e4-total></b></div>'+paPayToRow()+'<button type="button" class="button primary e4-wide" data-e4-send>Send request</button></section>';
+  document.body.appendChild(wrap);
+  const sync=()=>{const on=[...wrap.querySelectorAll('[data-e4-hotel]')].filter(i=>i.checked);wrap.querySelector('[data-e4-total]').textContent=e4Peso(on.reduce((a,i)=>a+Number(i.closest('label').querySelector('b').dataset.amt),0));wrap.querySelector('[data-e4-send]').disabled=!on.length||!paDefault()};
+  wrap.querySelectorAll('[data-e4-hotel]').forEach(i=>i.onchange=sync);sync();
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{
+    if(e.target.closest('[data-e4-close]')){lcSheetClose();return}
+    if(!e.target.closest('[data-e4-send]'))return;
+    const m=e4Model(),picked=[...wrap.querySelectorAll('[data-e4-hotel]')].filter(i=>i.checked).map(i=>i.dataset.e4Hotel);if(!picked.length)return;
+    picked.forEach(h=>{const l=m.bookings.filter(b=>b.stage==='ready'&&b.hotel===h);m.bookings=m.bookings.filter(b=>!(b.stage==='ready'&&b.hotel===h));m.requests.push({id:'RQ'+Date.now().toString().slice(-5)+h.slice(0,2),hotel:h,date:'Oct 10',account:paLabel(paDefault()),bookings:l.map(({stage,...b})=>b)})});
+    e4Save();lcSheetClose();render();toast('Payout requested');
+  };
+}
+/* Date range sheet with presets + custom calendar */
+function e4RangeSheet(){
+  lcSheetClose();const cur=state.e4Range||{preset:'Last 30 days'},wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  let pick={start:cur.preset==='Custom'?cur.start:null,end:cur.preset==='Custom'?cur.end:null},month=cur.preset==='Custom'?new Date(cur.end):e4Today();month=new Date(month.getFullYear(),month.getMonth(),1);
+  const presets=['Today','Last 7 days','Last 30 days','This month','Last month','Custom range'];
+  const list=()=>'<div class="lc-sheet-list" role="listbox">'+presets.map(p=>{const key=p==='Custom range'?'Custom':p,on=cur.preset===key;return '<button type="button" role="option" aria-selected="'+on+'" class="'+(on?'is-selected':'')+'" data-e4-preset="'+key+'"><span>'+p+(key==='Custom'&&on?' · '+e4Range(cur).label:'')+'</span>'+(on?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':(key==='Custom'?'<i class="vi2-sheet-chev" aria-hidden="true">›</i>':''))+'</button>'}).join('')+'</div>';
+  const cal=()=>{
+    const y=month.getFullYear(),mo=month.getMonth(),first=(new Date(y,mo,1).getDay()+6)%7,days=new Date(y,mo+1,0).getDate(),s=pick.start?new Date(pick.start):null,e=pick.end?new Date(pick.end):null,today=e4Today(),min=new Date(2026,5,1);
+    let cells='';for(let i=0;i<first;i++)cells+='<span></span>';
+    for(let d=1;d<=days;d++){const dt=new Date(y,mo,d),future=dt>today||dt<min,isS=s&&+dt===+s,isE=e&&+dt===+e,mid=s&&e&&dt>s&&dt<e;cells+='<button type="button" class="e4-day'+(isS||isE?' is-end':'')+(mid?' is-mid':'')+(isS&&e?' is-start':'')+(isE&&s?' is-last':'')+'" data-e4-day="'+dt.toISOString()+'"'+(future?' disabled':'')+'>'+d+'</button>'}
+    const summary=s&&e?e4Fmt(s)+' – '+e4Fmt(e)+', '+e.getFullYear():s?e4Fmt(s)+' – pick an end date':'Pick a start date';
+    return '<p class="e4-cal-sum">'+summary+'</p><div class="e4-cal"><div class="e4-cal-head"><strong>'+e4M[mo]+' '+y+'</strong><div><button type="button" data-e4-month="-1" aria-label="Previous month"'+(new Date(y,mo,1)<=min?' disabled':'')+'>‹</button><button type="button" data-e4-month="1" aria-label="Next month"'+(y===2026&&mo>=9?' disabled':'')+'>›</button></div></div><div class="e4-cal-week">'+['M','T','W','T','F','S','S'].map(x=>'<span>'+x+'</span>').join('')+'</div><div class="e4-cal-grid">'+cells+'</div></div><div class="e4-cal-foot"><button type="button" class="e4-clear" data-e4-clear>Clear</button><button type="button" class="button primary" data-e4-apply'+(s&&e?'':' disabled')+'>Apply</button></div>';
+  };
+  const show=mode=>{wrap.innerHTML='<div class="pf-sheet-backdrop" data-e4-close></div><section class="pf-sheet lc-sheet lc-dd-sheet e4-range-sheet" role="dialog" aria-label="Date range"><header><h2>'+(mode==='cal'?'Custom range':'Date range')+'</h2><button type="button" data-e4-close aria-label="Close">×</button></header>'+(mode==='cal'?cal():list())+'</section>';wrap.dataset.mode=mode};
+  show('list');document.body.appendChild(wrap);
+  const apply=r=>{state.e4Range=r;state.enLimit=20;lcSheetClose();const sc=document.querySelector('.page')?.scrollTop||0;render();const p=document.querySelector('.page');if(p)p.scrollTop=sc};
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{
+    if(e.target.closest('[data-e4-close]')){lcSheetClose();return}
+    const pr=e.target.closest('[data-e4-preset]');if(pr){if(pr.dataset.e4Preset==='Custom'){show('cal');return}apply({preset:pr.dataset.e4Preset});return}
+    const mv=e.target.closest('[data-e4-month]');if(mv&&!mv.disabled){month=new Date(month.getFullYear(),month.getMonth()+Number(mv.dataset.e4Month),1);show('cal');return}
+    const day=e.target.closest('[data-e4-day]');if(day&&!day.disabled){const d=day.dataset.e4Day;if(!pick.start||pick.end){pick={start:d,end:null}}else if(new Date(d)<new Date(pick.start)){pick={start:d,end:pick.start}}else pick.end=d;show('cal');return}
+    if(e.target.closest('[data-e4-clear]')){pick={start:null,end:null};show('cal');return}
+    if(e.target.closest('[data-e4-apply]')&&pick.start&&pick.end)apply({preset:'Custom',start:pick.start,end:pick.end});
+  };
+}
+/* Export sheet */
+function e4ExportSheet(){
+  lcSheetClose();const r=state.e4Range||{preset:'Last 30 days'},x=e4Range(r);
+  let period=r.preset==='This month'||r.preset==='Last month'?r.preset:'Custom',format='pdf';
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  const draw=()=>{wrap.innerHTML='<div class="pf-sheet-backdrop" data-e4-close></div><section class="pf-sheet lc-sheet e4-sheet" role="dialog" aria-label="Export earnings"><header><h2>Export earnings</h2><button type="button" data-e4-close aria-label="Close">×</button></header><span class="e4-label">Period</span><div class="e3-chips">'+['This month','Last month','Last 3 months','Custom'].map(p=>'<button type="button" class="e3-chip'+(period===p?' is-on':'')+'" data-e4-period="'+p+'">'+p+'</button>').join('')+'</div>'+(period==='Custom'?'<small class="e4-period-dates">'+x.sub+'</small>':'')
+    +'<span class="e4-label">Format</span><div class="e4-formats">'+[['pdf','PDF statement','To share or print'],['csv','Spreadsheet (CSV)','Every booking, for your records']].map(([k,t,s])=>'<label class="e4-format'+(format===k?' is-on':'')+'"><input type="radio" name="e4fmt" value="'+k+'"'+(format===k?' checked':'')+' data-e4-format><span class="e4-radio" aria-hidden="true"></span><span><strong>'+t+'</strong><small>'+s+'</small></span></label>').join('')+'</div><button type="button" class="button primary e4-wide" data-e4-export>Export</button></section>'};
+  draw();document.body.appendChild(wrap);
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{
+    if(e.target.closest('[data-e4-close]')){lcSheetClose();return}
+    const p=e.target.closest('[data-e4-period]');if(p){period=p.dataset.e4Period;draw();return}
+    const f=e.target.closest('[data-e4-format]');if(f){format=f.value;draw();return}
+    if(e.target.closest('[data-e4-export]')){lcSheetClose();toast((format==='pdf'?'PDF statement':'CSV file')+' is ready · '+(period==='Custom'?x.sub:period))}
+  };
+}
+const e4OpenFrontDesk=hotel=>{
+  const name=e4Hotels[hotel];const thread=(typeof cxThreads!=='undefined'?cxThreads:[]).find(t=>t.kind==='frontdesk'&&(t.hotel===name||t.name===name))||(typeof cxThreads!=='undefined'?cxThreads.find(t=>t.kind==='frontdesk'):null);
+  state.page='chat';render();if(thread&&typeof cxOpenThread==='function')cxOpenThread(thread.id);
+};
+window.addEventListener('click',event=>{
+  const t=event.target;
+  const req=t.closest?.('[data-e4-request]');
+  if(req){event.preventDefault();event.stopImmediatePropagation();if(!req.disabled)e4RequestSheet();return}
+  if(state.page!=='earnings')return;
+  const open=t.closest?.('[data-e4-open]'),range=t.closest?.('[data-e4-range]'),chip=t.closest?.('[data-e4-chip]'),msg=t.closest?.('[data-e4-message]'),exp=t.closest?.('[data-e4-export-open]');
+  if(!open&&!range&&!chip&&!msg&&!exp)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(range)return e4RangeSheet();
+  if(exp)return e4ExportSheet();
+  if(msg)return e4OpenFrontDesk(msg.dataset.e4Message);
+  if(chip){state.e4PayFilter=chip.dataset.e4Chip;state.enLimit=20}
+  if(open){state.e4Sub=open.dataset.e4Open;state.enLimit=20;if(state.e4Sub==='payments')state.e4PayFilter='all'}
+  render();if(open){const p=document.querySelector('.page');if(p)p.scrollTop=0}
+},true);
+document.addEventListener('scroll',event=>{
+  if(state.page!=='earnings'||state.e4Sub!=='payments')return;const p=event.target;if(!(p instanceof Element)||!p.classList.contains('page'))return;
+  if(p.scrollTop+p.clientHeight>=p.scrollHeight-120&&document.querySelector('[data-e4-more]')){const sc=p.scrollTop;state.enLimit=(state.enLimit||20)+20;render();const q=document.querySelector('.page');if(q)q.scrollTop=sc}
+},true);
+const renderBeforeE4=render;
+render=function(){
+  if(state.page!=='earnings'&&state.page!=='orders')state.e4Sub=null;
+  state.enSub=null;
+  renderBeforeE4.apply(this,arguments);
+  if(state.page!=='earnings'||state.role!=='Owner')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.e4'))page.innerHTML=window.cabanaEarningsPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  const [kind,id]=String(state.e4Sub||'').split(':'),m=e4Model();
+  const title=bar.querySelector('.topbar-context strong, h1');
+  if(title){let tx='Earnings';if(kind==='checkout')tx='Awaiting checkout';else if(kind==='payments')tx='Payment history';else if(kind==='request'||kind==='payout'){tx='Payout request'}title.textContent=tx}
+  bar.querySelectorAll('[data-e4-export-open],[data-e4-bar-range]').forEach(n=>n.remove());
+  if(state.e4Sub==='payments'){const pill=document.createElement('button');pill.type='button';pill.className='vi2-range e3-pill';pill.setAttribute('data-e4-range','');pill.setAttribute('data-e4-bar-range','');pill.setAttribute('aria-haspopup','dialog');pill.innerHTML='<span>'+e4Range().label+'</span><i aria-hidden="true">▾</i>';bar.appendChild(pill)}
+  if(!state.e4Sub&&!(typeof e4HotelIds==='function'&&e4HotelIds().length>1)){const b=document.createElement('button');b.type='button';b.className='e4-export';b.setAttribute('data-e4-export-open','');b.setAttribute('aria-label','Export');b.innerHTML='<i class="hgi-stroke hgi-download-04" aria-hidden="true"></i>';bar.appendChild(b)}
+  const back=bar.querySelector('[data-profile-back]');
+  if(back&&state.e4Sub){back.onclick=()=>{state.e4Sub=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0}}
+};
+/* Request details for every booking in the model */
+(function(){if(typeof orders==='undefined'||!orders.length)return;const base=orders[0],m=e4Model(),add=(b,o)=>{if(orders.some(x=>x.id===b.id))return;orders.push({...JSON.parse(JSON.stringify(base)),id:b.id,guest:b.guest||'Guest',room:b.room,item:b.item||'Booking',quantity:'1 booking',when:(b.out||b.until||'Oct 10')+' · 9:00 AM',total:e4Peso(b.amount)+'.00',payment:'Charged to room',timeline:[['Booking requested',(b.out||b.until||'Oct 10')]],notes:'',contact:'Open guest chat',...o})};
+  m.bookings.forEach(b=>add(b,{status:b.stage==='checkout'?'Confirmed':'Completed',settlement:b.stage==='checkout'?'Awaiting guest checkout':'Ready to request'}));
+  m.requests.forEach(r=>r.bookings.forEach(b=>add(b,{status:'Completed',settlement:'Requested from '+e4Hotels[r.hotel]})));
+  m.payouts.forEach(p=>p.bookings.forEach(b=>add(b,{status:'Completed',settlement:'Paid by '+e4Hotels[p.hotel]})));})();
+/* Home › Receivables card */
+dashboardOperationalReceivables=function(){
+  if(state.role!=='Owner')return '';const t=e4Totals();if(!t.readyTotal&&!t.checkoutTotal&&!t.requested)return '';
+  return '<section class="dashboard-operational-section dashboard-receivables e4-home"><h2>Receivables</h2><strong class="e4-home-amt">'+e4Peso(t.readyTotal)+'</strong><span class="e4-home-label">Available for payout</span>'+(t.checkoutTotal?'<small class="e4-home-later">'+e4Peso(t.checkoutTotal)+' after checkout</small>':'')+'<button type="button" class="vi2-foot e4-home-foot dashboard-inline-link"><span>View earnings</span><i aria-hidden="true">›</i></button></section>';
+};
+render();
+
+function e4StayRange(list){const ds=list.map(b=>e4Date(b.out)).sort((a,b)=>a-b);if(!ds.length)return '';const a=ds[0],b=ds[ds.length-1];return +a===+b?e4Fmt(a):e4Fmt(a)+' – '+(a.getMonth()===b.getMonth()?b.getDate():e4Fmt(b))}
+window.addEventListener('click',event=>{const pill=event.target.closest?.('.topbar [data-e4-bar-range]');if(!pill||state.page!=='earnings')return;event.preventDefault();event.stopImmediatePropagation();e4RangeSheet()},true);
+
+/* Business renamed to Lakbay Negros Rentals: update any saved copies of the old name/logo. */
+(function(){try{
+  if(state.businessProfile&&/Cabana Transport/.test(state.businessProfile.name||'')){state.businessProfile.name='Lakbay Negros Rentals';localStorage.setItem('cabana:business-profile',JSON.stringify(state.businessProfile))}
+  if(state.businessProfile&&/cabanatransport\.com/.test(state.businessProfile.email||'')){state.businessProfile.email=state.businessProfile.email.replace('cabanatransport.com','lakbaynegros.com');localStorage.setItem('cabana:business-profile',JSON.stringify(state.businessProfile))}
+  if(!state.businessLogo||/cabana-transport-logo\.svg/.test(state.businessLogo))state.businessLogo='assets/brand/lakbay-negros-logo.svg';
+}catch(e){}})();
+render();
+
+/* Bookings: in-progress samples dated today, so "Mark as completed" is available. */
+(function(){
+  const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],now=new Date(),d=M[now.getMonth()]+' '+now.getDate(),t=new Date(now.getTime()+864e5),d2=M[t.getMonth()]+' '+t.getDate();
+  const hotel='Henry’s Resort Dumaguete';
+  const rows=[
+    {id:'BK-9010',kind:'Booking',guest:'Andrea Villanueva',hotel,room:'412',item:'Airport Transfer — Sedan',quantity:'2 passengers · 2 suitcases',when:d+' · 8:30 AM',fulfilment:'Pickup: '+hotel+' lobby · Destination: Dumaguete–Sibulan Airport',total:'₱1,800.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'In progress',timeline:[['Booking confirmed',d+' · 7:10 AM'],['In progress',d+' · 8:25 AM']],notes:'Flight PR 2542 at 10:15 AM.'},
+    {id:'BK-9011',kind:'Booking',guest:'Kenji Morales',hotel,room:'218',item:'Van with Driver — Full Day',quantity:'8 passengers',when:d+' · 7:00 AM',fulfilment:'Pickup: '+hotel+' lobby · Apo Island tour and return',total:'₱3,500.00',payment:'Paid via gateway',settlement:'Paid by guest',status:'In progress',timeline:[['Booking confirmed',d.replace(/\d+$/,String(now.getDate()))+' · 6:15 AM'],['In progress',d+' · 7:05 AM']],notes:'Return to the hotel by 6:00 PM.'},
+    {id:'BK-9012',kind:'Booking',guest:'Patricia Lim',hotel,room:'305',item:'Toyota Innova Rental',quantity:'1 vehicle',when:d+' · 9:00 AM – '+d2+' · 9:00 AM',fulfilment:'Pickup and return: '+hotel+' lobby',total:'₱3,200.00',payment:'Charged to room',settlement:'Awaiting guest checkout',status:'In progress',timeline:[['Booking confirmed',d+' · 8:00 AM'],['Vehicle handed over',d+' · 9:05 AM']],notes:'Return with a full tank.'}
+  ];
+  try{rows.forEach(r=>{if(!bookingPromptRecords.some(x=>x.id===r.id))bookingPromptRecords.push(r)})}catch(e){}
+})();
+render();
+
+/* Bookings date filter: same ranges as Insights (Last 7 days, Last 30 days, This month, Last month, This year, Custom range). */
+bookingLatestDateMatches=function(record,date,filters){
+  if(!date||date==='All dates')return true;
+  const current=bookingLatestRecordDate(record);if(!current)return false;
+  const today=new Date();today.setHours(0,0,0,0);current.setHours(0,0,0,0);
+  const between=(a,b)=>current>=a&&current<=b;
+  if(date==='Last 7 days'||date==='Last 30 days'){const a=new Date(today);a.setDate(a.getDate()-(date==='Last 7 days'?6:29));return between(a,today)}
+  if(date==='This month')return current.getFullYear()===today.getFullYear()&&current.getMonth()===today.getMonth();
+  if(date==='Last month'){const a=new Date(today.getFullYear(),today.getMonth()-1,1),b=new Date(today.getFullYear(),today.getMonth(),0);return between(a,b)}
+  if(date==='This year')return current.getFullYear()===today.getFullYear();
+  if(date==='Today')return +current===+today;
+  if(date==='Custom range…'){const from=filters?.customFrom?new Date(filters.customFrom+'T00:00:00'):null,to=filters?.customTo?new Date(filters.customTo+'T00:00:00'):null;return (!from||current>=from)&&(!to||current<=to)}
+  return true;
+};
+if(state.bookingLatestFilters&&['Today','Tomorrow','This week'].includes(state.bookingLatestFilters.date))state.bookingLatestFilters.date='All dates';
+const renderBeforeBookingDateLabels=render;
+render=function(){
+  renderBeforeBookingDateLabels.apply(this,arguments);
+  document.querySelectorAll('.booking-filter-sheet .booking-choice-label').forEach(l=>{if(l.textContent==='Custom range…')l.textContent='Custom range'});
+};
+render();
+
+/* ===== Partner hotels (Menu): list, hotel detail with per-listing visibility, invitation accept/decline. ===== */
+function phSeed(){return [
+  {id:'henrys',name:'Henry’s Resort Dumaguete',address:'Rizal Blvd, Dumaguete City',phone:'+63 35 225 1188',status:'active',since:'Aug 2026',color:'#1f5c5a',
+    shown:{'airport-sedan':true,innova:true,'van-driver':true,'city-tour':true,'island-hopping':true},
+    guidelines:['Pickups and drop-offs at the main lobby','No vehicle entry after 10 PM','Charge to room allowed']},
+  {id:'luna',name:'Luna Bay Resort',address:'Dauin, Negros Oriental',phone:'+63 35 422 7710',status:'active',since:'Sep 2026',color:'#2b5ba8',
+    shown:{'airport-sedan':true,innova:true,'island-hopping':true,'van-driver':false,'city-tour':false},
+    guidelines:['Meet guests at the beach-side gate','Quiet hours from 9 PM','Charge to room allowed']},
+  {id:'coral',name:'Coral Cove Hotel',address:'Valencia, Negros Oriental',phone:'+63 35 400 2234',status:'pending',invited:'Oct 9',color:'#b8742a',
+    shown:{},guidelines:['Pickups at the driveway, not the lobby','Vehicles must display your business name','Online payments only, no charge to room']},
+  {id:'bahura',name:'Bahura Resort & Spa',address:'Dauin, Negros Oriental',phone:'+63 35 425 0099',status:'paused',since:'Jul 2026',color:'#6b6368',
+    shown:{'airport-sedan':true,'island-hopping':true},guidelines:['Pickups at the main lobby','Charge to room allowed']}
+]}
+function phHotels(){
+  if(!state.phHotels){try{state.phHotels=JSON.parse(localStorage.getItem('cabana:partner-hotels')||'null')}catch(e){}if(!Array.isArray(state.phHotels))state.phHotels=phSeed()}
+  return state.phHotels;
+}
+const phSave=()=>{try{localStorage.setItem('cabana:partner-hotels',JSON.stringify(state.phHotels))}catch(e){}};
+const phBookable=()=>listings.filter(l=>l.status!=='Draft');
+const phCount=h=>phBookable().filter(l=>h.shown[l.id]).length;
+const phLogos={henrys:'assets/brand/hotels/henrys-photo.png',luna:'assets/brand/hotels/luna-photo.png',coral:'assets/brand/hotels/coral-photo.png',bahura:'assets/brand/hotels/bahura-photo.png'};
+const phLogo=h=>'<span class="ph-logo" style="background:'+h.color+'">'+(phLogos[h.id]?'<img src="'+phLogos[h.id]+'" alt="">':esc(h.name.replace(/[’']s\b/,'').split(/\s+/).filter(w=>/^[A-Z]/.test(w)).slice(0,2).map(w=>w[0]).join('')))+'</span>';
+const phStatus=h=>h.status==='active'?'<span class="ph-st is-active"><i></i>Active</span>':h.status==='pending'?'<span class="ph-st is-pending"><i></i>Invitation pending</span>':'<span class="ph-st is-paused"><i></i>Inactive</span>';
+function phList(){
+  const order={pending:0,active:1,paused:2},list=phHotels().slice().sort((a,b)=>order[a.status]-order[b.status]);
+  if(!list.length)return '<div class="en e3 ph"><section class="en-card e3-empty"><strong>No partner hotels yet</strong><span>Hotels invite you to appear for their guests. Invitations will show up here.</span></section></div>';
+  return '<div class="en e3 ph"><section class="en-card ph-list">'+list.map(h=>'<button type="button" class="ph-row" data-ph-open="'+h.id+'">'+phLogo(h)+'<span class="ph-txt"><strong>'+esc(h.name)+'</strong><small>'+phStatus(h)+(h.status==='active'?' · '+phCount(h)+' listing'+(phCount(h)===1?'':'s'):'')+'</small>'+(h.status==='paused'?'<em>Guests can’t book you here right now</em>':'')+'</span><i class="e3-chev" aria-hidden="true">›</i></button>').join('')+'</section></div>';
+}
+function phDetail(h){
+  const pending=h.status==='pending',inactive=h.status==='paused',shown=phBookable();
+  const head='<section class="en-card ph-head">'+phLogo(h)+'<div><strong>'+esc(h.name)+'</strong><small>'+esc(h.address)+'</small><span>'+phStatus(h)+(pending?' · Invited '+h.invited:' · Partner since '+h.since)+'</span></div></section>';
+  const paused=inactive?'<div class="ph-note">This hotel is inactive. Guests can’t book you here right now.</div>':'';
+  const contact=pending?'':inactive?'<div class="ph-actions"><button type="button" class="button primary ph-disabled" disabled aria-disabled="true"><i class="hgi-stroke hgi-message-01" aria-hidden="true"></i>Message front desk</button><button type="button" class="button ph-call ph-disabled" disabled aria-disabled="true"><i class="hgi-stroke hgi-call" aria-hidden="true"></i>Call</button></div>':'<div class="ph-actions"><button type="button" class="button primary" data-ph-message="'+h.id+'"><i class="hgi-stroke hgi-message-01" aria-hidden="true"></i>Message front desk</button><a class="button ph-call" href="tel:'+h.phone.replace(/\s/g,'')+'"><i class="hgi-stroke hgi-call" aria-hidden="true"></i>Call</a></div>';
+  const lst=pending?'':'<div class="e4-sec"><h3>Listings shown here ('+phCount(h)+')</h3></div><section class="en-card ph-listings">'+shown.map(l=>{const on=Boolean(h.shown[l.id]);return '<div class="ph-li"><span><strong>'+esc(l.name)+'</strong>'+(l.status!=='Active'?'<small>Inactive in Listings</small>':'')+'</span>'+(state.role==='Owner'?'<button type="button" class="lcc-switch" role="switch" aria-checked="'+on+'"'+(inactive?' disabled aria-disabled="true"':'')+' data-ph-toggle="'+l.id+'" aria-label="Show '+esc(l.name)+' at '+esc(h.name)+'"><span></span></button>':'<em class="ph-onoff'+(on?' is-on':'')+'">'+(on?'Shown':'Hidden')+'</em>')+'</div>'}).join('')+'</section>';
+  const rules='<div class="e4-sec"><h3>Hotel guidelines</h3></div><section class="en-card ph-rules"><ul>'+h.guidelines.map(g=>'<li>'+esc(g)+'</li>').join('')+'</ul></section>';
+  const foot=pending&&state.role!=='Owner'?'<div class="ph-invite"><p>Waiting for the business owner to accept or decline this invitation.</p></div>':pending?'<div class="ph-invite"><p>Accept to show your listings to '+esc(h.name)+' guests. All your active listings will be shown, and you can turn them off any time.</p><div class="ph-actions"><button type="button" class="e4-outline" data-ph-decline>Decline</button><button type="button" class="button primary" data-ph-accept>Accept invitation</button></div></div>':'';
+  return '<div class="en e3 ph'+(inactive?' is-inactive':'')+'">'+head+paused+contact+lst+rules+foot+'</div>';
+}
+window.cabanaPartnerHotelsPage=()=>{const h=state.phHotel&&phHotels().find(x=>x.id===state.phHotel);return h?phDetail(h):phList()};
+const viewBeforePh=view;
+view=function(){if(state.page==='photels'){try{return window.cabanaPartnerHotelsPage()}catch(e){console.error('Partner hotels render failed',e);return '<div class="ph"></div>'}}return viewBeforePh.apply(this,arguments)};
+function phOpenChat(h){
+  if(typeof cxThreads==='undefined')return;
+  let t=cxThreads.find(x=>x.kind==='frontdesk'&&x.hotel===h.name);
+  if(!t){t={id:'fd-'+h.id,kind:'frontdesk',hotel:h.name,name:h.name,role:'Front Desk',unread:0,messages:[]};cxThreads.push(t)}
+  cxOpenThread(t.id);
+}
+window.addEventListener('click',event=>{
+  const t=event.target;
+  const menuRow=t.closest?.('[data-toast="Partner hotels opened"]');
+  if(menuRow){event.preventDefault();event.stopImmediatePropagation();state.page='photels';state.phHotel=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0;return}
+  if(state.page!=='photels')return;
+  const open=t.closest?.('[data-ph-open]'),tog=t.closest?.('[data-ph-toggle]'),msg=t.closest?.('[data-ph-message]'),acc=t.closest?.('[data-ph-accept]'),dec=t.closest?.('[data-ph-decline]');
+  if(!open&&!tog&&!msg&&!acc&&!dec)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const h=phHotels().find(x=>x.id===(state.phHotel||open?.dataset.phOpen));
+  if(open){state.phHotel=open.dataset.phOpen;render();const p=document.querySelector('.page');if(p)p.scrollTop=0;return}
+  if(!h)return;
+  if(msg)return phOpenChat(h);
+  if(tog){const id=tog.dataset.phToggle,on=!h.shown[id];h.shown[id]=on;phSave();const sc=document.querySelector('.page')?.scrollTop||0;render();const p=document.querySelector('.page');if(p)p.scrollTop=sc;toast((listings.find(l=>l.id===id)?.name||'Listing')+(on?' shown to ':' hidden from ')+h.name+' guests');return}
+  if(acc){h.status='active';h.since='Oct 2026';h.shown={};phBookable().filter(l=>l.status==='Active').forEach(l=>{h.shown[l.id]=true});phSave();render();toast('You’re now a partner of '+h.name);return}
+  if(dec)lccDialog({title:'Decline invitation?',body:h.name+' won’t be able to show your listings. They can invite you again later.',confirm:'Decline',danger:true,onConfirm:()=>{state.phHotels=phHotels().filter(x=>x.id!==h.id);phSave();state.phHotel=null;render();toast('Invitation declined')}});
+},true);
+const renderBeforePh=render;
+render=function(){
+  if(state.page!=='photels')state.phHotel=null;
+  renderBeforePh.apply(this,arguments);
+  if(state.page!=='photels')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.ph'))page.innerHTML=window.cabanaPartnerHotelsPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  const h=state.phHotel&&phHotels().find(x=>x.id===state.phHotel);
+  const title=bar.querySelector('.topbar-context strong, h1');if(title)title.textContent=h?h.name:'Partner hotels';
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  back.setAttribute('aria-label',h?'Back to Partner hotels':'Back to Menu');
+  back.onclick=()=>{if(state.phHotel){state.phHotel=null}else state.page='menu';render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  document.querySelector('.dev-tools')?.setAttribute('hidden','');
+  document.querySelectorAll('.bottom-nav [data-page="menu"], nav [data-page="menu"]').forEach(b=>b.classList.add('active'));
+};
+render();
+
+/* Dev tools: visible on every page, draggable anywhere, position remembered. */
+try{const saved=JSON.parse(localStorage.getItem('cabana:dev-position')||'null');if(saved&&typeof saved.left==='number')state.devPosition=saved}catch(e){}
+const devPlace=()=>{
+  let dev=document.querySelector('.dev-tools');
+  if(!dev&&typeof devTools==='function'){(document.querySelector('.app-shell')||document.querySelector('#app'))?.insertAdjacentHTML('beforeend',devTools());dev=document.querySelector('.dev-tools')}
+  if(!dev)return;
+  dev.hidden=false;dev.removeAttribute('hidden');
+  const trig=dev.querySelector('.dev-tools-trigger');if(trig){trig.onclick=null;trig.onpointerdown=null;trig.onpointermove=null;trig.onpointerup=null;trig.onpointercancel=null}
+  dev.classList.toggle('open',Boolean(state.devOpen));
+  const parent=dev.offsetParent||document.body,pw=parent.clientWidth,ph=parent.clientHeight;
+  if(state.devPosition){const left=Math.max(4,Math.min(pw-dev.offsetWidth-4,state.devPosition.left)),top=Math.max(4,Math.min(ph-dev.offsetHeight-4,state.devPosition.top));devSetPos(dev,left,top)}
+};
+const renderBeforeDevAnywhere=render;
+render=function(){renderBeforeDevAnywhere.apply(this,arguments);devPlace()};
+(function(){
+  let drag=null,suppressClick=false;
+  document.addEventListener('pointerdown',e=>{
+    const trigger=e.target.closest?.('.dev-tools-trigger');if(!trigger)return;
+    const dev=trigger.closest('.dev-tools'),parent=dev.offsetParent||document.body,pr=parent.getBoundingClientRect(),dr=dev.getBoundingClientRect();
+    drag={dev,parent,pr,sx:e.clientX,sy:e.clientY,ox:dr.left-pr.left,oy:dr.top-pr.top,moved:false,id:e.pointerId};
+  },true);
+  document.addEventListener('pointermove',e=>{
+    if(!drag)return;const dx=e.clientX-drag.sx,dy=e.clientY-drag.sy;
+    if(!drag.moved&&Math.abs(dx)<4&&Math.abs(dy)<4)return;
+    drag.moved=true;e.preventDefault();e.stopImmediatePropagation();
+    const pw=drag.parent.clientWidth,ph=drag.parent.clientHeight,d=drag.dev;
+    const left=Math.max(4,Math.min(pw-d.offsetWidth-4,drag.ox+dx)),top=Math.max(4,Math.min(ph-d.offsetHeight-4,drag.oy+dy));
+    devSetPos(d,left,top);d.classList.remove('open');state.devOpen=false;
+    state.devPosition={left,top};
+  },{capture:true,passive:false});
+  const end=e=>{if(!drag)return;if(drag.moved){suppressClick=true;try{localStorage.setItem('cabana:dev-position',JSON.stringify(state.devPosition))}catch(err){}setTimeout(()=>{suppressClick=false},250)}drag=null};
+  document.addEventListener('pointerup',end,true);document.addEventListener('pointercancel',end,true);
+  document.addEventListener('click',e=>{if(suppressClick&&e.target.closest?.('.dev-tools-trigger')){e.preventDefault();e.stopImmediatePropagation();suppressClick=false}},true);
+  window.addEventListener('resize',devPlace);
+})();
+render();
+
+function devSetPos(el,left,top){el.style.setProperty('left',left+'px','important');el.style.setProperty('top',top+'px','important');el.style.setProperty('right','auto','important');el.style.setProperty('bottom','auto','important')}
+/* Dev tools buttons work even where the page didn't bind them. */
+document.addEventListener('click',e=>{
+  const trig=e.target.closest?.('.dev-tools-trigger');
+  if(trig){e.preventDefault();state.devOpen=!state.devOpen;trig.closest('.dev-tools').classList.toggle('open',state.devOpen);return}
+  if(state.devOpen&&!e.target.closest?.('.dev-tools')){state.devOpen=false;document.querySelector('.dev-tools')?.classList.remove('open')}
+  const role=e.target.closest?.('.dev-tools [data-role]');
+  if(role&&!role.onclick){e.preventDefault();state.role=role.dataset.role;render()}
+});
+render();
+
+/* ===== Payout account (Menu › Payout account): saved accounts, add/edit flow, used by Request payout. ===== */
+const paBanks=['BDO Unibank','BPI','Metrobank','UnionBank','Landbank','Security Bank'];
+function paShort(a){return a.type==='bank'?({'BDO Unibank':'BDO'}[a.bank]||a.bank.split(' ')[0]):a.type==='gcash'?'GCash':'Maya'}
+function paLast4(a){return String(a.number||'').replace(/\D/g,'').slice(-4)}
+function paLabel(a){return a?paShort(a)+' •••• '+paLast4(a):''}
+function paAccounts(){
+  if(!state.paAccounts){try{state.paAccounts=JSON.parse(localStorage.getItem('cabana:payout-accounts')||'null')}catch(e){}
+    if(!Array.isArray(state.paAccounts))state.paAccounts=[{id:'acc-bdo',type:'bank',bank:'BDO Unibank',name:'Lakbay Negros Rentals Inc.',number:'0012 3456 4821',default:true,added:'Oct 2, 2026'},{id:'acc-gcash',type:'gcash',bank:'GCash',name:'Lakbay Negros Rentals Inc.',number:'0917 555 7712',default:false,added:'Sep 18, 2026'}]}
+  state.paAccounts.forEach(a=>{if(a.id==='acc-gcash'&&a.name==='Lakbay Negros Rentals')a.name='Lakbay Negros Rentals Inc.';if(!a.added)a.added=a.id==='acc-bdo'?'Oct 2, 2026':a.id==='acc-gcash'?'Sep 18, 2026':'Oct 12, 2026'})
+  return state.paAccounts;
+}
+function paSave(){try{localStorage.setItem('cabana:payout-accounts',JSON.stringify(state.paAccounts))}catch(e){}}
+function paDefault(){const l=paAccounts();return l.find(a=>a.default)||l[0]||null}
+function paBadge(a){
+  const image=a.type==='bank'&&a.bank==='BDO Unibank'?'assets/brand/bdo.png':a.type==='gcash'?'assets/brand/gcash.png':'';
+  return image
+    ? '<span class="pa-badge is-image is-'+a.type+'"><img src="'+image+'" alt="'+esc(a.type==='gcash'?'GCash':'BDO Unibank')+' logo"></span>'
+    : '<span class="pa-badge is-'+a.type+'">'+(a.type==='bank'?esc(paShort(a)):a.type==='gcash'?'G':'M')+'</span>';
+}
+const paBusiness=()=>{try{return pf3Business().name||'Lakbay Negros Rentals'}catch(e){return 'Lakbay Negros Rentals'}};
+const paNameOk=n=>{const norm=x=>String(x||'').toLowerCase().replace(/\b(inc|corp|corporation|co|ltd)\b\.?/g,'').replace(/[^a-z0-9]/g,'');const b=norm(paBusiness()),v=norm(n);return !!v&&(v.includes(b)||b.includes(v))};
+function paPayToRow(){
+  const a=paDefault();
+  return a?'<button type="button" class="pa-payto" data-pa-change><span class="pa-payto-l">Pay to</span>'+paBadge(a)+'<span class="pa-payto-name">'+esc(a.type==='bank'?a.bank:paShort(a))+' •••• '+paLast4(a)+'</span><span class="pa-link">Change ›</span></button>'
+    :'<button type="button" class="pa-payto is-empty" data-pa-add-from-sheet><span class="pa-payto-l">Pay to</span><span class="pa-link">Add payout account ›</span></button>';
+}
+function paPicker(){
+  const list=paAccounts(),wrap=document.createElement('div');wrap.className='lc-sheet-wrap pa-picker';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-pa-pclose></div><section class="pf-sheet lc-sheet lc-dd-sheet" role="dialog" aria-label="Pay to"><header><h2>Pay to</h2><button type="button" data-pa-pclose aria-label="Close">×</button></header><div class="lc-sheet-list" role="listbox">'+list.map(a=>'<button type="button" role="option" class="pa-opt'+(a.default?' is-selected':'')+'" data-pa-pick="'+a.id+'">'+paBadge(a)+'<span><strong>'+esc(a.type==='bank'?a.bank:paShort(a))+'</strong><small>'+esc(a.name)+' · •••• '+paLast4(a)+'</small></span>'+(a.default?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':'')+'</button>').join('')+'<button type="button" class="pa-opt pa-opt-add" data-pa-add-from-sheet><span class="pa-plus">+</span><span><strong>Add payout account</strong></span></button></div></section>';
+  document.body.appendChild(wrap);
+  wrap.onclick=e=>{
+    if(e.target.closest('[data-pa-pclose]')){wrap.remove();return}
+    const pick=e.target.closest('[data-pa-pick]');if(pick){paAccounts().forEach(a=>a.default=a.id===pick.dataset.paPick);paSave();wrap.remove();const row=document.querySelector('.e4-sheet .pa-payto');if(row)row.outerHTML=paPayToRow();const send=document.querySelector('.e4-sheet [data-e4-send]');if(send){const boxes=[...document.querySelectorAll('.e4-sheet [data-e4-hotel]')];send.disabled=(boxes.length&&!boxes.some(i=>i.checked))||!paDefault()}toast('Payouts will go to '+paLabel(paDefault()))}
+  };
+}
+function paList(){
+  const list=paAccounts();
+  return '<div class="en e3 pa">'
+    +'<section class="en-card pa-list">'+(list.length?list.map(a=>'<button type="button" class="pa-row" data-pa-open="'+a.id+'">'+paBadge(a)+'<span class="pa-txt"><strong>'+esc(a.type==='bank'?a.bank:paShort(a))+(a.default?' <em class="pa-default">Default</em>':'')+'</strong><small>'+esc(a.name)+' · •••• '+paLast4(a)+'</small></span><i class="e3-chev" aria-hidden="true">›</i></button>').join(''):'<div class="e3-empty pa-empty"><strong>No payout account yet</strong><span>Add one so hotels can pay your room charges.</span></div>')+'<button type="button" class="vi2-foot pa-add-row" data-pa-add><span><b>+</b> Add payout account</span></button></section>'
+    +'</div>';
+}
+function paDetail(a){
+  const only=paAccounts().length===1;
+  return '<div class="en e3 pa"><section class="en-card pa-head">'+paBadge(a)+'<div><strong>'+esc(a.type==='bank'?a.bank:paShort(a))+(a.default?' <em class="pa-default">Default</em>':'')+'</strong></div></section>'
+    +'<section class="en-card pa-fields"><div><span>Account name</span><b>'+esc(a.name)+'</b></div><div><span>'+(a.type==='bank'?'Account number':'Mobile number')+'</span><b>•••• '+paLast4(a)+'</b></div><div><span>Type</span><b>'+(a.type==='bank'?'Bank account':paShort(a))+'</b></div></section>'
+    +(paNameOk(a.name)?'':'<div class="pa-warn">This account name doesn’t match '+esc(paBusiness())+'. Hotels may hold payouts to accounts under a different name.</div>')
+    +'<div class="pa-actions">'+(a.default?'':'<button type="button" class="button primary e4-wide" data-pa-default>Set as default</button>')+'<button type="button" class="e4-outline" data-pa-edit>Edit</button>'
+    +'<button type="button" class="pa-remove" data-pa-remove'+(a.default&&!only?' disabled':'')+'>Remove account</button>'+'</div>'
+    +'</div>';
+}
+function paFlow(){
+  const f=state.paFlow,d=f.data,step=f.step;
+  const bar='<div class="lc-bars pa-bars" aria-hidden="true">'+[1,2,3,4].map(n=>'<span class="'+(n<=step?'is-done':'')+'"></span>').join('')+'</div>';
+  let body='';
+  if(step===1)body='<h3 class="pa-h">Where should hotels send your payouts?</h3><div class="pa-types">'+[['bank','Bank account','BDO, BPI, Metrobank and more'],['gcash','GCash','Your GCash mobile number'],['maya','Maya','Your Maya mobile number']].map(([k,t,sub])=>'<button type="button" class="pa-type'+(d.type===k?' is-on':'')+'" data-pa-type="'+k+'"><span class="pa-badge is-'+k+'">'+(k==='bank'?'<i class="hgi-stroke hgi-bank" aria-hidden="true"></i>':k==='gcash'?'G':'M')+'</span><span><strong>'+t+'</strong><small>'+sub+'</small></span><i class="e3-chev" aria-hidden="true">›</i></button>').join('')+'</div>';
+  if(step===2){
+    const err=f.errors||{},field=(k,label,val,attrs)=>'<label class="biz-field"><span>'+label+'</span><input data-pa-field="'+k+'" value="'+esc(val||'')+'" '+attrs+'>'+(err[k]?'<small class="pa-err">'+err[k]+'</small>':'')+'</label>';
+    body='<h3 class="pa-h">'+(d.type==='bank'?'Bank account details':(d.type==='gcash'?'GCash':'Maya')+' details')+'</h3>'
+      +(d.type==='bank'?'<span class="pa-label">Bank</span><div class="e3-chips pa-banks">'+paBanks.map(b=>'<button type="button" class="e3-chip'+(d.bank===b?' is-on':'')+'" data-pa-bank="'+esc(b)+'">'+esc(b)+'</button>').join('')+'</div>'+(err.bank?'<small class="pa-err">'+err.bank+'</small>':''):'')
+      +'<section class="acct-list biz-form pa-form">'+field('name','Account name',d.name,'autocomplete="name"')+field('number',d.type==='bank'?'Account number':'Mobile number',d.number,'inputmode="numeric" autocomplete="off"')+'</section>'
+      +(d.name&&!paNameOk(d.name)?'<div class="pa-warn">This name doesn’t match '+esc(paBusiness())+'. Use the name on your business account if you can.</div>':'');
+  }
+  if(step===3)body='<h3 class="pa-h">Review</h3><section class="en-card pa-fields"><div><span>Type</span><b>'+(d.type==='bank'?'Bank account':d.type==='gcash'?'GCash':'Maya')+'</b></div>'+(d.type==='bank'?'<div><span>Bank</span><b>'+esc(d.bank)+'</b></div>':'')+'<div><span>Account name</span><b>'+esc(d.name)+'</b></div><div><span>'+(d.type==='bank'?'Account number':'Mobile number')+'</span><b>'+esc(d.number)+'</b></div></section>'
+    +(paNameOk(d.name)?'':'<div class="pa-warn">The account name doesn’t match '+esc(paBusiness())+'. Hotels may hold payouts to accounts under a different name.</div>')
+    +'<label class="pa-check"><input type="checkbox" data-pa-setdefault'+(d.setDefault?' checked':'')+'><span class="lc2-box" aria-hidden="true"></span><span>Use as default payout account</span></label>';
+  if(step===4)body='<h3 class="pa-h">Enter the 6-digit code</h3><p class="pa-sub">We sent a code to +63 917 •••• 182 to confirm it’s you.</p><input class="pa-otp" data-pa-otp inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="••••••" value="'+esc(f.otp||'')+'">'+(f.errors&&f.errors.otp?'<small class="pa-err">'+f.errors.otp+'</small>':'')+'<button type="button" class="pa-resend" data-pa-resend>Resend code</button>';
+  const next=step===1?'':'<div class="pa-foot"><button type="button" class="button primary e4-wide" data-pa-next>'+(step===2?'Review':step===3?'Continue':'Save account')+'</button></div>';
+  return '<div class="en e3 pa pa-flow">'+bar+body+next+'</div>';
+}
+window.cabanaPayoutAccountPage=()=>{if(state.paFlow)return paFlow();const a=state.paSub&&paAccounts().find(x=>x.id===state.paSub);return a?paDetail(a):paList()};
+const viewBeforePa=view;
+view=function(){if(state.page==='payacct'){try{return window.cabanaPayoutAccountPage()}catch(e){console.error('Payout account render failed',e);return '<div class="pa"></div>'}}return viewBeforePa.apply(this,arguments)};
+const paGo=(opts={})=>{Object.assign(state,{page:'payacct',paSub:null,paFlow:null},opts);render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+const paStartFlow=(edit,returnTo)=>{const a=edit?paAccounts().find(x=>x.id===edit):null;paGo({paSub:edit||null,paReturn:returnTo||null,paFlow:{step:a?2:1,editId:edit||null,data:a?{type:a.type,bank:a.bank,name:a.name,number:a.number,setDefault:a.default}:{type:null,bank:null,name:'',number:'',setDefault:!paAccounts().length}}})};
+const paReadFields=()=>{const f=state.paFlow;document.querySelectorAll('[data-pa-field]').forEach(i=>{f.data[i.dataset.paField]=i.value.trim()})};
+window.addEventListener('click',event=>{
+  const t=event.target;
+  const menu=t.closest?.('[data-toast="Payout account settings opened"]');
+  if(menu){event.preventDefault();event.stopImmediatePropagation();if(state.role!=='Owner'){toast('Payout account is for the business owner');return}paGo({paReturn:null});return}
+  const change=t.closest?.('.e4-sheet [data-pa-change]');if(change){event.preventDefault();event.stopImmediatePropagation();paPicker();return}
+  const addSheet=t.closest?.('[data-pa-add-from-sheet]');if(addSheet){event.preventDefault();event.stopImmediatePropagation();document.querySelectorAll('.pa-picker').forEach(n=>n.remove());lcSheetClose();paStartFlow(null,'earnings');return}
+  if(state.page!=='payacct')return;
+  const f=state.paFlow,open=t.closest?.('[data-pa-open]'),add=t.closest?.('[data-pa-add]'),setD=t.closest?.('[data-pa-default]'),edit=t.closest?.('[data-pa-edit]'),rem=t.closest?.('[data-pa-remove]'),type=t.closest?.('[data-pa-type]'),bank=t.closest?.('[data-pa-bank]'),next=t.closest?.('[data-pa-next]'),resend=t.closest?.('[data-pa-resend]'),chk=t.closest?.('[data-pa-setdefault]');
+  if(!open&&!add&&!setD&&!edit&&!rem&&!type&&!bank&&!next&&!resend&&!chk)return;
+  if(chk){state.paFlow.data.setDefault=chk.checked;return}
+  event.preventDefault();event.stopImmediatePropagation();
+  if(open)return paGo({paSub:open.dataset.paOpen});
+  if(add)return paStartFlow(null,null);
+  const acc=state.paSub&&paAccounts().find(x=>x.id===state.paSub);
+  if(setD&&acc){paAccounts().forEach(a=>a.default=a.id===acc.id);paSave();render();toast(paLabel(acc)+' is now your default');return}
+  if(edit&&acc)return paStartFlow(acc.id,null);
+  if(rem&&acc&&!rem.disabled){lccDialog({title:'Remove this account?',body:paLabel(acc)+' won’t receive new payouts.',confirm:'Remove',danger:true,onConfirm:()=>{state.paAccounts=paAccounts().filter(a=>a.id!==acc.id);if(!state.paAccounts.some(a=>a.default)&&state.paAccounts[0])state.paAccounts[0].default=true;paSave();paGo({paSub:null});toast('Account removed')}});return}
+  if(type){f.data.type=type.dataset.paType;f.data.bank=f.data.type==='bank'?f.data.bank:null;f.step=2;f.errors=null;render();setTimeout(()=>document.querySelector('[data-pa-field="name"]')?.focus(),30);return}
+  if(bank){paReadFields();f.data.bank=bank.dataset.paBank;render();return}
+  if(resend){toast('New code sent');return}
+  if(next){
+    if(f.step===2){paReadFields();const e={},digits=f.data.number.replace(/\D/g,'');if(f.data.type==='bank'&&!f.data.bank)e.bank='Choose your bank';if(!f.data.name)e.name='Enter the account name';if(f.data.type==='bank'?digits.length<10:!/^(09|639)\d{9}$/.test(digits))e.number=f.data.type==='bank'?'Enter a valid account number':'Enter an 11-digit mobile number, e.g. 0917 555 7712';f.errors=Object.keys(e).length?e:null;if(!f.errors)f.step=3;render();return}
+    if(f.step===3){f.step=4;f.otp='';f.errors=null;render();setTimeout(()=>document.querySelector('[data-pa-otp]')?.focus(),30);return}
+    if(f.step===4){const code=String(document.querySelector('[data-pa-otp]')?.value||'').replace(/\D/g,'');if(code.length!==6){f.otp=code;f.errors={otp:'Enter the 6-digit code'};render();return}
+      const list=paAccounts();let a=f.editId&&list.find(x=>x.id===f.editId);
+      if(a)Object.assign(a,{type:f.data.type,bank:f.data.type==='bank'?f.data.bank:(f.data.type==='gcash'?'GCash':'Maya'),name:f.data.name,number:f.data.number});
+      else{a={id:'acc-'+Date.now(),type:f.data.type,bank:f.data.type==='bank'?f.data.bank:(f.data.type==='gcash'?'GCash':'Maya'),name:f.data.name,number:f.data.number,default:false};list.push(a)}
+      if(f.data.setDefault||!list.some(x=>x.default))list.forEach(x=>x.default=x.id===a.id);
+      paSave();const back=state.paReturn;state.paFlow=null;
+      if(back==='earnings'){state.page='earnings';state.e4Sub=null;render();toast('Payout account saved');setTimeout(()=>{if(e4Totals().readyTotal)e4RequestSheet()},120);return}
+      paGo({paSub:a.id});toast('Payout account saved');return}
+  }
+},true);
+const renderBeforePa=render;
+render=function(){
+  if(state.page!=='payacct'){state.paFlow=null;state.paSub=null}
+  renderBeforePa.apply(this,arguments);
+  if(state.page!=='payacct')return;
+  if(state.role!=='Owner'){state.page='menu';render();return}
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.pa'))page.innerHTML=window.cabanaPayoutAccountPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  const acc=state.paSub&&paAccounts().find(x=>x.id===state.paSub),f=state.paFlow;
+  const title=bar.querySelector('.topbar-context strong, h1');
+  if(title)title.textContent=f?'Add payout account':acc?'Payout account':'Payout accounts';
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  back.onclick=()=>{
+    if(f){if(f.step>1&&!(f.editId&&f.step===2)){f.step--;f.errors=null;render();return}state.paFlow=null;if(state.paReturn==='earnings'){state.page='earnings';state.paReturn=null;render();setTimeout(()=>{if(e4Totals().readyTotal)e4RequestSheet()},120);return}render();return}
+    if(state.paSub){state.paSub=null;render();return}
+    state.page='menu';render();
+  };
+  document.querySelectorAll('.bottom-nav [data-page="menu"], nav [data-page="menu"]').forEach(b=>b.classList.add('active'));
+};
+render();
+
+/* Menu row label: Payout accounts */
+const renderBeforePaLabel=render;
+render=function(){renderBeforePaLabel.apply(this,arguments);document.querySelectorAll('[data-toast="Payout account settings opened"]').forEach(r=>{r.childNodes.forEach(n=>{if(n.nodeType===3&&/Payout account\b/.test(n.nodeValue))n.nodeValue=n.nodeValue.replace(/Payout account\b(?!s)/,'Payout accounts')});r.querySelectorAll('span').forEach(sp=>{if(sp.textContent==='Payout account')sp.textContent='Payout accounts'})})};
+render();
+
+/* ===== Add / Edit payout account: one screen (bank or e-wallet → details → save → code sheet). ===== */
+const pafProviders=[
+  {id:'gcash',type:'gcash',name:'GCash',code:'G',color:'#0a6cff',wallet:true},
+  {id:'maya',type:'maya',name:'Maya',code:'M',color:'#0b8f5a',wallet:true},
+  {id:'BDO Unibank',type:'bank',name:'BDO Unibank',code:'BDO',color:'#1f3c88'},
+  {id:'BPI',type:'bank',name:'BPI',code:'BPI',color:'#a3122a'},
+  {id:'Landbank',type:'bank',name:'Landbank',code:'LBP',color:'#1d7a3a'},
+  {id:'Metrobank',type:'bank',name:'Metrobank',code:'MB',color:'#23408e'},
+  {id:'PNB',type:'bank',name:'PNB',code:'PNB',color:'#0b3a6e'},
+  {id:'RCBC',type:'bank',name:'RCBC',code:'RCBC',color:'#1b4f9c'},
+  {id:'Security Bank',type:'bank',name:'Security Bank',code:'SB',color:'#0f5132'},
+  {id:'UnionBank',type:'bank',name:'UnionBank',code:'UB',color:'#e36b00'}
+];
+function pafProviderOf(a){return a?(a.type==='bank'?pafProviders.find(p=>p.id===a.bank):pafProviders.find(p=>p.id===a.type)):null}
+paShort=function(a){if(a.type!=='bank')return a.type==='gcash'?'GCash':'Maya';return {'BDO Unibank':'BDO'}[a.bank]||a.bank};
+paBadge=function(a){const p=pafProviderOf(a);return '<span class="pa-badge is-'+a.type+'"'+(p?' style="background:'+p.color+'"':'')+'>'+esc(p?p.code:paShort(a))+'</span>'};
+const pafTile=p=>'<span class="paf-tile" style="background:'+p.color+'">'+esc(p.code)+'</span>';
+const pafDigits=v=>String(v||'').replace(/\D/g,'');
+const pafFormat=(p,v)=>{const d=pafDigits(v);if(p&&p.wallet){const m=d.replace(/^63/,'').replace(/^0/,'').slice(0,10);return [m.slice(0,3),m.slice(3,6),m.slice(6,10)].filter(Boolean).join(' ')}return d.slice(0,16).replace(/(\d{4})(?=\d)/g,'$1 ')};
+function pafErrors(f){
+  const p=f.provider,d=pafDigits(f.number),e={};
+  if(!p)e.provider='Choose a bank or e-wallet';
+  if(!String(f.name||'').trim())e.name='Enter the account name';
+  if(p&&p.wallet){if(!/^9\d{9}$/.test(d.replace(/^63/,'').replace(/^0/,'')))e.number='Enter a valid 11-digit mobile number'}
+  else if(p&&(d.length<10||d.length>16))e.number='Enter a valid account number';
+  if(!e.number&&f.dup)e.number='This account is already saved.';
+  return e;
+}
+function pafState(){
+  const f=state.paFlow;if(!f)return null;
+  if(!f.form){const d=f.data||{},edit=f.editId&&paAccounts().find(a=>a.id===f.editId);
+    const prov=edit?pafProviderOf(edit):null;
+    f.form={provider:prov,name:edit?edit.name:(d.name||(/\binc\.?$/i.test(paBusiness())?paBusiness():paBusiness()+' Inc.')),number:edit?pafFormat(prov,edit.number):'',setDefault:edit?edit.default:!paAccounts().length,touched:{}}}
+  return f.form;
+}
+paFlow=function(){
+  const f=pafState(),p=f.provider,err=pafErrors(f),show=k=>f.touched[k]||f.tried;
+  if(f.stage==='otp')return pafOtpPage(f);
+  if(f.stage==='done')return pafDonePage(f);
+  const others=paAccounts().filter(a=>a.id!==state.paFlow.editId).length;
+  const field=(label,inner,key,helper)=>'<div class="paf-field'+(show(key)&&err[key]?' has-error':'')+'"><span class="paf-label">'+label+'</span>'+inner+(show(key)&&err[key]?'<small class="paf-err">'+err[key]+'</small>':helper?'<small class="paf-help">'+helper+'</small>':'')+'</div>';
+  const select='<button type="button" class="paf-input paf-select" data-paf-provider aria-haspopup="dialog">'+(p?pafTile(p)+'<span>'+esc(p.name)+'</span>':'<span class="paf-ph">Choose bank or e-wallet</span>')+'<i aria-hidden="true">▾</i></button>';
+  const num=p&&p.wallet?'<div class="paf-input paf-prefixed"><span class="paf-prefix">+63</span><input data-paf-number inputmode="numeric" autocomplete="tel-national" placeholder="917 123 4567" value="'+esc(f.number)+'"></div>':'<input class="paf-input" data-paf-number inputmode="numeric" autocomplete="off" placeholder="'+(p?'0012 3456 7890':'Choose a bank first')+'" value="'+esc(f.number)+'"'+(p?'':' disabled')+'>';
+  const ok=!Object.keys(err).length;
+  return '<div class="en e3 pa paf">'
+    +field('Bank or e-wallet',select,'provider')
+    +field('Account name','<input class="paf-input" data-paf-name autocomplete="name" value="'+esc(f.name)+'">','name','As shown on your bank account')
+    +field(p&&p.wallet?'Mobile number':'Account number',num,'number','Check the number carefully. Saved accounts can’t be edited.')
+    +(others?'<div class="paf-toggle-row is-plain"><span>Set as default</span><button type="button" class="lcc-switch" role="switch" aria-checked="'+Boolean(f.setDefault)+'" data-paf-default aria-label="Set as default"><span></span></button></div>':'')
+    +'<div class="paf-foot"><button type="button" class="button primary e4-wide" data-paf-save'+(ok?'':' disabled')+'>'+(f.saving?'<span class="paf-spin" aria-hidden="true"></span>Saving…':'Save account')+'</button></div></div>';
+};
+function pafProviderSheet(){
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap paf-sheet-wrap';
+  const rows=q=>{const m=x=>!q||x.name.toLowerCase().includes(q.toLowerCase());const w=pafProviders.filter(x=>x.wallet&&m(x)),b=pafProviders.filter(x=>!x.wallet&&m(x)).sort((a,c)=>a.name.localeCompare(c.name));const row=x=>'<button type="button" class="paf-opt" data-paf-pick="'+esc(x.id)+'">'+pafTile(x)+'<span>'+esc(x.name)+'</span></button>';return (w.length?'<span class="paf-caps">E-WALLETS</span>'+w.map(row).join(''):'')+(b.length?'<span class="paf-caps">BANKS</span>'+b.map(row).join(''):'')+(!w.length&&!b.length?'<p class="paf-none">No match. Try another name.</p>':'')};
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-paf-close></div><section class="pf-sheet lc-sheet paf-sheet" role="dialog" aria-label="Choose bank or e-wallet"><header><h2>Choose bank or e-wallet</h2><button type="button" data-paf-close aria-label="Close">×</button></header><label class="paf-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input data-paf-q placeholder="Search" autocomplete="off"></label><div class="paf-opts">'+rows('')+'</div></section>';
+  document.body.appendChild(wrap);
+  const q=wrap.querySelector('[data-paf-q]');q.oninput=()=>{wrap.querySelector('.paf-opts').innerHTML=rows(q.value)};
+  wrap.onkeydown=e=>{if(e.key==='Escape')wrap.remove()};
+  wrap.onclick=e=>{if(e.target.closest('[data-paf-close]')){wrap.remove();return}const pick=e.target.closest('[data-paf-pick]');if(!pick)return;const f=pafState(),p=pafProviders.find(x=>x.id===pick.dataset.pafPick),was=f.provider;f.provider=p;f.touched.provider=true;if(!was||Boolean(was.wallet)!==Boolean(p.wallet))f.number='';else f.number=pafFormat(p,f.number);wrap.remove();render();setTimeout(()=>document.querySelector('[data-paf-number]')?.focus(),40)};
+}
+function pafOtpSheet(onDone){
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap paf-sheet-wrap';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-paf-close></div><section class="pf-sheet lc-sheet paf-sheet" role="dialog" aria-label="Enter verification code"><header><h2>Enter verification code</h2><button type="button" data-paf-close aria-label="Close">×</button></header><p class="paf-otp-sub">Sent to 0917 ••• 0182</p><div class="paf-otp">'+Array.from({length:6},(_,i)=>'<input inputmode="numeric" maxlength="1" autocomplete="'+(i?'off':'one-time-code')+'" aria-label="Digit '+(i+1)+'" data-paf-d="'+i+'">').join('')+'</div><small class="paf-err" hidden>Enter the 6-digit code</small><button type="button" class="paf-resend" data-paf-resend disabled>Resend code in 0:30</button><button type="button" class="button primary e4-wide" data-paf-verify disabled>Verify</button></section>';
+  document.body.appendChild(wrap);
+  const boxes=[...wrap.querySelectorAll('[data-paf-d]')],verify=wrap.querySelector('[data-paf-verify]'),resend=wrap.querySelector('[data-paf-resend]');
+  let left=30;const tick=setInterval(()=>{left--;if(!wrap.isConnected){clearInterval(tick);return}if(left<=0){clearInterval(tick);resend.disabled=false;resend.textContent='Resend code'}else resend.textContent='Resend code in 0:'+String(left).padStart(2,'0')},1000);
+  const code=()=>boxes.map(b=>b.value).join(''),sync=()=>{verify.disabled=code().length!==6;if(code().length===6)finish()};
+  const finish=()=>{clearInterval(tick);wrap.remove();onDone()};
+  boxes.forEach((b,i)=>{b.oninput=()=>{const v=b.value.replace(/\D/g,'');if(v.length>1){v.split('').slice(0,6-i).forEach((ch,k)=>{boxes[i+k].value=ch});boxes[Math.min(5,i+v.length)].focus()}else{b.value=v;if(v&&boxes[i+1])boxes[i+1].focus()}sync()};b.onkeydown=e=>{if(e.key==='Backspace'&&!b.value&&boxes[i-1])boxes[i-1].focus()}});
+  setTimeout(()=>boxes[0].focus(),40);
+  wrap.onclick=e=>{if(e.target.closest('[data-paf-close]')){clearInterval(tick);wrap.remove();return}if(e.target.closest('[data-paf-resend]')&&!resend.disabled){toast('New code sent');left=30;resend.disabled=true;resend.textContent='Resend code in 0:30'}if(e.target.closest('[data-paf-verify]')&&code().length===6)finish()};
+}
+function pafCommit(){
+  const fl=state.paFlow,f=pafState(),p=f.provider,list=paAccounts(),d=pafDigits(f.number);
+  const number=p.wallet?'0'+d.replace(/^63/,'').replace(/^0/,'').replace(/^(\d{3})(\d{3})(\d{4})$/,'$1 $2 $3'):pafFormat(p,f.number);
+  let a=fl.editId&&list.find(x=>x.id===fl.editId);
+  const vals={type:p.type,bank:p.wallet?p.name:p.id,name:String(f.name).trim(),number};
+  if(a)Object.assign(a,vals);else{const d=new Date();a={id:'acc-'+Date.now(),default:false,added:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getDate()+', '+d.getFullYear(),...vals};list.unshift(a)}
+  if(f.setDefault||!list.some(x=>x.default)||state.paReturn==='earnings')list.forEach(x=>x.default=x.id===a.id);
+  paSave();const edited=Boolean(fl.editId),back=state.paReturn;state.paFlow=null;state.paReturn=null;
+  if(back==='earnings'){state.page='earnings';state.e4Sub=null;render();toast('Payout account added');setTimeout(()=>{if(e4Totals().readyTotal)e4RequestSheet()},120);return}
+  state.page='payacct';state.paSub=edited?a.id:null;render();const pg=document.querySelector('.page');if(pg)pg.scrollTop=0;toast(edited?'Payout account updated':'Payout account added');
+}
+window.addEventListener('click',event=>{
+  if(state.page!=='payacct'||!state.paFlow)return;
+  const t=event.target,prov=t.closest?.('[data-paf-provider]'),save=t.closest?.('[data-paf-save]'),def=t.closest?.('[data-paf-default]');
+  if(!prov&&!save&&!def)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const f=pafState();
+  if(prov)return pafProviderSheet();
+  if(def){f.setDefault=!f.setDefault;def.setAttribute('aria-checked',String(f.setDefault));return}
+  if(save){if(save.disabled||f.saving)return;pafSubmit();return}
+},true);
+const renderBeforePaf=render;
+render=function(){
+  renderBeforePaf.apply(this,arguments);
+  const formMode=state.page==='payacct'&&Boolean(state.paFlow);
+  document.querySelector('.app-shell')?.classList.toggle('paf-mode',formMode);
+  if(!formMode)return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.paf'))page.innerHTML=paFlow();
+  const f=pafState(),saveBtn=()=>document.querySelector('[data-paf-save]');
+  const refresh=()=>{const ok=!Object.keys(pafErrors(f)).length&&!f.dup,b=saveBtn();if(b)b.disabled=!ok||f.saving};
+  const name=document.querySelector('[data-paf-name]'),num=document.querySelector('[data-paf-number]');
+  const mark=(el,key,helper)=>{const box=el.closest('.paf-field');if(!box)return;const msg=pafErrors(f)[key];box.classList.toggle('has-error',Boolean(msg));box.querySelectorAll('.paf-err,.paf-help').forEach(n=>n.remove());if(msg)box.insertAdjacentHTML('beforeend','<small class="paf-err">'+msg+'</small>');else if(helper)box.insertAdjacentHTML('beforeend','<small class="paf-help">'+helper+'</small>')};
+  if(name){name.oninput=()=>{f.name=name.value;refresh();if(f.touched.name||f.tried)mark(name,'name','As shown on your bank account')};name.onblur=()=>{f.touched.name=true;mark(name,'name','As shown on your bank account')}}
+  if(num){num.oninput=()=>{const end=num.value.length-num.selectionEnd;num.value=pafFormat(f.provider,num.value);f.number=num.value;try{const pos=Math.max(0,num.value.length-end);num.setSelectionRange(pos,pos)}catch(e){}refresh();if(f.touched.number||f.tried)mark(num,'number')};num.onblur=()=>{f.touched.number=true;mark(num,'number')}}
+};
+render();
+
+/* ===== Earnings v5: scoped to one hotel, hotel switcher, confirmation-only Request payout. ===== */
+function e4TotalsFor(h){const m=e4Model(),ready=m.bookings.filter(b=>b.stage==='ready'&&b.hotel===h),checkout=m.bookings.filter(b=>b.stage==='checkout'&&b.hotel===h);return {ready,checkout,readyTotal:e4Sum(ready),checkoutTotal:e4Sum(checkout),requests:m.requests.filter(r=>r.hotel===h)}}
+function e4HotelIds(){return Object.keys(e4Hotels)}
+function e4CurHotel(){
+  const ids=e4HotelIds();
+  if(state.e4Hotel&&ids.includes(state.e4Hotel))return state.e4Hotel;
+  let saved=null;try{saved=localStorage.getItem('cabana:earnings-hotel')}catch(e){}
+  const best=ids.slice().sort((a,b)=>e4TotalsFor(b).readyTotal-e4TotalsFor(a).readyTotal)[0];
+  state.e4Hotel=e4TotalsFor(best).readyTotal>0?best:(saved&&ids.includes(saved)?saved:best);
+  return state.e4Hotel;
+}
+const e4TodayLabel=()=>{const d=new Date();return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getDate()};
+e4Main=function(){
+  const h=e4CurHotel(),t=e4TotalsFor(h),range=e4Range(),paid=e4PaidIn(null,h),multi=e4HotelIds().length>1;
+  const switcher=multi?'<div class="e5-bar"><button type="button" class="e5-switch" data-e5-switch aria-haspopup="dialog"><span class="e5-tile"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i></span><span class="e5-name">'+esc(e4Hotels[h])+'</span><i class="e5-caret" aria-hidden="true">▾</i></button><button type="button" class="e5-export" data-e4-export-open aria-label="Export"><i class="hgi-stroke hgi-download-04" aria-hidden="true"></i></button></div>':'';
+  const hero='<section class="e4-hero"><span>Available for payout</span><strong>'+e4Peso(t.readyTotal)+'</strong><small>'+(t.readyTotal?'From checked-out guests':'Nothing available yet')+'</small><button type="button" class="e4-hero-btn" data-e4-request'+(t.readyTotal?'':' disabled')+'>Request payout</button></section>';
+  const reqs=t.requests.slice().sort((a,b)=>e4Date(a.date)-e4Date(b.date));
+  const requested=reqs.length?'<div class="e4-sec"><h3>Requested payouts</h3></div><section class="en-card e4-list">'+reqs.map(r=>'<button type="button" class="e3-stage" data-e4-open="request:'+r.id+'">'+e3Icon('clock-01','is-amber')+'<span><strong class="e4-one">Requested '+r.date+'</strong></span><span class="e4-right"><b>'+e4Peso(e4Sum(r.bookings))+'</b></span><i class="e3-chev" aria-hidden="true">›</i></button>').join('')+'</section>':'';
+  const notReady=t.checkoutTotal?'<div class="e4-sec"><h3>Awaiting checkout</h3></div><section class="en-card e4-list"><button type="button" class="e3-stage" data-e4-open="checkout">'+e3Icon('bed-double')+'<span><strong>'+t.checkout.length+' booking'+(t.checkout.length===1?'':'s')+'</strong><small>Guests still staying</small></span><b>'+e4Peso(t.checkoutTotal)+'</b><i class="e3-chev" aria-hidden="true">›</i></button></section>':'';
+  const paidSec='<div class="e4-sec"><h3>Payments received</h3>'+e4Pill('data-e4-range',range.label)+'</div><section class="en-card e4-list e4-paid">'
+    +(paid.length?'<div class="e4-paid-total"><strong>'+e4Peso(e4Sum(paid))+'</strong><small>'+range.sub+'</small></div>'+paid.slice(0,3).map(e4PaidRow).join('')+'<button type="button" class="vi2-foot e3-foot" data-e4-open="payments"><span>View payment history</span><i aria-hidden="true">›</i></button>':'<p class="en-empty">No payments in this range</p>')+'</section>';
+  return '<div class="en e3 e4">'+switcher+hero+requested+notReady+paidSec+'</div>';
+};
+function e5HotelSheet(){
+  lcSheetClose();const cur=e4CurHotel(),wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e5-close></div><section class="pf-sheet lc-sheet e5-sheet" role="dialog" aria-label="Partner hotels"><header><h2>Partner hotels</h2><button type="button" data-e5-close aria-label="Close">×</button></header><div class="e5-opts">'+e4HotelIds().map(id=>{const a=e4TotalsFor(id).readyTotal;return '<button type="button" class="e5-opt'+(id===cur?' is-on':'')+'" data-e5-pick="'+id+'"><span class="e5-tile"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i></span><span><strong>'+esc(e4Hotels[id])+'</strong><small>'+(a?e4Peso(a)+' available':'Nothing available')+'</small></span>'+(id===cur?'<i class="hgi-stroke hgi-tick-02 e5-check" aria-hidden="true"></i>':'')+'</button>'}).join('')+'</div></section>';
+  document.body.appendChild(wrap);
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{if(e.target.closest('[data-e5-close]')){lcSheetClose();return}const pick=e.target.closest('[data-e5-pick]');if(!pick)return;state.e4Hotel=pick.dataset.e5Pick;try{localStorage.setItem('cabana:earnings-hotel',state.e4Hotel)}catch(err){}lcSheetClose();render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+}
+e4RequestSheet=function(){
+  lcSheetClose();const h=e4CurHotel(),t=e4TotalsFor(h);if(!t.readyTotal)return;
+  const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e4-close></div><section class="pf-sheet lc-sheet e4-sheet e5-req" role="dialog" aria-label="Request payout"><header><h2>Request payout</h2><button type="button" data-e4-close aria-label="Close">×</button></header><div class="e5-req-amt"><small>From '+esc(e4Hotels[h])+'</small><strong>'+e4Peso(t.readyTotal)+'</strong><small>'+t.ready.length+' booking'+(t.ready.length===1?'':'s')+'</small></div>'+paPayToRow()+'<button type="button" class="button primary e4-wide" data-e4-send'+(paDefault()?'':' disabled')+'>Request '+e4Peso(t.readyTotal)+'</button></section>';
+  document.body.appendChild(wrap);
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{
+    if(e.target.closest('[data-e4-close]')){lcSheetClose();return}
+    const send=e.target.closest('[data-e4-send]');if(!send||send.disabled)return;
+    const m=e4Model(),l=m.bookings.filter(b=>b.stage==='ready'&&b.hotel===h);if(!l.length)return;
+    m.bookings=m.bookings.filter(b=>!(b.stage==='ready'&&b.hotel===h));
+    m.requests.push({id:'RQ'+Date.now().toString().slice(-6),hotel:h,date:e4TodayLabel(),account:paLabel(paDefault()),bookings:l.map(({stage,...b})=>b)});
+    e4Save();lcSheetClose();render();toast('Payout requested');
+  };
+};
+window.addEventListener('click',event=>{
+  if(state.page!=='earnings')return;
+  const sw=event.target.closest?.('[data-e5-switch]');if(!sw)return;
+  event.preventDefault();event.stopImmediatePropagation();e5HotelSheet();
+},true);
+const renderBeforeE5=render;
+render=function(){
+  renderBeforeE5.apply(this,arguments);
+  if(state.page!=='earnings'||state.e4Sub!=='payments')return;
+  const title=document.querySelector('.topbar .topbar-context strong, .topbar h1');
+  if(title&&e4HotelIds().length>1)title.innerHTML='Payment history<small class="e5-sub">'+esc(e4Hotels[e4CurHotel()])+'</small>';
+};
+render();
+
+/* Payout account detail: fixed once saved. Only Set as default and Remove (no editing). */
+paDetail=function(a){
+  const only=paAccounts().length===1,shown=state.paReveal===a.id;
+  return '<div class="en e3 pa pad"><section class="en-card pad-head">'+paBadge(a)+'<strong>'+esc(a.type==='bank'?a.bank:paShort(a))+'</strong><span>•••• '+paLast4(a)+'</span>'+(a.default?'<em class="pa-default">Default</em>':'')+'</section>'
+    +'<section class="en-card pa-fields"><div><span>Account name</span><b>'+esc(a.name)+'</b></div><div><span>'+(a.type==='bank'?'Account number':'Mobile number')+'</span><b class="pad-num">'+(shown?esc(a.number):'•••• '+paLast4(a))+'<button type="button" class="pad-eye" data-pad-reveal aria-label="'+(shown?'Hide':'Show')+' number"><i class="hgi-stroke '+(shown?'hgi-view-off':'hgi-view')+'" aria-hidden="true"></i></button></b></div><div><span>Added</span><b>'+esc(a.added||'—')+'</b></div></section>'
+    +'<section class="en-card pad-actions">'+(a.default?'':'<button type="button" class="pad-row" data-pad-default><i class="hgi-stroke hgi-star" aria-hidden="true"></i><span>Set as default</span><i class="e3-chev" aria-hidden="true">›</i></button>')
+    +'<button type="button" class="pad-row is-danger" data-pad-remove'+(only?' disabled':'')+'><i class="hgi-stroke hgi-delete-02" aria-hidden="true"></i><span>Remove account</span></button></section></div>';
+};
+function padDialog(html,bind){lcLeaveClose();const wrap=document.createElement('div');wrap.className='lc-leave-wrap';wrap.innerHTML='<div class="lc-leave-backdrop" data-pad-x></div><section class="lc-leave lcc-dialog" role="alertdialog" aria-modal="true">'+html+'</section>';document.body.appendChild(wrap);wrap.onkeydown=e=>{if(e.key==='Escape')wrap.remove()};wrap.onclick=e=>{if(e.target.closest('[data-pad-x]')){wrap.remove();return}bind(e,wrap)};setTimeout(()=>wrap.querySelector('[data-pad-x].button')?.focus(),30)}
+window.addEventListener('click',event=>{
+  if(state.page!=='payacct'||state.paFlow)return;
+  const t=event.target,rev=t.closest?.('[data-pad-reveal]'),def=t.closest?.('[data-pad-default]'),rem=t.closest?.('[data-pad-remove]');
+  if(!rev&&!def&&!rem)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const list=paAccounts(),a=list.find(x=>x.id===state.paSub);if(!a)return;
+  const sc=document.querySelector('.page')?.scrollTop||0,rerender=()=>{render();const p=document.querySelector('.page');if(p)p.scrollTop=sc};
+  if(rev){state.paReveal=state.paReveal===a.id?null:a.id;return rerender()}
+  if(def){
+    const old=paDefault(),pending=(typeof e4Model==='function'?e4Model().requests:[]).length>0;
+    const apply=()=>{list.forEach(x=>x.default=x.id===a.id);paSave();rerender();toast(paLabel(a)+' is now your default')};
+    if(!pending)return apply();
+    return padDialog('<h2>Set as default?</h2><p>New payouts will go to '+esc(paLabel(a))+'. Your pending request still goes to '+esc(paLabel(old))+'.</p><div class="lcc-dialog-actions"><button type="button" class="button ghost" data-pad-x>Cancel</button><button type="button" class="button primary" data-pad-ok>Set as default</button></div>',(e,w)=>{if(e.target.closest('[data-pad-ok]')){w.remove();apply()}});
+  }
+  if(rem&&!rem.disabled){
+    const others=list.filter(x=>x.id!==a.id);
+    const remove=newDef=>{state.paAccounts=list.filter(x=>x.id!==a.id);if(newDef)state.paAccounts.forEach(x=>x.default=x.id===newDef);else if(!state.paAccounts.some(x=>x.default)&&state.paAccounts[0])state.paAccounts[0].default=true;paSave();state.paSub=null;state.paReveal=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0;toast(paLabel(a)+' removed')};
+    if(!a.default)return padDialog('<h2>Remove '+esc(paLabel(a))+'?</h2><p>It won’t receive new payouts.</p><div class="lcc-dialog-actions"><button type="button" class="button ghost" data-pad-x>Cancel</button><button type="button" class="button primary is-danger" data-pad-ok>Remove</button></div>',(e,w)=>{if(e.target.closest('[data-pad-ok]')){w.remove();remove(null)}});
+    return padDialog('<h2>Remove '+esc(paLabel(a))+'?</h2><p>Choose your new default payout account.</p><div class="pad-choices">'+others.map((x,i)=>'<label class="pad-choice"><input type="radio" name="pad-new" value="'+x.id+'"'+(i===0?' checked':'')+'><span class="e4-radio" aria-hidden="true"></span>'+paBadge(x)+'<span>'+esc(paLabel(x))+'</span></label>').join('')+'</div><div class="lcc-dialog-actions"><button type="button" class="button ghost" data-pad-x>Cancel</button><button type="button" class="button primary is-danger" data-pad-ok>Remove</button></div>',(e,w)=>{if(e.target.closest('[data-pad-ok]')){const pick=w.querySelector('input[name="pad-new"]:checked')?.value;w.remove();remove(pick)}});
+  }
+},true);
+render();
+
+/* Add payout account: save → checks → full-screen code → success → back to start. */
+function pafIsDirty(f){return Boolean(f&&(f.provider||String(f.number||'').trim()||(f.name&&f.name!==(/\binc\.?$/i.test(paBusiness())?paBusiness():paBusiness()+' Inc.'))))}
+function pafMasked(f){const d=pafDigits(f.number);return (f.provider?f.provider.name:'')+' •••• '+d.slice(-4)}
+function pafWillBeDefault(f){return Boolean(f.setDefault||!paAccounts().length||state.paReturn==='earnings')}
+function pafOtpPage(f){
+  return '<div class="en e3 pa paf paf-otp-page"><div class="otp-icon"><i class="hgi-stroke hgi-square-lock-02" aria-hidden="true"></i></div><h1>Verify it’s you</h1><p>Enter the 6-digit code we sent to<br><b>0917 ••• 0182</b></p><label class="otp" data-otp><input data-otp-input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]*" aria-label="6-digit code"><span></span><span></span><span></span><span></span><span></span><span></span></label><p class="otp-error" data-otp-error hidden>Incorrect code. Try again.</p><p class="otp-resend" data-otp-resend>Didn’t get it? Resend in <span data-otp-t>0:30</span></p></div>';
+}
+function pafDonePage(f){
+  return '<div class="en e3 pa paf paf-done"><span class="paf-done-ic"><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i></span><h3>Account added</h3><p><strong>'+esc(pafMasked(f))+'</strong>'+(pafWillBeDefault(f)?'<br>is now your default payout account':'')+'</p></div>';
+}
+function pafGoOtp(){const f=pafState();f.stage='otp';f.saving=false;render()}
+function pafSubmit(){
+  const f=pafState();f.saving=true;render();
+  setTimeout(()=>{
+    if(!state.paFlow)return;
+    f.saving=false;
+    if(navigator.onLine===false){render();toast('Couldn’t save. Check your connection and try again.');return}
+    const d=pafDigits(f.number).replace(/^63/,'').replace(/^0/,''),dup=paAccounts().some(a=>a.id!==state.paFlow.editId&&a.type===f.provider.type&&(a.type!=='bank'||a.bank===f.provider.id)&&pafDigits(a.number).replace(/^63/,'').replace(/^0/,'')===d);
+    if(dup){f.dup=true;f.touched.number=true;render();return}
+    if(!paNameOk(f.name)){render();padDialog('<h2>Account name doesn’t match</h2><p>“'+esc(f.name)+'” doesn’t match '+esc((/\binc\.?$/i.test(paBusiness())?paBusiness():paBusiness()+' Inc.').replace(/\.$/,''))+'. Payouts may be delayed or rejected.</p><div class="lcc-dialog-actions"><button type="button" class="button ghost" data-pad-x data-paf-editname>Edit name</button><button type="button" class="button primary" data-pad-ok>Continue anyway</button></div>',(e,w)=>{if(e.target.closest('[data-pad-ok]')){w.remove();pafGoOtp()}});document.querySelector('[data-paf-editname]')?.addEventListener('click',()=>setTimeout(()=>{const n=document.querySelector('[data-paf-name]');if(n){n.focus();n.select()}},40));return}
+    pafGoOtp();
+  },700);
+}
+function pafBindOtp(){
+  const wrap=document.querySelector('.paf-otp-page [data-otp]');if(!wrap)return;
+  const input=wrap.querySelector('[data-otp-input]'),boxes=[...wrap.querySelectorAll('span')],err=document.querySelector('[data-otp-error]'),rs=document.querySelector('[data-otp-resend]');
+  let busy=false;
+  const paint=()=>{const v=input.value.replace(/\D/g,'').slice(0,6);input.value=v;boxes.forEach((b,i)=>{b.textContent=v[i]||'';b.classList.toggle('active',i===Math.min(v.length,5)&&document.activeElement===input)});if(v.length===6&&!busy)submit(v)};
+  const submit=code=>{busy=true;input.blur();setTimeout(()=>{
+    if(code==='000000'){wrap.classList.add('error','shake');err.hidden=false;setTimeout(()=>{wrap.classList.remove('shake');input.value='';busy=false;paint();input.focus()},600);return}
+    clearInterval(window.__pafTick);const f=pafState();f.stage='done';render();setTimeout(()=>{if(state.paFlow&&pafState().stage==='done')pafCommit()},1100);
+  },350)};
+  input.addEventListener('input',()=>{wrap.classList.remove('error');err.hidden=true;paint()});
+  input.addEventListener('focus',paint);input.addEventListener('blur',paint);
+  const startTimer=()=>{let sec=30;rs.innerHTML='Didn’t get it? Resend in <span data-otp-t>0:30</span>';clearInterval(window.__pafTick);window.__pafTick=setInterval(()=>{if(!rs.isConnected){clearInterval(window.__pafTick);return}sec--;const t=rs.querySelector('[data-otp-t]');if(sec<=0){clearInterval(window.__pafTick);rs.innerHTML='Didn’t get it? <a href="#" data-otp-again>Resend code</a>'}else if(t)t.textContent='0:'+String(sec).padStart(2,'0')},1000)};
+  rs.onclick=e=>{const a=e.target.closest('[data-otp-again]');if(!a)return;e.preventDefault();toast('New code sent');startTimer()};
+  startTimer();paint();setTimeout(()=>input.focus(),40);
+}
+function pafLeave(){
+  clearInterval(window.__pafTick);state.paFlow=null;
+  if(state.paReturn==='earnings'){state.page='earnings';state.paReturn=null;render();setTimeout(()=>{if(typeof e4CurHotel==='function'&&e4TotalsFor(e4CurHotel()).readyTotal)e4RequestSheet()},120);return}
+  state.paReturn=null;render();
+}
+const renderBeforePafFlow=render;
+render=function(){
+  renderBeforePafFlow.apply(this,arguments);
+  const shell=document.querySelector('.app-shell');
+  if(state.page!=='payacct'||!state.paFlow||['otp','done'].includes(state.paFlow.form?.stage)){shell?.querySelectorAll(':scope > .paf-foot').forEach(n=>n.remove());if(state.page!=='payacct'||!state.paFlow)return}
+  const f=pafState();
+  const title=document.querySelector('.topbar .topbar-context strong, .topbar h1');if(title)title.textContent=f.stage==='otp'||f.stage==='done'?'':'Add payout account';
+  const foot=document.querySelector('.page .paf-foot');
+  if(foot&&shell){shell.querySelectorAll(':scope > .paf-foot').forEach(n=>n.remove());shell.appendChild(foot)}
+  document.querySelector('.paf')?.classList.add('has-foot');
+  const sb=document.querySelector('[data-paf-save]');if(sb){sb.disabled=Boolean(Object.keys(pafErrors(f)).length||f.saving);sb.innerHTML=f.saving?'<span class="paf-spin" aria-hidden="true"></span>Saving…':'Save account'}
+  const num=document.querySelector('[data-paf-number]');if(num)num.addEventListener('input',()=>{if(f.dup){f.dup=false;const box=num.closest('.paf-field');box?.classList.remove('has-error');box?.querySelector('.paf-err')?.remove()}const b=document.querySelector('[data-paf-save]');if(b)b.disabled=Boolean(Object.keys(pafErrors(f)).length||f.saving)});
+  const back=document.querySelector('[data-profile-back]');
+  if(back)back.onclick=()=>{
+    if(f.stage==='done')return;
+    if(f.stage==='otp'||pafIsDirty(f)){padDialog('<h2>Discard this account?</h2><p>Nothing is saved until the code is verified.</p><div class="lcc-dialog-actions"><button type="button" class="button ghost" data-pad-x>Keep editing</button><button type="button" class="button primary is-danger" data-pad-ok>Discard</button></div>',(e,w)=>{if(e.target.closest('[data-pad-ok]')){w.remove();pafLeave()}});return}
+    pafLeave();
+  };
+  if(f.stage==='otp'&&!document.querySelector('.paf-otp-page')?.dataset.bound){const pg=document.querySelector('.paf-otp-page');if(pg){pg.dataset.bound='1';pafBindOtp()}}
+};
+render();
+/* Choosing an action in the dev panel closes it for good (it won't reopen on the next redraw). */
+document.addEventListener('pointerdown',e=>{if(e.target.closest?.('.dev-tools-popover button'))state.devOpen=false},true);
+
+/* Staff: Listings and Partner hotels are view-only. */
+window.addEventListener('click',event=>{
+  if(state.role==='Owner')return;
+  const blocked=event.target.closest?.('[data-ph-toggle],[data-ph-accept],[data-ph-decline],[data-lcc-toggle],[data-lc-more],[data-listing-new],[data-listing-menu-action="setup"]');
+  if(!blocked)return;
+  event.preventDefault();event.stopImmediatePropagation();toast('Only the business owner can make changes');
+},true);
+const renderBeforeStaffView=render;
+render=function(){renderBeforeStaffView.apply(this,arguments);if(state.role!=='Owner'&&state.page==='listings')document.querySelectorAll('.page [data-lc-more],.page .lcc-switch,.page [data-listing-new]').forEach(n=>n.remove())};
+render();
+
+/* Insights: date filter lives above the Sales card (full width), not in the header. */
+const renderBeforeViRangeRow=render;
+render=function(){renderBeforeViRangeRow.apply(this,arguments);if(state.page==='vinsights')document.querySelectorAll('.topbar [data-vi2-range]').forEach(n=>n.remove())};
+render();
+
+/* ===== Notifications (Menu › Notifications): per-device settings. ===== */
+const ntSounds=[['chime','Chime',[880,1320]],['bell','Bell',[660,990,1320]],['marimba','Marimba',[523,659,784]],['pulse','Pulse',[740,740,740]]];
+function ntSettings(){
+  if(!state.ntSettings){try{state.ntSettings=JSON.parse(localStorage.getItem('cabana:notif-settings')||'null')}catch(e){}
+    state.ntSettings={loud:true,sound:'chime',expiring:true,messages:true,cancelled:true,reminder:true,payout:true,online:false,hotels:true,...(state.ntSettings||{})}}
+  return state.ntSettings;
+}
+const ntSave=()=>{try{localStorage.setItem('cabana:notif-settings',JSON.stringify(state.ntSettings))}catch(e){}};
+function ntPlay(id){
+  try{const tones=(ntSounds.find(x=>x[0]===id)||ntSounds[0])[2],ctx=new (window.AudioContext||window.webkitAudioContext)();tones.forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type=id==='pulse'?'square':'sine';o.frequency.value=f;g.gain.setValueAtTime(0.0001,ctx.currentTime+i*0.18);g.gain.exponentialRampToValueAtTime(0.25,ctx.currentTime+i*0.18+0.02);g.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+i*0.18+0.3);o.connect(g).connect(ctx.destination);o.start(ctx.currentTime+i*0.18);o.stop(ctx.currentTime+i*0.18+0.32)});setTimeout(()=>ctx.close(),1500)}catch(e){}
+}
+const ntBlocked=()=>typeof Notification!=='undefined'&&Notification.permission==='denied';
+function ntPage(){
+  const n=ntSettings(),owner=state.role==='Owner';
+  const sw=(k,label,sub)=>'<div class="nt-row"><span><strong>'+label+'</strong>'+(sub?'<small>'+sub+'</small>':'')+'</span><button type="button" class="lcc-switch" role="switch" aria-checked="'+Boolean(n[k])+'" data-nt-toggle="'+k+'" aria-label="'+label+'"><span></span></button></div>';
+  const sec=(title,rows)=>'<div class="e4-sec"><h3>'+title+'</h3></div><section class="en-card nt-card">'+rows+'</section>';
+  const sound=(ntSounds.find(x=>x[0]===n.sound)||ntSounds[0])[1];
+  return '<div class="en e3 nt">'
+    +(ntBlocked()?'<button type="button" class="nt-blocked" data-nt-settings><i class="hgi-stroke hgi-alert-circle" aria-hidden="true"></i><span><strong>Notifications are off for this app</strong><small>Turn on in phone settings ›</small></span></button>':'')
+    +sec('New requests','<div class="nt-row"><span><strong>New booking requests</strong></span><em class="nt-always">Always on</em></div>'
+      +sw('loud','Loud alert','Plays a sound until you open the app')
+      +'<button type="button" class="nt-row nt-link" data-nt-sound><span><strong>Alert sound</strong></span><em>'+sound+'</em><i class="e3-chev" aria-hidden="true">›</i></button>'
+      +sw('expiring','Request expiring soon','10 minutes before it expires'))
+    +sec('Bookings',sw('messages','Guest messages')+sw('cancelled','Booking cancelled by guest')+sw('reminder','Upcoming booking reminder','1 hour before start'))
+    +(owner?sec('Payments',sw('payout','Payout paid by hotel')+sw('online','Online payment received'))+sec('Partner hotels',sw('hotels','Invitations and updates')):'')
+    +'<button type="button" class="e4-outline nt-test" data-nt-test><i class="hgi-stroke hgi-notification-03" aria-hidden="true"></i>Send test notification</button>'
+    +'<p class="nt-note">These settings apply to this phone only.</p></div>';
+}
+window.cabanaNotificationsPage=ntPage;
+const viewBeforeNt=view;
+view=function(){if(state.page==='notifs'){try{return window.cabanaNotificationsPage()}catch(e){console.error('Notifications render failed',e);return '<div class="nt"></div>'}}return viewBeforeNt.apply(this,arguments)};
+function ntSoundSheet(){
+  lcSheetClose();const n=ntSettings(),wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
+  const draw=()=>{wrap.innerHTML='<div class="pf-sheet-backdrop" data-nt-close></div><section class="pf-sheet lc-sheet lc-dd-sheet" role="dialog" aria-label="Alert sound"><header><h2>Alert sound</h2><button type="button" data-nt-close aria-label="Close">×</button></header><div class="lc-sheet-list" role="listbox">'+ntSounds.map(([id,label])=>'<button type="button" role="option" aria-selected="'+(n.sound===id)+'" class="nt-sound'+(n.sound===id?' is-selected':'')+'" data-nt-pick="'+id+'"><i class="hgi-stroke hgi-volume-high nt-play" aria-hidden="true"></i><span>'+label+'</span>'+(n.sound===id?'<i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>':'')+'</button>').join('')+'</div><p class="nt-sheet-note">Tap a sound to hear it.</p></section>'};
+  draw();document.body.appendChild(wrap);
+  wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
+  wrap.onclick=e=>{if(e.target.closest('[data-nt-close]')){lcSheetClose();render();return}const pick=e.target.closest('[data-nt-pick]');if(!pick)return;n.sound=pick.dataset.ntPick;ntSave();ntPlay(n.sound);draw()};
+}
+window.addEventListener('click',event=>{
+  if(state.page!=='notifs')return;
+  const t=event.target,tog=t.closest?.('[data-nt-toggle]'),snd=t.closest?.('[data-nt-sound]'),test=t.closest?.('[data-nt-test]'),set=t.closest?.('[data-nt-settings]');
+  if(!tog&&!snd&&!test&&!set)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const n=ntSettings();
+  if(tog){const k=tog.dataset.ntToggle;n[k]=!n[k];ntSave();tog.setAttribute('aria-checked',String(n[k]));return}
+  if(snd)return ntSoundSheet();
+  if(set){toast('Open your phone’s Settings › Notifications › Cabana Vendor and turn on Allow notifications');return}
+  if(test){
+    ntPlay(n.sound);
+    const show=()=>{try{if(navigator.serviceWorker?.controller)navigator.serviceWorker.ready.then(r=>r.showNotification('Test notification',{body:'This is how new booking requests will alert you.',tag:'cabana-test'}));else new Notification('Test notification',{body:'This is how new booking requests will alert you.'})}catch(e){}};
+    if(typeof Notification!=='undefined'&&Notification.permission==='granted')show();
+    else if(typeof Notification!=='undefined'&&Notification.permission==='default')Notification.requestPermission().then(p=>{if(p==='granted')show();render()});
+    toast(ntBlocked()?'Notifications are off for this app. Turn them on in phone settings.':'Test notification sent');
+  }
+},true);
+const renderBeforeNt=render;
+render=function(){
+  renderBeforeNt.apply(this,arguments);
+  if(state.page!=='notifs')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.nt'))page.innerHTML=ntPage();
+  const bar=document.querySelector('.topbar');if(!bar)return;
+  const title=bar.querySelector('.topbar-context strong, h1');if(title)title.textContent='Notifications';
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  back.setAttribute('aria-label','Back to Menu');back.onclick=()=>{state.page='menu';render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+  document.querySelectorAll('.bottom-nav [data-page="menu"], nav [data-page="menu"]').forEach(b=>b.classList.add('active'));
+};
+render();
+
+/* ===== Help & support (Menu › Help and support): contact first, FAQs second, report a problem. ===== */
+const hpVersion='1.0.3 (pilot)';
+const hpTopics=[
+  {id:'bookings',title:'Bookings',items:[
+    ['What happens if I don’t respond to a request?','Each request has a time limit shown on the card (for example “38m left”). If you don’t accept or decline in time, the request expires and the guest is told it wasn’t confirmed. Expired requests are lost bookings, so keep notifications on and reply as soon as you can.'],
+    ['How do I cancel a booking?','Open the booking from Bookings, tap ⋯ and choose Cancel booking. Pick a reason so the guest understands. You can only cancel bookings that haven’t been paid or started.'],
+    ['When is a booking marked completed automatically?','24 hours after its scheduled end, unless it’s an unpaid QR booking. You can also tap Mark as completed yourself once the service is done.']]},
+  {id:'payouts',title:'Payouts and earnings',items:[
+    ['When can I request a payout?','As soon as a guest who charged a booking to their room has checked out. That money shows as Available for payout in Earnings. Tap Request payout to ask that hotel to pay you.'],
+    ['How long does the hotel take to pay?','Most partner hotels pay within 7 days of your request. If it takes longer, open the request in Earnings and tap Message front desk.'],
+    ['Why is a booking still “Awaiting checkout”?','Room charges are paid by the hotel only after the guest checks out. Until then the amount stays under Awaiting checkout.'],
+    ['How do I change my payout account?','Go to Menu › Payout accounts. Add the new account, then set it as default. Saved accounts can’t be edited, so remove any account with wrong details and add it again.']]},
+  {id:'listings',title:'Listings',items:[
+    ['How do I turn a listing off for a day?','Open Create or Edit listing › Availability and block the date in the calendar. To hide it completely, switch it off on the Listings page.'],
+    ['Why can’t guests see my listing?','Check that it’s Active on the Listings page, that it’s switched on for that hotel in Partner hotels, and that the date isn’t blocked or a closed day.']]},
+  {id:'account',title:'Account and staff',items:[
+    ['How do I add staff?','Go to Menu › Business profile › Access and permissions and tap Invite a member. Enter their name, email and mobile number.'],
+    ['What can staff see?','Staff can manage bookings and chat with guests and the front desk. They can view listings and partner hotels but can’t change them, and they can’t see earnings, insights or payout accounts.']]}
+];
+function hpOpenChat(){
+  if(typeof cxThreads==='undefined'){toast('Support chat isn’t available right now');return}
+  let t=cxThreads.find(x=>x.id==='kabana-support');
+  if(!t){t={id:'kabana-support',kind:'frontdesk',support:true,hotel:'Kabana support',name:'Kabana support',role:'Support',unread:0,messages:[{day:'Today',time:'9:00 AM',from:'them',text:'Hi! This is Kabana support. How can we help you today?'}]};cxThreads.unshift(t)}
+  cxOpenThread(t.id);
+}
+function hpPage(){
+  const sub=state.hpSub;
+  const row=(attr,icon,title,sub2)=>'<button type="button" class="hp-row" '+attr+'>'+(icon?'<span class="hp-ic"><i class="hgi-stroke hgi-'+icon+'" aria-hidden="true"></i></span>':'')+'<span><strong>'+title+'</strong>'+(sub2?'<small>'+sub2+'</small>':'')+'</span><i class="e3-chev" aria-hidden="true">›</i></button>';
+  if(sub&&sub.startsWith('topic:')){const tp=hpTopics.find(x=>x.id===sub.slice(6));return '<div class="en e3 hp"><section class="en-card hp-card">'+tp.items.map((q,i)=>row('data-hp-q="'+tp.id+':'+i+'"','',esc(q[0]),'')).join('')+'</section></div>'}
+  if(sub&&sub.startsWith('q:')){const [tid,i]=sub.slice(2).split(':'),tp=hpTopics.find(x=>x.id===tid),q=tp.items[Number(i)];return '<div class="en e3 hp hp-article"><h2>'+esc(q[0])+'</h2><p>'+esc(q[1])+'</p><div class="hp-still"><span>Still need help?</span><button type="button" class="e4-outline" data-hp-chat><i class="hgi-stroke hgi-message-01" aria-hidden="true"></i>Chat with us</button></div></div>'}
+  if(sub==='terms'||sub==='privacy')return '<div class="en e3 hp hp-article"><h2>'+(sub==='terms'?'Terms of service':'Privacy policy')+'</h2><p>'+(sub==='terms'?'These terms explain how partner vendors use the Kabana vendor app, how bookings and room charges work, and each side’s responsibilities. The full terms will be published before launch.':'This policy explains what information the vendor app collects, such as bookings, guest names and room numbers, and how it’s used and protected. The full policy will be published before launch.')+'</p></div>';
+  if(sub==='report'){const r=state.hpReport||(state.hpReport={text:'',booking:'',file:null});
+    return '<div class="en e3 hp hp-report"><label class="paf-field"><span class="paf-label">What went wrong?</span><textarea class="paf-input hp-text" data-hp-text rows="5" placeholder="Tell us what happened and what you expected">'+esc(r.text)+'</textarea>'+(state.hpTried&&!r.text.trim()?'<small class="paf-err">Describe the problem</small>':'')+'</label>'
+      +'<div class="paf-field"><span class="paf-label">Screenshot <em class="hp-opt">Optional</em></span><label class="hp-file"><input type="file" accept="image/*" data-hp-file><i class="hgi-stroke hgi-image-01" aria-hidden="true"></i><span>'+(r.file?esc(r.file):'Add a screenshot')+'</span></label></div>'
+      +'<label class="paf-field"><span class="paf-label">Related booking <em class="hp-opt">Optional</em></span><input class="paf-input" data-hp-booking placeholder="#BK1042" value="'+esc(r.booking)+'"></label>'
+      +'<p class="hp-meta">We’ll attach your device and app version ('+hpVersion+') to help us look into it.</p>'
+      +'<button type="button" class="button primary e4-wide" data-hp-send>Send report</button></div>'}
+  return '<div class="en e3 hp"><h2 class="hp-h">How can we help?</h2>'
+    +'<section class="en-card hp-card">'+row('data-hp-chat','message-01','Chat with Kabana support','Usually replies within 1 hour')+'<a class="hp-row" href="tel:+63285550100"><span class="hp-ic"><i class="hgi-stroke hgi-call" aria-hidden="true"></i></span><span><strong>Call support</strong><small>Mon–Sun, 8 AM – 8 PM</small></span><i class="e3-chev" aria-hidden="true">›</i></a><a class="hp-row" href="mailto:support@kabana.ph?subject=Vendor%20app%20support"><span class="hp-ic"><i class="hgi-stroke hgi-mail-01" aria-hidden="true"></i></span><span><strong>Email support</strong><small>support@kabana.ph</small></span><i class="e3-chev" aria-hidden="true">›</i></a></section>'
+    +'<div class="e4-sec"><h3>Common questions</h3></div><section class="en-card hp-card">'+hpTopics.map(t=>row('data-hp-topic="'+t.id+'"','',t.title,'')).join('')+'</section>'
+    +'<section class="en-card hp-card hp-gap">'+row('data-hp-report','bug-01','Report a problem','Something not working? Tell us.')+'</section>'
+    +'<section class="en-card hp-card">'+row('data-hp-legal="terms"','','Terms of service','')+row('data-hp-legal="privacy"','','Privacy policy','')+'</section>'
+    +'<p class="hp-version">App version '+hpVersion+'</p></div>';
+}
+window.cabanaHelpPage=hpPage;
+const viewBeforeHp=view;
+view=function(){if(state.page==='help'){try{return window.cabanaHelpPage()}catch(e){console.error('Help render failed',e);return '<div class="hp"></div>'}}return viewBeforeHp.apply(this,arguments)};
+const hpGo=sub=>{state.hpSub=sub;render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
+window.addEventListener('click',event=>{
+  const t=event.target;
+  const menu=t.closest?.('[data-toast="Help center opened"]');
+  if(menu){event.preventDefault();event.stopImmediatePropagation();state.page='help';state.hpSub=null;render();const p=document.querySelector('.page');if(p)p.scrollTop=0;return}
+  if(state.page!=='help')return;
+  const chat=t.closest?.('[data-hp-chat]'),topic=t.closest?.('[data-hp-topic]'),q=t.closest?.('[data-hp-q]'),rep=t.closest?.('[data-hp-report]'),legal=t.closest?.('[data-hp-legal]'),send=t.closest?.('[data-hp-send]');
+  if(!chat&&!topic&&!q&&!rep&&!legal&&!send)return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(chat)return hpOpenChat();
+  if(topic)return hpGo('topic:'+topic.dataset.hpTopic);
+  if(q)return hpGo('q:'+q.dataset.hpQ);
+  if(rep){state.hpReport=null;state.hpTried=false;return hpGo('report')}
+  if(legal)return hpGo(legal.dataset.hpLegal);
+  if(send){const r=state.hpReport;if(!r||!r.text.trim()){state.hpTried=true;render();document.querySelector('[data-hp-text]')?.focus();return}state.hpReport=null;state.hpTried=false;hpGo(null);toast('Thanks. We got your report and will reply in Chat.')}
+},true);
+const renderBeforeHp=render;
+render=function(){
+  if(state.page!=='help')state.hpSub=null;
+  renderBeforeHp.apply(this,arguments);
+  if(state.page!=='help')return;
+  const page=document.querySelector('.page');if(page&&!page.querySelector('.hp'))page.innerHTML=hpPage();
+  const sub=state.hpSub,bar=document.querySelector('.topbar');if(!bar)return;
+  let tx='Help & support';if(sub&&sub.startsWith('topic:'))tx=hpTopics.find(x=>x.id===sub.slice(6))?.title||tx;else if(sub&&sub.startsWith('q:'))tx=hpTopics.find(x=>x.id===sub.slice(2).split(':')[0])?.title||tx;else if(sub==='report')tx='Report a problem';else if(sub==='terms')tx='Terms of service';else if(sub==='privacy')tx='Privacy policy';
+  const title=bar.querySelector('.topbar-context strong, h1');if(title)title.textContent=tx;
+  let back=bar.querySelector('[data-profile-back]');
+  if(!back){bar.classList.add('profile-topbar');back=document.createElement('button');back.type='button';back.className='profile-back';back.setAttribute('data-profile-back','');back.textContent='←';bar.prepend(back)}
+  back.onclick=()=>{if(sub&&sub.startsWith('q:'))return hpGo('topic:'+sub.slice(2).split(':')[0]);if(sub)return hpGo(null);state.page='menu';render()};
+  const txt=document.querySelector('[data-hp-text]'),bk=document.querySelector('[data-hp-booking]'),file=document.querySelector('[data-hp-file]');
+  if(txt)txt.oninput=()=>{state.hpReport.text=txt.value};
+  if(bk)bk.oninput=()=>{state.hpReport.booking=bk.value};
+  if(file)file.onchange=()=>{const f=file.files?.[0];if(f){state.hpReport.file=f.name;render()}};
+  document.querySelectorAll('.bottom-nav [data-page="menu"], nav [data-page="menu"]').forEach(b=>b.classList.add('active'));
+};
+render();
+/* Kabana support thread: label it as support, not Front Desk. */
+const renderBeforeHpChat=render;
+render=function(){renderBeforeHpChat.apply(this,arguments);if(state.page!=='chat'||state.cx?.threadId!=='kabana-support')return;const w=document.createTreeWalker(document.querySelector('.page')||document.body,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode())){if(/Front Desk · Kabana support/.test(n.nodeValue))n.nodeValue=n.nodeValue.replace('Front Desk · Kabana support','Support · Usually replies within 1 hour')}};
 render();
