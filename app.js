@@ -919,17 +919,31 @@ render=function(){bookingsLatestRenderBefore();if(state.page==='orders'){documen
 state.page='orders';state.detail=null;state.bookingTab='Active';
 render();
 
-/* Home header QR scanner: validate the guest first, then require an explicit room-charge confirmation. */
+/* Home header QR scanner: validate the guest, then post the room charge automatically. */
 const dashboardRoomChargeScannerMarkup=function(){
   if(!state.dashboardRoomChargeQrOpen)return '';
   const step=state.dashboardRoomChargeQrStep||'scan';
   let body='';
-  if(step==='scanned')body='<div class="dashboard-qr-guest"><span class="dashboard-qr-guest-label">Guest identified</span><strong>Amelia Reyes</strong><span>Henry’s Resort Dumaguete · Room 508</span></div><p class="dashboard-qr-confirm-note">Review the guest details before charging this purchase to the room. Scanning did not create a charge.</p><div class="dashboard-qr-actions"><button class="button" data-dashboard-qr-close>Cancel</button><button class="button primary" data-dashboard-qr-confirm>Confirm room charge</button></div>';
+  if(step==='scanned')body='<div class="dashboard-qr-guest"><span class="dashboard-qr-guest-label">Guest identified</span><strong>Amelia Reyes</strong><span>Henry’s Resort Dumaguete · Room 508</span></div><p class="dashboard-qr-confirm-note">The room charge will be posted automatically after the scan.</p><div class="dashboard-qr-actions"><button class="button primary" data-dashboard-qr-confirm>Post room charge</button></div>';
   else if(step==='invalid')body='<div class="dashboard-qr-error"><strong>QR code not recognized</strong><span>The code may be invalid, expired, or too blurry to read.</span></div><button class="button primary" data-dashboard-qr-retry>Try again</button>';
-  else if(step==='confirmed')body='<div class="dashboard-qr-success">Room charge confirmed for Amelia Reyes · Room 508.</div><button class="button primary" data-dashboard-qr-close>Done</button>';
-  else body='<div class="dashboard-qr-frame"><i class="hgi-stroke hgi-qr-code-01" aria-hidden="true"></i><span>Place the guest’s QR code inside the frame</span></div><p>Ask the guest to open their Cabana room-charge QR. Scan it to verify their name, hotel, and room. Nothing is charged until you confirm.</p><button class="button primary" data-dashboard-qr-scan>Scan guest QR</button><button class="dashboard-qr-help" data-dashboard-qr-invalid>Show unreadable-code error</button>';
+  else if(step==='confirmed')body='<div class="dashboard-qr-success">Room charge posted automatically for Amelia Reyes · Room 508.</div><button class="button primary" data-dashboard-qr-close>Done</button>';
+  else body='<div class="dashboard-qr-frame"><i class="hgi-stroke hgi-qr-code-01" aria-hidden="true"></i><span>Place the guest’s QR code inside the frame</span></div><p>Ask the guest to open their Cabana room-charge QR. The scan verifies their name, hotel, and room, then posts the charge automatically.</p><button class="button primary" data-dashboard-qr-scan>Scan guest QR</button><button class="dashboard-qr-help" data-dashboard-qr-invalid>Show unreadable-code error</button>';
   return '<div class="dashboard-qr-backdrop" data-dashboard-qr-close></div><section class="dashboard-qr-modal dashboard-room-charge-qr" role="dialog" aria-modal="true" aria-label="Scan QR for room charge"><button class="dashboard-qr-close" data-dashboard-qr-close aria-label="Close QR scanner">×</button><i class="hgi-stroke hgi-qr-code-01 dashboard-qr-modal-icon" aria-hidden="true"></i><h2>Charge to room</h2>'+body+'</section>';
 };
+const cxAutoChargeRoom=(target)=>{
+  const record=target||orders.find(item=>item.id==='CB-8821')||orders.find(item=>item.guest==='Amelia Reyes'&&item.room==='508');
+  if(record){record.payment='Charged to room';record.settlement='Awaiting guest checkout';record.roomChargedByQr=true}
+  const transaction=typeof cabanaEarningsTransactions!=='undefined'&&cabanaEarningsTransactions.find(item=>item.orderId===record?.id);
+  if(transaction){transaction.method='Room charge';transaction.status='Awaiting guest checkout';transaction.detail='Posted automatically after guest QR scan.'}
+  state.dashboardRoomChargeQrCharged=true;
+};
+window.addEventListener('click',event=>{
+  const button=event.target.closest?.('[data-final-booking-action="qr"],[data-detail-action="qr"]');
+  if(!button)return;
+  const id=button.dataset.finalBookingId||state.detail;
+  const record=orders.find(item=>item.id===id);
+  if(record)cxAutoChargeRoom(record);
+},true);
 const dashboardRoomChargeMarkupBase=dashboardOperationalMarkup;
 dashboardOperationalMarkup=function(){
   let html=dashboardRoomChargeMarkupBase();
@@ -941,10 +955,10 @@ render=function(){
   renderWithRoomChargeQr();
   document.querySelectorAll('[data-dashboard-room-charge-qr]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrOpen=true;state.dashboardRoomChargeQrStep='scan';render()});
   document.querySelectorAll('[data-dashboard-qr-close]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrOpen=false;state.dashboardRoomChargeQrStep='scan';render()});
-  document.querySelectorAll('[data-dashboard-qr-scan]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='scanned';render()});
+  document.querySelectorAll('[data-dashboard-qr-scan]').forEach(button=>button.onclick=()=>{cxAutoChargeRoom();state.dashboardRoomChargeQrStep='confirmed';render()});
   document.querySelectorAll('[data-dashboard-qr-invalid]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='invalid';render()});
   document.querySelectorAll('[data-dashboard-qr-retry]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='scan';render()});
-  document.querySelectorAll('[data-dashboard-qr-confirm]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='confirmed';render()});
+  document.querySelectorAll('[data-dashboard-qr-confirm]').forEach(button=>button.onclick=()=>{cxAutoChargeRoom();state.dashboardRoomChargeQrStep='confirmed';render()});
 };
 state.dashboardRoomChargeQrOpen=false;state.dashboardRoomChargeQrStep='scan';
 
@@ -961,10 +975,10 @@ setTimeout(()=>{
     effectiveRenderBase();
     document.querySelectorAll('[data-dashboard-room-charge-qr]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrOpen=true;state.dashboardRoomChargeQrStep='scan';render()});
     document.querySelectorAll('[data-dashboard-qr-close]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrOpen=false;state.dashboardRoomChargeQrStep='scan';render()});
-    document.querySelectorAll('[data-dashboard-qr-scan]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='scanned';render()});
+    document.querySelectorAll('[data-dashboard-qr-scan]').forEach(button=>button.onclick=()=>{cxAutoChargeRoom();state.dashboardRoomChargeQrStep='confirmed';render()});
     document.querySelectorAll('[data-dashboard-qr-invalid]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='invalid';render()});
     document.querySelectorAll('[data-dashboard-qr-retry]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='scan';render()});
-    document.querySelectorAll('[data-dashboard-qr-confirm]').forEach(button=>button.onclick=()=>{state.dashboardRoomChargeQrStep='confirmed';render()});
+    document.querySelectorAll('[data-dashboard-qr-confirm]').forEach(button=>button.onclick=()=>{cxAutoChargeRoom();state.dashboardRoomChargeQrStep='confirmed';render()});
   };
   state.dashboardRoomChargeQrOpen=false;state.dashboardRoomChargeQrStep='scan';
   render();
@@ -1280,7 +1294,7 @@ const latestMainBookingsRender=render;
 render=function(){latestMainBookingsRender();if(state.page==='orders'){document.querySelector('#app')?.insertAdjacentHTML('beforeend',bookingFinalFilterSheet());document.querySelectorAll('[data-booking-tab]').forEach(b=>b.onclick=()=>{state.bookingTab=b.dataset.bookingTab;render()});document.querySelectorAll('[data-booking-filter-open]').forEach(b=>b.onclick=()=>{state.bookingFilterOpen=true;render()});document.querySelectorAll('[data-booking-filter-close]').forEach(b=>b.onclick=()=>{state.bookingFilterOpen=false;render()});document.querySelectorAll('[data-booking-filter-choice]').forEach(b=>b.onclick=()=>{state.bookingFilters[b.dataset.bookingFilterChoice]=b.dataset.bookingFilterValue;render()});document.querySelectorAll('[data-booking-filter-reset]').forEach(b=>b.onclick=()=>{state.bookingFilters={date:'All dates',type:'All',listing:'All listings'};render()});document.querySelectorAll('[data-booking-filter-apply]').forEach(b=>b.onclick=()=>{state.bookingFilterOpen=false;render()});document.querySelectorAll('[data-booking-chip]').forEach(b=>b.onclick=()=>{const k=b.dataset.bookingChip;state.bookingFilters[k]=k==='date'?'All dates':k==='listing'?'All listings':'All';render()});document.querySelectorAll('[data-booking-search]').forEach(s=>s.oninput=e=>{state.bookingQuery=e.target.value;render()});document.querySelectorAll('[data-booking-detail]').forEach(b=>b.onclick=()=>{state.detail=b.dataset.bookingDetail;render()});document.querySelectorAll('[data-booking-export]').forEach(b=>b.onclick=()=>toast('Filtered bookings CSV prepared'));document.querySelectorAll('[data-final-header-qr]').forEach(b=>b.onclick=()=>toast('Validation flow opened'));document.querySelectorAll('[data-final-booking-action]').forEach(b=>b.onclick=e=>{e.stopPropagation();const o=bookingFinalRecords().find(x=>x.id===b.dataset.finalBookingId);if(!o)return;if(b.dataset.finalBookingAction==='ready')o.status='Ready';if(b.dataset.finalBookingAction==='complete')o.status='Completed';if(b.dataset.finalBookingAction==='qr'){if(o.qrValidated)toast('Booking already checked in');else{o.qrValidated=true;o.status='Checked in';toast('Booking validated. Check-in recorded.')}}render()})}};
 
 /* Owner receivables explain the money movement from guest checkout to hotel payment. */
-const outstandingReceivablesMoney=value=>{const formatted=earningsMoney(value);return formatted.endsWith('.00')?formatted.slice(0,-3):formatted};
+const outstandingReceivablesMoney=value=>earningsMoney(value);
 dashboardOperationalReceivables=function(){if(state.role!=='Owner')return '';const ledger=typeof cabanaEarningsTransactions!=='undefined'?cabanaEarningsTransactions:[],rows=ledger.filter(item=>item.method==='Room charge'&&['Awaiting guest checkout','Awaiting settlement'].includes(item.status)),total=rows.reduce((sum,item)=>sum+earningsTransactionNet(item),0),served=dashboardOperationalTodayServed(),checkout=rows.filter(item=>item.status==='Awaiting guest checkout').reduce((sum,item)=>sum+earningsTransactionNet(item),0),settlement=rows.filter(item=>item.status==='Awaiting settlement').reduce((sum,item)=>sum+earningsTransactionNet(item),0);return '<section class="dashboard-operational-section dashboard-receivables"><div class="dashboard-receivable-header"><div><h2>Receivables</h2></div><button class="dashboard-inline-link" data-page="earnings">View earnings '+icons.arrow+'</button></div><div class="dashboard-receivable-metrics hr-totals"><div><span>Received</span><strong>'+outstandingReceivablesMoney(window.cabanaReceivedTotal?window.cabanaReceivedTotal('Last 30 days'):0)+'</strong><small>Last 30 days</small></div><div><span>To receive</span><strong>'+outstandingReceivablesMoney(total)+'</strong><small>Unpaid room charges</small></div></div><div class="dashboard-receivable-metrics"><div><span>Guests still staying</span><strong>'+outstandingReceivablesMoney(checkout)+'</strong><small>Paid after checkout</small></div><div><span>Hotel to pay you</span><strong>'+outstandingReceivablesMoney(settlement)+'</strong><small>Guests have checked out</small></div></div><div class="dashboard-receivable-footer"><span>From <strong>'+served+'</strong> bookings</span></div></section>'};
 render();
 const outstandingReceivablesViewAllBase=dashboardOperationalReceivables;
@@ -1673,7 +1687,7 @@ dashboardOperationalBookingRow=function(order,dateLabel){
   const guestRoom=[order.guest,order.room?'Room '+order.room:''].filter(Boolean).join(' · ');
   return '<button class="dashboard-booking-row" data-detail="'+esc(order.id)+'"><span class="dashboard-booking-main"><span class="dashboard-booking-time-line"><strong class="dashboard-booking-reference">#'+esc(displayId)+'</strong><em class="dashboard-booking-status '+status.toLowerCase().replaceAll(' ','-')+'">'+esc(status)+'</em></span><strong class="dashboard-booking-title">'+esc(displayItem)+'</strong><small class="dashboard-booking-date">'+esc(dateTime)+'</small>'+(guestRoom?'<small>'+esc(guestRoom)+'</small>':'')+'<small>'+esc(details)+'</small></span></button>';
 };
-const bookingChargeMoney=value=>'₱'+Math.round(Number(value||0)).toLocaleString('en-PH');
+const bookingChargeMoney=value=>'₱'+Number(value||0).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
 const bookingChargeNumber=value=>Number(String(value||'').replace(/[^\d.-]/g,''))||0;
 const bookingChargeRoomAllowed=record=>{if(!record?.room)return false;if(record.roomDeposit!==undefined)return record.roomDeposit===true;if(record.hasRoomDeposit!==undefined)return record.hasRoomDeposit===true;return /room/i.test(String(record.payment||''))};
 const bookingChargeRecord=()=>bookingLatestAll().find(item=>item.id===state.bookingAddChargeId);
@@ -2772,13 +2786,24 @@ const cxRequestDetailPolish=()=>{
   });
   if(pending){
     view.querySelectorAll('.booking-request-field').forEach(field=>{const label=field.querySelector('span');if(label&&label.textContent.trim()==='Booking date'){label.textContent='Requested on';const value=field.querySelector('strong');if(value)value.textContent=String(record.timeline?.[0]?.[1]||record.when||'—')}});
-    const chip=view.querySelector('.booking-request-section-heading .booking-status');
+    const heading=view.querySelector('.booking-request-section-heading');
+    const chip=heading&&heading.querySelector('.booking-status');
     const minutes=cxRequestTimer(record);
-    if(chip&&minutes!==null&&!view.querySelector('.cx-request-timer')){
-      const timer=document.createElement('span');timer.className='cx-request-timer'+(minutes<15?' is-urgent':'');
-      timer.textContent='⏱ '+(minutes>=60?Math.floor(minutes/60)+'h '+(minutes%60?minutes%60+'m ':''):minutes+'m ')+'left';
-      const wrap=document.createElement('span');wrap.className='cx-request-status';chip.replaceWith(wrap);wrap.append(chip,timer);
+    /* Countdown sits on its own line under the title; the Pending pill stays alone in the heading. */
+    if(heading&&chip&&minutes!==null&&!view.querySelector('.cx-request-timer')){
+      const line=document.createElement('div');
+      if(minutes<=0){
+        chip.className='booking-status expired';chip.textContent='Expired';
+        line.className='cx-request-timer is-expired';line.textContent='No response in time';
+      }else{
+        const left=minutes>=60?Math.floor(minutes/60)+'h'+(minutes%60?' '+minutes%60+'m':''):minutes+'m';
+        line.className='cx-request-timer'+(minutes<=10?' is-urgent':'');
+        line.innerHTML='<i class="hgi-stroke hgi-timer-02" aria-hidden="true"></i><span>'+left+' left to respond</span>';
+      }
+      heading.insertAdjacentElement('afterend',line);
     }
+    /* Booking number uses the #BK1042 format (no hyphen), as on every other screen. */
+    view.querySelectorAll('.booking-request-field').forEach(field=>{const label=field.querySelector('span');const value=field.querySelector('strong');if(label&&value&&label.textContent.trim()==='Booking number'&&value.firstChild&&value.firstChild.nodeType===3)value.firstChild.nodeValue=value.firstChild.nodeValue.replace(/#BK-(?=\d)/,'#BK')});
   }
   const walker=document.createTreeWalker(view,NodeFilter.SHOW_TEXT);let node;while((node=walker.nextNode())){if(/₱[\d,]+\.00\b/.test(node.nodeValue))node.nodeValue=node.nodeValue.replace(/(₱[\d,]+)\.00\b/g,'$1')}
 };
@@ -3340,7 +3365,7 @@ state.lc=state.lc||{open:false,step:1,data:lcDefaults(),month:[2026,9]};
 try{const saved=JSON.parse(localStorage.getItem('cabana:created-listings')||'[]');saved.forEach(item=>{if(!listings.some(existing=>existing.id===item.id))listings.push(item)})}catch(error){}
 const lcSaveCreated=()=>{try{localStorage.setItem('cabana:created-listings',JSON.stringify(listings.filter(item=>item.created)))}catch(error){toast('Saved, but photos are too large to keep after refresh')}};
 const lcE=value=>esc(value==null?'':String(value));
-const lcPeso=value=>'₱'+Number(String(value||0).replace(/[^\d]/g,'')||0).toLocaleString('en-PH');
+const lcPeso=value=>'₱'+Number(String(value||0).replace(/[^\d.-]/g,'')||0).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
 const lcTime=value=>{const [h,m]=String(value||'00:00').split(':').map(Number);const period=h>=12?'PM':'AM',hour=h%12||12;return hour+':'+String(m||0).padStart(2,'0')+' '+period};
 const lcDuration=d=>d.durationMode==='fixed'?(d.durationValue+' '+(Number(d.durationValue)===1?d.durationUnit.replace(/s$/,''):d.durationUnit)):('Up to '+d.guestMax+' '+(Number(d.guestMax)===1?d.guestUnit.replace(/s$/,''):d.guestUnit));
 const lcSeg=(name,value,options)=>'<div class="lc-seg" role="group">'+options.map(option=>'<button type="button" class="'+(value===option?'is-active':'')+'" data-lc-set="'+name+'" data-lc-value="'+lcE(option)+'">'+lcE(option)+'</button>').join('')+'</div>';
@@ -4124,7 +4149,7 @@ render();
 const viMonths=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const viToday=new Date(2026,9,10),viStart=new Date(2026,5,1); /* pilot data starts Jun 1, 2026 */
 const viSeed=n=>{let x=Math.sin(n*9301+49297)*233280;return x-Math.floor(x)};
-const viPeso=n=>'₱'+Math.round(n).toLocaleString('en-PH');
+const viPeso=n=>'₱'+Number(n||0).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
 const viState=()=>{state.vi=state.vi||{period:'Month',offset:0,tab:'Sales'};return state.vi};
 const viRange=(period,offset)=>{
   if(period==='Week'){const monday=new Date(viToday);monday.setDate(viToday.getDate()-((viToday.getDay()+6)%7)+offset*7);const end=new Date(monday);end.setDate(monday.getDate()+6);const f=d=>viMonths[d.getMonth()]+' '+d.getDate();return {start:monday,end,label:f(monday)+' – '+(monday.getMonth()===end.getMonth()?end.getDate():f(end)),short:'last week',days:7,key:'w'+offset}}
@@ -4268,8 +4293,8 @@ const viPage2=()=>{
     +'<div class="vi2-legend"><span><i class="is-solid"></i>'+d.legend[0]+'</span>'+(d.prevSeries?'<span><i class="is-dash"></i>'+d.legend[1]+'</span>':'')+'</div>'
     +'<div class="vi2-chart-wrap" data-vi2-scrub tabindex="0" aria-label="Sales chart. Drag or use arrow keys to see each day.">'+vi2Chart(d)+'<span class="vi2-guide" hidden></span><span class="vi2-hover-dot" hidden></span><div class="vi2-tip" hidden></div></div><div class="vi2-axis"><span>'+d.labels[0]+'</span><span>'+d.labels[1]+'</span><span>'+d.labels[2]+'</span></div></section>'
     +'<section class="vi2-card vi2-pay"><h3>Payments</h3><div class="vi2-pair">'
-    +'<div><span class="vi2-label">Received</span><strong>'+viPeso(received)+'</strong><small>In this period</small></div>'
-    +'<div><span class="vi2-label">To receive</span><strong>'+viPeso(toReceive)+'</strong><small>'+(toReceive?'As of today':'All caught up')+'</small></div>'
+    +'<div><span class="vi2-label">Received</span><strong>'+viPeso(received)+'</strong></div>'
+    +'<div><span class="vi2-label">To receive</span><strong>'+viPeso(toReceive)+'</strong></div>'
     +'</div><button type="button" class="vi2-foot" data-vi2-earnings><span>View earnings</span><i aria-hidden="true">›</i></button></section>'
     +'<section class="vi2-card"><h3>Bookings</h3><div class="vi2-pair">'
     +'<div><span class="vi2-label">Completed</span><strong>'+d.bookings+'</strong>'+change(bk)+'</div>'
@@ -4759,7 +4784,8 @@ const e4M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','De
 const e4Date=s=>{const [m,d]=String(s).split(' ');return new Date(2026,e4M.indexOf(m),Number(d))};
 const e4Fmt=d=>e4M[d.getMonth()]+' '+d.getDate();
 const e4Today=()=>new Date(2026,9,10);
-const e4Peso=n=>'₱'+Math.round(n).toLocaleString('en-PH');
+const e4Peso=n=>'₱'+Number(n||0).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const e4PesoPayout=n=>'₱'+Number(n||0).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
 function e4Split(prefix,start,n,total,hotel,dateOut){const out=[];let left=total;for(let i=0;i<n;i++){const amt=i===n-1?left:Math.round(total/n/10)*10;left-=amt;const od=e4Date(dateOut);od.setDate(od.getDate()-Math.round((n-1-i)*6/Math.max(1,n-1)));out.push({id:'BK'+(start+i),hotel,room:String(200+((start+i)*37)%500),amount:amt,out:e4Fmt(od),item:['Airport Transfer — Sedan','Toyota Innova Rental','Island Hopping Tour','Dumaguete City Tour','Van with Driver — Full Day'][(start+i)%5],guest:['Ana Cruz','Ben Yu','Cara Lim','Dino Sy','Eva Tan','Fe Ong'][(start+i)%6]})}return out}
 function e4Seed(){return {
   bookings:[
@@ -4812,8 +4838,8 @@ const e4StatusPill=req=>e4Age(req.date)>7?'<em class="e4-pill is-follow">Follow 
 const e4ShortHotel=h=>String(e4Hotels[h]||'').replace(/ Dumaguete$/,'');
 const e4Method=id=>['GCash','Maya','Card','GCash'][Number(String(id).replace(/\D/g,''))%4];
 const e4PaidRow=p=>p.kind==='payout'
-  ?'<button type="button" class="e3-pay" data-e4-open="payout:'+p.id+'">'+e3Icon('building-03','is-tile is-plum')+'<span><strong>Payout</strong><small>'+(state.e4Sub==='payments'?'':p.date+' · ')+(['GCash','Card'][Number(String(p.id).replace(/\D/g,''))%2])+'</small></span><b>'+e4Peso(p.amount)+'</b></button>'
-  :'<button type="button" class="e3-pay" data-en-open="'+esc(p.id)+'">'+e3Icon('credit-card','is-tile is-blue')+'<span><strong>Online payment</strong><small>'+(state.e4Sub==='payments'?'':p.date+' · ')+e4Method(p.id)+'</small></span><b>'+e4Peso(p.amount)+'</b></button>';
+  ?'<button type="button" class="e3-pay" data-e4-open="payout:'+p.id+'">'+e3Icon('building-03','is-tile is-plum')+'<span><strong>Payout</strong><small>'+(state.e4Sub==='payments'?'':p.date+' · ')+(['GCash','Card'][Number(String(p.id).replace(/\D/g,''))%2])+'</small></span><b>'+e4PesoPayout(p.amount)+'</b></button>'
+  :'<button type="button" class="e3-pay" data-en-open="'+esc(p.id)+'">'+e3Icon('credit-card','is-tile is-blue')+'<span><strong>Online payment</strong><small>'+(state.e4Sub==='payments'?'':p.date+' · ')+e4Method(p.id)+'</small></span><b>'+e4PesoPayout(p.amount)+'</b></button>';
 function e4Main(){
   const m=e4Model(),t=e4Totals(),range=e4Range(),paid=e4PaidIn(),hotels=[...new Set(t.ready.map(b=>b.hotel))];
   const hero='<section class="e4-hero"><span>Available for payout</span><strong>'+e4Peso(t.readyTotal)+'</strong><small>'+(t.readyTotal?'From checked-out guests':'Nothing available yet')+'</small><button type="button" class="e4-hero-btn" data-e4-request'+(t.readyTotal?'':' disabled')+'>Request payout</button></section>';
@@ -4826,21 +4852,21 @@ function e4Main(){
 }
 function e4Detail(){
   const m=e4Model(),[kind,id]=String(state.e4Sub).split(':'),limit=state.enLimit||20;
-  const bookingRow=(b,line)=>'<button type="button" class="e3-pay" data-en-open="'+esc(b.id)+'"><span><strong>#'+esc(b.id)+' · Room '+esc(b.room)+'</strong><small>'+line+'</small></span><b>'+e4Peso(b.amount)+'</b></button>';
+  const bookingRow=(b,line)=>'<button type="button" class="e3-pay" data-en-open="'+esc(b.id)+'"><span><strong>#'+esc(b.id)+' · Room '+esc(b.room)+'</strong><small>'+line+'</small></span><b>'+e4PesoPayout(b.amount)+'</b></button>';
   if(kind==='request'||kind==='payout'){
     const r=(kind==='request'?m.requests:m.payouts).find(x=>x.id===id);if(!r)return '<div class="en e3 e4"></div>';
     const paid=kind==='payout',short=e4ShortHotel(r.hotel),reqDate=paid?(r.requested||e4Fmt(new Date(e4Date(r.date).getTime()-2*864e5))):r.date;
     const status=paid
       ?'<div class="e4-status is-paid"><span class="e4-status-ic"><i class="hgi-stroke hgi-checkmark-circle-02" aria-hidden="true"></i></span><span><strong>Paid '+r.date+'</strong><small>Requested '+reqDate+' · Paid to '+(r.account||'BDO •••• 4821')+'</small></span></div>'
       :'<div class="e4-status"><span class="e4-status-ic"><i class="hgi-stroke hgi-clock-01" aria-hidden="true"></i></span><span><strong>Waiting for '+esc(short)+' to pay</strong><small>Requested '+reqDate+' · To '+(r.account||'BDO •••• 4821')+'</small></span></div>';
-    const row=b=>'<button type="button" class="e3-pay" data-en-open="'+esc(b.id)+'"><span><strong>#'+esc(b.id)+' · Room '+esc(b.room)+'</strong><small>Checked out '+b.out+'</small></span><b>'+e4Peso(b.amount)+'</b><i class="e3-chev" aria-hidden="true">›</i></button>';
-    return '<div class="en e3 e4 e4-req"><section class="en-card e4-req-top"><span class="e4-req-hotel">'+esc(e4Hotels[r.hotel])+'</span><strong>'+e4Peso(e4Sum(r.bookings))+'</strong>'+status+'</section>'
+    const row=b=>'<button type="button" class="e3-pay" data-en-open="'+esc(b.id)+'"><span><strong>#'+esc(b.id)+' · Room '+esc(b.room)+'</strong><small>Checked out '+b.out+'</small></span><b>'+e4PesoPayout(b.amount)+'</b><i class="e3-chev" aria-hidden="true">›</i></button>';
+    return '<div class="en e3 e4 e4-req"><section class="en-card e4-req-top"><span class="e4-req-hotel">'+esc(e4Hotels[r.hotel])+'</span><strong>'+e4PesoPayout(e4Sum(r.bookings))+'</strong>'+status+'</section>'
       +'<div class="e4-sec"><h3>Room charges ('+r.bookings.length+')</h3></div><section class="en-card e4-list">'+r.bookings.map(row).join('')+'</section>'
       +(paid?'':'<button type="button" class="e4-outline" data-e4-message="'+r.hotel+'"><i class="hgi-stroke hgi-message-01" aria-hidden="true"></i>Message front desk</button>')+'</div>';
   }
   if(kind==='checkout'){
     const list=m.bookings.filter(b=>b.stage==='checkout');
-    return '<div class="en e3 e4"><p class="e3-summary"><strong>'+e4Peso(e4Sum(list))+'</strong> · '+list.length+' booking'+(list.length===1?'':'s')+'</p>'+Object.keys(e4Hotels).map(h=>{const l=list.filter(b=>b.hotel===h);return l.length?'<div class="e3-date"><span>'+e4Hotels[h].toUpperCase()+'</span><b>'+e4Peso(e4Sum(l))+'</b></div><section class="en-card e3-list">'+l.map(b=>bookingRow(b,'Staying until '+b.until)).join('')+'</section>':''}).join('')+'</div>';
+    return '<div class="en e3 e4"><p class="e3-summary"><strong>'+e4PesoPayout(e4Sum(list))+'</strong> · '+list.length+' booking'+(list.length===1?'':'s')+'</p>'+Object.keys(e4Hotels).map(h=>{const l=list.filter(b=>b.hotel===h);return l.length?'<div class="e3-date"><span>'+e4Hotels[h].toUpperCase()+'</span><b>'+e4PesoPayout(e4Sum(l))+'</b></div><section class="en-card e3-list">'+l.map(b=>bookingRow(b,'Staying until '+b.until)).join('')+'</section>':''}).join('')+'</div>';
   }
   const range=e4Range(),f=state.e4PayFilter||'all',list=e4PaidIn(null,e4CurHotel()).filter(p=>f==='all'||(f==='payout'?p.kind==='payout':p.kind==='online'));
   const chips='<div class="e3-chips">'+[['all','All'],['payout','Payouts'],['online','Online payments']].map(([k,l])=>'<button type="button" class="e3-chip'+(f===k?' is-on':'')+'" data-e4-chip="'+k+'">'+l+'</button>').join('')+'</div>';
@@ -4958,7 +4984,7 @@ render=function(){
 /* Home › Receivables card */
 dashboardOperationalReceivables=function(){
   if(state.role!=='Owner')return '';const t=e4Totals();if(!t.readyTotal&&!t.checkoutTotal&&!t.requested)return '';
-  return '<section class="dashboard-operational-section dashboard-receivables e4-home"><h2>Receivables</h2><strong class="e4-home-amt">'+e4Peso(t.readyTotal)+'</strong><span class="e4-home-label">Available for payout</span>'+(t.checkoutTotal?'<small class="e4-home-later">'+e4Peso(t.checkoutTotal)+' after checkout</small>':'')+'<button type="button" class="vi2-foot e4-home-foot dashboard-inline-link"><span>View earnings</span><i aria-hidden="true">›</i></button></section>';
+  return '<section class="dashboard-operational-section dashboard-receivables e4-home"><h2>Receivables</h2><div class="e4-home-columns"><div><span>Available for payout</span><strong>'+e4Peso(t.readyTotal)+'</strong></div><div><span>After checkout</span><strong>'+e4Peso(t.checkoutTotal)+'</strong></div></div><button type="button" class="vi2-foot e4-home-foot dashboard-inline-link"><span>View earnings</span><i aria-hidden="true">›</i></button></section>';
 };
 render();
 
@@ -5396,17 +5422,17 @@ const e4TodayLabel=()=>{const d=new Date();return ['Jan','Feb','Mar','Apr','May'
 e4Main=function(){
   const h=e4CurHotel(),t=e4TotalsFor(h),range=e4Range(),paid=e4PaidIn(null,h),multi=e4HotelIds().length>1;
   const switcher=multi?'<div class="e5-bar"><button type="button" class="e5-switch" data-e5-switch aria-haspopup="dialog"><span class="e5-tile"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i></span><span class="e5-name">'+esc(e4Hotels[h])+'</span><i class="e5-caret" aria-hidden="true">▾</i></button><button type="button" class="e5-export" data-e4-export-open aria-label="Export"><i class="hgi-stroke hgi-download-04" aria-hidden="true"></i></button></div>':'';
-  const hero='<section class="e4-hero"><span>Available for payout</span><strong>'+e4Peso(t.readyTotal)+'</strong><small>'+(t.readyTotal?'From checked-out guests':'Nothing available yet')+'</small><button type="button" class="e4-hero-btn" data-e4-request'+(t.readyTotal?'':' disabled')+'>Request payout</button></section>';
+  const hero='<section class="e4-hero"><span>Available for payout</span><strong>'+e4PesoPayout(t.readyTotal)+'</strong><small>'+(t.readyTotal?'From checked-out guests':'Nothing available yet')+'</small><button type="button" class="e4-hero-btn" data-e4-request'+(t.readyTotal?'':' disabled')+'>Request payout</button></section>';
   const reqs=t.requests.slice().sort((a,b)=>e4Date(a.date)-e4Date(b.date));
-  const requested=reqs.length?'<div class="e4-sec"><h3>Requested payouts</h3></div><section class="en-card e4-list">'+reqs.map(r=>'<button type="button" class="e3-stage" data-e4-open="request:'+r.id+'">'+e3Icon('clock-01','is-amber')+'<span><strong class="e4-one">Requested '+r.date+'</strong></span><span class="e4-right"><b>'+e4Peso(e4Sum(r.bookings))+'</b></span><i class="e3-chev" aria-hidden="true">›</i></button>').join('')+'</section>':'';
-  const notReady=t.checkoutTotal?'<div class="e4-sec"><h3>Awaiting checkout</h3></div><section class="en-card e4-list"><button type="button" class="e3-stage" data-e4-open="checkout">'+e3Icon('bed-double')+'<span><strong>'+t.checkout.length+' booking'+(t.checkout.length===1?'':'s')+'</strong><small>Guests still staying</small></span><b>'+e4Peso(t.checkoutTotal)+'</b><i class="e3-chev" aria-hidden="true">›</i></button></section>':'';
+  const requested=reqs.length?'<div class="e4-sec"><h3>Requested payouts</h3></div><section class="en-card e4-list">'+reqs.map(r=>'<button type="button" class="e3-stage" data-e4-open="request:'+r.id+'">'+e3Icon('clock-01','is-amber')+'<span><strong class="e4-one">Requested '+r.date+'</strong></span><span class="e4-right"><b>'+e4PesoPayout(e4Sum(r.bookings))+'</b></span><i class="e3-chev" aria-hidden="true">›</i></button>').join('')+'</section>':'';
+  const notReady=t.checkoutTotal?'<div class="e4-sec"><h3>Awaiting checkout</h3></div><section class="en-card e4-list"><button type="button" class="e3-stage" data-e4-open="checkout">'+e3Icon('bed-double')+'<span><strong>'+t.checkout.length+' booking'+(t.checkout.length===1?'':'s')+'</strong><small>Guests still staying</small></span><b>'+e4PesoPayout(t.checkoutTotal)+'</b><i class="e3-chev" aria-hidden="true">›</i></button></section>':'';
   const paidSec='<div class="e4-sec"><h3>Payments received</h3>'+e4Pill('data-e4-range',range.label)+'</div><section class="en-card e4-list e4-paid">'
-    +(paid.length?'<div class="e4-paid-total"><strong>'+e4Peso(e4Sum(paid))+'</strong><small>'+range.sub+'</small></div>'+paid.slice(0,3).map(e4PaidRow).join('')+'<button type="button" class="vi2-foot e3-foot" data-e4-open="payments"><span>View payment history</span><i aria-hidden="true">›</i></button>':'<p class="en-empty">No payments in this range</p>')+'</section>';
+    +(paid.length?'<div class="e4-paid-total"><strong>'+e4PesoPayout(e4Sum(paid))+'</strong><small>'+range.sub+'</small></div>'+paid.slice(0,3).map(e4PaidRow).join('')+'<button type="button" class="vi2-foot e3-foot" data-e4-open="payments"><span>View payment history</span><i aria-hidden="true">›</i></button>':'<p class="en-empty">No payments in this range</p>')+'</section>';
   return '<div class="en e3 e4">'+switcher+hero+requested+notReady+paidSec+'</div>';
 };
 function e5HotelSheet(){
   lcSheetClose();const cur=e4CurHotel(),wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
-  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e5-close></div><section class="pf-sheet lc-sheet e5-sheet" role="dialog" aria-label="Partner hotels"><header><h2>Partner hotels</h2><button type="button" data-e5-close aria-label="Close">×</button></header><div class="e5-opts">'+e4HotelIds().map(id=>{const a=e4TotalsFor(id).readyTotal;return '<button type="button" class="e5-opt'+(id===cur?' is-on':'')+'" data-e5-pick="'+id+'"><span class="e5-tile"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i></span><span><strong>'+esc(e4Hotels[id])+'</strong><small>'+(a?e4Peso(a)+' available':'Nothing available')+'</small></span>'+(id===cur?'<i class="hgi-stroke hgi-tick-02 e5-check" aria-hidden="true"></i>':'')+'</button>'}).join('')+'</div></section>';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e5-close></div><section class="pf-sheet lc-sheet e5-sheet" role="dialog" aria-label="Partner hotels"><header><h2>Partner hotels</h2><button type="button" data-e5-close aria-label="Close">×</button></header><div class="e5-opts">'+e4HotelIds().map(id=>{const a=e4TotalsFor(id).readyTotal;return '<button type="button" class="e5-opt'+(id===cur?' is-on':'')+'" data-e5-pick="'+id+'"><span class="e5-tile"><i class="hgi-stroke hgi-building-03" aria-hidden="true"></i></span><span><strong>'+esc(e4Hotels[id])+'</strong><small>'+(a?e4PesoPayout(a)+' available':'Nothing available')+'</small></span>'+(id===cur?'<i class="hgi-stroke hgi-tick-02 e5-check" aria-hidden="true"></i>':'')+'</button>'}).join('')+'</div></section>';
   document.body.appendChild(wrap);
   wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
   wrap.onclick=e=>{if(e.target.closest('[data-e5-close]')){lcSheetClose();return}const pick=e.target.closest('[data-e5-pick]');if(!pick)return;state.e4Hotel=pick.dataset.e5Pick;try{localStorage.setItem('cabana:earnings-hotel',state.e4Hotel)}catch(err){}lcSheetClose();render();const p=document.querySelector('.page');if(p)p.scrollTop=0};
@@ -5414,7 +5440,7 @@ function e5HotelSheet(){
 e4RequestSheet=function(){
   lcSheetClose();const h=e4CurHotel(),t=e4TotalsFor(h);if(!t.readyTotal)return;
   const wrap=document.createElement('div');wrap.className='lc-sheet-wrap';
-  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e4-close></div><section class="pf-sheet lc-sheet e4-sheet e5-req" role="dialog" aria-label="Request payout"><header><h2>Request payout</h2><button type="button" data-e4-close aria-label="Close">×</button></header><div class="e5-req-amt"><small>From '+esc(e4Hotels[h])+'</small><strong>'+e4Peso(t.readyTotal)+'</strong><small>'+t.ready.length+' booking'+(t.ready.length===1?'':'s')+'</small></div>'+paPayToRow()+'<button type="button" class="button primary e4-wide" data-e4-send'+(paDefault()?'':' disabled')+'>Request '+e4Peso(t.readyTotal)+'</button></section>';
+  wrap.innerHTML='<div class="pf-sheet-backdrop" data-e4-close></div><section class="pf-sheet lc-sheet e4-sheet e5-req" role="dialog" aria-label="Request payout"><header><h2>Request payout</h2><button type="button" data-e4-close aria-label="Close">×</button></header><div class="e5-req-amt"><small>From '+esc(e4Hotels[h])+'</small><strong>'+e4PesoPayout(t.readyTotal)+'</strong><small>'+t.ready.length+' booking'+(t.ready.length===1?'':'s')+'</small></div>'+paPayToRow()+'<button type="button" class="button primary e4-wide" data-e4-send'+(paDefault()?'':' disabled')+'>Request '+e4PesoPayout(t.readyTotal)+'</button></section>';
   document.body.appendChild(wrap);
   wrap.onkeydown=e=>{if(e.key==='Escape')lcSheetClose()};
   wrap.onclick=e=>{
@@ -5813,3 +5839,239 @@ window.addEventListener('click',event=>{
   apply();setTimeout(apply,60);
 })();
 render();
+
+/* Home "Upcoming bookings" mirrors the Bookings page Active list (same records, same order, same count); Home shows at most 3 cards. */
+const cxHomeUpcomingRows=()=>{
+  const saved={tab:state.bookingTab,filters:state.bookingLatestFilters,query:state.bookingQuery};
+  try{
+    state.bookingTab='Active';state.bookingLatestFilters={date:'All dates',type:'All',listing:'All listings'};state.bookingQuery='';
+    return bookingLatestRows().filter(record=>bookingLatestActive(record)&&record.kind!=='Counter charge');
+  }catch(error){return []}
+  finally{state.bookingTab=saved.tab;state.bookingLatestFilters=saved.filters;state.bookingQuery=saved.query}
+};
+dashboardOperationalUpcoming=function(){
+  const upcoming=cxHomeUpcomingRows();
+  const cards=upcoming.slice(0,3).map(order=>dashboardOperationalBookingRow(order)).join('');
+  return '<section class="dashboard-operational-section dashboard-upcoming-section"><div class="dashboard-operational-heading"><div><h2>Upcoming bookings</h2></div><button class="dashboard-inline-link" data-open-active-bookings>View all ('+upcoming.length+') '+icons.arrow+'</button></div>'+(cards?'<div class="dashboard-booking-list">'+cards+'</div>':'<div class="dashboard-operational-empty">No upcoming bookings</div>')+'</section>';
+};
+if(state.page==='dashboard')render();
+
+/* Reference-matched Bookings calendar pass: the calendar remains the default month view, with the existing list/detail route one tap away. */
+const cxBookingsRefinedRecords=[
+  {id:'BK-9002',date:'2026-10-13',time:'8:30 AM',sortTime:510,duration:'45 min',item:'Airport Transfer — Sedan',guest:'Nina Garcia',hotel:'Luna Bay Resort',room:'203',status:'Confirmed',accent:'plum'},
+  {id:'BK-9003',date:'2026-10-13',time:'1:00 PM',sortTime:780,duration:'1 hr',item:'Airport Transfer — SUV',guest:'Marco Santos',hotel:'Luna Bay Resort',room:'508',status:'In progress',accent:'blue'}
+];
+const cxBookingsRefinedPendingDays=new Set([2,8,12,13,20,27]);
+const cxBookingsRefinedConfirmedDays=new Set([1,2,5,6,8,9,12,13,14,15,16,17,19,22,23,26,28,30]);
+const cxBookingsRefinedMonth={year:2026,month:9};
+const cxBookingsRefinedSelected='2026-10-13';
+try{
+  if(localStorage.getItem('cabana:bookings-calendar-refined-v1')!=='1'){
+    state.bookingCalendarMonth={...cxBookingsRefinedMonth};state.bookingCalendarSelected=cxBookingsRefinedSelected;state.bookingCalendarQuery='';
+    localStorage.setItem('cabana:bookings-calendar-refined-v1','1');
+  }
+}catch(error){state.bookingCalendarMonth={...cxBookingsRefinedMonth};state.bookingCalendarSelected=cxBookingsRefinedSelected;state.bookingCalendarQuery=''}
+const cxBookingsRefinedDateLabel=key=>{const date=cxBookingsCalendarDateFromKey(key),day=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][date.getDay()],month=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][date.getMonth()];return key===cxBookingsRefinedSelected?'Today · '+day+', '+month+' '+date.getDate():day+', '+month+' '+date.getDate()};
+const cxBookingsRefinedDots=(date,current)=>{if(!current)return {pending:false,confirmed:false};if(date.getFullYear()===2026&&date.getMonth()===9)return {pending:cxBookingsRefinedPendingDays.has(date.getDate()),confirmed:cxBookingsRefinedConfirmedDays.has(date.getDate())};return {pending:false,confirmed:false}};
+const cxBookingsRefinedGrid=()=>{
+  const month=state.bookingCalendarMonth||cxBookingsRefinedMonth,selected=state.bookingCalendarSelected||cxBookingsRefinedSelected,first=new Date(month.year,month.month,1),days=new Date(month.year,month.month+1,0).getDate(),leading=first.getDay(),total=Math.ceil((leading+days)/7)*7,today=cxBookingsCalendarDateFromKey(cxBookingsRefinedSelected);
+  return Array.from({length:total},(_,index)=>{const date=new Date(month.year,month.month,1-leading+index),current=date.getMonth()===month.month&&date.getFullYear()===month.year,key=cxBookingsCalendarKey(date.getFullYear(),date.getMonth(),date.getDate()),dots=cxBookingsRefinedDots(date,current),past=date<today;return '<button type="button" class="cx-bookings-refined-day'+(current?'':' is-outside')+(past?' is-past':'')+(key===selected?' is-selected':'')+'" data-bookings-refined-day="'+key+'" aria-label="'+cxBookingsRefinedDateLabel(key)+'"><span>'+date.getDate()+'</span><i aria-hidden="true">'+(dots.pending?'<b class="is-pending"></b>':'')+(dots.confirmed?'<b class="is-confirmed"></b>':'')+'</i></button>'}).join('');
+};
+const cxBookingsRefinedRows=()=>{const query=String(state.bookingCalendarQuery||'').trim().toLowerCase();return cxBookingsRefinedRecords.filter(record=>!query||`${record.id} ${record.item} ${record.guest} ${record.hotel} ${record.room}`.toLowerCase().includes(query))};
+const cxBookingsRefinedCard=record=>{const next=record.status==='Confirmed'?'Mark as in progress':record.status==='In progress'?'Mark as completed':'';return '<article class="cx-bookings-refined-card"><button type="button" class="cx-bookings-refined-card-hit" data-bookings-refined-row="'+esc(record.id)+'"><i class="cx-bookings-refined-accent '+record.accent+'" aria-hidden="true"></i><span class="cx-bookings-refined-time"><strong>'+record.time+'</strong><small>'+record.duration+'</small></span><span class="cx-bookings-refined-copy"><strong>'+esc(record.item)+'</strong><span>#'+esc(record.id)+' · '+esc(record.guest)+'</span><span>'+esc(record.hotel)+' · Room '+esc(record.room)+'</span></span><em class="cx-bookings-refined-status '+record.status.toLowerCase().replaceAll(' ','-')+'">'+record.status+'</em><i class="cx-bookings-refined-chevron" aria-hidden="true">›</i></button>'+(next?'<button type="button" class="cx-bookings-refined-status-action '+(record.status==='In progress'?'is-complete':'')+'" data-bookings-refined-status-action="'+esc(record.id)+'">'+next+'</button>':'')+'</article>'};
+const cxBookingsRefinedListDateLabel=key=>{const date=cxBookingsCalendarDateFromKey(key),today=cxBookingsCalendarDateFromKey(cxBookingsRefinedSelected),tomorrow=new Date(today);tomorrow.setDate(tomorrow.getDate()+1),weekday=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][date.getDay()],month=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][date.getMonth()];if(key===cxBookingsRefinedSelected)return 'Today';if(key===cxBookingsCalendarKey(tomorrow.getFullYear(),tomorrow.getMonth(),tomorrow.getDate()))return 'Tomorrow';return weekday+', '+month+' '+date.getDate()};
+const cxBookingsRefinedListWorkspace=()=>{const rows=cxBookingsRefinedRows().filter(record=>record.status==='Confirmed'||record.status==='In progress').sort((a,b)=>String(a.date).localeCompare(String(b.date))||(a.sortTime||0)-(b.sortTime||0)),groups=[];rows.forEach(record=>{let group=groups.find(item=>item.key===record.date);if(!group){group={key:record.date,rows:[]};groups.push(group)}group.rows.push(record)});return '<section class="cx-bookings-refined-list-view">'+(groups.length?groups.map(group=>'<section class="cx-bookings-refined-list-group"><header><h2>'+cxBookingsRefinedListDateLabel(group.key)+'</h2><span>'+group.rows.length+' booking'+(group.rows.length===1?'':'s')+'</span></header>'+group.rows.map(cxBookingsRefinedCard).join('')+'</section>').join(''):'<p class="cx-bookings-refined-empty">No confirmed bookings</p>')+'</section>'};
+const cxBookingsRefinedWorkspace=()=>{
+  const month=state.bookingCalendarMonth||cxBookingsRefinedMonth,selected=state.bookingCalendarSelected||cxBookingsRefinedSelected,rows=cxBookingsRefinedRows().filter(record=>record.date===selected),mode=state.bookingRefinedMode||'Month',modes='<div class="cx-bookings-refined-modes" role="tablist" aria-label="Booking view"><button type="button" class="'+(mode==='List'?'is-active':'')+'" data-bookings-refined-mode="List" aria-selected="'+(mode==='List')+'">List</button><button type="button" class="'+(mode==='Day'?'is-active':'')+'" data-bookings-refined-mode="Day" aria-selected="'+(mode==='Day')+'">Day</button><button type="button" class="'+(mode==='Week'?'is-active':'')+'" data-bookings-refined-mode="Week" aria-selected="'+(mode==='Week')+'">Week</button><button type="button" class="'+(mode==='Month'?'is-active':'')+'" data-bookings-refined-mode="Month" aria-selected="'+(mode==='Month')+'">Month</button></div>';
+  const list=mode==='List'?cxBookingsRefinedListWorkspace():'';
+  const calendar=mode==='List'?'': '<section class="cx-bookings-refined-monthbar"><button type="button" data-bookings-refined-prev aria-label="Previous month">‹</button><strong>'+['January','February','March','April','May','June','July','August','September','October','November','December'][month.month]+' '+month.year+'</strong><button type="button" data-bookings-refined-next aria-label="Next month">›</button><button type="button" class="cx-bookings-refined-today" data-bookings-refined-today>Today</button></section><div class="cx-bookings-refined-weekdays">'+['S','M','T','W','T','F','S'].map(day=>'<span>'+day+'</span>').join('')+'</div><div class="cx-bookings-refined-grid" data-bookings-refined-grid>'+cxBookingsRefinedGrid()+'</div><section class="cx-bookings-refined-day-list"><header><h2>'+cxBookingsRefinedDateLabel(selected)+'</h2><span>'+rows.length+' booking'+(rows.length===1?'':'s')+'</span></header>'+(rows.length?rows.map(cxBookingsRefinedCard).join(''):'<p class="cx-bookings-refined-empty">No bookings</p>')+'</section>';
+  return '<div class="cx-bookings-refined"><header class="cx-bookings-refined-header"><h1>Bookings</h1><button type="button" class="cx-bookings-refined-menu" data-bookings-refined-menu aria-label="Open Menu"><i class="hgi-stroke hgi-menu-01" aria-hidden="true"></i></button></header><label class="cx-bookings-refined-search"><i class="hgi-stroke hgi-search-01" aria-hidden="true"></i><input data-bookings-refined-search value="'+esc(state.bookingCalendarQuery||'')+'" placeholder="Search guest, room, booking #" aria-label="Search guest, room, booking number"></label>'+modes+calendar+list+'</div>';
+};
+const cxBookingsWorkspaceBeforeRefined=bookingLatestWorkspace;
+bookingLatestWorkspace=function(){return state.orderView==='calendar'?cxBookingsRefinedWorkspace():cxBookingsWorkspaceBeforeRefined()};
+const cxBookingsRefinedRenderBase=render;
+render=function(){
+  cxBookingsRefinedRenderBase.apply(this,arguments);
+  if(state.page!=='orders'||state.detail||state.orderView!=='calendar')return;
+  document.querySelectorAll('[data-bookings-refined-menu]').forEach(button=>button.onclick=()=>{state.page='menu';state.detail=null;rememberLastView();render()});
+  document.querySelectorAll('[data-bookings-refined-search]').forEach(input=>input.oninput=event=>{state.bookingCalendarQuery=event.target.value;render();const next=document.querySelector('[data-bookings-refined-search]');next?.focus();next?.setSelectionRange(state.bookingCalendarQuery.length,state.bookingCalendarQuery.length)});
+  document.querySelectorAll('[data-bookings-refined-mode]').forEach(button=>button.onclick=()=>{const view=button.dataset.bookingsRefinedMode;if(view==='List'||view==='Month'){state.bookingRefinedMode=view;render()}else toast(view+' view is coming soon')});
+  const moveMonth=delta=>{const current=state.bookingCalendarMonth||cxBookingsRefinedMonth,date=new Date(current.year,current.month+delta,1);state.bookingCalendarMonth={year:date.getFullYear(),month:date.getMonth()};state.bookingCalendarSelected=cxBookingsCalendarKey(date.getFullYear(),date.getMonth(),1);render()};
+  document.querySelectorAll('[data-bookings-refined-prev]').forEach(button=>button.onclick=()=>moveMonth(-1));
+  document.querySelectorAll('[data-bookings-refined-next]').forEach(button=>button.onclick=()=>moveMonth(1));
+  document.querySelectorAll('[data-bookings-refined-today]').forEach(button=>button.onclick=()=>{state.bookingCalendarMonth={...cxBookingsRefinedMonth};state.bookingCalendarSelected=cxBookingsRefinedSelected;render()});
+  document.querySelectorAll('[data-bookings-refined-day]').forEach(button=>button.onclick=()=>{const key=button.dataset.bookingsRefinedDay,date=cxBookingsCalendarDateFromKey(key);state.bookingCalendarSelected=key;state.bookingCalendarMonth={year:date.getFullYear(),month:date.getMonth()};render()});
+  document.querySelectorAll('[data-bookings-refined-row]').forEach(button=>button.onclick=()=>{state.detail=button.dataset.bookingsRefinedRow;render()});
+  document.querySelectorAll('[data-bookings-refined-grid]').forEach(grid=>{let startX=null;grid.onpointerdown=event=>{startX=event.clientX};grid.onpointerup=event=>{if(startX===null)return;const delta=event.clientX-startX;startX=null;if(Math.abs(delta)>=48)moveMonth(delta<0?1:-1)}});
+  document.querySelectorAll('.mobile-nav .nav-item').forEach(button=>{const id=button.dataset.page;if(id!=='dashboard'&&id!=='chat')return;let badge=button.querySelector('.nav-badge');if(!badge){badge=document.createElement('b');badge.className='nav-badge';button.appendChild(badge)}badge.textContent='3'});
+};
+
+/* Bookings calendar: compact month-first view with the existing list/detail flow underneath. */
+const cxBookingsCalendarSampleRecords=[
+  {id:'CAL-1012-P',calendarOnly:true,calendarDate:'2026-10-12',calendarTime:'9:00 AM',item:'Airport Transfer — Sedan',guest:'Sofia Lim',room:'602',hotel:'Luna Bay Resort',kind:'Service & rental',status:'Pending',calendarPendingMinutes:32,quantity:'3 passengers',when:'Oct 12 · 9:00 AM',payment:'Charged to room',total:'₱1,800.00'},
+  {id:'CAL-1012-I',calendarOnly:true,calendarDate:'2026-10-12',calendarTime:'1:00 PM',item:'Island Hopping Tour',guest:'Ana Reyes',room:'314',hotel:'Luna Bay Resort',kind:'Experience',status:'Confirmed',quantity:'4 guests',when:'Oct 12 · 1:00 PM',payment:'Paid in app',total:'₱6,400.00'},
+  {id:'CAL-1012-V',calendarOnly:true,calendarDate:'2026-10-12',calendarTime:'3:00 PM',item:'Airport Transfer — Van',guest:'Carlos Mendoza',room:'508',hotel:'Luna Bay Resort',kind:'Service & rental',status:'Confirmed',quantity:'2 passengers',when:'Oct 12 · 3:00 PM',payment:'Charged to room',total:'₱2,200.00'}
+];
+const cxBookingsCalendarPendingDays=new Set([2,8,12,13,15,20,27]);
+const cxBookingsCalendarConfirmedDays=new Set([1,2,5,6,8,9,12,13,14,16,17,19,22,23,28,30]);
+const cxBookingsCalendarToday={year:2026,month:9,day:12};
+const cxBookingsCalendarKey=(year,month,day)=>year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+const cxBookingsCalendarDateFromKey=key=>{const [year,month,day]=String(key).split('-').map(Number);return new Date(year,month-1,day)};
+const cxBookingsCalendarMonthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const cxBookingsCalendarWeekdays=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const cxBookingsCalendarDateFromText=value=>{const match=String(value||'').match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2})/i);if(!match)return null;const month=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(match[1].slice(0,3).toLowerCase());return new Date(2026,month,Number(match[2]))};
+const cxBookingsCalendarRecordCoversDate=(record,date)=>{if(Array.isArray(record?.calendarDays))return record.calendarDays.includes(cxBookingsCalendarKey(date.getFullYear(),date.getMonth(),date.getDate()));const dates=[...String(record?.when||'').matchAll(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2})/ig)].map(match=>cxBookingsCalendarDateFromText(match[0])).filter(Boolean);if(!dates.length)return false;const start=dates[0],end=dates[dates.length-1];return date>=start&&date<=end};
+const cxBookingsCalendarAllBase=bookingLatestAll;
+bookingLatestAll=function(){
+  return cxBookingsCalendarAllBase().concat(cxBookingsCalendarSampleRecords).filter((item,index,all)=>all.findIndex(other=>other.id===item.id)===index);
+};
+const cxBookingsCalendarActiveBase=bookingLatestActive;
+bookingLatestActive=function(record){
+  if(record?.calendarOnly)return false;
+  return cxBookingsCalendarActiveBase(record);
+};
+const cxBookingsCalendarHasRecordDot=(date,type)=>bookingLatestAll().some(record=>!record.calendarOnly&&cxBookingsCalendarRecordCoversDate(record,date)&&((type==='pending'&&record.status==='Pending')||(type==='confirmed'&&record.status!=='Pending'&&!['Completed','Cancelled','Declined','Expired'].includes(record.status))));
+const cxBookingsCalendarDots=(date,isCurrentMonth)=>{
+  if(!isCurrentMonth)return {pending:false,confirmed:false};
+  const year=date.getFullYear(),month=date.getMonth(),day=date.getDate();
+  if(year===2026&&month===9)return {pending:cxBookingsCalendarPendingDays.has(day),confirmed:cxBookingsCalendarConfirmedDays.has(day)};
+  return {pending:cxBookingsCalendarHasRecordDot(date,'pending'),confirmed:cxBookingsCalendarHasRecordDot(date,'confirmed')};
+};
+const cxBookingsCalendarTimeMinutes=value=>{const match=String(value||'').match(/(\d{1,2}):(\d{2})\s*([AP]M)/i);if(!match)return 0;let hour=Number(match[1])%12;if(match[3].toUpperCase()==='PM')hour+=12;return hour*60+Number(match[2])};
+const cxBookingsCalendarRecordsForDay=key=>cxBookingsCalendarSampleRecords.filter(record=>record.calendarDate===key).sort((a,b)=>cxBookingsCalendarTimeMinutes(a.calendarTime)-cxBookingsCalendarTimeMinutes(b.calendarTime));
+const cxBookingsCalendarGrid=()=>{
+  const month=state.bookingCalendarMonth||{year:2026,month:9},selected=state.bookingCalendarSelected||'2026-10-12',first=new Date(month.year,month.month,1),daysInMonth=new Date(month.year,month.month+1,0).getDate(),leading=first.getDay(),total=Math.ceil((leading+daysInMonth)/7)*7;
+  return Array.from({length:total},(_,index)=>{
+    const date=new Date(month.year,month.month,1-leading+index),isCurrentMonth=date.getMonth()===month.month&&date.getFullYear()===month.year,key=cxBookingsCalendarKey(date.getFullYear(),date.getMonth(),date.getDate()),isPast=date<new Date(cxBookingsCalendarToday.year,cxBookingsCalendarToday.month,cxBookingsCalendarToday.day),isToday=date.getFullYear()===cxBookingsCalendarToday.year&&date.getMonth()===cxBookingsCalendarToday.month&&date.getDate()===cxBookingsCalendarToday.day,dots=cxBookingsCalendarDots(date,isCurrentMonth);
+    return '<button type="button" class="cx-bookings-calendar-day'+(isCurrentMonth?'':' is-outside')+(isPast?' is-past':'')+(isToday?' is-today':'')+(selected===key?' is-selected':'')+'" data-bookings-calendar-day="'+key+'" aria-label="'+cxBookingsCalendarWeekdays[date.getDay()]+' '+date.getDate()+' '+cxBookingsCalendarMonthNames[date.getMonth()]+'"><span>'+date.getDate()+'</span><i class="cx-bookings-calendar-dots" aria-hidden="true">'+(dots.pending?'<b class="is-pending"></b>':'')+(dots.confirmed?'<b class="is-confirmed"></b>':'')+'</i></button>';
+  }).join('');
+};
+const cxBookingsCalendarHeading=key=>{
+  const date=cxBookingsCalendarDateFromKey(key),day=String(date.getDate()),month=String(cxBookingsCalendarMonthNames[date.getMonth()]).slice(0,3).toUpperCase();
+  return key==='2026-10-12'?'TODAY · '+cxBookingsCalendarWeekdays[date.getDay()].toUpperCase()+', '+month+' '+day:cxBookingsCalendarWeekdays[date.getDay()].toUpperCase()+', '+month+' '+day;
+};
+const cxBookingsCalendarRow=record=>{
+  const pending=record.status==='Pending',detail=record.status==='In progress'?'Confirmed':record.status,second=pending?'<span class="cx-bookings-calendar-state is-pending'+(Number(record.calendarPendingMinutes)<=10?' is-urgent':'')+'">Pending · '+record.calendarPendingMinutes+'m left to respond</span>':'<span class="cx-bookings-calendar-detail">'+esc(record.guest)+' · '+esc(record.quantity||'')+'</span>';
+  return '<button type="button" class="cx-bookings-calendar-row '+(pending?'is-pending':'is-confirmed')+'" data-bookings-calendar-row="'+esc(record.id)+'"><i class="cx-bookings-calendar-bar" aria-hidden="true"></i><span class="cx-bookings-calendar-row-copy"><strong>'+esc(record.item)+'</strong>'+second+'</span><time>'+esc(record.calendarTime)+'</time></button>';
+};
+const cxBookingsCalendarWorkspace=()=>{
+  const month=state.bookingCalendarMonth||{year:2026,month:9},selected=state.bookingCalendarSelected||'2026-10-12',records=cxBookingsCalendarRecordsForDay(selected),heading=cxBookingsCalendarHeading(selected);
+  return '<div class="cx-bookings-calendar"><header class="cx-bookings-calendar-header"><h1>Bookings</h1><button type="button" class="cx-bookings-view-toggle" data-bookings-list-toggle aria-label="Switch to List view"><i class="hgi-stroke hgi-list-view" aria-hidden="true"></i></button></header><section class="cx-bookings-calendar-month" aria-label="Calendar controls"><strong>'+cxBookingsCalendarMonthNames[month.month]+' '+month.year+'</strong><span class="cx-bookings-calendar-month-arrows"><button type="button" data-bookings-calendar-prev aria-label="Previous month">‹</button><button type="button" data-bookings-calendar-next aria-label="Next month">›</button></span><button type="button" class="cx-bookings-calendar-today" data-bookings-calendar-today>Today</button></section><div class="cx-bookings-calendar-weekdays">'+cxBookingsCalendarWeekdays.map(day=>'<span>'+day[0]+'</span>').join('')+'</div><div class="cx-bookings-calendar-grid" data-bookings-calendar-grid>'+cxBookingsCalendarGrid()+'</div><section class="cx-bookings-calendar-day-list"><h2>'+heading+'</h2>'+(records.length?records.map(cxBookingsCalendarRow).join(''):'<p class="cx-bookings-calendar-empty">No bookings</p>')+'</section></div>';
+};
+const cxBookingsListWorkspaceBase=bookingLatestWorkspace;
+bookingLatestWorkspace=function(){
+  if(state.orderView==='calendar')return cxBookingsCalendarWorkspace();
+  const html=cxBookingsListWorkspaceBase();
+  if(html.includes('data-bookings-calendar-toggle'))return html;
+  return html.replace(/(<header class="dashboard-operational-header booking-page-header"><h1>Bookings<\/h1>)/,'$1<button type="button" class="cx-bookings-view-toggle cx-bookings-list-toggle" data-bookings-calendar-toggle aria-label="Switch to Calendar view"><i class="hgi-stroke hgi-calendar-03" aria-hidden="true"></i></button>');
+};
+try{
+  const saved=JSON.parse(localStorage.getItem(cabanaLastViewKey)||'null');
+  const introduced=localStorage.getItem('cabana:bookings-calendar-introduced-v2')==='1';
+  state.orderView=!introduced?'calendar':(saved?.orderView==='list'||saved?.orderView==='calendar'?saved.orderView:'calendar');
+  if(!introduced)localStorage.setItem('cabana:bookings-calendar-introduced-v2','1');
+}catch(error){state.orderView='calendar'}
+if(cabanaUrlView?.page==='orders'||cabanaUrlView?.page==='bookings'){state.page='orders';state.detail=null;state.orderView='calendar'}
+state.bookingCalendarMonth=state.bookingCalendarMonth||{year:2026,month:9};
+state.bookingCalendarSelected=state.bookingCalendarSelected||'2026-10-12';
+const cxBookingsCalendarRenderBase=render;
+render=function(){
+  cxBookingsCalendarRenderBase.apply(this,arguments);
+  if(!['orders','bookings'].includes(state.page)||state.detail)return;
+  document.querySelectorAll('[data-bookings-list-toggle]').forEach(button=>button.onclick=()=>{state.orderView='list';rememberLastView();render()});
+  document.querySelectorAll('[data-bookings-calendar-toggle]').forEach(button=>button.onclick=()=>{state.orderView='calendar';state.bookingCalendarMonth=state.bookingCalendarMonth||{year:2026,month:9};state.bookingCalendarSelected=state.bookingCalendarSelected||'2026-10-12';rememberLastView();render()});
+  const moveMonth=delta=>{const current=state.bookingCalendarMonth||{year:2026,month:9},date=new Date(current.year,current.month+delta,1);state.bookingCalendarMonth={year:date.getFullYear(),month:date.getMonth()};state.bookingCalendarSelected=cxBookingsCalendarKey(date.getFullYear(),date.getMonth(),1);render()};
+  document.querySelectorAll('[data-bookings-calendar-prev]').forEach(button=>button.onclick=()=>moveMonth(-1));
+  document.querySelectorAll('[data-bookings-calendar-next]').forEach(button=>button.onclick=()=>moveMonth(1));
+  document.querySelectorAll('[data-bookings-calendar-today]').forEach(button=>button.onclick=()=>{state.bookingCalendarMonth={year:2026,month:9};state.bookingCalendarSelected='2026-10-12';render()});
+  document.querySelectorAll('[data-bookings-calendar-day]').forEach(button=>button.onclick=()=>{const key=button.dataset.bookingsCalendarDay,date=cxBookingsCalendarDateFromKey(key);state.bookingCalendarSelected=key;state.bookingCalendarMonth={year:date.getFullYear(),month:date.getMonth()};render()});
+  document.querySelectorAll('[data-bookings-calendar-row]').forEach(button=>button.onclick=()=>{state.page='orders';state.detail=button.dataset.bookingsCalendarRow;render()});
+  document.querySelectorAll('[data-bookings-calendar-grid]').forEach(grid=>{let startX=null;grid.onpointerdown=event=>{startX=event.clientX};grid.onpointerup=event=>{if(startX===null)return;const delta=event.clientX-startX;startX=null;if(Math.abs(delta)<48)return;moveMonth(delta<0?1:-1)}});
+};
+if(['orders','bookings'].includes(state.page))render();
+
+/* Currency display pass: keep every visible peso amount at two decimal places, including legacy cards. */
+const cxFormatVisibleCurrency=()=>{
+  const root=document.querySelector('#app');if(!root)return;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+  while((node=walker.nextNode())){
+    if(!node.nodeValue.includes('₱'))continue;
+    node.nodeValue=node.nodeValue.replace(/₱\s*([\d,]+)(?:\.(\d{1,2}))?/g,(match,whole,fraction)=>{
+      const amount=Number(whole.replace(/,/g,''))+Number(fraction?'.'+fraction:'0');
+      return '₱'+amount.toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
+    });
+  }
+};
+const cxMoneyRenderBase=render;
+render=function(){cxMoneyRenderBase.apply(this,arguments);cxFormatVisibleCurrency()};
+cxFormatVisibleCurrency();
+
+/* Home QR icon opens a full-screen (simulated) camera scanner; a scan then shows the guest to confirm. */
+const cxQrScannerMarkup=()=>'<header class="cx-qr-scanner-top"><button class="cx-qr-scanner-close" data-dashboard-qr-close aria-label="Close QR scanner">×</button><h2>Scan guest QR</h2><span aria-hidden="true"></span></header>'
+  +'<button class="cx-qr-viewfinder" data-cx-qr-capture aria-label="Simulate scanning the guest’s QR code"><span class="cx-qr-corner tl"></span><span class="cx-qr-corner tr"></span><span class="cx-qr-corner bl"></span><span class="cx-qr-corner br"></span><span class="cx-qr-line"></span></button>'
+  +'<div class="cx-qr-scanner-copy"><strong>Point the camera at the guest’s room-charge QR</strong><span>Name, hotel and room are checked first. The charge posts automatically after the scan.</span></div>'
+  +'<div class="cx-qr-scanner-foot"><span class="cx-qr-demo-hint">Demo: tap the frame to simulate a scan</span><button class="cx-qr-error-link" data-dashboard-qr-invalid>Show unreadable-code error</button></div>';
+const cxRenderBeforeQrScanner=render;
+render=function(){
+  cxRenderBeforeQrScanner.apply(this,arguments);
+  const modal=document.querySelector('.dashboard-room-charge-qr');
+  if(!modal||!state.dashboardRoomChargeQrOpen||(state.dashboardRoomChargeQrStep||'scan')!=='scan')return;
+  modal.classList.add('cx-qr-scanner');modal.setAttribute('aria-label','QR scanner');modal.innerHTML=cxQrScannerMarkup();
+  document.querySelector('.dashboard-qr-backdrop')?.classList.add('cx-qr-scanner-backdrop');
+  modal.querySelector('[data-dashboard-qr-close]').onclick=()=>{state.dashboardRoomChargeQrOpen=false;state.dashboardRoomChargeQrStep='scan';render()};
+  modal.querySelector('[data-dashboard-qr-invalid]').onclick=()=>{state.dashboardRoomChargeQrStep='invalid';render()};
+  const finder=modal.querySelector('[data-cx-qr-capture]');
+  finder.onclick=()=>{if(finder.classList.contains('is-reading'))return;finder.classList.add('is-reading');setTimeout(()=>{if(state.dashboardRoomChargeQrOpen&&state.dashboardRoomChargeQrStep==='scan'){cxAutoChargeRoom();state.dashboardRoomChargeQrStep='confirmed';render()}},650)};
+};
+if(state.page==='dashboard')render();
+
+/* Final authority for the reference-matched Bookings screen. */
+const cxBookingsFinalWorkspaceBeforeRefined=bookingLatestWorkspace;
+bookingLatestWorkspace=function(){return state.orderView==='calendar'?cxBookingsRefinedWorkspace():cxBookingsFinalWorkspaceBeforeRefined()};
+const cxBookingsFinalRenderBeforeRefined=render;
+render=function(){
+  cxBookingsFinalRenderBeforeRefined.apply(this,arguments);
+  if(state.page!=='orders'||state.detail||state.orderView!=='calendar')return;
+  document.querySelectorAll('[data-bookings-refined-menu]').forEach(button=>button.onclick=()=>{state.page='menu';state.detail=null;rememberLastView();render()});
+  document.querySelectorAll('[data-bookings-refined-search]').forEach(input=>input.oninput=event=>{state.bookingCalendarQuery=event.target.value;render();const next=document.querySelector('[data-bookings-refined-search]');next?.focus();next?.setSelectionRange(state.bookingCalendarQuery.length,state.bookingCalendarQuery.length)});
+  document.querySelectorAll('[data-bookings-refined-mode]').forEach(button=>button.onclick=()=>{const view=button.dataset.bookingsRefinedMode;if(view==='List'||view==='Month'){state.bookingRefinedMode=view;render()}else toast(view+' view is coming soon')});
+  const moveMonth=delta=>{const current=state.bookingCalendarMonth||cxBookingsRefinedMonth,date=new Date(current.year,current.month+delta,1);state.bookingCalendarMonth={year:date.getFullYear(),month:date.getMonth()};state.bookingCalendarSelected=cxBookingsCalendarKey(date.getFullYear(),date.getMonth(),1);render()};
+  document.querySelectorAll('[data-bookings-refined-prev]').forEach(button=>button.onclick=()=>moveMonth(-1));
+  document.querySelectorAll('[data-bookings-refined-next]').forEach(button=>button.onclick=()=>moveMonth(1));
+  document.querySelectorAll('[data-bookings-refined-today]').forEach(button=>button.onclick=()=>{state.bookingCalendarMonth={...cxBookingsRefinedMonth};state.bookingCalendarSelected=cxBookingsRefinedSelected;render()});
+  document.querySelectorAll('[data-bookings-refined-day]').forEach(button=>button.onclick=()=>{const key=button.dataset.bookingsRefinedDay,date=cxBookingsCalendarDateFromKey(key);state.bookingCalendarSelected=key;state.bookingCalendarMonth={year:date.getFullYear(),month:date.getMonth()};render()});
+  document.querySelectorAll('[data-bookings-refined-row]').forEach(button=>button.onclick=()=>{state.detail=button.dataset.bookingsRefinedRow;render()});
+  document.querySelectorAll('[data-bookings-refined-grid]').forEach(grid=>{let startX=null;grid.onpointerdown=event=>{startX=event.clientX};grid.onpointerup=event=>{if(startX===null)return;const delta=event.clientX-startX;startX=null;if(Math.abs(delta)>=48)moveMonth(delta<0?1:-1)}});
+  document.querySelectorAll('.mobile-nav .nav-item').forEach(button=>{const id=button.dataset.page;if(id!=='dashboard'&&id!=='chat')return;let badge=button.querySelector('.nav-badge');if(!badge){badge=document.createElement('b');badge.className='nav-badge';button.appendChild(badge)}badge.textContent='3'});
+};
+state.bookingRefinedMode=state.bookingRefinedMode||'Month';
+if(state.page==='orders'&&!state.detail&&state.orderView==='calendar'){state.bookingCalendarMonth={...cxBookingsRefinedMonth};state.bookingCalendarSelected=cxBookingsRefinedSelected;state.bookingCalendarQuery=''}
+if(state.page==='orders'&&state.orderView==='calendar')render();
+
+/* Refined calendar actions: selected dates show only that day's bookings,
+   while status changes remain available on cards and in booking details. */
+const cxBookingsRefinedDetail=()=>{
+  const record=cxBookingsRefinedRecords.find(item=>item.id===state.detail);
+  if(!record)return cxBookingsRefinedWorkspace();
+  const next=record.status==='Confirmed'?'Mark as in progress':record.status==='In progress'?'Mark as completed':'';
+  const status=esc(record.status),statusClass=record.status.toLowerCase().replaceAll(' ','-');
+  return '<div class="booking-detail-view cx-bookings-refined-detail"><header class="latest-request-topbar"><button type="button" class="booking-back latest-request-back" data-bookings-refined-back aria-label="Back to Bookings">← Back to Bookings</button><div class="latest-request-meta"><span class="booking-type">Booking</span><h1>'+esc(record.item)+'</h1><p>'+status+' · #'+esc(record.id)+'</p></div></header><section class="booking-request-section"><div class="booking-request-section-heading"><h2>Booking</h2><span class="booking-status '+statusClass+'">'+status+'</span></div><div class="booking-request-field"><span>Booking number</span><strong>#'+esc(record.id)+'</strong></div><div class="booking-request-field"><span>Schedule</span><strong>'+esc(record.time)+' · '+esc(record.duration)+'</strong></div></section><section class="booking-request-section"><h2>Guest</h2><div class="booking-request-field"><span>Name</span><strong>'+esc(record.guest)+'</strong></div><div class="booking-request-field"><span>Hotel · Room</span><strong>'+esc(record.hotel)+' · Room '+esc(record.room)+'</strong></div></section>'+(next?'<footer class="latest-detail-actions cx-bookings-refined-detail-actions"><button type="button" class="button primary" data-bookings-refined-detail-action="'+esc(record.id)+'">'+next+'</button></footer>':'')+'</div>';
+};
+const cxBookingsRefinedDetailRenderBase=render;
+render=function(){
+  cxBookingsRefinedDetailRenderBase.apply(this,arguments);
+  if(state.page!=='orders'||state.orderView!=='calendar')return;
+  if(state.detail){
+    const app=document.querySelector('#app');
+    if(app){app.innerHTML=shell3(cxBookingsRefinedDetail());bind();}
+    document.querySelectorAll('[data-bookings-refined-back]').forEach(button=>button.onclick=()=>{state.detail=null;render()});
+  }
+  document.querySelectorAll('[data-bookings-refined-status-action],[data-bookings-refined-detail-action]').forEach(button=>button.onclick=event=>{
+    event.stopPropagation();
+    const record=cxBookingsRefinedRecords.find(item=>item.id===(button.dataset.bookingsRefinedStatusAction||button.dataset.bookingsRefinedDetailAction));
+    if(!record)return;
+    record.status=record.status==='Confirmed'?'In progress':'Completed';
+    render();
+  });
+};
+if(state.page==='orders'&&state.orderView==='calendar')render();
